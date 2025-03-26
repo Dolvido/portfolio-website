@@ -77,8 +77,7 @@ export default function Home() {
                     'GPT-3.5/4',
                     'LangChain',
                     'Vector Databases',
-                    'C++',
-                    'YOLOv5'
+                    'C++'
                   ].map((skill) => (
                     <span
                       key={skill}
