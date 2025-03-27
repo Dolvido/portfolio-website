@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { pipeline, FeatureExtractionPipeline } from '@xenova/transformers';
+import pdfParse from 'pdf-parse';
 
 interface ProgressCallback {
   status: string;
@@ -158,7 +159,7 @@ async function extractTextFromPDF(buffer: ArrayBuffer): Promise<string> {
     const data = Buffer.from(buffer);
     
     // Parse PDF
-    const result = await pdf(data, {
+    const result = await pdfParse(data, {
       max: 0, // No page limit
       version: 'v2.0.550'
     });
