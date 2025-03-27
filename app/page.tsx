@@ -75,7 +75,6 @@ export default function Home() {
                     'Python',
                     'TensorFlow',
                     'GPT-3.5/4',
-                    "Ollama",
                     'LangChain',
                     'Vector Databases',
                     'C++'
