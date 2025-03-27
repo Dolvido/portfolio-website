@@ -1,10 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
   images: {
     unoptimized: true,
   },
-  basePath: '',
+  webpack: (config) => {
+    // Add a rule for binary files used by ONNX Runtime
+    config.module.rules.push({
+      test: /\.node$/,
+      use: 'node-loader',
+    });
+
+    return config;
+  },
+  // Required for edge runtime compatibility
+  experimental: {
+    serverComponentsExternalPackages: ['@xenova/transformers'],
+  },
 }
 
-module.exports = nextConfig
+export default nextConfig

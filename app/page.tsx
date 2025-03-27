@@ -115,20 +115,20 @@ export default function Home() {
                     <div>
                       <div className="flex items-center gap-2.5 mb-4">
                         <div className="h-2 w-2 rounded-full bg-primary"></div>
-                        <span className="text-sm font-medium text-primary">AI / ML</span>
+                        <span className="text-sm font-medium text-primary">AI / LLM</span>
                       </div>
-                      <h3 className="text-xl font-bold mb-4 text-text-primary dark:text-text-primary-dark">Local LLM Integration</h3>
+                      <h3 className="text-xl font-bold mb-4 text-text-primary dark:text-text-primary-dark">LLM Chatbot MVP</h3>
                       <p className="text-text-secondary dark:text-text-secondary-dark mb-6 text-sm">
-                        A high-performance chat interface built with Ollama, featuring local LLM integration for privacy-focused AI interactions and document analysis.
+                        A cutting-edge AI chatbot that combines GPT-4's power with LangChain's document processing capabilities. Experience real-time document analysis, intelligent Q&A, and accurate citations in this production-ready demo.
                       </p>
                       <div className="flex flex-wrap gap-4 mb-6">
-                        <span className="px-4 py-2 bg-surface-100 dark:bg-surface-dark-200 text-text-primary dark:text-text-primary-dark text-xs rounded-full">Ollama</span>
-                        <span className="px-4 py-2 bg-surface-100 dark:bg-surface-dark-200 text-text-primary dark:text-text-primary-dark text-xs rounded-full">LangChain</span>
-                        <span className="px-4 py-2 bg-surface-100 dark:bg-surface-dark-200 text-text-primary dark:text-text-primary-dark text-xs rounded-full">React</span>
+                        <span className="px-4 py-2 bg-surface-100 dark:bg-surface-dark-200 text-text-primary dark:text-text-primary-dark text-xs rounded-full">Next.js</span>
+                        <span className="px-4 py-2 bg-surface-100 dark:bg-surface-dark-200 text-text-primary dark:text-text-primary-dark text-xs rounded-full">TypeScript</span>
+                        <span className="px-4 py-2 bg-surface-100 dark:bg-surface-dark-200 text-text-primary dark:text-text-primary-dark text-xs rounded-full">Tailwind</span>
                       </div>
                     </div>
                     <Link 
-                      href="/projects/local-llm"
+                      href="/projects/llm-chatbot/demo"
                       className="inline-flex items-center text-primary dark:text-primary font-medium group/link text-sm"
                     >
                       <span className="relative">
@@ -141,11 +141,11 @@ export default function Home() {
                   <div className="relative h-full min-h-[240px] bg-gradient-to-br from-primary to-secondary">
                     <div className="absolute inset-0 flex items-center justify-center text-white">
                       <div className="p-6 text-center">
-                        <span className="text-3xl font-bold mb-4 block">Local AI</span>
+                        <span className="text-3xl font-bold mb-4 block">AI Chatbot</span>
                         <div className="flex flex-wrap gap-2 justify-center mb-4">
-                          <span className="px-3 py-1 bg-white/10 rounded-full text-sm backdrop-blur-sm">Ollama</span>
-                          <span className="px-3 py-1 bg-white/10 rounded-full text-sm backdrop-blur-sm">LangChain</span>
-                          <span className="px-3 py-1 bg-white/10 rounded-full text-sm backdrop-blur-sm">React</span>
+                          <span className="px-3 py-1 bg-white/10 rounded-full text-sm backdrop-blur-sm">Next.js</span>
+                          <span className="px-3 py-1 bg-white/10 rounded-full text-sm backdrop-blur-sm">TypeScript</span>
+                          <span className="px-3 py-1 bg-white/10 rounded-full text-sm backdrop-blur-sm">Tailwind</span>
                         </div>
                         <div className="w-14 h-14 mx-auto rounded-lg bg-white/10 flex items-center justify-center backdrop-blur-sm">
                           <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -226,8 +226,8 @@ export default function Home() {
                       </p>
                       <div className="flex flex-wrap gap-4 mb-4">
                         <span className="px-4 py-2 bg-surface-100 dark:bg-surface-dark-200 text-text-primary dark:text-text-primary-dark text-xs rounded-full">Next.js</span>
-                        <span className="px-4 py-2 bg-surface-100 dark:bg-surface-dark-200 text-text-primary dark:text-text-primary-dark text-xs rounded-full">Tailwind CSS</span>
-                        <span className="px-4 py-2 bg-surface-100 dark:bg-surface-dark-200 text-text-primary dark:text-text-primary-dark text-xs rounded-full">Firebase</span>
+                        <span className="px-4 py-2 bg-surface-100 dark:bg-surface-dark-200 text-text-primary dark:text-text-primary-dark text-xs rounded-full">TypeScript</span>
+                        <span className="px-4 py-2 bg-surface-100 dark:bg-surface-dark-200 text-text-primary dark:text-text-primary-dark text-xs rounded-full">Tailwind</span>
                       </div>
                     </div>
                     <Link 

@@ -1,27 +1,32 @@
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import Link from 'next/link';
 
 // Project data - in a real app, this would come from a database or CMS
 const projects = [
   {
     id: 'llm-chatbot',
     title: 'LLM Chatbot MVP',
-    description: 'A sophisticated chatbot built with GPT-4 and LangChain that can answer questions about documents with proper citation and reasoning.',
+    description: 'A state-of-the-art AI chatbot powered by GPT-4 and LangChain, delivering intelligent document analysis with precise citations and real-time responses.',
     longDescription: `
-      This project demonstrates how to build a production-ready chatbot that can process documents and answer questions
-      about them with accurate citations. I built this to showcase the capabilities of Large Language Models (LLMs)
-      when combined with vector databases for efficient document retrieval.
+      Experience the future of AI-powered document analysis with this cutting-edge chatbot MVP. Built on the latest advancements in Large Language Models,
+      this project showcases the perfect blend of GPT-4's reasoning capabilities and LangChain's document processing expertise.
       
       Key features include:
-      • Document processing and chunking for optimal retrieval
-      • Vector embeddings for semantic search
-      • Custom prompting with context augmentation
-      • Citation tracking and verification
-      • Streaming responses for better UX
+      • Lightning-fast document processing with intelligent chunking
+      • Advanced vector embeddings for semantic search
+      • Real-time streaming responses for instant feedback
+      • Precise citation tracking with similarity scoring
+      • Production-ready architecture with error handling
+      • Beautiful, responsive UI with dark mode support
+      
+      This demo represents the pinnacle of modern AI applications, combining powerful language models with efficient document processing
+      to create an intuitive and powerful Q&A experience. Whether you're analyzing research papers, technical documents, or any text-based content,
+      this chatbot delivers accurate, well-cited responses in real-time.
     `,
-    tags: ['OpenAI', 'LangChain', 'React', 'Vector DB', 'TypeScript'],
+    tags: ['Next.js', 'TypeScript', 'Tailwind', 'Client Components', 'Dark Mode'],
     image: '/placeholder.jpg',
-    demoUrl: '#',
+    demoPath: '/projects/llm-chatbot/demo',
     githubUrl: '#',
     featured: true
   },
@@ -43,7 +48,7 @@ const projects = [
     `,
     tags: ['PyTorch', 'YOLOv5', 'Computer Vision', 'Python', 'CUDA'],
     image: '/placeholder.jpg',
-    demoUrl: '#',
+    demoPath: '/projects/yolo-object-detection/demo',
     githubUrl: '#',
     featured: true
   },
@@ -65,7 +70,7 @@ const projects = [
     `,
     tags: ['LangChain', 'Next.js', 'Vector DB', 'OpenAI', 'TypeScript'],
     image: '/placeholder.jpg',
-    demoUrl: '#',
+    demoPath: '/projects/langchain-doc-qa/demo',
     githubUrl: '#',
     featured: true
   },
@@ -86,7 +91,7 @@ const projects = [
     `,
     tags: ['React', 'Node.js', 'D3.js', 'Data Viz', 'TypeScript'],
     image: '/placeholder.jpg',
-    demoUrl: '#',
+    demoPath: '/projects/ml-analytics-dashboard/demo',
     githubUrl: '#',
     featured: true
   }
@@ -129,15 +134,14 @@ export default function Projects() {
                           <p key={idx} className="text-sm">{paragraph.trim()}</p>
                         ))}
                       </div>
-                      <div className="flex gap-4 mt-auto pt-4 border-t border-slate-100 dark:border-slate-700">
-                        <a 
-                          href={project.demoUrl} 
+                      
+                      <div className="flex gap-4">
+                        <Link 
+                          href={project.demoPath}
                           className="px-4 py-2 bg-slate-900 text-white rounded-md hover:bg-slate-800 font-medium transition-colors"
-                          target="_blank"
-                          rel="noopener noreferrer"
                         >
-                          Live Demo
-                        </a>
+                          Try Demo
+                        </Link>
                         <a 
                           href={project.githubUrl} 
                           className="px-4 py-2 border border-slate-300 dark:border-slate-700 rounded-md hover:bg-slate-50 dark:hover:bg-slate-800 font-medium transition-colors"
