@@ -1,21 +1,21 @@
-import type { Metadata } from "next";
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
-import "./globals.css";
+import './globals.css';
+import { Inter } from 'next/font/google';
 
-export const metadata: Metadata = {
-  title: "Luke's Portfolio | Software Engineer",
-  description: "Portfolio website showcasing software engineering projects in AI, ML, and web development",
+const inter = Inter({ subsets: ['latin'] });
+
+export const metadata = {
+  title: 'Luke Payne | Software Engineer',
+  description: 'Portfolio of Luke Payne, showcasing software engineering projects and expertise.',
 };
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} scroll-smooth`}>
-      <body>{children}</body>
+    <html lang="en">
+      <body className={inter.className}>{children}</body>
     </html>
-  )
+  );
 }
