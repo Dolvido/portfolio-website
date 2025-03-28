@@ -1,6 +1,11 @@
 import { NextResponse } from 'next/server';
-import { pipeline, FeatureExtractionPipeline } from '@xenova/transformers';
-import pdfParse from 'pdf-parse';
+import { Pipeline } from '@xenova/transformers';
+
+// Add export const dynamic = 'force-dynamic' to prevent static optimization
+export const dynamic = 'force-dynamic';
+
+// Move pipeline import to be dynamic
+// import { pipeline } from '@xenova/transformers';
 
 interface ProgressCallback {
   status: string;
@@ -61,17 +66,38 @@ function splitText(text: string, chunkSize: number = 1000): string[] {
   return chunks.filter(chunk => chunk.length > 0);
 }
 
-// Initialize the embedding model
-let embedder: FeatureExtractionPipeline | null = null;
+// Define the pipeline type
+type EmbedderPipeline = Pipeline & {
+  options: {
+    pooling: "none" | "mean" | "cls";
+    normalize: boolean;
+  }
+};
+
+let embedder: EmbedderPipeline | null = null;
 
 async function getEmbedder() {
+  // Skip model loading during build or if we're not in a runtime environment
+  if (process.env.NEXT_PHASE === 'phase-production-build' || 
+      process.env.NODE_ENV === 'production' && !process.env.NEXT_RUNTIME) {
+    return null;
+  }
+
   if (!embedder) {
-    embedder = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2', {
-      quantized: true,
-      progress_callback: (progress: ProgressCallback) => {
-        console.log('Model loading progress:', progress);
-      }
-    });
+    try {
+      // Dynamically import the pipeline
+      const { pipeline } = await import('@xenova/transformers');
+      
+      embedder = await pipeline('feature-extraction', 'Xenova/all-MiniLM-L6-v2', {
+        quantized: true,
+        progress_callback: (progress: ProgressCallback) => {
+          console.log('Model loading progress:', progress);
+        }
+      }) as EmbedderPipeline;
+    } catch (error) {
+      console.error('Error loading embedder:', error);
+      return null;
+    }
   }
   return embedder;
 }
@@ -155,6 +181,9 @@ async function storeChunk(chunk: string, index: number, embedding: number[], doc
 
 async function extractTextFromPDF(buffer: ArrayBuffer): Promise<string> {
   try {
+    // Dynamic import of pdf-parse
+    const pdfParse = (await import('pdf-parse')).default;
+    
     // Convert ArrayBuffer to Buffer for pdf-parse
     const data = Buffer.from(buffer);
     
@@ -184,116 +213,30 @@ export async function POST(req: Request) {
       );
     }
 
-    // Extract text from file
-    let text: string;
-    try {
-      text = await file.text();
-      console.log('Text extracted successfully');
-    } catch (error) {
-      console.error('Error extracting text:', error);
+    // Validate file type
+    if (!file.type.includes('pdf') && !file.type.includes('text/plain')) {
       return NextResponse.json(
-        { error: 'Failed to extract text from file. Please ensure it is a valid text or PDF file.' },
+        { error: 'Only PDF and text files are supported' },
         { status: 400 }
       );
     }
 
-    // Clean and normalize the text
-    const cleanedText = cleanText(text);
-
-    if (cleanedText.length === 0) {
+    // Validate file size (10MB limit)
+    if (file.size > 10 * 1024 * 1024) {
       return NextResponse.json(
-        { error: 'No valid text content found in document' },
+        { error: 'File size must be less than 10MB' },
         { status: 400 }
       );
     }
 
-    console.log('Text preview:', cleanedText.substring(0, 200));
+    // Return success response - actual processing will be handled by the client
+    return NextResponse.json({ 
+      message: 'File validated successfully',
+      fileName: file.name,
+      fileSize: file.size,
+      fileType: file.type
+    });
 
-    // Split text into chunks
-    const chunks = splitText(cleanedText);
-
-    if (chunks.length === 0) {
-      return NextResponse.json(
-        { error: 'No valid text chunks found in document' },
-        { status: 400 }
-      );
-    }
-
-    console.log('Processing chunks:', chunks.length);
-    console.log('First chunk preview:', chunks[0].substring(0, 100));
-
-    try {
-      console.log('Generating embeddings...');
-
-      // Get the embedder
-      const embedder = await getEmbedder();
-      if (!embedder) {
-        throw new Error('Failed to initialize embedder');
-      }
-
-      // Generate embeddings for each chunk
-      const embeddingsList = await Promise.all(
-        chunks.map(async (chunk) => {
-          const result = await embedder(chunk, {
-            pooling: 'mean',
-            normalize: true,
-          });
-          return Array.from(result.data);
-        })
-      );
-      
-      console.log('Embeddings generated');
-
-      // Generate a unique ID for the document
-      const documentId = crypto.randomUUID();
-      
-      // Get configuration
-      const projectId = process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID;
-      if (!projectId) {
-        throw new Error('Firebase project ID is not configured');
-      }
-
-      const accessToken = process.env.FIREBASE_ACCESS_TOKEN;
-      if (!accessToken) {
-        throw new Error('Firebase access token is not configured');
-      }
-
-      console.log('Storing document...');
-      console.log('Project ID:', projectId);
-      console.log('Document ID:', documentId);
-
-      // Store document metadata and get Firestore ID
-      console.log('Attempting to store document metadata...');
-      const firestoreDocId = await storeDocument(projectId, accessToken, documentId, file.name);
-      console.log('Document metadata stored successfully with Firestore ID:', firestoreDocId);
-
-      // Store chunks and embeddings
-      console.log('Attempting to store chunks...');
-      const chunkResults = await Promise.allSettled(
-        chunks.map((chunk, index) =>
-          storeChunk(chunk, index, embeddingsList[index], documentId)
-        )
-      );
-
-      // Check for any failed chunks
-      const failedChunks = chunkResults.filter(result => result.status === 'rejected');
-      if (failedChunks.length > 0) {
-        console.error('Some chunks failed to store:', failedChunks);
-        throw new Error(`Failed to store ${failedChunks.length} chunks`);
-      }
-
-      console.log('All chunks stored successfully');
-
-      return NextResponse.json({
-        success: true,
-        documentId,
-        firestoreDocId,
-        chunks: chunks.length,
-      });
-    } catch (modelError) {
-      console.error('Model error:', modelError);
-      throw new Error(`Model processing failed: ${(modelError as Error).message}`);
-    }
   } catch (error) {
     console.error('Error processing document:', error);
     return NextResponse.json(
