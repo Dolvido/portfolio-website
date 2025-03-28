@@ -9,7 +9,8 @@
     "lint": "next lint",
     "generate-token": "node scripts/generate-token.cjs",
     "refresh-token": "ts-node --project tsconfig.json scripts/refresh-token.ts",
-    "deploy": "npm run build && firebase deploy"
+    "deploy": "npm run build && firebase deploy",
+    "generate-icons": "node scripts/generate-icons.js"
   },
   "dependencies": {
     "@langchain/community": "^0.3.37",
@@ -29,6 +30,7 @@
     "pdf-parse": "^1.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "sharp": "^0.33.5",
     "tailwind-merge": "^3.0.2",
     "ts-node": "^10.9.2"
   },
@@ -44,6 +46,7 @@
     "firebase": "^11.5.0",
     "ignore-loader": "^0.1.2",
     "node-loader": "^2.1.0",
+    "png-to-ico": "^2.1.8",
     "postcss": "^8.0.0",
     "tailwindcss": "^3.3.0",
     "typescript": "^5.0.0"
