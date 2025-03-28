@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "lint": "next lint",
     "generate-token": "node scripts/generate-token.cjs",
-    "refresh-token": "ts-node --project tsconfig.json scripts/refresh-token.ts"
+    "refresh-token": "ts-node --project tsconfig.json scripts/refresh-token.ts",
+    "deploy": "npm run build && firebase deploy"
   },
   "dependencies": {
     "@langchain/community": "^0.3.37",
