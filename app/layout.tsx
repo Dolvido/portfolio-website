@@ -1,12 +1,10 @@
 import './globals.css';
-import { Inter } from 'next/font/google';
-import { Metadata } from 'next';
-
-const inter = Inter({ subsets: ['latin'] });
+import type { Metadata } from 'next';
+import { GeistSans } from 'geist/font/sans';
 
 export const metadata: Metadata = {
-  title: 'Luke Payne | Software Engineer',
-  description: 'Portfolio of Luke Payne, showcasing software engineering projects and expertise.',
+  title: 'Luke Payne - Software Engineer',
+  description: 'Portfolio website showcasing AI and full-stack development projects',
 };
 
 export default function RootLayout({
@@ -15,12 +13,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={GeistSans.className}>
       <head>
-        <link rel="icon" type="image/svg+xml" href="/icon.svg" />
-        <link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" sizes="32x32" />
+        <link rel="icon" href="/icon.png" type="image/png" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className="min-h-screen bg-slate-900 text-slate-100">
+        {children}
+      </body>
     </html>
   );
 }

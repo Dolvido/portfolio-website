@@ -38,7 +38,7 @@ export default function Contact() {
                       <h3 className="text-xl font-bold mb-3">Follow Me</h3>
                       <div className="space-y-3">
                         <a 
-                          href="https://github.com/yourusername" 
+                          href="https://github.com/dolvido" 
                           target="_blank" 
                           rel="noopener noreferrer"
                           className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors flex items-center"
@@ -50,7 +50,7 @@ export default function Contact() {
                           GitHub
                         </a>
                         <a 
-                          href="https://linkedin.com/in/yourusername" 
+                          href="https://linkedin.com/in/lukepaynesci"
                           target="_blank" 
                           rel="noopener noreferrer"
                           className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors flex items-center"
@@ -63,7 +63,7 @@ export default function Contact() {
                           LinkedIn
                         </a>
                         <a 
-                          href="https://twitter.com/yourusername" 
+                          href="https://twitter.com/dolvido1" 
                           target="_blank" 
                           rel="noopener noreferrer"
                           className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors flex items-center"

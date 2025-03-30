@@ -5,6 +5,26 @@ import Link from 'next/link';
 export default function Projects() {
   const projects = [
     {
+      id: 'smart-image-insights',
+      title: 'Smart Image Insights',
+      description: 'AI-powered image analysis tool for intelligent object detection and visual understanding. Upload images and get instant insights with scene descriptions and interactive Q&A.',
+      longDescription: `
+        A cutting-edge application that combines YOLOv5 for object detection and CLIP for visual understanding
+        to provide comprehensive image analysis capabilities.
+        
+        Key features include:
+        • Real-time object detection with YOLOv5
+        • Scene understanding with CLIP
+        • Interactive Q&A about image contents
+        • Modern, responsive UI with dark mode
+        • Instant image processing and analysis
+      `,
+      tags: ['Next.js', 'TypeScript', 'YOLOv5', 'CLIP', 'Computer Vision', 'AI'],
+      demoUrl: '#demo',
+      githubUrl: 'https://github.com/Dolvido/smart-image-insights',
+      featured: true
+    },
+    {
       id: 'document-qa-chatbot',
       title: 'Document Q&A Chatbot',
       description: 'An AI-powered document analysis tool that allows users to upload documents and get instant, context-aware answers to their questions.',

@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 
 export default function Footer() {
@@ -33,7 +35,7 @@ export default function Footer() {
             <ul className="flex flex-wrap gap-x-8 gap-y-2 text-text-secondary dark:text-text-secondary-dark text-sm justify-center lg:justify-start">
               <li className="min-w-[80px]">
                 <a 
-                  href="https://github.com/yourusername" 
+                  href="https://github.com/Dolvido" 
                   className="hover:text-primary dark:hover:text-primary transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -43,7 +45,7 @@ export default function Footer() {
               </li>
               <li className="min-w-[80px]">
                 <a 
-                  href="https://linkedin.com/in/yourusername" 
+                  href="https://linkedin.com/in/lukepaynesci" 
                   className="hover:text-primary dark:hover:text-primary transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -53,10 +55,10 @@ export default function Footer() {
               </li>
               <li className="min-w-[120px]">
                 <a 
-                  href="mailto:youremail@example.com" 
+                  href="mailto:lukecello@gmail.com" 
                   className="hover:text-primary dark:hover:text-primary transition-colors"
                 >
-                  youremail@example.com
+                  lukecello@gmail.com
                 </a>
               </li>
             </ul>
@@ -79,7 +81,7 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-4 mt-2 md:mt-0">
             <a 
-              href="https://github.com/yourusername" 
+              href="https://github.com/dolvido" 
               className="text-text-tertiary dark:text-text-tertiary-dark hover:text-primary dark:hover:text-primary transition-colors"
               target="_blank"
               rel="noopener noreferrer"
@@ -91,7 +93,7 @@ export default function Footer() {
               </svg>
             </a>
             <a 
-              href="https://linkedin.com/in/yourusername" 
+              href="https://linkedin.com/in/lukepaynesci" 
               className="text-text-tertiary dark:text-text-tertiary-dark hover:text-primary dark:hover:text-primary transition-colors"
               target="_blank"
               rel="noopener noreferrer"
@@ -104,7 +106,7 @@ export default function Footer() {
               </svg>
             </a>
             <a 
-              href="https://twitter.com/yourusername" 
+              href="https://twitter.com/dolvido" 
               className="text-text-tertiary dark:text-text-tertiary-dark hover:text-primary dark:hover:text-primary transition-colors"
               target="_blank"
               rel="noopener noreferrer"
