@@ -43,33 +43,6 @@ export default function Projects() {
       demoUrl: 'https://document-qa-lukepayne.vercel.app/',
       githubUrl: 'https://github.com/Dolvido/document_qa_sample',
       featured: true
-    },
-    {
-      id: 'yolo-object-detection',
-      title: 'YOLOv5 Object Detection',
-      description: 'A lightweight object detection system using YOLOv5 that can identify objects in real-time with high accuracy.',
-      longDescription: `
-        This project implements the YOLOv5 algorithm for real-time object detection with a custom-trained model
-        for specific use cases. The system can process video streams or images and identify objects with bounding
-        boxes and confidence scores.
-      `,
-      tags: ['PyTorch', 'YOLOv5', 'Computer Vision', 'Python', 'CUDA'],
-      demoUrl: '/projects/yolo-demo',
-      githubUrl: '#',
-      featured: true
-    },
-    {
-      id: 'ml-analytics-dashboard',
-      title: 'ML Analytics Dashboard',
-      description: 'A dashboard for visualizing machine learning model outputs and analytics.',
-      longDescription: `
-        This dashboard provides a comprehensive view of machine learning model performance and analytics data.
-        Built to help track model metrics, visualize predictions, and monitor system performance in real-time.
-      `,
-      tags: ['React', 'Node.js', 'D3.js', 'Data Viz', 'TypeScript'],
-      demoUrl: '/projects/analytics-demo',
-      githubUrl: '#',
-      featured: true
     }
   ];
 
