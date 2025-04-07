@@ -5,11 +5,32 @@ import Link from 'next/link';
 export default function Projects() {
   const projects = [
     {
+      id: 'autocritic',
+      title: 'AutoCritic',
+      description: 'Privacy-focused AI tool that generates insights about your software engineering projects while keeping all your code private and running entirely on your local machine.',
+      longDescription: `
+        A privacy-first code review and analysis tool powered by local LLMs
+        that helps developers improve their code without sharing it with external services.
+        
+        Key features include:
+        • 100% local processing with Ollama (Mistral, LLaMA2, Code LLaMA)
+        • Git diff analysis and pre-commit integration
+        • File and project-level code analysis
+        • VSCode extension and CLI interface
+        • Customizable feedback system
+      `,
+      tags: ['Python', 'LangChain', 'AI', 'Ollama', 'Local LLMs', 'Developer Tools'],
+      demoUrl: '/blog/autocritic',
+      githubUrl: 'https://github.com/Dolvido/AutoCritic',
+      featured: true,
+      isBlogPost: true
+    },
+    {
       id: 'smart-image-insights',
       title: 'Smart Image Insights',
       description: 'AI-powered image analysis tool for intelligent object detection and visual understanding. Upload images and get instant insights with scene descriptions and interactive Q&A.',
       longDescription: `
-        A cutting-edge application that combines YOLOv5 for object detection and CLIP for visual understanding
+        A simple application that combines YOLOv5 for object detection and CLIP for visual understanding
         to provide comprehensive image analysis capabilities.
         
         Key features include:
@@ -95,14 +116,23 @@ export default function Projects() {
                   </div>
 
                   <div className="flex gap-4">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-4 py-2 bg-slate-900 dark:bg-slate-700 text-white rounded-lg hover:bg-slate-800 dark:hover:bg-slate-600 transition-colors"
-                    >
-                      View Demo
-                    </a>
+                    {project.isBlogPost ? (
+                      <Link
+                        href={project.demoUrl}
+                        className="px-4 py-2 bg-slate-900 dark:bg-slate-700 text-white rounded-lg hover:bg-slate-800 dark:hover:bg-slate-600 transition-colors"
+                      >
+                        Read More
+                      </Link>
+                    ) : (
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 bg-slate-900 dark:bg-slate-700 text-white rounded-lg hover:bg-slate-800 dark:hover:bg-slate-600 transition-colors"
+                      >
+                        View Demo
+                      </a>
+                    )}
                     <a
                       href={project.githubUrl}
                       target="_blank"

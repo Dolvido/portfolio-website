@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import Link from "next/link";
 import ProfileImage from "./components/ProfileImage";
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Github, Brain, BarChart3 } from 'lucide-react';
+import { ArrowUpRight, Github, Brain, BarChart3, Code } from 'lucide-react';
 import ProjectCard from "./components/ProjectCard";
 
 export default function Home() {
@@ -56,7 +56,7 @@ export default function Home() {
             <h3 className="text-2xl font-bold mb-8 text-white">
               Featured Projects
             </h3>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-3 gap-6">
               <ProjectCard
                 category="AI / ML"
                 title="Document Q&A Chatbot"
@@ -69,17 +69,26 @@ export default function Home() {
               <ProjectCard
                 category="AI / ML"
                 title="Smart Image Insights"
-                description="Computer vision app that automatically labels photos with detailed object detection and scene analysis. Upload images to get instant visual insights with interactive labels and descriptions."
-                tags={['Next.js', 'TypeScript', 'Computer Vision', 'yolov5', 'Hugging Face']}
+                description="Computer vision app that automatically labels photos with detailed object detection and scene analysis."
+                tags={['Next.js', 'Computer Vision', 'yolov5']}
                 href="https://smart-image-insights.vercel.app"
                 icon={<Brain className="w-8 h-8 text-purple-400" />}
+              />
+
+              <ProjectCard
+                category="Developer Tools"
+                title="AutoCritic"
+                description="Privacy-focused AI tool for code review and analysis that runs 100% locally using Ollama."
+                tags={['Python', 'LangChain', 'Local LLMs']}
+                href="/blog/autocritic"
+                icon={<Code className="w-8 h-8 text-green-400" />}
               />
             </div>
           </section>
 
           {/* Skills Section */}
           <section className="mb-16">
-            <h3 className="text-2xl font-bold mb-6 text-slate-900 dark:text-white">
+            <h3 className="text-2xl font-bold mb-6 text-white">
               Skills & Technologies
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
