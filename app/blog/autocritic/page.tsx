@@ -26,9 +26,6 @@ export default function AutoCriticBlog() {
           <div className="mt-4 mb-8 mx-auto relative rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 shadow-lg">
             <div className="bg-slate-900 text-white p-4 flex justify-between items-center">
               <div className="font-bold text-xl">Auto-Critic</div>
-              <Link href="/" className="px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors">
-                Home
-              </Link>
             </div>
             <div className="flex bg-slate-900 text-white min-h-[200px]">
               <div className="w-1/2 border-r border-slate-700 p-4">
