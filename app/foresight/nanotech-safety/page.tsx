@@ -184,6 +184,75 @@ export default function NanotechSafety() {
               </div>
             </div>
 
+            {/* New biological inspiration section */}
+            <div className="mt-20 mb-16">
+              <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mr-3 text-green-600 dark:text-green-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z"/>
+                  <path d="M10 14a2 2 0 0 1 4 0v4h-4v-4z"/>
+                </svg>
+                Biological Inspirations for Safety Design
+              </h2>
+              
+              <p className="text-lg mb-8">
+                Nature has already developed sophisticated mechanisms to control self-replication and maintain safety at the molecular level. 
+                These natural systems offer valuable design patterns for nanomachine safety:
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border-l-4 border-green-500 dark:border-green-400">
+                  <h3 className="text-xl font-semibold mb-3 text-slate-900 dark:text-white">Immune System Recognition</h3>
+                  <p className="text-slate-700 dark:text-slate-300">
+                    The biological immune system's "self/non-self" recognition can inform nanobot identification protocols. 
+                    Just as T-cells validate other cells through surface proteins, nanobots can use cryptographic signatures to 
+                    verify authorized peers and neutralize unauthorized replicators.
+                  </p>
+                </div>
+
+                <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border-l-4 border-green-500 dark:border-green-400">
+                  <h3 className="text-xl font-semibold mb-3 text-slate-900 dark:text-white">Programmed Cell Death (Apoptosis)</h3>
+                  <p className="text-slate-700 dark:text-slate-300">
+                    Cells have built-in self-destruct mechanisms triggered by certain conditions or age. Nanomachines could 
+                    employ similar deterministic lifespans with programmed disassembly pathways activated by internal timers, 
+                    error detection, or environmental signals.
+                  </p>
+                </div>
+
+                <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border-l-4 border-green-500 dark:border-green-400">
+                  <h3 className="text-xl font-semibold mb-3 text-slate-900 dark:text-white">Cell Division Checkpoints</h3>
+                  <p className="text-slate-700 dark:text-slate-300">
+                    Cellular replication proceeds through strict checkpoints that verify DNA integrity. Similarly, nanobots 
+                    should require multiple verification steps before replication, including resource availability assessments, 
+                    environmental suitability checks, and system integrity verification.
+                  </p>
+                </div>
+
+                <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border-l-4 border-green-500 dark:border-green-400">
+                  <h3 className="text-xl font-semibold mb-3 text-slate-900 dark:text-white">Homeostatic Regulation</h3>
+                  <p className="text-slate-700 dark:text-slate-300">
+                    Biological systems maintain balance through feedback loops that prevent unchecked growth. Nanobot swarms should 
+                    implement density-dependent regulation, where increasing population density triggers reduced replication rates or 
+                    increased deactivation, preventing exponential runaway.
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-sm border border-slate-100 dark:border-slate-700">
+                <h3 className="text-xl font-semibold mb-4 text-slate-900 dark:text-white">From Bio-Inspired to Bio-Secured</h3>
+                <p className="text-slate-700 dark:text-slate-300 mb-4">
+                  While drawing inspiration from biology, nanomachine safety must exceed natural systems in reliability. 
+                  Cellular mechanisms occasionally fail (leading to cancer), but engineered safety systems must achieve orders 
+                  of magnitude greater reliability through:
+                </p>
+                <ul className="pl-6 list-disc space-y-2 text-slate-700 dark:text-slate-300">
+                  <li>Orthogonal safety mechanisms that operate through independent pathways</li>
+                  <li>Environmental sensing that exceeds biological capabilities</li>
+                  <li>Network-coordinated safety protocols that allow collective response to threats</li>
+                  <li>Learning systems that adapt safety protocols based on observed edge cases</li>
+                </ul>
+              </div>
+            </div>
+
             <div className="bg-gradient-to-r from-blue-50 to-green-50 dark:from-blue-900/20 dark:to-green-900/20 p-8 rounded-xl mt-16 mb-12 border border-blue-100 dark:border-blue-900/30 shadow-md">
               <h3 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">Conclusion</h3>
               <p className="text-slate-700 dark:text-slate-300 text-lg">
