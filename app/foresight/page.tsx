@@ -10,7 +10,7 @@ export default function Foresight() {
       <main className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold mb-6 text-slate-900 dark:text-white">
-            Emerging Technology Foresight
+            Emerging Technology Governance
           </h1>
           
           <div className="prose prose-lg dark:prose-invert max-w-none mb-12">
