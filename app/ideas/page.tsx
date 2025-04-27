@@ -2,7 +2,7 @@ import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import Link from "next/link";
 
-export default function Foresight() {
+export default function Ideas() {
   return (
     <div className="min-h-screen bg-white dark:bg-slate-900">
       <Navigation />
@@ -10,7 +10,7 @@ export default function Foresight() {
       <main className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold mb-6 text-slate-900 dark:text-white">
-            Emerging Technology Governance
+            Ideas
           </h1>
           
           <div className="prose prose-lg dark:prose-invert max-w-none mb-12">
@@ -26,7 +26,7 @@ export default function Foresight() {
           
           <div className="grid md:grid-cols-2 gap-8">
             <Link 
-              href="/foresight/nanotech-safety"
+              href="/ideas/nanotech-safety"
               className="block p-6 bg-slate-50 dark:bg-slate-800 rounded-lg shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex items-center justify-center mb-4 h-16 w-16 rounded-full bg-blue-100 dark:bg-blue-900">
