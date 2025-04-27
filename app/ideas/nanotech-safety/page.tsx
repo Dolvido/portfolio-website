@@ -9,11 +9,11 @@ export default function NanotechSafety() {
 
       <main className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
-          <Link href="/foresight" className="text-blue-500 dark:text-blue-400 mb-4 inline-block hover:underline flex items-center">
+          <Link href="/ideas" className="text-blue-500 dark:text-blue-400 mb-4 inline-block hover:underline flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="m12 19-7-7 7-7M5 12h14" />
             </svg>
-            Back to Foresight
+            Back to Ideas
           </Link>
 
           <div className="mb-12">
