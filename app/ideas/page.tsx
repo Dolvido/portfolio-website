@@ -51,18 +51,28 @@ export default function Ideas() {
               </div>
             </Link>
             
-            {/* Placeholder for future content */}
-            <div className="p-6 bg-slate-50 dark:bg-slate-800 rounded-lg border border-dashed border-slate-300 dark:border-slate-700 flex flex-col items-center justify-center text-center">
-              <div className="text-slate-400 dark:text-slate-500 mb-2">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 5v14M5 12h14" />
+            <Link 
+              href="/ideas/chimera-swarm"
+              className="block p-6 bg-slate-50 dark:bg-slate-800 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+            >
+              <div className="flex items-center justify-center mb-4 h-16 w-16 rounded-full bg-amber-100 dark:bg-amber-900">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-amber-600 dark:text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 8c0-1.43-1.74-3-4-3-1.57 0-3 .75-4 2-1-1.25-2.43-2-4-2-2.26 0-4 1.57-4 3 0 1.74 4 7 8 12 4-5 8-10.26 8-12z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-medium text-slate-700 dark:text-slate-300">Future Framework</h3>
-              <p className="text-slate-500 dark:text-slate-400 mt-2">
-                More emerging technology safety principles coming soon
+              <h2 className="text-xl font-semibold mb-2 text-slate-900 dark:text-white">
+                What If: A Real Chimera Swarm?
+              </h2>
+              <p className="text-slate-600 dark:text-slate-400">
+                A thought experiment exploring the plausibility of self-replicating microbots within the next decade
               </p>
-            </div>
+              <div className="flex items-center mt-4 text-amber-600 dark:text-amber-400">
+                <span>Read thought experiment</span>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+                </svg>
+              </div>
+            </Link>
           </div>
         </div>
       </main>
