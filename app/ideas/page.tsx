@@ -52,7 +52,7 @@ export default function Ideas() {
             </Link>
             
             <Link 
-              href="/ideas/chimera-swarm"
+              href="/ideas/unconscious-nanodrone-swarm"
               className="block p-6 bg-slate-50 dark:bg-slate-800 rounded-lg shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex items-center justify-center mb-4 h-16 w-16 rounded-full bg-amber-100 dark:bg-amber-900">
@@ -61,7 +61,7 @@ export default function Ideas() {
                 </svg>
               </div>
               <h2 className="text-xl font-semibold mb-2 text-slate-900 dark:text-white">
-                What If: A Real Chimera Swarm?
+                What If: A Real Unconscious Nanodrone Swarm?
               </h2>
               <p className="text-slate-600 dark:text-slate-400">
                 A thought experiment exploring the plausibility of self-replicating microbots within the next decade

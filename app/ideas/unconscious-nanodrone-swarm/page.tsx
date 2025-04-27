@@ -2,7 +2,7 @@ import Navigation from "../../components/Navigation";
 import Footer from "../../components/Footer";
 import Link from "next/link";
 
-export default function ChimeraSwarm() {
+export default function UnconsciousNanodroneSwarm() {
   return (
     <div className="min-h-screen bg-white dark:bg-slate-900">
       <Navigation />
@@ -18,7 +18,7 @@ export default function ChimeraSwarm() {
 
           <div className="mb-12">
             <h1 className="text-5xl font-bold mb-4 text-slate-900 dark:text-white">
-              What If: A Real Chimera Swarm in 10 Years?
+              What If: A Real Unconscious Nanodrone Swarm in 10 Years?
             </h1>
             
             <div className="text-sm text-slate-500 dark:text-slate-400 mb-6">
@@ -44,12 +44,12 @@ export default function ChimeraSwarm() {
                 Answer: Surprisingly, yes.
               </p>
               <p>
-                Within 10 years, key technologies could converge to make a <em>primitive</em> but <em>dangerous</em> "Chimera-class" nanomachine feasible.
+                Within 10 years, key technologies could converge to make a <em>primitive</em> but <em>dangerous</em> "Unconscious Nanodrone-class" nanomachine feasible.
               </p>
             </section>
             
             <section className="mt-12">
-              <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white">The Chimera Mk.I: Plausible Self-Replicators (2025–2035)</h2>
+              <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white">The Nanodrone Mk.I: Plausible Self-Replicators (2025–2035)</h2>
               
               <h3 className="text-2xl font-bold mt-8 mb-4 text-slate-900 dark:text-white">Core Capabilities:</h3>
               
@@ -63,7 +63,7 @@ export default function ChimeraSwarm() {
                   </div>
                   <p className="font-medium text-slate-700 dark:text-slate-300">Inspired by: Plastic-digesting enzymes like PETase.</p>
                   <p className="text-sm text-slate-600 dark:text-slate-400">Source: Yoshida et al., <em>Science</em>, 2016.</p>
-                  <p className="mt-2"><strong>Function:</strong> Chimera units could harvest energy by breaking down synthetic polymers, plastics, and hydrocarbons in the environment.</p>
+                  <p className="mt-2"><strong>Function:</strong> Nanodrone units could harvest energy by breaking down synthetic polymers, plastics, and hydrocarbons in the environment.</p>
                 </div>
                 
                 <div className="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-sm border border-slate-100 dark:border-slate-700">
@@ -107,7 +107,7 @@ export default function ChimeraSwarm() {
                     <li>Kriegman et al., <em>PNAS</em>, 2021.</li>
                     <li>ETH Zurich's microbot assembly research.</li>
                   </ul>
-                  <p className="mt-2"><strong>Function:</strong> Chimera would replicate slowly, gathering raw materials and assembling new units either autonomously or using environmental "feeder stations."</p>
+                  <p className="mt-2"><strong>Function:</strong> Nanodrones would replicate slowly, gathering raw materials and assembling new units either autonomously or using environmental "feeder stations."</p>
                 </div>
                 
                 <div className="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-sm border border-slate-100 dark:border-slate-700">
@@ -131,7 +131,7 @@ export default function ChimeraSwarm() {
                   </div>
                   <p className="font-medium text-slate-700 dark:text-slate-300">Inspired by: Real-world AI goal-misalignment problems.</p>
                   <p className="text-sm text-slate-600 dark:text-slate-400">Source: Amodei et al., <em>Concrete Problems in AI Safety</em>, OpenAI, 2016.</p>
-                  <p className="mt-2"><strong>Function:</strong> Without strict oversight, Chimera swarms could prioritize endless replication over their original recycling mission, spreading uncontrollably.</p>
+                  <p className="mt-2"><strong>Function:</strong> Without strict oversight, Nanodrone swarms could prioritize endless replication over their original recycling mission, spreading uncontrollably.</p>
                 </div>
               </div>
               
@@ -150,13 +150,13 @@ export default function ChimeraSwarm() {
               <h2 className="text-3xl font-bold mb-6 text-slate-900 dark:text-white">Summary</h2>
               
               <p className="font-bold text-lg">
-                The 10-Year Chimera wouldn't be a fast, apocalyptic gray goo event.
+                The 10-Year Nanodrone wouldn't be a fast, apocalyptic gray goo event.
               </p>
               <p>
                 Instead, it would behave like a creeping "gray mold," gradually stripping resources from the environment — a technological invasive species.
               </p>
               <p>
-                If left unchecked for months or years, localized Chimera outbreaks could devastate synthetic ecosystems, infrastructure, and even urban centers.
+                If left unchecked for months or years, localized Nanodrone outbreaks could devastate synthetic ecosystems, infrastructure, and even urban centers.
               </p>
             </section>
             
