@@ -55,14 +55,14 @@ export default function Navigation() {
             Blog
           </Link>
           <Link 
-            href="/foresight" 
+            href="/ideas" 
             className={`font-medium transition-all px-2.5 py-0.5 rounded-md ${
               scrolled
                 ? 'bg-blue-100 text-blue-800 hover:bg-blue-200 dark:bg-blue-900/60 dark:text-blue-100 dark:hover:bg-blue-800'
                 : 'text-blue-600 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-100'
             }`}
           >
-            Tech Governance
+            Ideas
           </Link>
           <Link 
             href="/contact" 
