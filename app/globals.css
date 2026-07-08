@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --paper: #f2efe7;
+  --paper-deep: #e7e3d8;
+  --ink: #1b1a16;
+  --muted: #6b675c;
+  --faint: #9a958a;
+  --rule: #cfcabd;
+  --dot-rule: #b8b3a6;
+  --accent: #2f5fd0;
+  --accent-soft: #dce5ff;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--paper);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--faint);
+  }
+}
+
+@layer utilities {
+  .container {
+    max-width: 70rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  .portfolio-shell {
+    min-height: 100vh;
+    background: var(--paper);
+    color: var(--ink);
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  .portfolio-shell::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      linear-gradient(var(--ink) 1px, transparent 1px),
+      linear-gradient(90deg, var(--ink) 1px, transparent 1px);
+    background-size: 44px 44px;
+    opacity: 0.03;
+  }
+
+  .portfolio-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .subtle-blur-backdrop {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .rule-top {
+    border-top: 2px solid var(--ink);
+  }
+
+  .rule-bottom {
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .muted-rule {
+    border-color: var(--rule);
+  }
+
+  .dot-rule {
+    border-color: var(--dot-rule);
+    border-style: dotted;
+  }
+
+  .paper-panel {
+    background: rgba(242, 239, 231, 0.88);
+  }
+
+  .accent-link {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 150ms ease, background-color 150ms ease;
+  }
+
+  .accent-link:hover {
+    color: var(--ink);
+    background: var(--accent-soft);
+  }
+
+  .mono-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    border: 1px solid var(--ink);
+    background: transparent;
+    color: var(--ink);
+    padding: 0.7rem 1rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+  }
+
+  .mono-button:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .mono-button.primary {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .mono-button.primary:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .prose-portfolio {
+    color: var(--muted);
+  }
+
+  .prose-portfolio h1,
+  .prose-portfolio h2,
+  .prose-portfolio h3,
+  .prose-portfolio strong {
+    color: var(--ink);
+  }
+
+  .prose-portfolio a {
+    color: var(--accent);
+  }
+}
