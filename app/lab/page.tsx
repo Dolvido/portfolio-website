@@ -6,14 +6,14 @@ import Navigation from "../components/Navigation";
 import {
   formatPublicationDate,
   getLabConfig,
-  getPublicationRegister,
-  getPublishedLabPublications,
+  getLabPublicationCollections,
 } from "../../lib/lab/publications";
 import { publicationTypes } from "../../lib/lab/types";
 
 const labDescription =
-  "Human-approved engineering reports, project notes, and retained research writing published as structured artifacts.";
+  "Human-reviewed, evidence-backed publications from current OpenClaw engineering work, with earlier writing retained separately as history.";
 const labSocialImage = "/images/lab/openclaw-lab-og.png";
+const currentPublicationTypes = publicationTypes.filter((type) => type !== "Idea");
 
 export const metadata: Metadata = {
   title: "OpenClaw Lab | Luke Payne",
@@ -42,8 +42,7 @@ export const metadata: Metadata = {
 
 export default function LabIndex() {
   const config = getLabConfig();
-  const publications = getPublicationRegister();
-  const reportCount = getPublishedLabPublications().length;
+  const { current, preLabEngineering, ideas } = getLabPublicationCollections();
   const statusFields = [
     {
       label: "Lab status",
@@ -57,9 +56,9 @@ export default function LabIndex() {
       detail: config.governance.detail,
     },
     {
-      label: "Published artifacts",
-      value: String(reportCount).padStart(2, "0"),
-      detail: "Approved structured records",
+      label: "Current publications",
+      value: String(current.length).padStart(2, "0"),
+      detail: "Approved OpenClaw records",
     },
     {
       label: "Last update",
@@ -97,28 +96,58 @@ export default function LabIndex() {
             ))}
           </div>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-[150px_1fr] md:gap-8">
-            <div className="text-xs font-semibold uppercase text-[var(--muted)]">00 / Register</div>
+          <div
+            id="current-publications"
+            data-publication-era="current"
+            className="mt-14 grid gap-6 md:grid-cols-[150px_1fr] md:gap-8"
+          >
+            <div className="text-xs font-semibold uppercase text-[var(--muted)]">00 / Current</div>
             <div>
               <div className="flex flex-col gap-3 border-t-2 border-[var(--ink)] pt-5 sm:flex-row sm:items-baseline sm:justify-between">
-                <h2 className="text-lg font-bold uppercase">Publication Register</h2>
-                <div className="flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold uppercase text-[var(--muted)]">
-                  <span>{String(publications.length).padStart(2, "0")} entries</span>
-                  <Link href="/ideas" className="accent-link">
-                    Ideas archive -&gt;
-                  </Link>
-                </div>
+                <h2 className="text-lg font-bold uppercase">Current Publications</h2>
+                <span className="text-xs font-semibold uppercase text-[var(--muted)]">
+                  {String(current.length).padStart(2, "0")} approved
+                </span>
               </div>
 
-              <div className="mt-5 border-b-2 border-[var(--ink)]">
-                {publications.map((publication, index) => (
-                  <LabPublicationCard
-                    key={`${publication.source}-${publication.id}`}
-                    publication={publication}
-                    index={index}
-                  />
+              <p className="mt-5 max-w-3xl text-sm leading-7 text-[var(--muted)]">
+                Reviewed records from current OpenClaw engineering work. Every entry is a structured artifact with an
+                explicit human approval state and public-safe evidence or provenance.
+              </p>
+
+              <div className="mt-5 flex flex-wrap border-l border-t border-[var(--rule)]">
+                {currentPublicationTypes.map((type) => (
+                  <span
+                    key={type}
+                    className="border-b border-r border-[var(--rule)] px-3 py-2 text-[10px] font-semibold uppercase text-[var(--muted)]"
+                  >
+                    {type}
+                  </span>
                 ))}
               </div>
+
+              {current.length > 0 ? (
+                <div className="mt-7 border-b-2 border-[var(--ink)]">
+                  {current.map((publication, index) => (
+                    <LabPublicationCard
+                      key={`${publication.source}-${publication.id}`}
+                      publication={publication}
+                      index={index}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div className="mt-7 border-y-2 border-[var(--ink)] py-7">
+                  <div className="text-xs font-semibold uppercase text-[var(--accent)]">
+                    Publication queue / human review
+                  </div>
+                  <h3 className="mt-3 max-w-3xl text-xl font-bold">No current Lab reports have been published yet.</h3>
+                  <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">
+                    The first reviewed OpenClaw reports are being prepared. Approved publication artifacts will enter
+                    this register automatically.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
 
@@ -155,17 +184,68 @@ export default function LabIndex() {
             </div>
           </div>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-[150px_1fr] md:gap-8">
-            <div className="text-xs font-semibold uppercase text-[var(--muted)]">02 / Taxonomy</div>
+          <div
+            id="archive"
+            data-publication-era="archive"
+            className="mt-14 grid gap-6 md:grid-cols-[150px_1fr] md:gap-8"
+          >
+            <div className="text-xs font-semibold uppercase text-[var(--muted)]">02 / Archive</div>
             <div>
-              <h2 className="border-t-2 border-[var(--ink)] pt-5 text-lg font-bold uppercase">Publication Types</h2>
-              <div className="mt-5 grid grid-cols-2 border-l border-t border-[var(--rule)] sm:grid-cols-3 lg:grid-cols-6">
-                {publicationTypes.map((type, index) => (
-                  <div key={type} className="border-b border-r border-[var(--rule)] p-3 text-xs font-semibold uppercase">
-                    <span className="mr-2 text-[var(--accent)]">{String(index + 1).padStart(2, "0")}</span>
-                    {type}
+              <div className="border-t-2 border-[var(--ink)] pt-5">
+                <h2 className="text-lg font-bold uppercase">Archive</h2>
+                <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">
+                  Earlier engineering and speculative writing is retained transparently, but it is not part of the
+                  Current Publications register.
+                </p>
+              </div>
+
+              <div className="mt-5 grid border-l border-t border-[var(--rule)] md:grid-cols-2">
+                <section className="border-b border-r border-[var(--rule)] p-5 md:p-6">
+                  <div className="text-[10px] font-semibold uppercase text-[var(--accent)]">
+                    Historical engineering
                   </div>
-                ))}
+                  <h3 className="mt-3 text-base font-bold uppercase">Pre-Lab Engineering</h3>
+                  <p className="mt-3 text-xs leading-6 text-[var(--muted)]">
+                    Human-reviewed migrations of technical work that predates OpenClaw Lab. These records remain
+                    public without being presented as current OpenClaw results.
+                  </p>
+
+                  <div className="mt-5 border-b border-[var(--rule)]">
+                    {preLabEngineering.map((publication) => (
+                      <Link
+                        key={publication.id}
+                        href={publication.href}
+                        className="group block border-t border-[var(--rule)] py-5 transition-colors hover:bg-[var(--paper-deep)]"
+                      >
+                        <div className="text-[10px] font-semibold uppercase text-[var(--muted)]">
+                          Pre-OpenClaw / Human-reviewed migration
+                        </div>
+                        <h4 className="mt-2 font-bold transition-colors group-hover:text-[var(--accent)]">
+                          {publication.title}
+                        </h4>
+                        <div className="mt-2 text-[10px] font-semibold uppercase text-[var(--muted)]">
+                          {publication.type} / {formatPublicationDate(publication.date)}
+                        </div>
+                        <div className="mt-3 text-xs font-semibold uppercase text-[var(--accent)]">Read -&gt;</div>
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+
+                <section className="border-b border-r border-[var(--rule)] p-5 md:p-6">
+                  <div className="text-[10px] font-semibold uppercase text-[var(--accent)]">Retained writing</div>
+                  <h3 className="mt-3 text-base font-bold uppercase">Research &amp; Ideas</h3>
+                  <p className="mt-3 text-xs leading-6 text-[var(--muted)]">
+                    Engineering thoughts, research notes, systems thinking, and speculative thought experiments remain
+                    in their original Ideas archive.
+                  </p>
+                  <div className="mt-5 text-[10px] font-semibold uppercase text-[var(--muted)]">
+                    {String(ideas.length).padStart(2, "0")} retained entries / separate archive
+                  </div>
+                  <Link href="/ideas" className="mono-button mt-5">
+                    Browse Ideas Archive -&gt;
+                  </Link>
+                </section>
               </div>
             </div>
           </div>

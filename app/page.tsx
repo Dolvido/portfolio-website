@@ -116,35 +116,55 @@ export default function Home() {
                     {labConfig.status.label} / {formatPublicationDate(labConfig.lastUpdated)}
                   </span>
                   <Link href="/lab" className="accent-link">
-                    Enter the lab -&gt;
+                    Explore OpenClaw Lab -&gt;
                   </Link>
                 </div>
               </div>
 
-              <div className="border-b-2 border-[var(--ink)]">
-                {labHighlights.map((publication, index) => (
-                  <Link
-                    key={publication.id}
-                    href={publication.href}
-                    className={`grid gap-4 border-t py-5 transition-colors hover:bg-[var(--paper-deep)] md:grid-cols-[150px_1fr_auto] md:items-center ${
-                      index === 0 ? "border-[var(--ink)] border-t-2" : "border-[var(--rule)]"
-                    }`}
-                  >
-                    <div className="space-y-1 text-xs font-semibold uppercase text-[var(--muted)]">
-                      <div className="text-[var(--accent)]">{publication.type}</div>
-                      {publication.date ? <time dateTime={publication.date}>{formatPublicationDate(publication.date)}</time> : null}
+              {labHighlights.length > 0 ? (
+                <div className="border-b-2 border-[var(--ink)]">
+                  {labHighlights.map((publication, index) => (
+                    <Link
+                      key={`${publication.source}-${publication.id}`}
+                      href={publication.href}
+                      className={`grid gap-4 border-t py-5 transition-colors hover:bg-[var(--paper-deep)] md:grid-cols-[150px_1fr_auto] md:items-center ${
+                        index === 0 ? "border-[var(--ink)] border-t-2" : "border-[var(--rule)]"
+                      }`}
+                    >
+                      <div className="space-y-1 text-xs font-semibold uppercase text-[var(--muted)]">
+                        <div className="text-[var(--accent)]">{publication.type}</div>
+                        {publication.date ? (
+                          <time dateTime={publication.date}>{formatPublicationDate(publication.date)}</time>
+                        ) : null}
+                      </div>
+                      <div>
+                        <h3 className="font-bold">{publication.title}</h3>
+                        <p className="mt-2 text-xs leading-6 text-[var(--muted)]">
+                          Project / {publication.project?.name ?? "Unassigned"} /{" "}
+                          {outcomeClassificationLabels[publication.outcome.classification]}
+                        </p>
+                      </div>
+                      <div className="text-xs font-semibold uppercase text-[var(--accent)]">Read -&gt;</div>
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <div className="grid gap-5 border-y-2 border-[var(--ink)] py-6 md:grid-cols-[1fr_auto] md:items-center">
+                  <div>
+                    <div className="text-xs font-semibold uppercase text-[var(--accent)]">
+                      Current publication stream
                     </div>
-                    <div>
-                      <h3 className="font-bold">{publication.title}</h3>
-                      <p className="mt-2 text-xs leading-6 text-[var(--muted)]">
-                        Project / {publication.project?.name ?? "Unassigned"} /{" "}
-                        {outcomeClassificationLabels[publication.outcome.classification]}
-                      </p>
-                    </div>
-                    <div className="text-xs font-semibold uppercase text-[var(--accent)]">Read -&gt;</div>
+                    <h3 className="mt-2 font-bold">Evidence-backed work, published after human review.</h3>
+                    <p className="mt-2 max-w-2xl text-xs leading-6 text-[var(--muted)]">
+                      No current Lab reports have been published yet. The first reviewed OpenClaw reports are being
+                      prepared.
+                    </p>
+                  </div>
+                  <Link href="/lab" className="mono-button primary">
+                    Explore OpenClaw Lab -&gt;
                   </Link>
-                ))}
-              </div>
+                </div>
+              )}
             </div>
           </div>
 

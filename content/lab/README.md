@@ -14,6 +14,20 @@ Do not include local filesystem paths, private evidence bundles, agent or tool t
 provenance, raw run manifests, or private logs. Validation rejects unsafe reference forms, but human approval remains
 the final disclosure gate for prose, code samples, captions, and all other content.
 
+## Public information architecture
+
+The Lab index treats publication taxonomy and archive placement as separate concerns:
+
+- Approved, published Lab artifacts whose provenance origin is `human-authored` or `reviewed-candidate` appear in
+  **Current Publications**.
+- Approved, published artifacts whose provenance origin is `historical-migration` remain routable Lab-compatible
+  records but appear under **Pre-Lab Engineering**.
+- Retained Ideas are adapted from `app/data/portfolio.ts` for namespace compatibility and remain at `/ideas`; they do
+  not enter the Current Publications register.
+
+This is a presentation rule, not a schema addition. A historical artifact keeps its real publication type. Adding a
+normal approved Lab artifact automatically places it in Current Publications and makes it eligible for the homepage.
+
 ## Publication contract (schema version 1)
 
 Top-level fields are `schemaVersion`, `metadata`, `provenance`, optional `quote`, and `sections`. Unknown properties are
@@ -89,8 +103,8 @@ are rejected. Supported block types are intentionally limited to:
 - `callout`: `{ "type": "callout", "label": "...", "text": "..." }`
 - `links`: an `items` array of `{ "label", "href", "note"? }`
 
-Read time is calculated from the artifact at build time. Homepage selection is a view concern, not publication
-semantics, so neither `readTime` nor `featured` belongs in the JSON contract.
+Read time is calculated from the artifact at build time. Homepage selection and archive placement are view concerns,
+not publication semantics, so neither `readTime`, `featured`, nor an archive category belongs in the JSON contract.
 
 ## Validate and publish manually
 

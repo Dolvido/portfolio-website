@@ -130,9 +130,13 @@ export default function LabPublicationArticle({
   backLabel?: string;
 }) {
   const { metadata } = publication;
+  const isPreLabEngineering = publication.provenance.origin === "historical-migration";
   const referenceCount = (metadata.evidence?.length ?? 0) + (publication.provenance.publicReferences?.length ?? 0);
   const details = [
     { label: "Publication type", value: metadata.type, accent: true },
+    ...(isPreLabEngineering
+      ? [{ label: "Archive placement", value: "Pre-Lab engineering", accent: true }]
+      : []),
     { label: "Project", value: metadata.project?.name ?? "No affiliation" },
     { label: "Outcome", value: outcomeClassificationLabels[metadata.outcome.classification] },
     {
@@ -149,7 +153,7 @@ export default function LabPublicationArticle({
     <ArticleChrome
       backHref={backHref}
       backLabel={backLabel}
-      eyebrow={`${metadata.id} / ${metadata.type} / ${formatPublicationDate(metadata.date)}`}
+      eyebrow={`${isPreLabEngineering ? "Pre-Lab Engineering / " : ""}${metadata.id} / ${metadata.type} / ${formatPublicationDate(metadata.date)}`}
       title={metadata.title}
       subtitle={metadata.description}
       quote={publication.quote}

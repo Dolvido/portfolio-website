@@ -89,14 +89,16 @@ export function getLabPublicationBySlug(slug: string): LabPublication | undefine
   return getPublishedLabPublications().find((publication) => publication.metadata.slug === slug);
 }
 
-export function getPublicationRegister(): PublicationSummary[] {
-  const artifactPublications = getPublishedLabPublications().map<PublicationSummary>((publication) => ({
+function toPublicationSummary(publication: LabPublication): PublicationSummary {
+  return {
     ...publication.metadata,
     href: `/lab/${publication.metadata.slug}`,
     source: "lab-artifact",
-  }));
+  };
+}
 
-  const ideaPublications = ideas.map<PublicationSummary>((idea) => ({
+function adaptIdeaArchive(): PublicationSummary[] {
+  return ideas.map<PublicationSummary>((idea) => ({
     id: idea.id,
     slug: idea.href.split("/").filter(Boolean).at(-1) ?? idea.id.toLowerCase(),
     title: idea.title,
@@ -113,12 +115,17 @@ export function getPublicationRegister(): PublicationSummary[] {
     href: idea.href,
     source: "idea-archive",
   }));
+}
 
-  const register = [...artifactPublications, ...ideaPublications];
+export function getLabPublicationCollections() {
+  const publishedArtifacts = getPublishedLabPublications();
+  const artifactPublications = publishedArtifacts.map(toPublicationSummary);
+  const ideaPublications = adaptIdeaArchive();
 
-  // Artifact publications and retained Idea adapters intentionally share one global publication namespace.
+  // Lab artifacts and retained Idea adapters still share one global namespace, even though their public registers
+  // are now presented separately.
   assertUniquePublicationKeys(
-    register.map((publication) => ({
+    [...artifactPublications, ...ideaPublications].map((publication) => ({
       fileName:
         publication.source === "lab-artifact"
           ? `content/lab/${publication.slug}.json`
@@ -128,7 +135,33 @@ export function getPublicationRegister(): PublicationSummary[] {
     })),
   );
 
-  return register.sort(comparePublicationMetadata);
+  // Archive placement is derived from normalized provenance, independently of publication taxonomy.
+  const current = publishedArtifacts
+    .filter((publication) => publication.provenance.origin !== "historical-migration")
+    .map(toPublicationSummary)
+    .sort(comparePublicationMetadata);
+  const preLabEngineering = publishedArtifacts
+    .filter((publication) => publication.provenance.origin === "historical-migration")
+    .map(toPublicationSummary)
+    .sort(comparePublicationMetadata);
+
+  return {
+    current,
+    preLabEngineering,
+    ideas: ideaPublications.sort(comparePublicationMetadata),
+  };
+}
+
+export function getPublicationRegister(): PublicationSummary[] {
+  return getLabPublicationCollections().current;
+}
+
+export function getPreLabEngineeringPublications(): PublicationSummary[] {
+  return getLabPublicationCollections().preLabEngineering;
+}
+
+export function getIdeasArchivePublications(): PublicationSummary[] {
+  return getLabPublicationCollections().ideas;
 }
 
 export function getHomepageLabPublications(limit = 2): PublicationSummary[] {

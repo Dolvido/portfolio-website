@@ -8,7 +8,7 @@ import { getLabPublicationBySlug } from "../../../lib/lab/publications";
 const publication = getLabPublicationBySlug("autocritic");
 
 export const metadata: Metadata = {
-  title: publication ? `${publication.metadata.title} | OpenClaw Lab` : "AutoCritic | OpenClaw Lab",
+  title: publication ? `${publication.metadata.title} | Pre-Lab Engineering` : "AutoCritic | Pre-Lab Engineering",
   description: publication?.metadata.description,
   alternates: {
     canonical: "/lab/autocritic/",

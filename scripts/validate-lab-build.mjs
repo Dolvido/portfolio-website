@@ -54,6 +54,12 @@ function requireHtmlValue(html, value, description) {
   }
 }
 
+function rejectHtmlValue(html, value, description) {
+  if (html.includes(value)) {
+    fail(`${description} must not contain ${JSON.stringify(value)}.`);
+  }
+}
+
 function routeFile(slug) {
   return path.join(outputDirectory, "lab", slug, "index.html");
 }
@@ -171,10 +177,58 @@ assertUniquePublicationKeys(
 
 const publishedEntries = publicationEntries.filter(({ publication }) => isPublicPublication(publication));
 const draftEntries = publicationEntries.filter(({ publication }) => publication.metadata.status === "draft");
+const currentEntries = publishedEntries.filter(
+  ({ publication }) => publication.provenance.origin !== "historical-migration",
+);
+const preLabEntries = publishedEntries.filter(
+  ({ publication }) => publication.provenance.origin === "historical-migration",
+);
 
 const labIndexHtml = readHtml(path.join(outputDirectory, "lab", "index.html"), "Lab index route");
 requireHtmlValue(labIndexHtml, `<link rel="canonical" href="${siteOrigin}/lab/"/>`, "Lab index canonical metadata");
 requireHtmlValue(labIndexHtml, `<meta property="og:image" content="${labSocialImage}"/>`, "Lab index social metadata");
+
+const currentSectionStart = labIndexHtml.indexOf('id="current-publications"');
+const archiveSectionStart = labIndexHtml.indexOf('id="archive"');
+
+if (currentSectionStart < 0 || archiveSectionStart <= currentSectionStart) {
+  fail("The Lab index must render Current Publications before the Archive.");
+}
+
+const currentSectionHtml = labIndexHtml.slice(currentSectionStart, archiveSectionStart);
+const archiveSectionHtml = labIndexHtml.slice(archiveSectionStart);
+
+for (const { fileName, publication } of currentEntries) {
+  requireHtmlValue(
+    currentSectionHtml,
+    `href="/lab/${publication.metadata.slug}/"`,
+    `Current Publications register entry for ${fileName}`,
+  );
+}
+
+for (const { fileName, publication } of preLabEntries) {
+  rejectHtmlValue(
+    currentSectionHtml,
+    `href="/lab/${publication.metadata.slug}/"`,
+    `Current Publications register for historical artifact ${fileName}`,
+  );
+  requireHtmlValue(
+    archiveSectionHtml,
+    `href="/lab/${publication.metadata.slug}/"`,
+    `Pre-Lab Engineering archive entry for ${fileName}`,
+  );
+}
+
+rejectHtmlValue(currentSectionHtml, 'href="/ideas', "Current Publications register");
+requireHtmlValue(archiveSectionHtml, 'href="/ideas/"', "Research & Ideas archive link");
+
+if (currentEntries.length === 0) {
+  requireHtmlValue(
+    currentSectionHtml,
+    "No current Lab reports have been published yet.",
+    "Current Publications empty state",
+  );
+}
 
 for (const { fileName, publication } of publishedEntries) {
   const html = readHtml(routeFile(publication.metadata.slug), `published Lab route for ${fileName}`);
@@ -204,6 +258,58 @@ for (const { fileName, publication } of draftEntries) {
 
 if (!publishedEntries.some(({ publication }) => publication.metadata.slug === "autocritic")) {
   fail("AutoCritic is not present as an approved published artifact.");
+}
+
+const autoCriticHtml = readHtml(routeFile("autocritic"), "AutoCritic Lab route");
+requireHtmlValue(autoCriticHtml, "Pre-Lab Engineering", "AutoCritic archive placement");
+requireHtmlValue(autoCriticHtml, "Human approved", "AutoCritic human review state");
+requireHtmlValue(autoCriticHtml, "predates OpenClaw Lab", "AutoCritic historical provenance");
+
+for (const { fileName, publication } of preLabEntries) {
+  rejectHtmlValue(
+    homepageHtml,
+    `href="/lab/${publication.metadata.slug}/"`,
+    `homepage current Lab highlights for historical artifact ${fileName}`,
+  );
+}
+
+if (currentEntries.length === 0) {
+  requireHtmlValue(homepageHtml, "Explore OpenClaw Lab", "homepage Lab overview CTA");
+} else {
+  const [latestCurrentEntry] = [...currentEntries].sort((left, right) => {
+    const dateOrder = right.publication.metadata.date.localeCompare(left.publication.metadata.date);
+
+    if (dateOrder !== 0) {
+      return dateOrder;
+    }
+
+    const idOrder = left.publication.metadata.id.localeCompare(right.publication.metadata.id);
+    return idOrder !== 0
+      ? idOrder
+      : left.publication.metadata.slug.localeCompare(right.publication.metadata.slug);
+  });
+  requireHtmlValue(
+    homepageHtml,
+    `href="/lab/${latestCurrentEntry.publication.metadata.slug}/"`,
+    "homepage latest current Lab publication",
+  );
+}
+
+const ideasIndexHtml = readHtml(path.join(outputDirectory, "ideas", "index.html"), "Ideas archive route");
+requireHtmlValue(
+  ideasIndexHtml,
+  `<link rel="canonical" href="${siteOrigin}/ideas/"/>`,
+  "Ideas archive canonical metadata",
+);
+
+for (const ideaSlug of [
+  "agents-need-flight-recorders",
+  "rubrics-beat-vibes",
+  "poisoned-context-supply-chain-risk",
+  "nanotech-safety",
+  "unconscious-nanodrone-swarm",
+]) {
+  requireFile(path.join(outputDirectory, "ideas", ideaSlug, "index.html"), `retained Idea route ${ideaSlug}`);
 }
 
 const globalSocialPages = [
@@ -257,5 +363,5 @@ if (fs.existsSync(path.join(outputDirectory, "__lab-validation-missing__"))) {
 }
 
 console.log(
-  `Lab post-build validation passed: ${publishedEntries.length} published route(s), ${draftEntries.length} draft route exclusion(s), canonical/social metadata, local references, redirects, and static 404 behavior verified.`,
+  `Lab post-build validation passed: ${currentEntries.length} current publication(s), ${preLabEntries.length} pre-Lab artifact(s), ${draftEntries.length} draft route exclusion(s), archive separation, homepage selection, Ideas routes, canonical/social metadata, local references, redirects, and static 404 behavior verified.`,
 );

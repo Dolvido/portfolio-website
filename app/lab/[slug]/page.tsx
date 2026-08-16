@@ -26,8 +26,11 @@ export function generateMetadata({ params }: LabPublicationPageProps): Metadata 
     };
   }
 
+  const collectionName =
+    publication.provenance.origin === "historical-migration" ? "Pre-Lab Engineering" : "OpenClaw Lab";
+
   return {
-    title: `${publication.metadata.title} | OpenClaw Lab`,
+    title: `${publication.metadata.title} | ${collectionName}`,
     description: publication.metadata.description,
     alternates: {
       canonical: `/lab/${publication.metadata.slug}/`,

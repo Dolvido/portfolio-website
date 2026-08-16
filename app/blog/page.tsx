@@ -29,8 +29,9 @@ export default function BlogArchive() {
 
           <div className="mt-8 grid gap-6 border-y-2 border-[var(--ink)] py-6 md:grid-cols-[1fr_auto] md:items-center">
             <p className="max-w-3xl text-sm leading-7 text-[var(--muted)]">
-              Engineering publications and retained research writing now live in OpenClaw Lab. Existing blog URLs are
-              preserved and point to their canonical Lab destinations.
+              Current engineering publications live in OpenClaw Lab. Pre-Lab engineering and the separate Research &amp;
+              Ideas Archive remain available as clearly labeled history. Existing blog URLs are preserved and point to
+              their canonical destinations.
             </p>
             <Link href="/lab" className="mono-button primary">
               Enter the lab -&gt;
