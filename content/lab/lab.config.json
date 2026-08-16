@@ -1,0 +1,22 @@
+{
+  "identifier": "OCL-LAB-001",
+  "name": "OPENCLAW LAB",
+  "description": "OpenClaw is the planned workflow for turning reviewed engineering work into sanitized, structured Lab publications.",
+  "operatingPrinciple": "Human-directed. Evidence-backed. Locally operated.",
+  "status": {
+    "label": "Foundation ready",
+    "detail": "Static publication surface"
+  },
+  "governance": {
+    "label": "Human-directed",
+    "detail": "Explicit approval required before publication"
+  },
+  "activeProjects": [
+    {
+      "id": "OCL-PUB",
+      "name": "Lab publication system",
+      "status": "Active"
+    }
+  ],
+  "lastUpdated": "2026-08-15"
+}

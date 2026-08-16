@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint app",
+    "lint": "eslint app lib scripts/lab-contract.test.mjs scripts/validate-lab-build.mjs",
+    "validate:lab": "node scripts/lab-contract.test.mjs",
+    "validate:lab:build": "node scripts/validate-lab-build.mjs",
     "deploy": "npm run build && firebase deploy",
     "generate-icons": "node scripts/generate-icons.js"
   },

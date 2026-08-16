@@ -17,8 +17,8 @@ export const profile = {
 export const navItems = [
   { href: "/", label: "Index" },
   { href: "/projects", label: "Work" },
+  { href: "/lab", label: "Lab" },
   { href: "/resume", label: "Resume" },
-  { href: "/ideas", label: "Ideas" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -523,17 +523,5 @@ export const ideas = [
     description:
       "A thought experiment exploring the plausibility of self-replicating microbots within the next decade, and what guardrails would need to exist first.",
     href: "/ideas/unconscious-nanodrone-swarm",
-  },
-];
-
-export const blogPosts = [
-  {
-    id: "POST-001",
-    title: "AutoCritic: Local AI-Powered Code Review",
-    description:
-      "A privacy-focused tool for generating insights about your software engineering projects while keeping code local.",
-    date: "April 2023",
-    tags: ["AI", "Python", "LangChain", "Software Engineering", "Ollama", "Local LLMs"],
-    href: "/blog/autocritic",
   },
 ];

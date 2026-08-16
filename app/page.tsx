@@ -4,9 +4,17 @@ import Footer from "./components/Footer";
 import ProfileImage from "./components/ProfileImage";
 import ProjectCard from "./components/ProjectCard";
 import { capabilities, overviewRows, profile, projects } from "./data/portfolio";
+import {
+  formatPublicationDate,
+  getHomepageLabPublications,
+  getLabConfig,
+} from "../lib/lab/publications";
+import { outcomeClassificationLabels } from "../lib/lab/types";
 
 export default function Home() {
   const featuredProjects = projects.filter((project) => project.featured).slice(0, 4);
+  const labConfig = getLabConfig();
+  const labHighlights = getHomepageLabPublications(2);
 
   return (
     <div className="portfolio-shell">
@@ -95,6 +103,53 @@ export default function Home() {
 
           <div className="mt-16 grid gap-6 md:grid-cols-[84px_1fr] md:gap-8">
             <div className="text-xs text-[var(--faint)]">02</div>
+            <div>
+              <div className="mb-5 flex flex-col gap-3 border-t-2 border-[var(--ink)] pt-5 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <h2 className="text-lg font-bold uppercase">OpenClaw Lab</h2>
+                  <p className="mt-2 max-w-2xl text-xs leading-6 text-[var(--muted)]">
+                    {labConfig.description} {labConfig.operatingPrinciple}
+                  </p>
+                </div>
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-semibold uppercase">
+                  <span className="text-[var(--accent)]">
+                    {labConfig.status.label} / {formatPublicationDate(labConfig.lastUpdated)}
+                  </span>
+                  <Link href="/lab" className="accent-link">
+                    Enter the lab -&gt;
+                  </Link>
+                </div>
+              </div>
+
+              <div className="border-b-2 border-[var(--ink)]">
+                {labHighlights.map((publication, index) => (
+                  <Link
+                    key={publication.id}
+                    href={publication.href}
+                    className={`grid gap-4 border-t py-5 transition-colors hover:bg-[var(--paper-deep)] md:grid-cols-[150px_1fr_auto] md:items-center ${
+                      index === 0 ? "border-[var(--ink)] border-t-2" : "border-[var(--rule)]"
+                    }`}
+                  >
+                    <div className="space-y-1 text-xs font-semibold uppercase text-[var(--muted)]">
+                      <div className="text-[var(--accent)]">{publication.type}</div>
+                      {publication.date ? <time dateTime={publication.date}>{formatPublicationDate(publication.date)}</time> : null}
+                    </div>
+                    <div>
+                      <h3 className="font-bold">{publication.title}</h3>
+                      <p className="mt-2 text-xs leading-6 text-[var(--muted)]">
+                        Project / {publication.project?.name ?? "Unassigned"} /{" "}
+                        {outcomeClassificationLabels[publication.outcome.classification]}
+                      </p>
+                    </div>
+                    <div className="text-xs font-semibold uppercase text-[var(--accent)]">Read -&gt;</div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-16 grid gap-6 md:grid-cols-[84px_1fr] md:gap-8">
+            <div className="text-xs text-[var(--faint)]">03</div>
             <div>
               <div className="mb-5 border-t-2 border-[var(--ink)] pt-5 text-lg font-bold uppercase">Capabilities</div>
               <div className="grid border border-[var(--ink)] md:grid-cols-2">

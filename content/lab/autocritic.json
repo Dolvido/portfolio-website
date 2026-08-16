@@ -1,0 +1,206 @@
+{
+  "schemaVersion": 1,
+  "metadata": {
+    "id": "POST-001",
+    "slug": "autocritic",
+    "title": "AutoCritic: Local AI-Powered Code Review",
+    "description": "A privacy-focused tool for generating insights about software engineering projects while keeping all code local.",
+    "date": "2023-04",
+    "type": "Engineering Note",
+    "project": {
+      "id": "autocritic",
+      "name": "AutoCritic",
+      "href": "https://github.com/Dolvido/AutoCritic"
+    },
+    "tags": [
+      "AI",
+      "Python",
+      "LangChain",
+      "Software Engineering",
+      "Ollama",
+      "Local LLMs"
+    ],
+    "outcome": {
+      "classification": "not-applicable",
+      "summary": "Historical prototype architecture and interface documentation; no experimental result is claimed."
+    },
+    "status": "published",
+    "reviewStatus": "approved",
+    "evidence": [
+      {
+        "id": "single-file-interface",
+        "label": "Single-file review interface",
+        "href": "/images/lab/autocritic/single-file-review.png",
+        "kind": "Interface capture"
+      },
+      {
+        "id": "analysis-results-interface",
+        "label": "Analysis results interface",
+        "href": "/images/lab/autocritic/analysis-results.png",
+        "kind": "Interface capture"
+      }
+    ]
+  },
+  "provenance": {
+    "origin": "historical-migration",
+    "summary": "Human-reviewed migration of an April 2023 portfolio article. AutoCritic predates OpenClaw Lab and is not a 2026 OpenClaw-generated Lab result.",
+    "publicReferences": [
+      {
+        "id": "source-repository",
+        "label": "AutoCritic source repository",
+        "href": "https://github.com/Dolvido/AutoCritic",
+        "kind": "Repository",
+        "note": "Public source and setup instructions for the historical local review tool."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": "The Problem",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "As a developer, I wanted a tool that could analyze code, identify potential issues, and suggest improvements without uploading source code to external servers or compromising intellectual property."
+        }
+      ]
+    },
+    {
+      "title": "The Solution",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "AutoCritic runs entirely on your local machine, using Ollama to power local large language models like Mistral, LLaMA2, and Code LLaMA. This architecture keeps source code on the developer's computer."
+        }
+      ]
+    },
+    {
+      "title": "How It Works",
+      "blocks": [
+        {
+          "type": "keyValue",
+          "items": [
+            {
+              "label": "LLM",
+              "value": "Ollama: Mistral, LLaMA2, Code LLaMA"
+            },
+            {
+              "label": "Prompt orchestration",
+              "value": "LangChain"
+            },
+            {
+              "label": "Git diff capture",
+              "value": "Pre-commit hook / GitPython"
+            },
+            {
+              "label": "Feedback engine",
+              "value": "Python agent, CLI, and VSCode extension"
+            },
+            {
+              "label": "Learning loop",
+              "value": "Optional vector store with Chroma"
+            },
+            {
+              "label": "Interface",
+              "value": "React / Next.js or VSCode WebView"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "python",
+          "caption": "Illustrative code input",
+          "code": "def analyze_code(file_path):\n    \"\"\"Analyze the code for potential issues.\"\"\"\n    # Implementation here\n    return {\"issues\": [], \"suggestions\": []}"
+        },
+        {
+          "type": "callout",
+          "label": "Illustrative critique",
+          "text": "Missing docstring parameter descriptions. Consider implementing error handling."
+        },
+        {
+          "type": "numbered",
+          "items": [
+            {
+              "title": "Git Diff Analysis",
+              "body": [
+                "Captures changes through Git diffs or pre-commit hooks, providing targeted feedback on recent work."
+              ]
+            },
+            {
+              "title": "File-Level Analysis",
+              "body": [
+                "Examines individual files to identify code quality issues, security vulnerabilities, and style drift."
+              ]
+            },
+            {
+              "title": "Project-Level Analysis",
+              "body": [
+                "Summarizes architecture, dependencies, and overall codebase structure for broader engineering context."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Interface Examples",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "/images/lab/autocritic/single-file-review.png",
+          "alt": "AutoCritic single-file review interface",
+          "caption": "Single-file review",
+          "width": 900,
+          "height": 506
+        },
+        {
+          "type": "image",
+          "src": "/images/lab/autocritic/analysis-results.png",
+          "alt": "AutoCritic analysis results interface",
+          "caption": "Analysis results",
+          "width": 900,
+          "height": 506
+        }
+      ]
+    },
+    {
+      "title": "Key Features",
+      "blocks": [
+        {
+          "type": "list",
+          "items": [
+            "100% local processing for privacy-sensitive codebases.",
+            "Customizable feedback depth and review categories.",
+            "Multiple local model options depending on hardware and task needs.",
+            "Pre-commit integration for feedback before changes are committed.",
+            "CLI and IDE support for normal development workflows."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Try It Yourself",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "AutoCritic is open source and designed to be straightforward to set up with Python, Ollama, and Git."
+        },
+        {
+          "type": "code",
+          "language": "shell",
+          "caption": "Local setup",
+          "code": "git clone https://github.com/Dolvido/AutoCritic\ncd AutoCritic\npip install -r requirements.txt\npython setup.py"
+        },
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "View the AutoCritic repository",
+              "href": "https://github.com/Dolvido/AutoCritic",
+              "note": "github.com/Dolvido/AutoCritic"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

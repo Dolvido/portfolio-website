@@ -7,10 +7,27 @@
       "**/node_modules/**"
     ],
     "cleanUrls": true,
-    "rewrites": [
+    "trailingSlash": true,
+    "redirects": [
       {
-        "source": "**",
-        "destination": "/index.html"
+        "source": "/blog/autocritic",
+        "destination": "/lab/autocritic/",
+        "type": 301
+      },
+      {
+        "source": "/blog/autocritic/",
+        "destination": "/lab/autocritic/",
+        "type": 301
+      },
+      {
+        "source": "/blog",
+        "destination": "/lab/",
+        "type": 301
+      },
+      {
+        "source": "/blog/",
+        "destination": "/lab/",
+        "type": 301
       }
     ]
   }
