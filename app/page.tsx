@@ -195,9 +195,9 @@ export default function Home() {
                 <div className="text-xs font-semibold uppercase text-[var(--faint)]">Availability</div>
                 <p className="mt-2 text-xl font-semibold">Available for AI and full-stack engineering work.</p>
               </div>
-              <Link href="/contact" className="mono-button primary">
+              <a href={`mailto:${profile.email}`} className="mono-button primary">
                 Get in touch -&gt;
-              </Link>
+              </a>
             </div>
           </div>
         </section>

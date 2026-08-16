@@ -19,7 +19,6 @@ export const navItems = [
   { href: "/projects", label: "Work" },
   { href: "/lab", label: "Lab" },
   { href: "/resume", label: "Resume" },
-  { href: "/contact", label: "Contact" },
 ];
 
 export const overviewRows = [
