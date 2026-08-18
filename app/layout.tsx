@@ -9,10 +9,6 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://lukepayne.web.app"),
   title: "Luke Payne - Software Engineer",
   description: "Portfolio website for Luke Payne, software engineer focused on AI and full-stack systems.",
-  icons: {
-    icon: [{ url: "/icon.png", type: "image/png", sizes: "64x64" }],
-    apple: [{ url: "/apple-icon.png", type: "image/png", sizes: "180x180" }],
-  },
   openGraph: {
     title: "Luke Payne - AI / Full-Stack Software Engineer",
     description: portfolioDescription,
