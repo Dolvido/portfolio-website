@@ -58,40 +58,44 @@ export const projects: PortfolioProject[] = [
     status: "Private beta",
     featured: true,
     caseStudyUrl: "/projects/fuguely",
-    description:
-      "Music lesson scheduling platform for private teachers and students, including studio onboarding, availability, booking flows, messaging, billing workflows, email delivery, Postgres-backed API services, and beta/release checks.",
-    tags: ["React", "Vite", "Node", "Postgres", "Docker", "Stripe", "Playwright"],
+    description: "Music lesson scheduling platform for private teachers and students, connecting studio onboarding, teacher availability, student bookings, messaging, billing workflows, and email confirmations.",
+    tags: [
+      "TypeScript",
+      "Scheduling",
+      "Stripe",
+      "Messaging"
+    ],
     highlights: [
-      "Studio onboarding, teacher availability, and student booking flows.",
-      "Messaging, billing workflow, and email delivery boundaries.",
-      "Postgres-backed API services with Dockerized local development.",
-      "Beta and release checks built around reproducible product behavior.",
+      "Teacher onboarding, student rosters, and invitation flows.",
+      "Teacher availability and student lesson booking.",
+      "Messaging and confirmation emails around the lesson workflow.",
+      "Billing, cancellations, refunds, and lesson-credit workflows."
     ],
     caseStudy: {
-      source: "Private product brief",
-      problem:
-        "Independent music teachers often need the same operational surface as a small studio: onboarding, available lesson times, student bookings, messages, billing state, and email touchpoints. The hard part is making those flows feel connected without letting scheduling, payment, and communication logic collapse into one brittle path.",
+      source: "Private product workflow case study",
+      problem: "Independent music teachers need to coordinate lesson times, student bookings, messages, and payment state. A useful studio tool must keep those workflows connected while preserving clear rules for availability, cancellations, and credits.",
       approach: [
-        "Treat studio onboarding, teacher availability, student booking, messaging, billing, and email delivery as explicit product boundaries.",
-        "Use Postgres-backed services and Dockerized local development so product flows can be tested against realistic data instead of mock-only screens.",
-        "Keep beta/release checks focused on reproducible behavior: can a teacher set availability, can a student book, and do downstream messages and billing states stay coherent.",
+        "Separate teacher and student workflows so each role can find its next action quickly.",
+        "Model availability, booking, cancellation, and lesson credits as explicit state transitions.",
+        "Keep scheduling, billing, and email responsibilities separate so a provider change or delivery failure does not obscure the lesson state."
       ],
-      example:
-        "A teacher can configure their studio profile and available lesson windows; a student can reserve a slot; the system then has clear places to coordinate confirmation emails, message threads, and billing workflow state.",
+      example: "A teacher publishes available lesson windows and a student reserves a slot. The surrounding workflow coordinates confirmations, messages, and billing state; cancellation handling distinguishes a lesson credit from a payment-method refund.",
       insights: [
-        "Scheduling products are really state-coordination products: the calendar is only one part of the workflow.",
-        "Private beta quality depends on testing complete user paths, not just isolated form submissions.",
-        "Keeping email and billing boundaries explicit makes later provider changes easier to reason about.",
-      ],
-    },
+        "Scheduling products depend on consistent state across the calendar, communications, and billing.",
+        "Complete teacher and student journeys are useful units for product validation.",
+        "Clear cancellation and credit rules matter as much as the booking form."
+      ]
+    }
   },
   {
     id: "prim",
-    category: "AI Systems / Simulation",
+    category: "Simulation / Experiment Tools",
     title: "PRIM",
-    status: "Local research system",
+    status: "Local simulation prototype",
     featured: true,
     caseStudyUrl: "/projects/prim",
+    disclaimer:
+      "Deterministic simulation with pluggable predictors; this prototype does not train a reinforcement-learning model.",
     description:
       "Deterministic local-first React/TypeScript simulation for studying a prediction-driven digital organism, with seeded runs, compare mode, batch experiments, ablation workbench, evidence packets, and Vitest coverage.",
     tags: ["React", "TypeScript", "Vite", "Zustand", "Vitest", "Simulation"],
@@ -107,7 +111,7 @@ export const projects: PortfolioProject[] = [
         "Exploratory simulation work can produce interesting behavior that is difficult to reproduce or compare. PRIM was framed around the opposite constraint: if a prediction-driven digital organism changes behavior, the system should make the run, seed, configuration, and evidence inspectable.",
       approach: [
         "Make seeded runs the default unit of study so experiments can be replayed instead of only observed once.",
-        "Add compare mode, batch experiments, and an ablation workbench to separate model behavior from configuration noise.",
+        "Add compare mode, batch experiments, and an ablation workbench to compare predictor and policy behavior under controlled configurations.",
         "Use evidence packets and Vitest coverage to make state transitions and simulation invariants visible.",
       ],
       example:
@@ -196,72 +200,82 @@ export const projects: PortfolioProject[] = [
     id: "smart-image-insights",
     category: "Computer Vision",
     title: "Smart Image Insights",
-    status: "Live demo",
+    status: "Inference prototype",
     demoUrl: "https://smart-image-insights.vercel.app",
     githubUrl: "https://github.com/Dolvido/smart-image-insights",
     caseStudyUrl: "/projects/smart-image-insights",
-    description:
-      "AI image analysis web app for multi-image upload, object detection, classification, and natural-language scene descriptions using a Next.js frontend and inference-backed API.",
-    tags: ["Next.js", "Tailwind", "YOLOv5", "BLIP", "CLIP", "FastAPI"],
-    highlights: [
-      "Multi-image upload and interactive visual analysis workflow.",
-      "Object detection, classification, and natural-language scene descriptions.",
-      "Next.js frontend paired with inference API services.",
-      "Production-minded UX around image handling and result presentation.",
+    description: "Multi-image analysis prototype with a Next.js interface and a separate FastAPI inference service. The upload workflow displays YOLOv5 object detections and BLIP scene captions; the backend also includes CLIP/FAISS image retrieval.",
+    tags: [
+      "Next.js",
+      "FastAPI",
+      "YOLOv5",
+      "BLIP",
+      "CLIP",
+      "FAISS"
     ],
+    highlights: [
+      "Multi-image upload with per-image analysis and result state.",
+      "YOLOv5 object detections and BLIP-generated scene captions.",
+      "Separate frontend and model-serving API.",
+      "Supporting CLIP embeddings and FAISS retrieval in the backend."
+    ],
+    disclaimer: "Prototype deployment link; availability depends on the hosted inference service. The main upload interface presents detection and captioning results.",
     caseStudy: {
-      source: "GitHub README: Dolvido/smart-image-insights",
-      problem:
-        "Image-analysis demos often expose one model result at a time. Smart Image Insights turns that into a product workflow: upload several images, run analysis, and present object detection, classification, and natural-language descriptions in a form users can scan.",
+      source: "Public frontend and inference-service implementation",
+      problem: "Image-analysis tools need to connect image upload, model execution, and result presentation. Smart Image Insights explores that workflow with detection and captioning while keeping model-serving responsibilities separate from the web interface.",
       approach: [
-        "Use a Next.js and Tailwind frontend for multi-image upload, responsive presentation, and per-image result handling.",
-        "Run the inference API separately with FastAPI on Hugging Face Spaces so model execution does not have to live inside the Vercel frontend.",
-        "Combine YOLOv5 object detection, BLIP captioning, CLIP semantic understanding, and FAISS-backed vector search into one analysis surface.",
+        "Use Next.js and Tailwind for multi-image upload and per-image result presentation.",
+        "Send analysis requests to a separate FastAPI inference service that runs YOLOv5 detection and BLIP captioning.",
+        "Keep the backend's CLIP/FAISS retrieval capability distinct from the detection-and-caption upload interface.",
+        "Present inference failures as retryable errors and keep generated captions distinct from classification results."
       ],
-      example:
-        "A user can drag several images into the upload area, analyze each one, and compare detected objects with confidence scores, a classification result, and a generated description for the scene.",
+      example: "A user uploads several images and analyzes them individually. Successful responses show detected objects and a generated caption; a failed request remains an error that the user can retry.",
       insights: [
-        "Multi-image UX needs clear per-file state; one slow image should not make the whole batch feel broken.",
-        "Computer-vision output is easier to use when detections, labels, and descriptions are presented together rather than as separate model demos.",
-        "Splitting the UI and inference backend keeps deployment responsibilities clear: Vercel serves the app while Hugging Face Spaces handles model execution.",
-      ],
-    },
+        "Per-image state helps a batch workflow stay understandable when one request fails.",
+        "Detection, captioning, and retrieval are different capabilities and should be labeled separately.",
+        "Separating model serving from the frontend makes deployment boundaries easier to maintain."
+      ]
+    }
   },
   {
     id: "document-qa-chatbot",
-    category: "RAG / Document AI",
-    title: "Document Q&A Chatbot",
-    status: "Live demo",
+    category: "Document Search",
+    title: "Document Q&A Search",
+    status: "Keyword-search prototype",
     demoUrl: "https://document-qa-lukepayne.vercel.app/",
     githubUrl: "https://github.com/Dolvido/document_qa_sample",
     caseStudyUrl: "/projects/document-qa-chatbot",
-    description:
-      "Document question-answering app built with Next.js, PDF parsing, Hugging Face APIs, production timeout handling, file limits, and user-friendly error handling for serverless constraints.",
-    tags: ["Next.js", "Hugging Face", "PDF Parsing", "RAG", "TypeScript"],
-    highlights: [
-      "PDF parsing and retrieval-oriented document question answering.",
-      "Hugging Face API integration from a Next.js application.",
-      "Production timeout handling and file-size limits for serverless constraints.",
-      "User-friendly error states for operational boundaries.",
+    description: "Next.js and TypeScript document-search prototype that extracts PDF text and answers queries with keyword-matched snippets and filename references. File limits, bounded parsing, timeout handling, and clear errors support the upload workflow.",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "PDF.js",
+      "Keyword Search",
+      "Document Parsing"
     ],
+    highlights: [
+      "PDF text extraction with bounded processing.",
+      "Keyword-based query matching against document text.",
+      "Matched snippets accompanied by source filenames.",
+      "Upload limits, timeout handling, and visible error states."
+    ],
+    disclaimer: "The current query path returns matching text snippets. It does not call an LLM or generate embeddings. The deployment link is retained as a prototype demo.",
     caseStudy: {
-      source: "GitHub README: Dolvido/document_qa_sample",
-      problem:
-        "Document Q&A is easy to prototype and harder to keep stable in production. The README focuses on the practical serverless constraints: PDF parsing can time out, API calls can be slow, files can be too large, and storage access can fail in restricted contexts.",
+      source: "Public PDF and chat API routes",
+      problem: "A small document-search tool must make uploaded text usable without letting large files or slow parsing leave the interface stuck. This prototype focuses on bounded PDF processing and a transparent keyword-based retrieval path.",
       approach: [
-        "Build the app with Next.js 14 App Router, PDF parsing, and Hugging Face APIs for embeddings and question answering.",
-        "Add timeout management across the client and server, including abort behavior for the UI and bounded PDF parsing and LLM generation windows.",
-        "Limit file size, chunk size, and total processed chunks so serverless resources remain predictable.",
-        "Use defensive localStorage wrappers and friendly error payloads so production constraints become visible states instead of crashes.",
+        "Extract PDF text with PDF.js in a Node.js API route, with bounded page processing and a limited fallback parser.",
+        "Process questions through keyword matching and return relevant document snippets with filename references.",
+        "Apply upload limits and client/server timeout handling so failures become visible states.",
+        "Keep storage access defensive and distinguish retrieved source text from a generated answer."
       ],
-      example:
-        "A user can upload a PDF, ask a question about its content, and receive an answer when processing succeeds; if the file is too large or parsing takes too long, the app returns a clear explanation instead of failing silently.",
+      example: "A user uploads a PDF and asks about a term in the document. The query route returns matching passages and their filenames when it finds relevant text; upload and parsing failures produce an explanation in the interface.",
       insights: [
-        "RAG products need operational guardrails as much as retrieval logic.",
-        "Timeout and file-limit decisions should be designed into the UX because they define what the product can reliably promise.",
-        "Graceful degradation is especially important for serverless document processing where memory, runtime, and storage behavior vary by environment.",
-      ],
-    },
+        "Simple retrieval is useful when its limits and source text remain visible.",
+        "File-size and parsing limits define the experience just as much as the search logic.",
+        "Calling a response a retrieved snippet makes the system's behavior clearer than implying model-generated reasoning."
+      ]
+    }
   },
   {
     id: "autopycode",
