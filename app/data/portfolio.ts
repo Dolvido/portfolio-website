@@ -243,7 +243,6 @@ export const projects: PortfolioProject[] = [
     title: "Document Q&A Search",
     status: "Keyword-search prototype",
     demoUrl: "https://document-qa-lukepayne.vercel.app/",
-    githubUrl: "https://github.com/Dolvido/document_qa_sample",
     caseStudyUrl: "/projects/document-qa-chatbot",
     description: "Next.js and TypeScript document-search prototype that extracts PDF text and answers queries with keyword-matched snippets and filename references. File limits, bounded parsing, timeout handling, and clear errors support the upload workflow.",
     tags: [
@@ -261,7 +260,7 @@ export const projects: PortfolioProject[] = [
     ],
     disclaimer: "The current query path returns matching text snippets. It does not call an LLM or generate embeddings. The deployment link is retained as a prototype demo.",
     caseStudy: {
-      source: "Public PDF and chat API routes",
+      source: "PDF and chat API implementation",
       problem: "A small document-search tool must make uploaded text usable without letting large files or slow parsing leave the interface stuck. This prototype focuses on bounded PDF processing and a transparent keyword-based retrieval path.",
       approach: [
         "Extract PDF text with PDF.js in a Node.js API route, with bounded page processing and a limited fallback parser.",
