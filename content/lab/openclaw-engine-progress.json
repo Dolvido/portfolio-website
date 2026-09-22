@@ -44,7 +44,7 @@
       ]
     },
     {
-      "title": "What has been verified",
+      "title": "Verified release-preparation baseline",
       "blocks": [
         {
           "type": "keyValue",
@@ -70,6 +70,28 @@
         {
           "type": "paragraph",
           "text": "These are recorded development results, not proof of an accepted production deployment. The offline suite did not repeat the consumed native experiments. The package demonstrates offline behavior; it does not install a fully operational coding service. The engine source has not yet been published as a GitHub release."
+        }
+      ]
+    },
+    {
+      "title": "Integration progress: stopping work reliably",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Three executor gaps were reproduced with disposable test processes and corrected. A child closing both output streams no longer disables its deadline. Interrupting capture now stops and reaps the direct child before the original interruption returns to the caller. A pipe held open outside the stopped process group can no longer keep cleanup waiting indefinitely: an incomplete read is reported as an execution error."
+        },
+        {
+          "type": "paragraph",
+          "text": "The combined changes passed a full offline run of 1,591 tests with no unexpected failures, errors or skips. One historical expected failure and 17 explicitly excluded machine-specific checks remain. The tested source hashes were checked against the current files. Focused validation also passed 79 checks covering the new regressions and existing execution and one-shot authority behavior."
+        },
+        {
+          "type": "paragraph",
+          "text": "A separate Windows-to-Linux development fixture also passed two cases after a child and grandchild confirmed they were running: an explicit cancel message, and closure of the input connection. Linux reported the direct child reaped by the executor, the grandchild reaped after termination, and no remaining children. The host observed completion in 247 ms and 211 ms. This is cooperative cancellation evidence for that disposable workload, not proof for forcibly killing the Windows launcher or for descendants that escape containment."
+        },
+        {
+          "type": "callout",
+          "label": "Scope of this result",
+          "text": "These corrections are local development changes and are not included in the earlier release-preparation archive. Complete cross-host cancellation, escaped-descendant containment, production qualification and a real coding task remain unfinished."
         }
       ]
     },
