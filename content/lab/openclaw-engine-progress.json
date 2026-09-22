@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The current development checkout passed 1,692 offline tests. V2 worker delivery now joins saved dispatch to a durable claim in fixtures; accepted runtime integration and the complete coding demonstration remain unfinished."
+      "summary": "The last full checkout validation ran 1,692 offline tests. Newer source, deployment, journal and endpoint checks pass 33 focused tests; runtime acceptance and a complete coding demonstration remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -208,6 +208,28 @@
           "type": "callout",
           "label": "The next integration boundary",
           "text": "The saved review dispatch still derives from predecessor authority bindings. V2 transport does not migrate or accept the full runtime-policy model. The remaining work must join successor policy, independently accepted deployment and runtime custody, per-step execution claims and the native launcher before demonstrating a complete coding task."
+        }
+      ]
+    },
+    {
+      "title": "Checking the runtime pieces together",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A new review path checks the proposed source set, worker identities, deployment contents, launcher journal and six communication endpoints together. It verifies actual supplied program and configuration bytes, rederives their identities and checks that journal references point to the reviewed launcher. This prevents a caller from substituting unchecked deployment records between those component checks."
+        },
+        {
+          "type": "paragraph",
+          "text": "Thirty-three focused checks passed across this work and source packaging validation. They reject changed executable bytes, missing inputs, swapped worker roles, older configurations presented as the successor, altered journal policies and weakened endpoint permissions. These tests use synthetic deployment fixtures; they do not establish that the protected services are installed or running correctly."
+        },
+        {
+          "type": "paragraph",
+          "text": "The service review also exposed a remaining gap: the successor schema permits a nonempty service-policy object, while the native service-record check does not fully validate that object's contents. The older Python validator enforces an older service contract and cannot simply be reused unchanged. The next step is an exact successor service policy tied to its operational requirements, followed by checks of the actual service and its protected directories."
+        },
+        {
+          "type": "callout",
+          "label": "Development checks, not runtime acceptance",
+          "text": "These additions postdate the full 1,692-test run and are covered by the 33 focused checks only. Source-v10 remains the last verified packaged snapshot. The combined review grants no execution permission; full runtime acceptance, native integration and the complete coding demonstration remain open."
         }
       ]
     },
