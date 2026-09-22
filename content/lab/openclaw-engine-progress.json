@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The last full checkout validation ran 1,692 tests. Newer startup, listener and journal repairs have passed focused checks, including real locking and restart recovery; the complete protected coding workflow remains unfinished."
+      "summary": "Native contract, policy and socket-handoff fixtures now pass, alongside 25 selected checks of real service settings. Full protected startup and the complete coding demonstration remain unfinished; the last full checkout validation ran 1,692 tests."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "A reproducible source-v10 snapshot and installable offline demo are verified. New worker connection and run-once safeguards were added afterward and are not included in that package. The next major milestone is one controlled coding task with demonstrated success, failure, restart and cancellation behavior."
+          "text": "The source-v10 package remains the last verified packaged snapshot. Newer native component tests now cover contract checks, service-policy enforcement, journal recovery and real systemd socket handoff. The complete launcher has not run. The next milestone combines these parts into one controlled coding task with success, failure, restart and cancellation behavior."
         },
         {
           "type": "image",
@@ -290,6 +290,36 @@
           "type": "callout",
           "label": "What this proves—and what remains",
           "text": "This is journal-component evidence using synthetic deployment identities. Interruption was a deliberate exit after reservation, not a test of every possible crash point. Complete launcher execution, recovery of committed transactions, final service custody and acceptance of the changed source and runtime still need verification before the full coding demonstration."
+        }
+      ]
+    },
+    {
+      "title": "Joining build contracts to real service behavior",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The combined startup-repair candidate was built independently twice, producing identical intermediate outputs and executables. Review then found that two new helper includes did not fit the deployment contract's closed source-file set. Incorporating their exact code into the owning files restored that structure without changing either object file or the executable; only an assembly source-line comment changed."
+        },
+        {
+          "type": "paragraph",
+          "text": "A proposed contract for that source layout passes the existing Python cross-source checks. The exact native contract validator also passed fifteen fixture cases: accepting matching source records and rejecting altered digests, missing or duplicate roles, incorrect lengths or types, and weakened contract rules with recalculated identities. These records use synthetic deployment data and do not establish trusted runtime acceptance."
+        },
+        {
+          "type": "paragraph",
+          "text": "A native service-policy test reproduced a separate gap: the earlier validator accepted an empty policy when the surrounding record identity matched. The proposed fix checks the complete reviewed policy. Thirty-two cases passed, including mutations of every one of its twenty-nine fields with freshly calculated record identities. The updated complete launcher builds and passes static inspection; the earlier reproducibility result does not cover this later binary."
+        },
+        {
+          "type": "paragraph",
+          "text": "An inert temporary service then exercised selected proposed settings on the actual service manager. All twenty-five checks passed, covering identity settings, controller delegation and ownership, stopping and restart settings, a private mount namespace, and the shared host PID namespace. The inert process had no file capabilities, so this does not qualify the native launcher's complete credential state."
+        },
+        {
+          "type": "paragraph",
+          "text": "A further fixture tested real systemd socket activation through the exact native descriptor-admission functions. The first attempt stopped before the fixture ran because its synthetic sender groups did not exist. A separate attempt provisioned temporary empty groups and passed: the native code admitted three null standard streams and exactly two listeners, checked their kernel-to-filesystem identities and ownership, and joined their groups to the fixture's expected roles. All test units, sockets, files and temporary groups were removed."
+        },
+        {
+          "type": "callout",
+          "label": "The remaining combined test",
+          "text": "These are verified component boundaries. They have not yet run together as the full privileged launcher with accepted source/build inputs, trusted deployment records, credential bootstrap, journal custody and protected task execution. That complete startup and coding demonstration remains the next major milestone. The historical 1,692-test run and source-v10 package do not include these later repairs."
         }
       ]
     },
