@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "metadata": {
+    "id": "OCL-ENGINE-2026-09",
+    "slug": "openclaw-engine-progress",
+    "title": "OpenClaw coding engine: from tested parts to a complete workflow",
+    "description": "A development update on the experimental coding engine: what is verified, what remains unfinished, and the next end-to-end milestone.",
+    "date": "2026-09-22",
+    "type": "Project Log",
+    "project": {
+      "id": "openclaw-engine",
+      "name": "OpenClaw evolutionary coding engine"
+    },
+    "tags": [
+      "OpenClaw",
+      "Coding agents",
+      "Execution safety",
+      "Reproducibility"
+    ],
+    "outcome": {
+      "classification": "ongoing",
+      "summary": "A reproducible development candidate is verified. The complete protected coding workflow and production qualification remain unfinished."
+    },
+    "status": "published",
+    "reviewStatus": "approved"
+  },
+  "provenance": {
+    "origin": "reviewed-candidate",
+    "summary": "AI-assisted progress summary prepared at the project owner's request from recorded development validation. Local evidence bundles are not published here; this is a project status report, not independently reproduced public evidence."
+  },
+  "sections": [
+    {
+      "title": "Where the project stands",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "OpenClaw is being developed as a locally operated coding engine that can take a bounded task, work in an isolated copy of a project, evaluate the result and return changes for review. The current implementation has project tracking, reporting, scoped workflow and authority mechanisms, plus experimental execution infrastructure. It is not yet a generally autonomous coding service."
+        },
+        {
+          "type": "callout",
+          "label": "Current status",
+          "text": "The release-preparation phase is complete. The whole engine is not. The next milestone is one controlled coding task that succeeds end to end, with failure and cancellation behavior demonstrated as well."
+        }
+      ]
+    },
+    {
+      "title": "What has been verified",
+      "blocks": [
+        {
+          "type": "keyValue",
+          "items": [
+            {
+              "label": "Offline validation",
+              "value": "1,587 tests ran with no unexpected failures. One historical expected failure and 17 explicitly excluded machine-specific checks remain."
+            },
+            {
+              "label": "Reproducible source",
+              "value": "Two source exports and a reexport from extracted files were byte-identical. File hashes and sizes were checked."
+            },
+            {
+              "label": "Execution experiments",
+              "value": "Disposable fixtures exercised launch settings, sealed executable bytes, bounded output, deadlines, same-group child cleanup and Windows-to-Linux handoff."
+            },
+            {
+              "label": "Release preparation",
+              "value": "An offline demo, portable Python package, MIT license, upstream notices, documentation and CI configuration are prepared."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "These are recorded development results, not proof of an accepted production deployment. The offline suite did not repeat the consumed native experiments. The package demonstrates offline behavior; it does not install a fully operational coding service. The engine source has not yet been published as a GitHub release."
+        }
+      ]
+    },
+    {
+      "title": "The next complete workflow",
+      "blocks": [
+        {
+          "type": "numbered",
+          "items": [
+            {
+              "title": "Bind and claim the task once",
+              "body": [
+                "Bind the exact task, source, allowed actions and deadline to a protected request. Reuse the existing transactional authority and broker mechanisms, including the existing replay rejection, rather than introduce another authority store. Lost responses and restarts must not cause another execution."
+              ]
+            },
+            {
+              "title": "Contain execution and make stopping reliable",
+              "body": [
+                "Connect the supervisor to the protected runtime and disposable workspace. Test output limits, failures, timeouts and cancellation across Windows and Linux, including cleanup of the work it started."
+              ]
+            },
+            {
+              "title": "Demonstrate a real change",
+              "body": [
+                "Use a copied test project for a small coding task. Capture the proposed change and its test result while preserving the original. Show a successful run, a deliberate failure and a cancellation."
+              ]
+            },
+            {
+              "title": "Prepare the experimental release",
+              "body": [
+                "Repeat setup from a clean environment, publish reproducible instructions and document exactly which capabilities were demonstrated. Production readiness will not be inferred from a passing prototype."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What remains unresolved",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Authenticated task delivery, protected execution identity, final runtime integration, complete cross-host cancellation and actual dynamic-runtime qualification remain unfinished. Successor policy acceptance and the controlled project demonstration are separate gates. No live qualification or independent acceptance is claimed."
+        },
+        {
+          "type": "paragraph",
+          "text": "The current convergence work uses a population of one. Broader evolutionary search is a later capability, not a feature established by this milestone."
+        }
+      ]
+    },
+    {
+      "title": "How progress will be reported",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Updates will distinguish implemented behavior, recorded test results and future work. A stage counts as complete only when its actual workflow has been checked. This public log contains a sanitized summary rather than local paths, private logs, raw manifests or internal authority records."
+        },
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "OpenClaw Lab",
+              "href": "/lab/",
+              "note": "Current project logs and engineering publications."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
