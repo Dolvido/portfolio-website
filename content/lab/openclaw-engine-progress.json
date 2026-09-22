@@ -4,7 +4,7 @@
     "id": "OCL-ENGINE-2026-09",
     "slug": "openclaw-engine-progress",
     "title": "OpenClaw Evolutionary Coding Lab: connecting the pieces",
-    "description": "Reproducible source, a deadline bug caught during integration, and the path to one complete, controlled coding task.",
+    "description": "Reproducible source, cancellation experiments, and the path to one complete, controlled coding task.",
     "date": "2026-09-22",
     "type": "Project Log",
     "project": {
@@ -102,24 +102,46 @@
       ]
     },
     {
-      "title": "The latest integration fix",
+      "title": "Integration progress: stopping work reliably",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Integration work exposed a concrete deadline bug: a child process could close both output streams and keep running. The executor stopped checking the deadline when the streams closed, then waited for the process without a timeout. A quiet process could therefore outlive its allowed execution time."
+          "text": "Three executor gaps were reproduced with disposable test processes and corrected. A child closing both output streams no longer disables its deadline. Interrupting capture now stops and reaps the direct child before the original interruption returns to the caller. A pipe held open outside the stopped process group can no longer keep cleanup waiting indefinitely: an incomplete read is reported as an execution error."
         },
         {
           "type": "paragraph",
-          "text": "The executor now keeps checking while either an output stream is open or the direct child is still running. A regression fixture gives a three-second sleeper a 150-millisecond deadline and verifies that it is terminated. A second check confirms that an ordinary nonzero exit is still reported correctly. The focused executor and authority checks passed 77 tests."
+          "text": "That executor snapshot passed a full offline run of 1,591 tests with no unexpected failures, errors or skips. One historical expected failure and 17 explicitly excluded machine-specific checks remain. The tested source hashes were checked at the time of validation. Focused validation also passed 79 checks covering the new regressions and existing execution and one-shot authority behavior."
+        },
+        {
+          "type": "paragraph",
+          "text": "A separate Windows-to-Linux development fixture also passed two cases after a child and grandchild confirmed they were running: an explicit cancel message, and closure of the input connection. Linux reported the direct child reaped by the executor, the grandchild reaped after termination, and no remaining children. The host observed completion in 247 ms and 211 ms. This is cooperative cancellation evidence for that disposable workload, not proof for forcibly killing the Windows launcher or for descendants that escape containment."
         },
         {
           "type": "callout",
-          "label": "Validation after the snapshot",
-          "text": "The first full run after this fix exposed a timestamp-ordering error in a test fixture. After making the fixture clock deterministic, the full rerun executed 1,589 tests with no unexpected failures or errors, one expected historical failure and 17 machine-specific checks excluded. This validates the updated working source against the offline profile. The source-v9 archive and existing package predate these changes and will need to be rebuilt."
+          "label": "Scope of this result",
+          "text": "These corrections are local development changes and are not included in the earlier release-preparation archive. Complete cross-host cancellation, escaped-descendant containment, production qualification and a real coding task remain unfinished."
+        }
+      ]
+    },
+    {
+      "title": "Keeping a result when the requester disappears",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Forcibly terminating the Windows requester exposed a gap: the known Linux processes disappeared, but no completion report survived. That experiment remains inconclusive. A separate backend was then tested so the work and its reporting could outlive the requester's connection."
         },
         {
           "type": "paragraph",
-          "text": "This fixes a specific direct-child timeout path. Complete descendant cleanup, bounded output draining after termination and cancellation across Windows and Linux remain integration work."
+          "text": "In the latest disposable experiment, Windows terminated the requester after the worker confirmed readiness. The backend detected the disconnect, requested cancellation, confirmed direct-child and grandchild cleanup, and saved a terminal execution-failure result. A separate process reopened the store and read that result. Windows termination took 282 ms; the worker reported completion in 113 ms. These are observations from one experiment, not performance guarantees."
+        },
+        {
+          "type": "paragraph",
+          "text": "The executor now accepts an explicit cancellation signal and returns a failure observation that the existing task pipeline can save. Focused validation passed 82 execution and authority checks plus a pipeline test showing a persisted failure and no replay launch. A broader pipeline run passed 179 of 182 tests; the other three failed because installed Python or standard-library bytes did not match pinned runtime requirements. Those exact checks were already excluded from the offline profile. Their failures remain unresolved runtime qualification work."
+        },
+        {
+          "type": "callout",
+          "label": "What this establishes",
+          "text": "The backend experiment and pipeline regression exercise separate boundaries. They do not yet prove a complete authenticated coding service, service restart recovery, concurrent request handling or containment of escaped descendants. The earlier 1,591-test full-suite result predates explicit cancellation. Current changes are not included in the older release archive."
         }
       ]
     },
@@ -129,7 +151,7 @@
         {
           "type": "image",
           "src": "/images/lab/openclaw-engine-progress/status.png",
-          "alt": "Three stages of progress: the verified source-v9 snapshot has a repeatable source export and offline checks; current development connects execution controls and tests the deadline fix; the next demonstration must complete one isolated coding task through success, failure, restart and cancellation. Production qualification remains open.",
+          "alt": "Three stages of progress: the verified source-v9 snapshot has a repeatable source export and offline checks; current development tests cancellation and integration with focused checks; the next demonstration must complete one isolated coding task through success, failure, restart and cancellation. Production qualification remains open.",
           "caption": "Figure 2. The verified snapshot, current integration work and next demonstration are separate milestones.",
           "width": 1800,
           "height": 2000
@@ -155,9 +177,9 @@
           "type": "numbered",
           "items": [
             {
-              "title": "Make stopping reliable",
+              "title": "Extend stopping and recovery evidence",
               "body": [
-                "Complete cleanup and cancellation behavior, including children that keep output pipes open and callers that disappear mid-run. Record bounded behavior for failures, timeouts and cancellation across Windows and Linux."
+                "Build on the demonstrated cleanup and cancellation paths. Resolve escaped-descendant containment and verify service restart recovery and concurrent request handling through the complete workflow, with bounded behavior and durable results."
               ]
             },
             {

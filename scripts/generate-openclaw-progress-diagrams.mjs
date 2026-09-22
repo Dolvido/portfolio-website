@@ -80,8 +80,8 @@ const phases = [
   },
   {
     label: "CURRENT DEVELOPMENT",
-    title: "Deadline fix + integration",
-    lines: ["Working source passed offline checks.", "Complete workflow still pending."],
+    title: "Cancellation + integration",
+    lines: ["Focused cancellation checks passed.", "Complete workflow still pending."],
     color: colors.blue,
   },
   {
