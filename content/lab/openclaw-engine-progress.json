@@ -85,9 +85,13 @@
           "text": "The combined changes passed a full offline run of 1,591 tests with no unexpected failures, errors or skips. One historical expected failure and 17 explicitly excluded machine-specific checks remain. The tested source hashes were checked against the current files. Focused validation also passed 79 checks covering the new regressions and existing execution and one-shot authority behavior."
         },
         {
+          "type": "paragraph",
+          "text": "A separate Windows-to-Linux development fixture also passed two cases after a child and grandchild confirmed they were running: an explicit cancel message, and closure of the input connection. Linux reported the direct child reaped by the executor, the grandchild reaped after termination, and no remaining children. The host observed completion in 247 ms and 211 ms. This is cooperative cancellation evidence for that disposable workload, not proof for forcibly killing the Windows launcher or for descendants that escape containment."
+        },
+        {
           "type": "callout",
           "label": "Scope of this result",
-          "text": "These corrections are local development changes and are not included in the earlier release-preparation archive. They do not yet prove cleanup of escaped descendants, cancellation across Windows and Linux, or a complete real coding task."
+          "text": "These corrections are local development changes and are not included in the earlier release-preparation archive. Complete cross-host cancellation, escaped-descendant containment, production qualification and a real coding task remain unfinished."
         }
       ]
     },
