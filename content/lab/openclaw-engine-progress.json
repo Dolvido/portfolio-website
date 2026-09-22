@@ -39,7 +39,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The release-preparation phase is complete. The whole engine is not. The next milestone is one controlled coding task that succeeds end to end, with failure and cancellation behavior demonstrated as well."
+          "text": "An earlier review candidate is verified. Subsequent integration changes still need a refreshed release package. The next milestone is one controlled coding task that succeeds end to end, with failure and cancellation behavior demonstrated as well."
         }
       ]
     },
@@ -82,7 +82,7 @@
         },
         {
           "type": "paragraph",
-          "text": "The combined changes passed a full offline run of 1,591 tests with no unexpected failures, errors or skips. One historical expected failure and 17 explicitly excluded machine-specific checks remain. The tested source hashes were checked against the current files. Focused validation also passed 79 checks covering the new regressions and existing execution and one-shot authority behavior."
+          "text": "That executor snapshot passed a full offline run of 1,591 tests with no unexpected failures, errors or skips. One historical expected failure and 17 explicitly excluded machine-specific checks remain. The tested source hashes were checked at the time of validation. Focused validation also passed 79 checks covering the new regressions and existing execution and one-shot authority behavior."
         },
         {
           "type": "paragraph",
@@ -92,6 +92,28 @@
           "type": "callout",
           "label": "Scope of this result",
           "text": "These corrections are local development changes and are not included in the earlier release-preparation archive. Complete cross-host cancellation, escaped-descendant containment, production qualification and a real coding task remain unfinished."
+        }
+      ]
+    },
+    {
+      "title": "Keeping a result when the requester disappears",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Forcibly terminating the Windows requester exposed a gap: the known Linux processes disappeared, but no completion report survived. That experiment remains inconclusive. A separate backend was then tested so the work and its reporting could outlive the requester's connection."
+        },
+        {
+          "type": "paragraph",
+          "text": "In the latest disposable experiment, Windows terminated the requester after the worker confirmed readiness. The backend detected the disconnect, requested cancellation, confirmed direct-child and grandchild cleanup, and saved a terminal execution-failure result. A separate process reopened the store and read that result. Windows termination took 282 ms; the worker reported completion in 113 ms. These are observations from one experiment, not performance guarantees."
+        },
+        {
+          "type": "paragraph",
+          "text": "The executor now accepts an explicit cancellation signal and returns a failure observation that the existing task pipeline can save. Focused validation passed 82 execution and authority checks plus a pipeline test showing a persisted failure and no replay launch. A broader pipeline run passed 179 of 182 tests; the other three failed because installed Python or standard-library bytes did not match pinned runtime requirements. Those exact checks were already excluded from the offline profile. Their failures remain unresolved runtime qualification work."
+        },
+        {
+          "type": "callout",
+          "label": "What this establishes",
+          "text": "The backend experiment and pipeline regression exercise separate boundaries. They do not yet prove a complete authenticated coding service, service restart recovery, concurrent request handling or containment of escaped descendants. The earlier 1,591-test full-suite result predates explicit cancellation. Current changes are not included in the older release archive."
         }
       ]
     },
