@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The last full checkout validation ran 1,692 offline tests. Newer source, deployment, journal and endpoint checks pass 33 focused tests; runtime acceptance and a complete coding demonstration remain unfinished."
+      "summary": "The last full checkout validation ran 1,692 tests. Newer startup and socket repairs have passed focused development checks, builds and real-kernel helper tests; the complete protected coding workflow remains unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -230,6 +230,36 @@
           "type": "callout",
           "label": "Development checks, not runtime acceptance",
           "text": "These additions postdate the full 1,692-test run and are covered by the 33 focused checks only. Source-v10 remains the last verified packaged snapshot. The combined review grants no execution permission; full runtime acceptance, native integration and the complete coding demonstration remain open."
+        }
+      ]
+    },
+    {
+      "title": "Testing the native startup path",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "An exact successor service-policy proposal now preserves the existing lifecycle protections and includes the successor's containment and journal requirements. The focused source, runtime and packaging checks reached 40 passing tests. This remains a proposed policy encoding; it has not been accepted as a running service configuration."
+        },
+        {
+          "type": "paragraph",
+          "text": "Disposable startup probes exposed practical deployment requirements. The first stopped because the service account did not exist. After a dedicated non-login launcher account was provisioned, the next probe showed that its temporary filesystem suppressed file capabilities and that systemd supplied a supplementary group. A third probe on a capability-enabled filesystem demonstrated the required capability state and successfully cleared that group. Temporary privileged files and probe services were removed; the dedicated account remains."
+        },
+        {
+          "type": "paragraph",
+          "text": "A separate launcher patch clears only the expected redundant primary-group entry at startup and keeps the later credential checks strict. Eight isolated behavior cases passed, including foreign groups and syscall failures. The first binary build used an older link recipe and failed the symbol-visibility check; a separate build with the reviewed linker policy passed the static checks. Both outcomes are retained."
+        },
+        {
+          "type": "paragraph",
+          "text": "Listener inspection then found a native defect: the code compared a filesystem socket inode with the different inode belonging to its open socket descriptor, rejecting a valid listener. The proposed repair asks the kernel to bind the exact socket identity to its filesystem entry. Its build and static checks passed, and the response parser rejected malformed and truncated inputs. An initial parser test harness crashed because of its entry-point stack alignment; the corrected harness passed."
+        },
+        {
+          "type": "paragraph",
+          "text": "The exact native helper then passed four real-kernel fixture cases: accepting a valid listener, rejecting the old listener after its pathname was replaced, accepting the replacement listener, and rejecting an unbound socket. All temporary sockets were removed. This tests the repair independently of the complete launcher."
+        },
+        {
+          "type": "callout",
+          "label": "Still before a complete coding run",
+          "text": "The repaired full launcher has been built and inspected, but has not been executed. These results do not establish accepted source/build contracts, protected service custody, complete runtime acceptance or a coding-task outcome. The next work connects those requirements before demonstrating success, failure, restart and cancellation. The earlier full-suite and packaged-snapshot results remain separate."
         }
       ]
     },
