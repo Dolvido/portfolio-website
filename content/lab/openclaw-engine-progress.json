@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The source-v9 development snapshot is reproducible and passed its offline checks. New integration work is underway; the complete coding workflow and production qualification remain unfinished."
+      "summary": "The source-v10 development snapshot passed 1,612 offline checks and its reproducible package passed a fresh isolated installation. New worker safeguards are tested separately; the complete coding workflow and production qualification remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "A reproducible source snapshot and offline demo are ready for review. Integration has continued since that snapshot, so the next experimental release will need a fresh build and validation. The immediate milestone is one controlled coding task with demonstrated success, failure, restart and cancellation behavior."
+          "text": "A reproducible source-v10 snapshot and installable offline demo are verified. New worker connection and run-once safeguards were added afterward and are not included in that package. The next major milestone is one controlled coding task with demonstrated success, failure, restart and cancellation behavior."
         },
         {
           "type": "image",
@@ -78,12 +78,12 @@
           "type": "keyValue",
           "items": [
             {
-              "label": "Source-v9 offline validation",
-              "value": "The extracted snapshot ran 1,587 tests with no unexpected failures or errors. That total includes one expected historical failure; 17 machine-specific checks were excluded."
+              "label": "Source-v10 offline validation",
+              "value": "The extracted snapshot ran 1,612 tests with no unexpected failures, errors or skips. That total includes one expected historical failure; 17 named machine-specific checks were excluded."
             },
             {
               "label": "Repeatable source export",
-              "value": "Two source exports and a fresh export from the extracted files were byte-for-byte identical. The archive's file hashes and sizes were verified."
+              "value": "All 615 selected source files retained their recorded hashes after testing. Re-exporting the extracted files with the archived executable permissions restored produced a byte-for-byte identical archive."
             },
             {
               "label": "Execution fixtures",
@@ -91,7 +91,7 @@
             },
             {
               "label": "Release materials",
-              "value": "An installable Python package and synthetic offline demo are prepared, alongside an MIT license, third-party notices, documentation and continuous-integration configuration."
+              "value": "Two isolated builds produced identical Python packages. A fresh Linux installation used that package without downloading dependencies; all 74 installed module files matched, and the synthetic offline demo passed. MIT licensing, third-party notices and release documentation are prepared."
             }
           ]
         },
@@ -119,7 +119,7 @@
         {
           "type": "callout",
           "label": "Scope of this result",
-          "text": "These corrections are local development changes and are not included in the earlier release-preparation archive. Complete cross-host cancellation, escaped-descendant containment, production qualification and a real coding task remain unfinished."
+          "text": "These corrections were subsequently included in the verified source-v10 snapshot. Complete cross-host cancellation, escaped-descendant containment, production qualification and a real coding task remain unfinished."
         }
       ]
     },
@@ -141,7 +141,7 @@
         {
           "type": "callout",
           "label": "What this establishes",
-          "text": "The backend experiment and pipeline regression exercise separate boundaries. They do not yet prove a complete authenticated coding service, service restart recovery, concurrent request handling or containment of escaped descendants. The earlier 1,591-test full-suite result predates explicit cancellation. Current changes are not included in the older release archive."
+          "text": "The backend experiment and pipeline regression exercise separate boundaries. They do not yet prove a complete authenticated coding service, service restart recovery, concurrent request handling or containment of escaped descendants. These changes were subsequently included in source-v10; newer worker safeguards remain outside that snapshot."
         }
       ]
     },
@@ -163,7 +163,25 @@
         {
           "type": "callout",
           "label": "Component recovery, not service qualification",
-          "text": "These adapters use synthetic witness evidence and are not connected to production task dispatch. The existing transport contract still requires a root-owned systemd socket and authenticated deployment identities. Accepted runtime and policy setup, authenticated witness delivery, one-use execution claims and complete workflow recovery remain unfinished. The older release archive does not include these changes."
+          "text": "These recovery adapters are included in source-v10, but still use synthetic witness evidence and are not connected to production task dispatch. The transport contract requires a root-owned systemd socket and authenticated deployment identities. Accepted runtime and policy setup, live worker authentication and complete workflow recovery remain unfinished."
+        }
+      ]
+    },
+    {
+      "title": "Worker safeguards added after source-v10",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The receiving path now checks the real Linux identity of both the process that connected and the process sending each message. It also verifies message framing, ordering and exact task bytes, and rejects unexpected attached file descriptors. Twenty-one transport and binding checks passed, including two real child-process tests showing that an inherited socket cannot hide a different sender. Binding tests still use synthetic deployment records."
+        },
+        {
+          "type": "paragraph",
+          "text": "Durable claims now record the suite and each individual step before any future launcher handoff. A step requires valid evidence matching the saved claims for earlier steps. Missing, altered, out-of-order or terminal-failure evidence cannot unlock another step, and reopening an existing claim does not create a new one. Fifteen suite and step-claim tests passed, including concurrent suite claims, partial writes and replay after reopening."
+        },
+        {
+          "type": "callout",
+          "label": "What remains unproven",
+          "text": "These are development components, not a qualified running service. The live challenge-and-response exchange, protected process custody, accepted runtime deployment and launcher handoff still need integration. The 21 connection checks and 15 claim checks were run separately from the 1,612-test packaged snapshot; they are not a new full-suite total."
         }
       ]
     },
@@ -174,7 +192,7 @@
           "type": "image",
           "src": "/images/lab/openclaw-engine-progress/status.png",
           "alt": "Three stages of progress: the verified source-v9 snapshot has a repeatable source export and offline checks; current development tests cancellation and integration with focused checks; the next demonstration must complete one isolated coding task through success, failure, restart and cancellation. Production qualification remains open.",
-          "caption": "Figure 2. The verified snapshot, current integration work and next demonstration are separate milestones.",
+          "caption": "Figure 2. The earlier source-v9 milestone and the intended integration stages. The verified package has since advanced to source-v10; the complete workflow demonstration remains pending.",
           "width": 1800,
           "height": 2000
         },
@@ -199,15 +217,15 @@
           "type": "numbered",
           "items": [
             {
-              "title": "Extend stopping and recovery evidence",
+              "title": "Connect the existing authority chain",
               "body": [
-                "Build on the demonstrated cleanup and cancellation paths. Resolve escaped-descendant containment and verify service restart recovery and concurrent request handling through the complete workflow, with bounded behavior and durable results."
+                "Connect the tested dispatch and run-once claims to a live authenticated worker and the protected launcher. Verify the worker's fresh challenge response, accepted deployment and process lifetime, then bind the exact task, source, limits and isolated workspace. Lost responses and restarts must not trigger another execution."
               ]
             },
             {
-              "title": "Connect the existing authority chain",
+              "title": "Extend stopping and recovery evidence",
               "body": [
-                "Bind the task, exact source, permitted actions and deadline to the protected runtime and isolated workspace. The existing broker already rejects replayed task consumption; demonstrate that lost responses and restarts cannot trigger a second execution through the complete workflow."
+                "Build on the demonstrated cleanup and cancellation paths. Resolve escaped-descendant containment and verify service restart recovery and concurrent request handling through the complete workflow, with bounded behavior and durable results."
               ]
             },
             {
