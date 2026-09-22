@@ -3,13 +3,13 @@
   "metadata": {
     "id": "OCL-ENGINE-2026-09",
     "slug": "openclaw-engine-progress",
-    "title": "OpenClaw coding engine: from tested parts to a complete workflow",
-    "description": "A development update on the experimental coding engine: what is verified, what remains unfinished, and the next end-to-end milestone.",
+    "title": "OpenClaw Evolutionary Coding Lab: connecting the pieces",
+    "description": "Reproducible source, a deadline bug caught during integration, and the path to one complete, controlled coding task.",
     "date": "2026-09-22",
     "type": "Project Log",
     "project": {
       "id": "openclaw-engine",
-      "name": "OpenClaw evolutionary coding engine"
+      "name": "OpenClaw Evolutionary Coding Lab"
     },
     "tags": [
       "OpenClaw",
@@ -19,27 +19,55 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "A reproducible development candidate is verified. The complete protected coding workflow and production qualification remain unfinished."
+      "summary": "The source-v9 development snapshot is reproducible and passed its offline checks. New integration work is underway; the complete coding workflow and production qualification remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
   },
   "provenance": {
     "origin": "reviewed-candidate",
-    "summary": "AI-assisted progress summary prepared at the project owner's request from recorded development validation. Local evidence bundles are not published here; this is a project status report, not independently reproduced public evidence."
+    "summary": "AI-assisted project update checked against local source and recorded development validation on September 22, 2026. Engine evidence remains local. The public references document this article and its publication process; they do not independently reproduce the engine results.",
+    "publicReferences": [
+      {
+        "id": "publication-source",
+        "label": "Article source in the portfolio repository",
+        "href": "https://github.com/Dolvido/portfolio-website/blob/main/content/lab/openclaw-engine-progress.json",
+        "kind": "Publication source",
+        "note": "The versioned article, separate from the engine source and its local validation records."
+      },
+      {
+        "id": "publication-contract",
+        "label": "Lab publication guide",
+        "href": "https://github.com/Dolvido/portfolio-website/blob/main/content/lab/README.md",
+        "kind": "Publication process",
+        "note": "The content format, review states, validation checks and public disclosure rules used by this site."
+      }
+    ]
   },
   "sections": [
     {
-      "title": "Where the project stands",
+      "title": "Where the Lab stands",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "OpenClaw is being developed as a locally operated coding engine that can take a bounded task, work in an isolated copy of a project, evaluate the result and return changes for review. The current implementation has project tracking, reporting, scoped workflow and authority mechanisms, plus experimental execution infrastructure. It is not yet a generally autonomous coding service."
+          "text": "OpenClaw Evolutionary Coding Lab is an experimental, locally operated system for carrying out bounded coding tasks. The intended workflow starts with a task and explicit limits, makes changes in an isolated copy of a project, evaluates the result and returns a patch for human review."
+        },
+        {
+          "type": "paragraph",
+          "text": "The Lab already has project tracking, planning, task scheduling, reporting and mechanisms that control which actions a task may perform. Development fixtures also exercise parts of the execution system. The current challenge is connecting those components into one demonstrable workflow, including what happens when work fails or is stopped."
         },
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The release-preparation phase is complete. The whole engine is not. The next milestone is one controlled coding task that succeeds end to end, with failure and cancellation behavior demonstrated as well."
+          "text": "A reproducible source snapshot and offline demo are ready for review. Integration has continued since that snapshot, so the next experimental release will need a fresh build and validation. The immediate milestone is one controlled coding task with demonstrated success, failure, restart and cancellation behavior."
+        },
+        {
+          "type": "image",
+          "src": "/images/lab/openclaw-engine-progress/workflow.png",
+          "alt": "Intended workflow, with integration still in progress: scope and authorize a task with exact source and limits; claim the attempt once and reject replay; run and evaluate changes in an isolated copy; return the patch and test results for human review while preserving the original project.",
+          "caption": "Figure 1. The intended workflow. A complete end-to-end demonstration is still pending.",
+          "width": 1800,
+          "height": 2360
         }
       ]
     },
@@ -50,73 +78,107 @@
           "type": "keyValue",
           "items": [
             {
-              "label": "Offline validation",
-              "value": "1,587 tests ran with no unexpected failures. One historical expected failure and 17 explicitly excluded machine-specific checks remain."
+              "label": "Source-v9 offline validation",
+              "value": "The extracted snapshot ran 1,587 tests with no unexpected failures or errors. That total includes one expected historical failure; 17 machine-specific checks were excluded."
             },
             {
-              "label": "Reproducible source",
-              "value": "Two source exports and a reexport from extracted files were byte-identical. File hashes and sizes were checked."
+              "label": "Repeatable source export",
+              "value": "Two source exports and a fresh export from the extracted files were byte-for-byte identical. The archive's file hashes and sizes were verified."
             },
             {
-              "label": "Execution experiments",
-              "value": "Disposable fixtures exercised launch settings, sealed executable bytes, bounded output, deadlines, same-group child cleanup and Windows-to-Linux handoff."
+              "label": "Execution fixtures",
+              "value": "Disposable test programs exercised launch settings, sealed executable data, output limits, deadlines, cleanup within a process group and Windows-to-Linux handoff."
             },
             {
-              "label": "Release preparation",
-              "value": "An offline demo, portable Python package, MIT license, upstream notices, documentation and CI configuration are prepared."
+              "label": "Release materials",
+              "value": "An installable Python package and synthetic offline demo are prepared, alongside an MIT license, third-party notices, documentation and continuous-integration configuration."
             }
           ]
         },
         {
           "type": "paragraph",
-          "text": "These are recorded development results, not proof of an accepted production deployment. The offline suite did not repeat the consumed native experiments. The package demonstrates offline behavior; it does not install a fully operational coding service. The engine source has not yet been published as a GitHub release."
+          "text": "These results apply to specific development artifacts. The offline suite did not rerun the earlier native execution experiments, and the package's demo exercises a synthetic project registry without running coding tasks. The engine source has not yet been published as a GitHub release; the linked portfolio repository hosts this article."
         }
       ]
     },
     {
-      "title": "The next complete workflow",
+      "title": "The latest integration fix",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Integration work exposed a concrete deadline bug: a child process could close both output streams and keep running. The executor stopped checking the deadline when the streams closed, then waited for the process without a timeout. A quiet process could therefore outlive its allowed execution time."
+        },
+        {
+          "type": "paragraph",
+          "text": "The executor now keeps checking while either an output stream is open or the direct child is still running. A regression fixture gives a three-second sleeper a 150-millisecond deadline and verifies that it is terminated. A second check confirms that an ordinary nonzero exit is still reported correctly. The focused executor and authority checks passed 77 tests."
+        },
+        {
+          "type": "callout",
+          "label": "Validation after the snapshot",
+          "text": "The first full run after this fix exposed a timestamp-ordering error in a test fixture. After making the fixture clock deterministic, the full rerun executed 1,589 tests with no unexpected failures or errors, one expected historical failure and 17 machine-specific checks excluded. This validates the updated working source against the offline profile. The source-v9 archive and existing package predate these changes and will need to be rebuilt."
+        },
+        {
+          "type": "paragraph",
+          "text": "This fixes a specific direct-child timeout path. Complete descendant cleanup, bounded output draining after termination and cancellation across Windows and Linux remain integration work."
+        }
+      ]
+    },
+    {
+      "title": "What still needs to connect",
+      "blocks": [
+        {
+          "type": "image",
+          "src": "/images/lab/openclaw-engine-progress/status.png",
+          "alt": "Three stages of progress: the verified source-v9 snapshot has a repeatable source export and offline checks; current development connects execution controls and tests the deadline fix; the next demonstration must complete one isolated coding task through success, failure, restart and cancellation. Production qualification remains open.",
+          "caption": "Figure 2. The verified snapshot, current integration work and next demonstration are separate milestones.",
+          "width": 1800,
+          "height": 2000
+        },
+        {
+          "type": "paragraph",
+          "text": "The remaining work connects authenticated task delivery, a protected execution identity and the final runtime environment. Stopping a task must also stop the work it started, with evidence covering child processes, interrupted callers and the Windows-to-Linux boundary."
+        },
+        {
+          "type": "paragraph",
+          "text": "The proposed policy changes still need acceptance, and the actual runtime still needs qualification: checks that the intended executable, libraries, permissions and launch conditions are enforced together. Passing component tests does not establish those properties for a live coding task."
+        },
+        {
+          "type": "paragraph",
+          "text": "The evolutionary part also has a clear limit today. The current convergence process uses a population of one. Broader search across multiple competing candidates remains future work."
+        }
+      ]
+    },
+    {
+      "title": "The next demonstration",
       "blocks": [
         {
           "type": "numbered",
           "items": [
             {
-              "title": "Bind and claim the task once",
+              "title": "Make stopping reliable",
               "body": [
-                "Bind the exact task, source, allowed actions and deadline to a protected request. Reuse the existing transactional authority and broker mechanisms, including the existing replay rejection, rather than introduce another authority store. Lost responses and restarts must not cause another execution."
+                "Complete cleanup and cancellation behavior, including children that keep output pipes open and callers that disappear mid-run. Record bounded behavior for failures, timeouts and cancellation across Windows and Linux."
               ]
             },
             {
-              "title": "Contain execution and make stopping reliable",
+              "title": "Connect the existing authority chain",
               "body": [
-                "Connect the supervisor to the protected runtime and disposable workspace. Test output limits, failures, timeouts and cancellation across Windows and Linux, including cleanup of the work it started."
+                "Bind the task, exact source, permitted actions and deadline to the protected runtime and isolated workspace. The existing broker already rejects replayed task consumption; demonstrate that lost responses and restarts cannot trigger a second execution through the complete workflow."
               ]
             },
             {
-              "title": "Demonstrate a real change",
+              "title": "Complete one real coding task",
               "body": [
-                "Use a copied test project for a small coding task. Capture the proposed change and its test result while preserving the original. Show a successful run, a deliberate failure and a cancellation."
+                "Use an isolated copy of a small test project. Capture a proposed patch and its test results while preserving the original. Demonstrate success, a deliberate test failure, replay or restart handling, and cancellation."
               ]
             },
             {
-              "title": "Prepare the experimental release",
+              "title": "Build a fresh experimental release",
               "body": [
-                "Repeat setup from a clean environment, publish reproducible instructions and document exactly which capabilities were demonstrated. Production readiness will not be inferred from a passing prototype."
+                "Rebuild from the updated source, repeat installation in a clean environment and validate the new export. Publish reproducible instructions with a precise account of the demonstrated capabilities and remaining limits."
               ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "title": "What remains unresolved",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "Authenticated task delivery, protected execution identity, final runtime integration, complete cross-host cancellation and actual dynamic-runtime qualification remain unfinished. Successor policy acceptance and the controlled project demonstration are separate gates. No live qualification or independent acceptance is claimed."
-        },
-        {
-          "type": "paragraph",
-          "text": "The current convergence work uses a population of one. Broader evolutionary search is a later capability, not a feature established by this milestone."
         }
       ]
     },
@@ -125,7 +187,7 @@
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Updates will distinguish implemented behavior, recorded test results and future work. A stage counts as complete only when its actual workflow has been checked. This public log contains a sanitized summary rather than local paths, private logs, raw manifests or internal authority records."
+          "text": "Each update will identify the artifact or source state behind its results, describe failures as well as successes, and separate implemented behavior from planned capabilities. Progress toward a complete coding workflow will be measured by demonstrated behavior, including recovery and stopping. Public updates summarize the findings without exposing private logs, local paths or internal authority records."
         },
         {
           "type": "links",
