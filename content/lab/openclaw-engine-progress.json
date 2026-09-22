@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The source-v10 development snapshot passed 1,612 offline checks and its reproducible package passed a fresh isolated installation. New worker safeguards are tested separately; the complete coding workflow and production qualification remain unfinished."
+      "summary": "The current development checkout passed 1,692 offline tests. V2 worker delivery now joins saved dispatch to a durable claim in fixtures; accepted runtime integration and the complete coding demonstration remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -181,7 +181,33 @@
         {
           "type": "callout",
           "label": "What remains unproven",
-          "text": "These are development components, not a qualified running service. The live challenge-and-response exchange, protected process custody, accepted runtime deployment and launcher handoff still need integration. The 21 connection checks and 15 claim checks were run separately from the 1,612-test packaged snapshot; they are not a new full-suite total."
+          "text": "These component checks preceded the combined checkout validation below. They do not qualify a protected running service. Source-v10 remains the last verified packaged snapshot and does not include the newer handshake and delivery work."
+        }
+      ]
+    },
+    {
+      "title": "Connecting saved tasks to the worker",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A compatibility review found that the first Python handshake used the predecessor V1 format while the existing native successor requires V2. The new codec follows the successor's closed records and length-prefixed packets, and rejects V1 fallback. Separate Python processes now complete that V2 exchange, derive the same connection identity and transfer the exact task bytes. This has not yet been tested against a running native launcher."
+        },
+        {
+          "type": "paragraph",
+          "text": "The exchange retains socket and process handles. Checks reject a valid queued response from a worker that has already exited, altered task bytes, transfer before authentication and a second request on the same session. Larger binary requests are split into checked messages; the receiver returns no partial task."
+        },
+        {
+          "type": "paragraph",
+          "text": "A review adapter now recovers the exact saved dispatch, sends it through the V2 session and saves the worker's suite claim only after the complete task is verified. Redelivery through a new connection recovers the existing claim rather than creating a fresh one. The successful integration fixture explicitly simulates protected-role admission; its database, Linux credentials, process handles, message transfer and claim storage are real. Without that simulation, the fixture process is correctly rejected as a protected principal."
+        },
+        {
+          "type": "paragraph",
+          "text": "The combined development checkout ran 1,692 offline tests with no unexpected failures, errors or skips. One historical expected failure and 17 named host-dependent exclusions remain. All 643 recorded source inputs retained their hashes, lengths and archive permission classification after the run. This validates the checkout; it is not a new package, native qualification result or completed coding demonstration."
+        },
+        {
+          "type": "callout",
+          "label": "The next integration boundary",
+          "text": "The saved review dispatch still derives from predecessor authority bindings. V2 transport does not migrate or accept the full runtime-policy model. The remaining work must join successor policy, independently accepted deployment and runtime custody, per-step execution claims and the native launcher before demonstrating a complete coding task."
         }
       ]
     },
@@ -219,7 +245,7 @@
             {
               "title": "Connect the existing authority chain",
               "body": [
-                "Connect the tested dispatch and run-once claims to a live authenticated worker and the protected launcher. Verify the worker's fresh challenge response, accepted deployment and process lifetime, then bind the exact task, source, limits and isolated workspace. Lost responses and restarts must not trigger another execution."
+                "Reconcile the saved review dispatch with the successor runtime-policy model, then join accepted deployment and runtime custody to the tested V2 delivery path, per-step claims and protected launcher. Demonstrate that lost responses and restarts cannot trigger another execution."
               ]
             },
             {
