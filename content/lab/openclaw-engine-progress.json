@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The last full checkout validation ran 1,692 tests. Newer startup and socket repairs have passed focused development checks, builds and real-kernel helper tests; the complete protected coding workflow remains unfinished."
+      "summary": "The last full checkout validation ran 1,692 tests. Newer startup, listener and journal repairs have passed focused checks, including real locking and restart recovery; the complete protected coding workflow remains unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -260,6 +260,36 @@
           "type": "callout",
           "label": "Still before a complete coding run",
           "text": "The repaired full launcher has been built and inspected, but has not been executed. These results do not establish accepted source/build contracts, protected service custody, complete runtime acceptance or a coding-task outcome. The next work connects those requirements before demonstrating success, failure, restart and cancellation. The earlier full-suite and packaged-snapshot results remain separate."
+        }
+      ]
+    },
+    {
+      "title": "Preserving history across startup and recovery",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Concrete service and socket configurations now pass the service manager's offline verifier. They describe the launch identity, restricted capabilities, communication endpoints, cleanup behavior and journal directories. Verification used synthetic role records and an inert executable placeholder; these configurations have not been installed or used to start the complete launcher."
+        },
+        {
+          "type": "paragraph",
+          "text": "Journal review found another startup gap: when its main state file was missing, the code created fresh counters without first checking for saved history. A separate repair permits initialization only when the protected journal has exactly its expected empty structure. Existing records, receipts, partial state files or unexpected entries cause startup to stop. Eleven tests of the exact native directory helper passed without changing fixture contents or retained directory positions."
+        },
+        {
+          "type": "paragraph",
+          "text": "A second fixture exercised the actual journal's initialization, locking, reservation and recovery code inside an isolated filesystem. It passed eleven cases using real saved files and operating-system locks. Restart preserved the state bytes, the wrong writer and a competing lock holder were rejected, and missing or corrupt control state left the remaining history unchanged."
+        },
+        {
+          "type": "paragraph",
+          "text": "To test interrupted work, the fixture saved a reservation and exited before publishing its result. On reopening, recovery permanently marked that reservation unusable, preserved the journal's identity and kept its sequence numbers moving forward. Repeating recovery changed nothing. This prevents that reserved range from being reused; it does not claim the interrupted coding task completed."
+        },
+        {
+          "type": "paragraph",
+          "text": "The first integration runner stopped at sandbox argument validation before the native fixture executed. A corrected runner passed, and all disposable state was removed. The combined launcher proposal also passed its five-stage build and static image checks. The earlier full-suite count and source-v10 package remain separate from these newer changes."
+        },
+        {
+          "type": "callout",
+          "label": "What this proves—and what remains",
+          "text": "This is journal-component evidence using synthetic deployment identities. Interruption was a deliberate exit after reservation, not a test of every possible crash point. Complete launcher execution, recovery of committed transactions, final service custody and acceptance of the changed source and runtime still need verification before the full coding demonstration."
         }
       ]
     },
