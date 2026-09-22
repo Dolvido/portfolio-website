@@ -146,6 +146,28 @@
       ]
     },
     {
+      "title": "Recovering dispatch and completion records",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The explicit-cancellation snapshot subsequently passed a full offline run of 1,595 tests with no unexpected failures, errors or skips. One historical expected failure and 17 named host-dependent exclusions remain. The recorded input hashes still matched after the run. This result predates the recovery adapters described below."
+        },
+        {
+          "type": "paragraph",
+          "text": "New review-stage code reuses the existing database transaction to save the exact dispatch record when a task is consumed. It can recover that record after a lost response without consuming the task again. A second adapter saves the bound execution evidence and its evaluated outcome together, then re-evaluates that evidence when the store is reopened. It accepts no caller-selected verdict."
+        },
+        {
+          "type": "paragraph",
+          "text": "Seventeen targeted checks passed across the recovery and cancellation work. Separate-process tests showed that conflicting valid outcomes have one winner, identical submissions create only one terminal transition, and a result survives an abrupt process exit immediately after commit. Other checks reject incomplete or forged evidence and preserve failed-test and execution-failure outcomes."
+        },
+        {
+          "type": "callout",
+          "label": "Component recovery, not service qualification",
+          "text": "These adapters use synthetic witness evidence and are not connected to production task dispatch. The existing transport contract still requires a root-owned systemd socket and authenticated deployment identities. Accepted runtime and policy setup, authenticated witness delivery, one-use execution claims and complete workflow recovery remain unfinished. The older release archive does not include these changes."
+        }
+      ]
+    },
+    {
       "title": "What still needs to connect",
       "blocks": [
         {
