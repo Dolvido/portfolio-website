@@ -4,8 +4,8 @@
   "description": "OpenClaw Lab documents current engineering work through reviewed, evidence-backed, public-safe publication artifacts.",
   "operatingPrinciple": "Human-directed. Evidence-backed. Locally operated.",
   "status": {
-    "label": "Foundation ready",
-    "detail": "Static publication surface"
+    "label": "Engine integration",
+    "detail": "Tested prototype; end-to-end workflow in progress"
   },
   "governance": {
     "label": "Human-directed",
@@ -16,7 +16,12 @@
       "id": "OCL-PUB",
       "name": "Lab publication system",
       "status": "Active"
+    },
+    {
+      "id": "openclaw-engine",
+      "name": "OpenClaw evolutionary coding engine",
+      "status": "In development"
     }
   ],
-  "lastUpdated": "2026-08-15"
+  "lastUpdated": "2026-09-22"
 }
