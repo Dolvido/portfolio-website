@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "Successor configuration, measurement and native-file validation now connect in a complete synthetic fixture. All 111 focused and archive checks passed. Real protected startup, durable receipt integration and the complete coding demonstration remain unfinished."
+      "summary": "The successor evaluator now saves and reopens receipts in isolated real-file tests, rejecting replay and failed publication. All 120 focused and archive tests passed. Full protected startup and the real coding demonstration remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The source-v10 package remains the last verified packaged snapshot. Newer work now connects successor configuration, accepted measurements, startup challenge and current evidence through a synthetic native-validation fixture. The complete launcher has not run. The next step connects protected process/file handles and durable challenge consumption and receipt publication before the coding demonstration."
+          "text": "Source-v10 remains the last verified packaged snapshot. Newer evaluator work connects configuration and measurement checks to real protected input-handle tests and isolated durable receipt tests. The complete launcher has not run. Next are independently trusted runtime inputs, the fixed evaluator entry point and measured Python dependencies, native-parent verification, and the controlled coding demonstration."
         },
         {
           "type": "image",
@@ -384,6 +384,36 @@
           "type": "callout",
           "label": "Validation is connected; real startup is still ahead",
           "text": "This milestone runs Python validation with synthetic executable bytes and supplied process and descriptor facts. It does not execute the native launcher, establish real protected-handle custody, consume a challenge, publish a durable receipt or complete a coding task. The historical full-suite and packaged-snapshot results retain their original scope. Next comes protected-handle verification, one-use journal consumption, receipt publication and parent verification, followed by actual startup and the controlled coding demonstration."
+        }
+      ]
+    },
+    {
+      "title": "Testing one-use permission and saved startup receipts",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The successor input reader now checks a real sealed memory file before interpreting its evidence. Disposable child processes accepted the exact required input and rejected missing seals, wrong names or permissions, writable or incorrectly inherited handles, malformed contents and a wrong expected profile digest. These cases test the input reader; they do not establish the complete protected process boundary."
+        },
+        {
+          "type": "paragraph",
+          "text": "A separate directory experiment passed ten checks using actual retained directory handles. It accepted the intended journal and receipt directories and rejected swapped handles, incorrect object identities, wrong ownership, weakened permissions, removed directories and closed handles. The fixed handoff reader checks process conditions and the inherited handle set before accessing measurement files. Its ordering tests do not simulate a successful full startup."
+        },
+        {
+          "type": "paragraph",
+          "text": "The evaluator now derives the startup receipt, invocation and consumption request from the complete successor review, then connects them to one-use consumption and durable publication. It writes the receipt without replacing an existing result, synchronizes the files and directory, and reopens the exact bytes it reviewed. A completion record alone cannot authorize the next stage; the native parent still has to verify the saved state independently."
+        },
+        {
+          "type": "paragraph",
+          "text": "Three isolated real-file cases passed under the launcher's user and group with no supplementary groups. Success saved the exact receipt and rejected reuse. Missing allocation produced no consume record or receipt. An existing receipt blocked publication, preserved the prior bytes and left the permission consumed, so another attempt could not turn that failure into success. File ownership and permissions were checked, and all temporary directories were removed."
+        },
+        {
+          "type": "paragraph",
+          "text": "The first durable experiment reached success and replay rejection but stopped at a test readback that omitted a required argument. That failed result was retained. Correcting the fixture produced the three passing cases without changing the workflow's validation rules. The related runtime, evaluator, source and archive suite passed 120 tests."
+        },
+        {
+          "type": "callout",
+          "label": "Next: the complete protected startup",
+          "text": "These experiments use synthetic runtime measurements with real handles and files. They do not prove full native startup, independent parent acceptance, every crash point, power-loss recovery or a real coding task. The next work supplies independently trusted runtime inputs, packages the exact Python dependency set, connects the fixed evaluator entry point and verifies the parent handoff. Then the complete coding demonstration must cover success, failure, restart and cancellation before a fresh experimental release."
         }
       ]
     },
