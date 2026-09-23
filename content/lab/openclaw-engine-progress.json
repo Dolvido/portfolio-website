@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "A disposable privileged supervisor now launches the fixed-path evaluator through real parent checks, runtime-file rereads and durable output. False parent claims and changed files are rejected. Accepted native startup and the complete coding demonstration remain unfinished."
+      "summary": "The evaluator now reads protected source files in a supervised test. Real native profile execution exposed process-directory lookup bugs; proposed fixes advance to a child that is killed before returning measurements. Full startup and the coding demonstration remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "Source-v10 remains the last verified packaged release snapshot. Newer work joins the evaluator's real executable startup, parent-process checks, installed-file rereads and saved results in a supervised disposable fixture. Native journal verification has separate test evidence. The next milestone is connecting these paths through the original native launcher with independently trusted deployment and journal context, then completing one controlled coding task."
+          "text": "Source-v10 remains the last verified packaged snapshot. Newer supervised tests connect protected source reads, real parent checks, runtime-file rereads and durable results. Actual native profile execution now exposes failures that synthetic records could not reveal. The next work diagnoses the child termination and communication mismatches, qualifies real startup measurements and trusted deployment, then demonstrates one controlled coding task."
         },
         {
           "type": "image",
@@ -508,6 +508,36 @@
           "type": "callout",
           "label": "Remaining integration",
           "text": "The supervisor is test code, and accepted platform records plus some service, journal and attempt expectations still come from fixtures. The original native launcher has not completed this whole startup path. The remaining work must connect protected deployment and current journal context, the measured evaluator entry point and native parent verification, then demonstrate a real coding task through success, failure, interruption and cancellation."
+        }
+      ]
+    },
+    {
+      "title": "Replacing synthetic platform records with native measurements",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The fixed source reader is now connected to the supervised executable fixture. The evaluator reads thirteen protected source and provider files from a root-owned read-only installation instead of accepting their contents from fixture input. The successful run saves the exact consume record and receipt and rejects replay. A separate run changes source bytes after measurement and is rejected before either record is written. The related focused suite passed 140 tests; these results remain separate from the older packaged-source totals."
+        },
+        {
+          "type": "paragraph",
+          "text": "Work then moved to executing the actual native platform-profile routine in a disposable delegated service. Its process credentials, namespace setup and kernel operations are real, while deployment identities and some initialization remain synthetic. This is a diagnostic step toward complete startup, not an accepted runtime or a completed coding job."
+        },
+        {
+          "type": "paragraph",
+          "text": "The native experiments found a concrete path-handling bug: several process-directory reads forbade symbolic links while using Linux's symbolic link for the current process. Proposed corrections use the actual numeric process ID and retain strict path checks. The baseline and snapshot reads additionally verify the process filesystem and use fixed relative filenames. These corrections advance the probe past setup, resource-group creation and initial child-process handle checks."
+        },
+        {
+          "type": "paragraph",
+          "text": "The remaining failure is now narrower: the main profile child returns no measurement report, and the kernel reports that it was killed with SIGKILL. Recorded test-service counters show no out-of-memory kill, process-limit hit or CPU throttling. Simpler feature probes report success for child creation, process handles, namespaces, resource-group controls and filtering. Two communication probes report mismatches. These observations guide the investigation; they do not establish the cause of the kill or qualify the full profile."
+        },
+        {
+          "type": "paragraph",
+          "text": "Every recorded native attempt still fails the complete profile. The transient test services and temporary filesystems were removed, and failed attempts are retained alongside the proposed fixes. No production runtime was installed and no engine release was published."
+        },
+        {
+          "type": "callout",
+          "label": "Next steps",
+          "text": "Diagnose the main child's termination and communication mismatches, verify complete native measurements, and join independently trusted deployment and journal context to the full launcher. Then demonstrate a real coding task through success, failure, restart and cancellation before refreshing the experimental release. The new corrections remain proposals; passing isolated components does not make the engine release-ready."
         }
       ]
     },
