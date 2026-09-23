@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "Native contract, policy and socket-handoff fixtures now pass, alongside 25 selected checks of real service settings. Full protected startup and the complete coding demonstration remain unfinished; the last full checkout validation ran 1,692 tests."
+      "summary": "A combined native credential-and-socket fixture passed. The next integration blocker is a confirmed evaluator/configuration mismatch; successor observation and service checks now pass 49 focused tests. Full protected startup and a complete coding task remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The source-v10 package remains the last verified packaged snapshot. Newer native component tests now cover contract checks, service-policy enforcement, journal recovery and real systemd socket handoff. The complete launcher has not run. The next milestone combines these parts into one controlled coding task with success, failure, restart and cancellation behavior."
+          "text": "The source-v10 package remains the last verified packaged snapshot. Newer fixtures cover journal recovery and combined native credentials with real systemd socket handoff. The evaluator still needs complete support for the newer runtime configuration before the full launcher can run. That integration comes before the coding demonstration's success, failure, restart and cancellation cases."
         },
         {
           "type": "image",
@@ -320,6 +320,36 @@
           "type": "callout",
           "label": "The remaining combined test",
           "text": "These are verified component boundaries. They have not yet run together as the full privileged launcher with accepted source/build inputs, trusted deployment records, credential bootstrap, journal custody and protected task execution. That complete startup and coding demonstration remains the next major milestone. The historical 1,692-test run and source-v10 package do not include these later repairs."
+        }
+      ]
+    },
+    {
+      "title": "Closing the evaluator configuration gap",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The native credential bootstrap and socket handoff have now passed together in one disposable service fixture. It used the launcher's original startup and credential-checking code, then admitted the two real systemd listeners and checked credentials again. The expected user and group, empty supplementary groups and exact capability set held before and after admission. This still replaces the launcher's main workflow with a test body; it does not execute the complete startup path."
+        },
+        {
+          "type": "paragraph",
+          "text": "The first combined runner stopped while creating its temporary groups, before the privileged executable or service ran. A separate runner with shorter group names passed. Temporary privileged files, service units, sockets and groups were removed afterward. The dedicated launcher account from the earlier setup remains."
+        },
+        {
+          "type": "paragraph",
+          "text": "Thirteen exact runtime and review inputs have been staged as non-executable candidate data. Tracing the remaining startup requirements exposed a configuration mismatch: the native launcher reads the successor profile, while the existing Python evaluator opens the predecessor profile path and rejects the valid successor profile even when its source digest is correct. The evaluator also still calls the predecessor runtime-lock parser. Packaging that evaluator unchanged would not produce a working successor runtime."
+        },
+        {
+          "type": "paragraph",
+          "text": "A separate successor evaluator component now checks all twelve platform observations against the reviewed source set. It derives classifications from raw evidence and rejects incomplete, reordered or malformed observations, wrong error-number pairs, altered source bytes and substitution of the predecessor profile. The probe definitions and interpretation rules are unchanged between the two profiles; the old evaluator parser remains intact."
+        },
+        {
+          "type": "paragraph",
+          "text": "Service-policy review is also connected to freshly checked runtime components. The service must refer to the launcher and reaper deployments validated in that same review, with matching source and configuration bytes and the expected activation identity. The combined runtime, evaluator and source suite passes forty-nine focused tests. These use synthetic offline evidence and do not grant execution permission or replace the earlier full-suite result."
+        },
+        {
+          "type": "callout",
+          "label": "Immediate next step",
+          "text": "Complete successor runtime-lock and nested acceptance checks, including deployment, filesystem and process-custody joins. Then connect the evaluator's fixed entry point and measured Python dependencies, exercise full startup, and run the controlled coding demonstration. No complete launcher startup or real coding task has run yet."
         }
       ]
     },
