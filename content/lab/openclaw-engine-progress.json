@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The evaluator now rereads installed runtime files, and native supervisor fixtures commit valid startup records, reject a malformed request and recover its reservation. Full trusted startup and the complete coding demonstration remain unfinished."
+      "summary": "A disposable privileged supervisor now launches the fixed-path evaluator through real parent checks, runtime-file rereads and durable output. False parent claims and changed files are rejected. Accepted native startup and the complete coding demonstration remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "Source-v10 remains the last verified packaged release snapshot. Newer disposable fixtures connect actual runtime-file checks to the evaluator and exercise the native supervisor's durable transaction and recovery paths. Some startup facts still come from synthetic test data. The next milestone is a complete launcher startup using independently trusted deployment inputs, followed by one controlled coding task."
+          "text": "Source-v10 remains the last verified packaged release snapshot. Newer work joins the evaluator's real executable startup, parent-process checks, installed-file rereads and saved results in a supervised disposable fixture. Native journal verification has separate test evidence. The next milestone is connecting these paths through the original native launcher with independently trusted deployment and journal context, then completing one controlled coding task."
         },
         {
           "type": "image",
@@ -478,6 +478,36 @@
           "type": "callout",
           "label": "What this proves—and what remains",
           "text": "The native journal and parent verification path now have real execution evidence under controlled fixture conditions. Upstream deployment identities, accepted platform observations and some launcher state are still supplied by tests. The complete original launcher has not run a real coding task. The next integration must obtain expected inputs independently from protected deployment context, establish the actual startup measurements and connect that full path to the coding workflow."
+        }
+      ]
+    },
+    {
+      "title": "Testing the evaluator with a privileged supervisor",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The evaluator now checks the real Linux parent process before and after reading its runtime files. It compares the sealed input's process ID, start time and boot identity with kernel observations, and requires the parent's exact credential and capability settings. Disposable process tests reject false process or boot claims even when the submitted evidence has been rehashed to be internally consistent. These observations establish process facts; they do not by themselves authenticate the parent's executable or the accepted deployment."
+        },
+        {
+          "type": "paragraph",
+          "text": "A fresh eight-file Python project package includes the new checks and passes isolated import and synthetic semantic validation. Its observed native dependencies remain nine files joined by fourteen references. The handoff changes passed a focused 138-test suite, separate from the historical packaged-source validation and the individually recorded execution experiments."
+        },
+        {
+          "type": "paragraph",
+          "text": "The combined executable test now uses a disposable privileged Python supervisor with the launcher's required credentials. It launches one evaluator at the intended interpreter and script paths, with the fixed arguments, environment, sealed input and retained journal directories. The evaluator drops all capabilities, verifies its actual parent, reopens the installed runtime files, completes semantic checks and saves its consume record and receipt. Replay is rejected, and the outer test harness reopens both saved files and confirms their exact bytes."
+        },
+        {
+          "type": "paragraph",
+          "text": "Two additional runs exercise failure through that same executable path. One changes the claimed parent process and rehashes the evidence; the other changes an installed file after measurement while preserving its metadata. Both stop before writing a consume record or receipt. All three runs remove their temporary filesystems and reap the supervised processes."
+        },
+        {
+          "type": "paragraph",
+          "text": "In parallel, a candidate reader for the fixed source configuration accepts no caller-selected paths or hashes. Seven real filesystem cases cover a valid root-owned read-only installation and rejection of changed bytes, symlinks, incorrect ownership or permissions, and a writable mount. That reader is tested separately and is not yet used by the combined executable fixture."
+        },
+        {
+          "type": "callout",
+          "label": "Remaining integration",
+          "text": "The supervisor is test code, and accepted platform records plus some service, journal and attempt expectations still come from fixtures. The original native launcher has not completed this whole startup path. The remaining work must connect protected deployment and current journal context, the measured evaluator entry point and native parent verification, then demonstrate a real coding task through success, failure, interruption and cancellation."
         }
       ]
     },
