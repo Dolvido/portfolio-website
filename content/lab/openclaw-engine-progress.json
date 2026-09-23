@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "A combined native credential-and-socket fixture passed. The next integration blocker is a confirmed evaluator/configuration mismatch; successor observation and service checks now pass 49 focused tests. Full protected startup and a complete coding task remain unfinished."
+      "summary": "Successor configuration, measurement and native-file validation now connect in a complete synthetic fixture. All 111 focused and archive checks passed. Real protected startup, durable receipt integration and the complete coding demonstration remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The source-v10 package remains the last verified packaged snapshot. Newer fixtures cover journal recovery and combined native credentials with real systemd socket handoff. The evaluator still needs complete support for the newer runtime configuration before the full launcher can run. That integration comes before the coding demonstration's success, failure, restart and cancellation cases."
+          "text": "The source-v10 package remains the last verified packaged snapshot. Newer work now connects successor configuration, accepted measurements, startup challenge and current evidence through a synthetic native-validation fixture. The complete launcher has not run. The next step connects protected process/file handles and durable challenge consumption and receipt publication before the coding demonstration."
         },
         {
           "type": "image",
@@ -350,6 +350,40 @@
           "type": "callout",
           "label": "Immediate next step",
           "text": "Complete successor runtime-lock and nested acceptance checks, including deployment, filesystem and process-custody joins. Then connect the evaluator's fixed entry point and measured Python dependencies, exercise full startup, and run the controlled coding demonstration. No complete launcher startup or real coding task has run yet."
+        }
+      ]
+    },
+    {
+      "title": "Connecting successor validation from configuration to measurements",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The successor evaluator now checks a complete runtime configuration against its source files and supplied program bytes. It joins the five deployment roles, service settings, communication endpoints, stores and journals, and checks that declared filter and configuration hashes match their exact deployment roles. The complete fixture uses the required reaper filter bytes, rather than the small synthetic filter used in earlier geometry tests."
+        },
+        {
+          "type": "paragraph",
+          "text": "Nested platform and mount-isolation results are rederived from their observations. Recalculating a record identity cannot preserve a forged passing flag, substitute another verifier, or combine results from different platform measurements. The earlier accepted measurement bundle must also match the reviewed configuration and its complete platform record."
+        },
+        {
+          "type": "paragraph",
+          "text": "Challenge integration exposed another predecessor assumption: the old check expected a store-reference field that the new file-based launcher journal does not have. A separate successor check follows the native launcher's context calculation and binds the challenge to the configuration, journal, allocator epoch and boot identity. It validates the record; it does not consume the challenge or prove freshness."
+        },
+        {
+          "type": "paragraph",
+          "text": "The current measurement path now derives results from complete raw observations without accepting caller-supplied passing flags. Its evidence envelope checks the expected profile and configuration digests, process-attempt facts and ordered file measurements. Actual supplied file bytes are rehashed before being passed into the complete configuration and measurement review."
+        },
+        {
+          "type": "paragraph",
+          "text": "Concrete launcher, evaluator and Python checks enforce their fixed paths, modes, startup arguments and capability settings. Each authority file must match its exact measurement role, preventing another record at the same path from standing in for it. The interpreter's loading requirements are checked against its supplied executable bytes."
+        },
+        {
+          "type": "paragraph",
+          "text": "A complete positive fixture now carries one native launcher identity through all those records and derives a current transcript from a different synthetic process than the historical accepted transcript. Additional tests reject altered interpreter measurement roles and capabilities even after their identities are recalculated. The combined focused and archive suite passes 111 tests. An earlier fixture-construction failure was corrected without weakening the validator."
+        },
+        {
+          "type": "callout",
+          "label": "Validation is connected; real startup is still ahead",
+          "text": "This milestone runs Python validation with synthetic executable bytes and supplied process and descriptor facts. It does not execute the native launcher, establish real protected-handle custody, consume a challenge, publish a durable receipt or complete a coding task. The historical full-suite and packaged-snapshot results retain their original scope. Next comes protected-handle verification, one-use journal consumption, receipt publication and parent verification, followed by actual startup and the controlled coding demonstration."
         }
       ]
     },
