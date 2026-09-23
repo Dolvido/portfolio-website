@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The staged Python evaluator now runs at its intended paths and passes real child-process, sealed-input and durable-record fixtures. The latest focused suite passes 129 tests. Trusted native-launcher integration and the complete coding demonstration remain unfinished."
+      "summary": "The evaluator now rereads installed runtime files, and native supervisor fixtures commit valid startup records, reject a malformed request and recover its reservation. Full trusted startup and the complete coding demonstration remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "Source-v10 remains the last verified packaged release snapshot. Newer work demonstrates the evaluator's Python import layout and joins actual child-process, sealed-input and durable-record checks in disposable fixtures. Synthetic runtime measurements still stand in for a complete accepted deployment. Next are trusted launcher inputs, rereading the real runtime files through the connected handoff, native-parent verification, and the controlled coding demonstration."
+          "text": "Source-v10 remains the last verified packaged release snapshot. Newer disposable fixtures connect actual runtime-file checks to the evaluator and exercise the native supervisor's durable transaction and recovery paths. Some startup facts still come from synthetic test data. The next milestone is a complete launcher startup using independently trusted deployment inputs, followed by one controlled coding task."
         },
         {
           "type": "image",
@@ -448,6 +448,36 @@
           "type": "callout",
           "label": "The remaining native-launcher connection",
           "text": "The process fixtures still supply synthetic runtime measurements and trusted expectations through fixture data. They do not establish native-parent origin, independently accepted runtime deployment or the native parent's journal transaction. The newer fixed-handle adapter is covered by composition tests and is not part of the earlier staged package's recorded hashes. Next work must supply protected trust inputs, join real runtime-file rereads to the actual launcher, and complete startup before demonstrating coding success, failure, restart and cancellation. The historical full-suite and source-v10 results retain their original scope."
+        }
+      ]
+    },
+    {
+      "title": "Checking real runtime files and the native supervisor's journal",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The connected evaluator now reads its sealed input and reopens the installed runtime files itself. Earlier tests supplied those file contents as fixture data. A disposable installation now binds the actual Python interpreter, package, standard-library and native-library bytes to the test deployment, then measures the installed files before handing control to the evaluator. The successful case completes validation, saves the consume record and receipt, and rejects replay. A separate case changes a configuration file after measurement while preserving its size and permissions; the evaluator detects the changed bytes and stops before saving either record."
+        },
+        {
+          "type": "paragraph",
+          "text": "Packaging exposed an empty Python package initializer that the existing nonempty-file rule would reject. The candidate installation uses deterministic compiled bytecode for that initializer, with isolated import and repeatability checks. A strengthened installation also measures the standard-library file used to locate Python's library directory. These are tested packaging choices; they do not establish an accepted production deployment."
+        },
+        {
+          "type": "paragraph",
+          "text": "Connecting the Python records to the native supervisor exposed another incompatibility: required multiline observations use escaped text in JSON, but the native text reader rejected every escape. A proposed repair adds a bounded decoder specifically for observation text. The native compatibility fixture passes six positive and twelve negative record checks plus thirteen decoder cases. Failed diagnostic attempts and a test-source compilation mistake are retained in the evidence. The complete proposed launcher builds and passes static executable review, but this new binary has not completed full startup or reproducibility qualification."
+        },
+        {
+          "type": "paragraph",
+          "text": "The next fixture invokes the actual native parent verification function with real credentials, a locked journal and a durable reservation. Valid records produce one committed transaction, clear the reservation and reject a second verification call. Reopening the journal preserves its exact committed control state. A malformed consume request produces no committed transaction. Recovery then permanently retires that pending reservation so it cannot be reused. Independent checks join the saved transaction, record identities, file hashes and receipt lengths. The temporary test filesystems are removed."
+        },
+        {
+          "type": "paragraph",
+          "text": "The refreshed focused suite passes 131 tests across successor runtime and evaluator validation, source-policy checks, Python packaging dependencies and source export. This is a current integration check, separate from the older source-v10 packaged validation totals and the individually recorded native execution experiments."
+        },
+        {
+          "type": "callout",
+          "label": "What this proves—and what remains",
+          "text": "The native journal and parent verification path now have real execution evidence under controlled fixture conditions. Upstream deployment identities, accepted platform observations and some launcher state are still supplied by tests. The complete original launcher has not run a real coding task. The next integration must obtain expected inputs independently from protected deployment context, establish the actual startup measurements and connect that full path to the coding workflow."
         }
       ]
     },
