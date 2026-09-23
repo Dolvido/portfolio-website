@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The successor evaluator now saves and reopens receipts in isolated real-file tests, rejecting replay and failed publication. All 120 focused and archive tests passed. Full protected startup and the real coding demonstration remain unfinished."
+      "summary": "The staged Python evaluator now runs at its intended paths and passes real child-process, sealed-input and durable-record fixtures. The latest focused suite passes 129 tests. Trusted native-launcher integration and the complete coding demonstration remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "Source-v10 remains the last verified packaged snapshot. Newer evaluator work connects configuration and measurement checks to real protected input-handle tests and isolated durable receipt tests. The complete launcher has not run. Next are independently trusted runtime inputs, the fixed evaluator entry point and measured Python dependencies, native-parent verification, and the controlled coding demonstration."
+          "text": "Source-v10 remains the last verified packaged release snapshot. Newer work demonstrates the evaluator's Python import layout and joins actual child-process, sealed-input and durable-record checks in disposable fixtures. Synthetic runtime measurements still stand in for a complete accepted deployment. Next are trusted launcher inputs, rereading the real runtime files through the connected handoff, native-parent verification, and the controlled coding demonstration."
         },
         {
           "type": "image",
@@ -414,6 +414,40 @@
           "type": "callout",
           "label": "Next: the complete protected startup",
           "text": "These experiments use synthetic runtime measurements with real handles and files. They do not prove full native startup, independent parent acceptance, every crash point, power-loss recovery or a real coding task. The next work supplies independently trusted runtime inputs, packages the exact Python dependency set, connects the fixed evaluator entry point and verifies the parent handoff. Then the complete coding demonstration must cover success, failure, restart and cancellation before a fresh experimental release."
+        }
+      ]
+    },
+    {
+      "title": "Packaging the evaluator and testing its protected child process",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The successor evaluator needs six project modules plus the package initializer. Isolated Python does not search the normal project directory, so a single-file replacement would not be a working installation. A staging tool now records the exact project bytes and tests them with site packages and the ordinary user environment excluded. A complete synthetic semantic fixture produces the same receipt as the checkout without importing test code into the child."
+        },
+        {
+          "type": "paragraph",
+          "text": "The import observation identifies 53 filesystem modules and nine mapped native files. Read-only inspection of those native files finds fourteen interpreter and library references, all matched within the observed set, including two imported Python extensions. Missing transitive dependencies and ambiguous library names are rejected. This establishes the observed dependency references; it does not prove every future dynamic import or deployment-specific loader search."
+        },
+        {
+          "type": "paragraph",
+          "text": "A disposable filesystem then placed the measured interpreter, standard library, project package and native dependencies at the intended startup paths. The first attempt stopped before Python started because the copied dynamic loader lacked execute permission. After that packaging error was corrected, a separate attempt passed with the required arguments, minimal environment, user and group, and no supplementary groups. All 53 filesystem imports matched their measured bytes and the exact expected receipt was produced. The 63 installed files stayed unchanged and cleanup removed the test filesystem."
+        },
+        {
+          "type": "paragraph",
+          "text": "A further fixture connected the actual protected child-process checks to the durable workflow. It used a private mount namespace, null standard streams, sealed read-only evidence, the two retained journal and receipt directories, and no extra inherited handles. All capability sets were empty, including the bounding set, and privilege gains were disabled. The child saved the receipt and rejected replay; the parent fixture independently reopened the consume and receipt files and confirmed their exact expected bytes."
+        },
+        {
+          "type": "paragraph",
+          "text": "A separate negative case deliberately retained the capability bounding set. The child was rejected before consuming permission or publishing a receipt. The initial allocation and the fixture's diagnostic report were the only files left in its mutable directories. Every fixture directory was subsequently removed; these experiments did not install the production runtime or change system Python."
+        },
+        {
+          "type": "paragraph",
+          "text": "The source now also connects the fixed-handle reader directly to the complete successor validation and durable workflow. This adapter accepts no caller-supplied runtime bytes, replacement evidence or alternate journal handles. Five composition tests cover its successful semantic path with mocked handoff and durable operations, changed file bytes, an independent configuration-pin mismatch, early handoff failure and forbidden input overrides. The combined focused runtime, evaluator, source, dependency and archive suite passes 129 tests."
+        },
+        {
+          "type": "callout",
+          "label": "The remaining native-launcher connection",
+          "text": "The process fixtures still supply synthetic runtime measurements and trusted expectations through fixture data. They do not establish native-parent origin, independently accepted runtime deployment or the native parent's journal transaction. The newer fixed-handle adapter is covered by composition tests and is not part of the earlier staged package's recorded hashes. Next work must supply protected trust inputs, join real runtime-file rereads to the actual launcher, and complete startup before demonstrating coding success, failure, restart and cancellation. The historical full-suite and source-v10 results retain their original scope."
         }
       ]
     },
