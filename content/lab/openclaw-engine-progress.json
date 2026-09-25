@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "Startup components now run together through service verification, protected configuration, admission publication, privilege drop and native diagnostic execution. Full engine startup and real coding tasks remain unfinished."
+      "summary": "Evaluator parent checks now remain active through durable output. A startup diagnostic passes, but its privileged wrapper conflicts with preserved architecture rules. Full startup and real coding tasks remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The proposed root startup entry now connects real service observations, protected configuration, executable verification, durable admission publication and the privilege transition to a native diagnostic. Five composed cases pass, including rejection and duplicate preservation. The evaluator still needs authenticated admission integration, and the complete engine needs a reviewed runtime installation and real service activation. Source-v10 remains the last verified packaged snapshot; no engine release has been published."
+          "text": "The integrated evaluator now retains and rechecks its launcher parent through validation, one-use consumption and receipt publication. Fresh protected execution and false-parent rejection tests pass. The experimental root wrapper proves startup mechanics, but compatibility review found that the preserved architecture forbids its privileged pre-execution approach. That issue must be resolved before deployment or admission integration. Source-v10 remains the last verified packaged snapshot; no engine release has been published."
         },
         {
           "type": "image",
@@ -681,9 +681,17 @@
           "text": "The saved admission records match the observed process and the invocation independently reported by the service manager. Temporary services and files are removed, and the outer mount namespace is unchanged. Fifty-three focused component tests also pass. The composition uses a diagnostic executable, synthetic configuration and test-created listeners, so it does not demonstrate the full original launcher or a real coding job."
         },
         {
+          "type": "paragraph",
+          "text": "A subsequent compatibility review found an architectural conflict: the preserved native design explicitly excludes privileged Python, a pre-execution attester and the extra inspection capability used by the experimental wrapper. The passing diagnostic does not resolve that conflict or accept the wrapper for deployment. The project must resolve the architecture and service-policy change, or use an authentication approach compatible with direct native startup."
+        },
+        {
+          "type": "paragraph",
+          "text": "Independent of that design issue, the integrated evaluator now retains its parent-process handles through runtime reads and durable output. It rechecks identity and liveness at each use boundary and permits only its own additional handles. Seventy-seven focused checks pass, including parent-loss ordering and real descriptor checks. A fresh protected run saves and independently verifies its result and rejects replay; a false-parent run stops before durable writes. The initial negative-test attempt used an outdated expected error message and is preserved as a failed harness check."
+        },
+        {
           "type": "callout",
           "label": "Next integration",
-          "text": "Connect authenticated admission and retained parent checks to the evaluator, with explicit handling of its internal file handles and filesystem view. Then review and provision the real runtime configuration, deployment and service activation, run the original startup, and demonstrate coding-task success, failure, restart and cancellation."
+          "text": "Resolve the startup wrapper's architecture compatibility before selecting a deployment design. Then connect executable and service authentication to the retained evaluator checks, review and provision the real runtime and service activation, run original startup, and demonstrate coding-task success, failure, restart and cancellation."
         }
       ]
     },
