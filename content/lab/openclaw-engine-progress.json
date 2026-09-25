@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The corrected native platform checks now complete in an isolated service, and the complete proposed launcher builds successfully. Full startup, accepted deployment and a real coding demonstration remain unfinished."
+      "summary": "Native and Python validation now share revised source rules and a build contract naming the actual launcher and linker inputs. Protected evaluator tests save results, reject replay and detect tampering. Accepted deployment, full native startup and a real coding task remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The native platform-profile routine now completes with real kernel measurements and verified test cleanup. The combined proposed launcher also passes its full build and static executable checks. Deployment identities in the profile test remain synthetic. Next comes source and policy integration, independently reviewed runtime setup, full startup and a real coding task covering failure, restart and cancellation. Source-v10 remains the last verified packaged snapshot."
+          "text": "The corrected native platform checks pass in isolation, and the complete proposed launcher builds. Native and Python validation now share revised source rules, with checks linking deployed provider bytes to the build contract. The updated evaluator passes protected-process and tampering tests under a disposable Python supervisor. Next comes independently reviewed deployment and runtime acceptance, original native startup and the real coding demonstration. Source-v10 remains the last verified packaged snapshot."
         },
         {
           "type": "image",
@@ -568,6 +568,36 @@
           "type": "callout",
           "label": "Next integration steps",
           "text": "Review and version the changed policy and source bindings, update the evaluator's protected source checks, establish independently reviewed runtime and deployment inputs, and run the original launcher through full startup. Then complete one isolated coding task through success, failure, restart and cancellation before packaging the experimental GitHub release. The engine source has not yet been released publicly."
+        }
+      ]
+    },
+    {
+      "title": "Joining revised rules to the protected evaluator",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The packet-rule correction now has a distinct profile identity. Historical rules remain intact, and the revised validator accepts only the defined changes. The native launcher embeds the new profile bindings; the Python evaluator reads the matching source set from fixed protected files. Downstream checks select the rules once from the trusted profile pin and do not retry another version after failure."
+        },
+        {
+          "type": "paragraph",
+          "text": "The proposed build contract now names the exact compiled launcher source and explicit linker script while retaining the historical source reference. Actual input bytes are checked separately from those declarations. The full native build and static executable checks pass. An unprivileged native test exercises the complete build-contract check against a synthetic deployment and rejects rehashed changes to the launcher pin, linker pin and linker options."
+        },
+        {
+          "type": "paragraph",
+          "text": "That native test initially rejected its nominally valid case because the synthetic deployment still contained older provider hashes. The failed attempt was preserved. Investigation found that Python checked deployment files and the source contract separately without directly joining the six provider roles. A regression reproduced the gap for every role. Python now requires each deployed provider's length and digest to match the pinned contract, and the fixtures use consistent source records. All 149 focused checks passed at that point; 23 targeted checks passed after the final source-pin migration."
+        },
+        {
+          "type": "paragraph",
+          "text": "A fresh package contains twelve project modules. Isolated execution observes 58 filesystem modules and nine native files, with fourteen declared native dependency references resolved. The package's synthetic semantic result matches the checkout. Seven real filesystem cases verify the protected source reader, including rejection of changed bytes, symbolic links, wrong permissions or ownership, and a writable mount."
+        },
+        {
+          "type": "paragraph",
+          "text": "The refreshed evaluator also runs at its intended paths under the disposable privileged Python supervisor, with sealed input, fixed handles, the expected identity and no child capabilities. It reopens protected source and runtime files, saves its consume record and receipt, and rejects replay. The parent independently reopens and verifies both outputs. A separate source-tampering case stops before either output is written. Temporary installations are removed. One mistyped output path stopped an earlier negative invocation before setup; a fresh attempt completed the negative test."
+        },
+        {
+          "type": "callout",
+          "label": "The boundary still to cross",
+          "text": "These process tests still use synthetic acceptance records and a Python test supervisor. They do not establish independently accepted runtime deployment or full original native-launcher startup. The next work must provision and verify that real deployment, bind current platform measurements and runtime acceptance, and complete startup before demonstrating coding success, failure, restart and cancellation. No engine GitHub release has been published."
         }
       ]
     },
