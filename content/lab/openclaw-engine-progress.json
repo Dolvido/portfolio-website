@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "Two separate native builds produce identical outputs. A retained parent-process guard passes real lifetime and privilege-boundary checks. Independent startup authentication, full native startup and a real coding task remain unfinished."
+      "summary": "Native privilege and listener handoff tests pass. Three additional startup path errors are corrected, and the revised evaluator passes protected execution and tampering tests. The full original startup and real coding workflow remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The proposed native launcher builds reproducibly, and revised native and Python checks agree on the protected source set. The evaluator passes supervised process, tampering and replay tests. A new guard retains the parent process and detects its exit under the intended privilege boundary. Independent service and executable authentication is the next startup gap. The original launcher has not completed full startup or a real coding task; source-v10 remains the last verified packaged snapshot."
+          "text": "The native diagnostic now preserves required privileges and listeners across executable handoff, including rejection cases. Three remaining startup path errors have been corrected and propagated into the native build and protected Python source pins. The revised evaluator passes supervised durable-result, replay and tampering tests. The proposed startup admission components still need connection to real service context and full original-launcher startup. Source-v10 remains the last verified packaged snapshot; no engine release has been published."
         },
         {
           "type": "image",
@@ -624,6 +624,40 @@
           "type": "callout",
           "label": "Still before complete startup",
           "text": "The privilege experiment uses a disposable Python parent, not the original native launcher. The guard is development code and is not yet in the staged evaluator package. Full startup, actual coding execution, failure and restart recovery, cancellation and an experimental engine release remain open."
+        }
+      ]
+    },
+    {
+      "title": "Native handoff tested; revised evaluator runs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The proposed startup admission components now include a protected process-bound record reader, durable publication that refuses existing records, a retained executable check and the transition from the privileged startup process to the launcher account. Focused tests cover stale records, unsafe filesystem permissions, concurrent publication, partial writes and sync failures. These components are not yet a complete installed startup service."
+        },
+        {
+          "type": "paragraph",
+          "text": "A native diagnostic verifies the privilege transition across execution of a retained file handle. The exact file capabilities pass the native credential checks; a copy without those capabilities is rejected. The listener-handoff experiment initially failed because it opened the executable before changing mount namespaces. A separate diagnostic observed that capabilities were not restored in that setup. Opening and measuring the executable after namespace setup corrected the experiment, and the executable guard now rejects a later namespace change."
+        },
+        {
+          "type": "paragraph",
+          "text": "The corrected native handoff accepts three null standard handles and two real listeners. It rejects an extra inherited handle and a listener assigned to the wrong role. These tests use private temporary filesystems, a diagnostic native entry point and synthetic role assignments. They establish the handoff behavior, not service-manager provenance or the complete original startup."
+        },
+        {
+          "type": "paragraph",
+          "text": "Reviewing the remaining startup code exposed three more process-file reads that forbade symbolic links while using Linux's current-process symbolic link. The actual kernel reproduced the failures. A proposed correction reads the fixed files relative to an existing verified process-directory handle. Native regression tests pass all three allowed reads, reject eight other paths, reproduce the old failures and confirm handle cleanup."
+        },
+        {
+          "type": "paragraph",
+          "text": "The correction passes the full native build and updated contract checks. Its new provider and build identities now match the protected Python reader and a freshly staged package. The executable guard also matches the new binary. Forty-nine focused checks passed at that point, separate from older full-suite and packaged-source totals."
+        },
+        {
+          "type": "paragraph",
+          "text": "Fresh supervised evaluator runs complete the updated protected-file reads, save and independently verify the durable result, and reject replay. A separate altered-source run stops before durable output. Both remove their temporary installations. The public progress claim remains limited: the supervisor is test code, upstream acceptance is synthetic, and the admission components are not yet joined to original native startup."
+        },
+        {
+          "type": "callout",
+          "label": "Next integration",
+          "text": "Finish protected runtime configuration and service-manager context, join startup admission publication to the tested native handoff, and connect authenticated expectations to the evaluator. Then demonstrate a real isolated coding task through success, failure, restart and cancellation before preparing the experimental engine release."
         }
       ]
     },
