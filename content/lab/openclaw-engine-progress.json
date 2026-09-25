@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "Native and Python validation now share revised source rules and a build contract naming the actual launcher and linker inputs. Protected evaluator tests save results, reject replay and detect tampering. Accepted deployment, full native startup and a real coding task remain unfinished."
+      "summary": "Two separate native builds produce identical outputs. A retained parent-process guard passes real lifetime and privilege-boundary checks. Independent startup authentication, full native startup and a real coding task remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The corrected native platform checks pass in isolation, and the complete proposed launcher builds. Native and Python validation now share revised source rules, with checks linking deployed provider bytes to the build contract. The updated evaluator passes protected-process and tampering tests under a disposable Python supervisor. Next comes independently reviewed deployment and runtime acceptance, original native startup and the real coding demonstration. Source-v10 remains the last verified packaged snapshot."
+          "text": "The proposed native launcher builds reproducibly, and revised native and Python checks agree on the protected source set. The evaluator passes supervised process, tampering and replay tests. A new guard retains the parent process and detects its exit under the intended privilege boundary. Independent service and executable authentication is the next startup gap. The original launcher has not completed full startup or a real coding task; source-v10 remains the last verified packaged snapshot."
         },
         {
           "type": "image",
@@ -598,6 +598,32 @@
           "type": "callout",
           "label": "The boundary still to cross",
           "text": "These process tests still use synthetic acceptance records and a Python test supervisor. They do not establish independently accepted runtime deployment or full original native-launcher startup. The next work must provision and verify that real deployment, bind current platform measurements and runtime acceptance, and complete startup before demonstrating coding success, failure, restart and cancellation. No engine GitHub release has been published."
+        }
+      ]
+    },
+    {
+      "title": "Reproducible builds and the startup trust boundary",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Two separate builds of the joined native source now produce identical bytes for all five assembly, object and executable outputs. The comparison checks actual files against recorded hashes, matching build inputs and settings, and the executable's static structure. This establishes repeatability for those two builds on this host; it does not establish cross-machine reproducibility or a working runtime."
+        },
+        {
+          "type": "paragraph",
+          "text": "The new parent-process guard retains a Linux process handle and process-directory handle until evaluation is finished with them. It can recheck parent identity, start time, credentials and liveness. Eight focused checks cover handle lifetime, cleanup after failure, changed identity or credentials, and a real parent-process exit. The exit test confirms that a child rejects its retained context after its parent dies."
+        },
+        {
+          "type": "paragraph",
+          "text": "A separate disposable experiment uses the intended parent and child identities and capability settings without mocking credential checks. The guard succeeds. Linux denies the unprivileged child access to the privileged parent's executable, which exposes a concrete integration constraint. Parent dumpability remains disabled and the child receives no extra privileges."
+        },
+        {
+          "type": "paragraph",
+          "text": "The next step is to bind protected deployment and service context to the parent identity observed by the kernel. Existing service-policy records describe intended settings, and the launcher creates its own live custody record; neither alone supplies independent executable authentication to the child. The new guard still needs integration with the evaluator's strict file-handle checks and durable result publication."
+        },
+        {
+          "type": "callout",
+          "label": "Still before complete startup",
+          "text": "The privilege experiment uses a disposable Python parent, not the original native launcher. The guard is development code and is not yet in the staged evaluator package. Full startup, actual coding execution, failure and restart recovery, cancellation and an experimental engine release remain open."
         }
       ]
     },
