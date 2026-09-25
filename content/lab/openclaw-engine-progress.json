@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "Native privilege and listener handoff tests pass. Three additional startup path errors are corrected, and the revised evaluator passes protected execution and tampering tests. The full original startup and real coding workflow remain unfinished."
+      "summary": "Startup components now run together through service verification, protected configuration, admission publication, privilege drop and native diagnostic execution. Full engine startup and real coding tasks remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The native diagnostic now preserves required privileges and listeners across executable handoff, including rejection cases. Three remaining startup path errors have been corrected and propagated into the native build and protected Python source pins. The revised evaluator passes supervised durable-result, replay and tampering tests. The proposed startup admission components still need connection to real service context and full original-launcher startup. Source-v10 remains the last verified packaged snapshot; no engine release has been published."
+          "text": "The proposed root startup entry now connects real service observations, protected configuration, executable verification, durable admission publication and the privilege transition to a native diagnostic. Five composed cases pass, including rejection and duplicate preservation. The evaluator still needs authenticated admission integration, and the complete engine needs a reviewed runtime installation and real service activation. Source-v10 remains the last verified packaged snapshot; no engine release has been published."
         },
         {
           "type": "image",
@@ -658,6 +658,32 @@
           "type": "callout",
           "label": "Next integration",
           "text": "Finish protected runtime configuration and service-manager context, join startup admission publication to the tested native handoff, and connect authenticated expectations to the evaluator. Then demonstrate a real isolated coding task through success, failure, restart and cancellation before preparing the experimental engine release."
+        }
+      ]
+    },
+    {
+      "title": "Protected startup components now run together",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The new service-context reader has been exercised in an actual temporary service launched by Linux's service manager. It checks process identity, membership in the fixed service, namespace relationships and the manager's invocation record. It rejects use after a fork or a namespace change. A restricted-permission comparison showed that inspecting the manager needs one additional startup capability; the existing transition removes it before native execution."
+        },
+        {
+          "type": "paragraph",
+          "text": "A fixed configuration reader supplies the expected runtime, bundle and deployment identities from a protected read-only file. Six syntax tests and eleven real filesystem cases pass, including missing files, symlinks, wrong ownership or permissions, extra links, writable mounts and modification through a previously opened writable reference. The test identities are synthetic: file protection does not prove that a configuration has been reviewed or accepted."
+        },
+        {
+          "type": "paragraph",
+          "text": "The proposed root entry now connects service verification, configuration and executable checks, durable process-bound admission publication, privilege removal and execution of the measured file. Five composed cases pass. The valid case reaches native diagnostic success. An extra handle and malformed configuration stop before publication; a duplicate admission record remains unchanged; a listener assigned to the wrong role is rejected by the native diagnostic after publication."
+        },
+        {
+          "type": "paragraph",
+          "text": "The saved admission records match the observed process and the invocation independently reported by the service manager. Temporary services and files are removed, and the outer mount namespace is unchanged. Fifty-three focused component tests also pass. The composition uses a diagnostic executable, synthetic configuration and test-created listeners, so it does not demonstrate the full original launcher or a real coding job."
+        },
+        {
+          "type": "callout",
+          "label": "Next integration",
+          "text": "Connect authenticated admission and retained parent checks to the evaluator, with explicit handling of its internal file handles and filesystem view. Then review and provision the real runtime configuration, deployment and service activation, run the original startup, and demonstrate coding-task success, failure, restart and cancellation."
         }
       ]
     },
