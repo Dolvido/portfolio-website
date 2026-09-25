@@ -5,7 +5,7 @@
     "slug": "openclaw-engine-progress",
     "title": "OpenClaw Evolutionary Coding Lab: connecting the pieces",
     "description": "Reproducible source, cancellation experiments, and the path to one complete, controlled coding task.",
-    "date": "2026-09-22",
+    "date": "2026-09-25",
     "type": "Project Log",
     "project": {
       "id": "openclaw-engine",
@@ -19,14 +19,14 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The evaluator now reads protected source files in a supervised test. Real native profile execution exposed process-directory lookup bugs; proposed fixes advance to a child that is killed before returning measurements. Full startup and the coding demonstration remain unfinished."
+      "summary": "The corrected native platform checks now complete in an isolated service, and the complete proposed launcher builds successfully. Full startup, accepted deployment and a real coding demonstration remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
   },
   "provenance": {
     "origin": "reviewed-candidate",
-    "summary": "AI-assisted project update checked against local source and recorded development validation on September 22, 2026. Engine evidence remains local. The public references document this article and its publication process; they do not independently reproduce the engine results.",
+    "summary": "AI-assisted project update checked against local source and recorded development validation through September 25, 2026. Engine evidence remains local. Public references document the article and publication process; they do not independently reproduce engine results.",
     "publicReferences": [
       {
         "id": "publication-source",
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "Source-v10 remains the last verified packaged snapshot. Newer supervised tests connect protected source reads, real parent checks, runtime-file rereads and durable results. Actual native profile execution now exposes failures that synthetic records could not reveal. The next work diagnoses the child termination and communication mismatches, qualifies real startup measurements and trusted deployment, then demonstrates one controlled coding task."
+          "text": "The native platform-profile routine now completes with real kernel measurements and verified test cleanup. The combined proposed launcher also passes its full build and static executable checks. Deployment identities in the profile test remain synthetic. Next comes source and policy integration, independently reviewed runtime setup, full startup and a real coding task covering failure, restart and cancellation. Source-v10 remains the last verified packaged snapshot."
         },
         {
           "type": "image",
@@ -528,16 +528,46 @@
         },
         {
           "type": "paragraph",
-          "text": "The remaining failure is now narrower: the main profile child returns no measurement report, and the kernel reports that it was killed with SIGKILL. Recorded test-service counters show no out-of-memory kill, process-limit hit or CPU throttling. Simpler feature probes report success for child creation, process handles, namespaces, resource-group controls and filtering. Two communication probes report mismatches. These observations guide the investigation; they do not establish the cause of the kill or qualify the full profile."
+          "text": "At that diagnostic milestone, the failure narrowed: the main profile child returns no measurement report, and the kernel reports that it was killed with SIGKILL. Recorded test-service counters show no out-of-memory kill, process-limit hit or CPU throttling. Simpler feature probes report success for child creation, process handles, namespaces, resource-group controls and filtering. Two communication probes report mismatches. These observations guide the investigation; they do not establish the cause of the kill or qualify the full profile."
         },
         {
           "type": "paragraph",
-          "text": "Every recorded native attempt still fails the complete profile. The transient test services and temporary filesystems were removed, and failed attempts are retained alongside the proposed fixes. No production runtime was installed and no engine release was published."
+          "text": "Those initial native attempts failed the complete profile. The transient test services and temporary filesystems were removed, and failed attempts were retained alongside proposed fixes. The subsequent corrections and successful routine execution are described below."
         },
         {
           "type": "callout",
-          "label": "Next steps",
-          "text": "Diagnose the main child's termination and communication mismatches, verify complete native measurements, and join independently trusted deployment and journal context to the full launcher. Then demonstrate a real coding task through success, failure, restart and cancellation before refreshing the experimental release. The new corrections remain proposals; passing isolated components does not make the engine release-ready."
+          "label": "What that milestone left open",
+          "text": "The immediate work was to diagnose the child's termination and communication mismatches and verify complete native measurements. Those investigations have now advanced to the successful routine execution below. Independently trusted deployment, full startup and the real coding demonstration remain open."
+        }
+      ]
+    },
+    {
+      "title": "Native platform checks complete; full launcher builds",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The corrected native platform-profile routine now completes in a disposable delegated service without diagnostic instrumentation. All twelve feature checks report completion, all 147 verification entries are populated, and internal cleanup succeeds. Independent checks confirm that the transient service's resource group and temporary filesystem are gone. Kernel operations are real, but deployment identities and some initial state remain synthetic; this is not full original-launcher startup."
+        },
+        {
+          "type": "paragraph",
+          "text": "Control experiments traced the earlier child termination to reusing a resource group after its mandatory kill test. The candidate keeps that test, proves the old group empty and removed, and creates a fresh group for the main child. Further corrections address process-directory lookup, empty optional mount fields and the prescribed handle used to reopen a private temporary filesystem."
+        },
+        {
+          "type": "paragraph",
+          "text": "Actual Linux message tests also exposed differences from the proposed packet rules. An explicit policy amendment preserves message lengths, ordering, truncation checks, attached-data checks and end-of-stream handling while correcting expected flags. The child report now carries the complete verification vector and reserves parent-only observations for the parent. Native checks cover 36 decoder cases, seven encoder rejection cases and an exact round trip."
+        },
+        {
+          "type": "paragraph",
+          "text": "A semantic audit found that the previous namespace observer measured process symbolic links rather than the namespace objects themselves. A normal parent and child can share a namespace while having different link identities. The corrected observer opens and checks the actual namespace objects, with a regression covering shared namespaces. Earlier successful executions therefore remain recorded but are not used as valid namespace-isolation evidence. Fifteen native parser cases also cover valid mount records and malformed or disallowed records."
+        },
+        {
+          "type": "paragraph",
+          "text": "These cumulative fixes are now consolidated into one proposed source set. A fresh complete native launcher build passed all five compile, assembly and link stages with warnings treated as errors and no diagnostics. Read-only executable checks passed for static structure, required symbols and memory permissions. The resulting launcher has not been executed; a successful build does not establish accepted deployment or startup."
+        },
+        {
+          "type": "callout",
+          "label": "Next integration steps",
+          "text": "Review and version the changed policy and source bindings, update the evaluator's protected source checks, establish independently reviewed runtime and deployment inputs, and run the original launcher through full startup. Then complete one isolated coding task through success, failure, restart and cancellation before packaging the experimental GitHub release. The engine source has not yet been released publicly."
         }
       ]
     },
