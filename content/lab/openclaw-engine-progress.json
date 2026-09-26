@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The real evaluator entry now runs without a test-input file and rejects false-parent and altered-source cases. It preserves the native launcher's final startup decision. Complete native startup and real coding tasks remain unfinished."
+      "summary": "The evaluator entry runs in isolation. The candidate filter matches its pinned policy, but a bootstrap probe shows that it prevents Python from starting. Runtime compatibility, complete native startup and real coding tasks remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "A no-argument evaluator entry now reads the fixed native handoff, validates protected sources and runtime files, and saves its durable result while retaining parent-process checks. Isolated executions pass without a test-input file; false-parent and altered-source cases stop before durable writes. The implementation follows the original native-parent authority model, with no privileged Python startup wrapper. These tests still use a disposable supervisor and synthetic acceptance. Complete original native startup is not yet demonstrated. Source-v10 remains the last verified packaged snapshot; no engine release has been published."
+          "text": "The real evaluator entry runs without a test-input file. Its candidate syscall filter passes independent semantic checks and selected kernel tests, but a minimal interpreter probe exposed a compatibility failure: Python stops during startup under the filter and succeeds in the unfiltered comparison. The deployment inventory contains actual files for every required launcher role; the syscall table's runtime coverage, complete deployment identities, platform acceptance and original native startup remain unfinished. No engine release has been published."
         },
         {
           "type": "image",
@@ -718,6 +718,36 @@
           "type": "callout",
           "label": "Next integration",
           "text": "Bind the real entry and its staged dependencies into the actual deployment, establish the required platform acceptance and protected service and journal state, then run the original native startup path from its first checks through final verification. After that, demonstrate an isolated coding task through success, failure, restart and cancellation before preparing the experimental engine release."
+        }
+      ]
+    },
+    {
+      "title": "Candidate syscall filter tested",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Separating actual runtime file collection from synthetic test fixtures exposed three missing deployment roles: the filter compiler, verifier and compiled filter. Those now have real artifacts. The compiler follows the exact pinned syscall policy and repository table, permits the 100 known calls outside the deny set, and rejects other native numbers. It uses no host-header lookup or weaker fallback."
+        },
+        {
+          "type": "paragraph",
+          "text": "The verifier checks the filter's decisions independently of the compiler's instruction ordering. Its restricted instruction format lets it exhaust the possible decision classes, including unknown numbers. Tests show that equivalent reorderings pass while weakened architecture checks, forbidden or unknown allowances, missing required allowances, invalid jumps and changed source pins fail. The compiler and verifier share the pinned policy reader."
+        },
+        {
+          "type": "paragraph",
+          "text": "Ten filter tests and seven file-collection tests pass. Two disposable unprivileged children also installed the exact compiled filter. The expected allowed call succeeded; a forbidden local socket call, a number absent from the pinned table and a future number returned permission errors. An x32 request terminated as required. Both children were reaped. The foreign-architecture rule was checked in the filter structure; these tests did not switch the running kernel-call architecture."
+        },
+        {
+          "type": "paragraph",
+          "text": "A subsequent minimal interpreter probe exposed a practical incompatibility. The pinned Python interpreter failed during startup with a TLS allocation error after the filter was installed; the same interpreter completed successfully in an unfiltered comparison. Both children were reaped. The unfiltered run served only as a diagnostic comparison. Several startup-related calls are absent from the pinned table, but the exact denied call causing this failure has not yet been isolated."
+        },
+        {
+          "type": "paragraph",
+          "text": "The updated inventory contains 93 actual files and no missing required launcher role names. File presence is not deployment acceptance: dependency ordering, loader aliases, complete identities, platform qualification and protected service and journal setup still need to be joined. These tests do not demonstrate original native startup or a real coding job."
+        },
+        {
+          "type": "callout",
+          "label": "Next integration",
+          "text": "Review the pinned syscall table's runtime coverage and resolve the interpreter bootstrap failure without weakening the policy checks. Then construct the complete deployment, establish platform acceptance, run original native startup, and demonstrate coding-task success, failure, restart and cancellation before preparing an experimental engine release."
         }
       ]
     },
