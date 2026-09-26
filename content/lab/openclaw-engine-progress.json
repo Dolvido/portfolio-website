@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "Native checks now hand off to a measured broker-component Python runtime. Production service integration, authenticated requests, full engine startup and a real coding task remain unfinished."
+      "summary": "A real systemd test now joins native safety checks, the measured Python runtime and all three broker sockets. Production authorization, full engine startup and a real coding task remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The revised filter, native build, protected evaluator sources and actual launcher proposal are in place. Broker components now pass native file and alias verification before measured Python imports. Separate real systemd tests cover socket activation and unprivileged service observations. These paths are not yet joined into an accepted production broker deployment. Authenticated request handling, full runtime acceptance, original native startup and a real coding task remain unfinished. No engine release has been published."
+          "text": "The revised filter, native build, protected evaluator sources and actual launcher proposal are in place. A disposable real systemd service now joins native credential, file and alias checks to measured Python execution, retained service observations and all three broker sockets. This is a successful combined diagnostic. Protected deployment acceptance, authenticated request handling, full runtime acceptance, original native startup and a real coding task remain unfinished. No engine release has been published."
         },
         {
           "type": "image",
@@ -829,9 +829,13 @@
           "text": "A combined native test then used compiled pins to verify all 86 files and five aliases before handing off through the verified interpreter descriptor. Python ran with fixed isolated-startup arguments and a restricted environment, and all 76 loaded module files matched. A separate test altered a copied broker source file; the native check exited before the Python diagnostic produced output. Both temporary runtimes were removed. This joins the native checks to measured interpreter execution for an import diagnostic, not a production broker or coding task."
         },
         {
+          "type": "paragraph",
+          "text": "The measured runtime has now been joined to real systemd activation. The first attempts stopped at the native file check; a diagnostic showed that the private root was still writable. Correcting the read-only rule to target the service root allowed Python to start, where the service-state directory check found another configuration mismatch. An explicit protected /run mount resolved that rejection. The fresh combined test passed native checks, all 76 module-file comparisons, retained service observations and validation of all three real sockets. It also closed the sockets and removed the temporary accounts, services and directories. The earlier failed attempts remain preserved."
+        },
+        {
           "type": "callout",
           "label": "Scope and next work",
-          "text": "Native credentials, file and alias checks now connect to a measured Python import runtime. The combined test still needs to be joined with real service sockets, protected startup policy and accepted deployment records, then authenticated request handlers. The inventory covers component imports, not every future execution path. Full engine startup, a real coding task and the experimental release remain unfinished."
+          "text": "Native checks, the measured Python runtime, real service observations and socket activation now pass together in a disposable diagnostic. Next are negative activation tests, protected startup policy and deployment acceptance, a fixed production entry and authenticated durable request handlers. The inventory covers component imports, not every future execution path. Full engine startup, a real coding task and the experimental release remain unfinished."
         }
       ]
     },
