@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The evaluator entry runs in isolation. The candidate filter matches its pinned policy, but a bootstrap probe shows that it prevents Python from starting. Runtime compatibility, complete native startup and real coding tasks remain unfinished."
+      "summary": "Python starts with the proposed safety filter enforced, selected kernel restrictions still pass, and the native rebuild succeeds. Protected runtime integration, complete startup and a real coding task remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The real evaluator entry runs without a test-input file. Its candidate syscall filter passes independent semantic checks and selected kernel tests, but a minimal interpreter probe exposed a compatibility failure: Python stops during startup under the filter and succeeds in the unfiltered comparison. The deployment inventory contains actual files for every required launcher role; the syscall table's runtime coverage, complete deployment identities, platform acceptance and original native startup remain unfinished. No engine release has been published."
+          "text": "The real evaluator entry runs without a test-input file. A proposed syscall-table update now lets the pinned interpreter complete a minimal startup program with the filter enforced, without tracing or an unfiltered fallback. The exact deny list and architecture guards remain unchanged, and selected kernel restrictions still pass. The proposed table has now been joined to the native build records, and all five isolated build stages pass. Protected runtime source records and deployment still need migration. Complete startup, real coding tasks and the experimental engine release remain unfinished."
         },
         {
           "type": "image",
@@ -738,7 +738,7 @@
         },
         {
           "type": "paragraph",
-          "text": "A subsequent minimal interpreter probe exposed a practical incompatibility. The pinned Python interpreter failed during startup with a TLS allocation error after the filter was installed; the same interpreter completed successfully in an unfiltered comparison. Both children were reaped. The unfiltered run served only as a diagnostic comparison. Several startup-related calls are absent from the pinned table, but the exact denied call causing this failure has not yet been isolated."
+          "text": "A subsequent minimal interpreter probe exposed a practical incompatibility. The pinned Python interpreter failed during startup with a TLS allocation error after the filter was installed; the same interpreter completed successfully in an unfiltered comparison. Both children were reaped. The unfiltered run served only as a diagnostic comparison. Several startup-related calls are absent from the pinned table, and at that stage the exact denied call had not been isolated. The follow-up below records the diagnosis and proposed fix."
         },
         {
           "type": "paragraph",
@@ -746,8 +746,30 @@
         },
         {
           "type": "callout",
-          "label": "Next integration",
-          "text": "Review the pinned syscall table's runtime coverage and resolve the interpreter bootstrap failure without weakening the policy checks. Then construct the complete deployment, establish platform acceptance, run original native startup, and demonstrate coding-task success, failure, restart and cancellation before preparing an experimental engine release."
+          "label": "Integration work identified",
+          "text": "The failure identified runtime coverage of the pinned syscall table as the next issue to resolve. Complete deployment, platform acceptance, original native startup and coding-task success, failure, restart and cancellation remain required before an experimental engine release."
+        }
+      ]
+    },
+    {
+      "title": "Python starts under the proposed filter",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A read-only diagnostic traced a disposable process and found an architecture setup call denied immediately before the earlier TLS startup error. A separate successful baseline used eight calls missing from the pinned table. An explicit proposal adds those eight definitions; it preserves the exact deny list and rejects unknown numbers."
+        },
+        {
+          "type": "paragraph",
+          "text": "The proposed filter was compiled and checked against its own exact table pin. The interpreter then completed a minimal program with the filter enforced, without tracing or an unfiltered fallback. Separate disposable kernel checks confirmed that socket creation and unknown calls remain denied, and x32 calls terminate the process. All test children were reaped. Twenty-one focused tests passed, including rejection of mismatched table versions and weakened guards."
+        },
+        {
+          "type": "paragraph",
+          "text": "The proposed table has also been joined to a new native source and build record. All five isolated build stages completed successfully. The native executable is byte-for-byte identical to the preceding build; the separate candidate filter carries the changed syscall allowances. This is build evidence, not runtime acceptance."
+        },
+        {
+          "type": "callout",
+          "label": "Scope and next step",
+          "text": "This resolves the observed minimal bootstrap failure in a development environment and confirms that the revised native source set builds. It does not prove a protected runtime, the original native startup or a coding task. Next, migrate the protected source records and Python package, check the native contract gates, and complete deployment and service connections before the end-to-end demonstration."
         }
       ]
     },
