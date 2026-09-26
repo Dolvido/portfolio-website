@@ -5,7 +5,7 @@
     "slug": "openclaw-engine-progress",
     "title": "OpenClaw Evolutionary Coding Lab: connecting the pieces",
     "description": "Reproducible source, cancellation experiments, and the path to one complete, controlled coding task.",
-    "date": "2026-09-25",
+    "date": "2026-09-26",
     "type": "Project Log",
     "project": {
       "id": "openclaw-engine",
@@ -19,14 +19,14 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "Evaluator parent checks now remain active through durable output. A startup diagnostic passes, but its privileged wrapper conflicts with preserved architecture rules. Full startup and real coding tasks remain unfinished."
+      "summary": "The real evaluator entry now runs without a test-input file and rejects false-parent and altered-source cases. It preserves the native launcher's final startup decision. Complete native startup and real coding tasks remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
   },
   "provenance": {
     "origin": "reviewed-candidate",
-    "summary": "AI-assisted project update checked against local source and recorded development validation through September 25, 2026. Engine evidence remains local. Public references document the article and publication process; they do not independently reproduce engine results.",
+    "summary": "AI-assisted project update checked against local source and recorded development validation through September 26, 2026. Engine evidence remains local. Public references document the article and publication process; they do not independently reproduce engine results.",
     "publicReferences": [
       {
         "id": "publication-source",
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The integrated evaluator now retains and rechecks its launcher parent through validation, one-use consumption and receipt publication. Fresh protected execution and false-parent rejection tests pass. The experimental root wrapper proves startup mechanics, but compatibility review found that the preserved architecture forbids its privileged pre-execution approach. That issue must be resolved before deployment or admission integration. Source-v10 remains the last verified packaged snapshot; no engine release has been published."
+          "text": "A no-argument evaluator entry now reads the fixed native handoff, validates protected sources and runtime files, and saves its durable result while retaining parent-process checks. Isolated executions pass without a test-input file; false-parent and altered-source cases stop before durable writes. The implementation follows the original native-parent authority model, with no privileged Python startup wrapper. These tests still use a disposable supervisor and synthetic acceptance. Complete original native startup is not yet demonstrated. Source-v10 remains the last verified packaged snapshot; no engine release has been published."
         },
         {
           "type": "image",
@@ -692,6 +692,32 @@
           "type": "callout",
           "label": "Next integration",
           "text": "Resolve the startup wrapper's architecture compatibility before selecting a deployment design. Then connect executable and service authentication to the retained evaluator checks, review and provision the real runtime and service activation, run original startup, and demonstrate coding-task success, failure, restart and cancellation."
+        }
+      ]
+    },
+    {
+      "title": "Real evaluator entry now runs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Review of the original design showed that the native launcher already owns the startup decision. It verifies its inputs before creating the evaluator, then compares saved output against its own retained challenge, observations and journal state. A successful child exit is never enough. Development is continuing with that direct native startup model; the experimental privileged Python wrapper is not selected for deployment."
+        },
+        {
+          "type": "paragraph",
+          "text": "The new evaluator entry takes no arguments beyond the fixed launch contract. It reads sealed evidence and protected source files, reopens the runtime files, retains parent-process checks, performs the existing semantic validation, consumes the challenge once and publishes the receipt. The separate review APIs still reject mismatched independently supplied expectations. Shared internal routines preserve the validation and publication checks."
+        },
+        {
+          "type": "paragraph",
+          "text": "All 77 existing focused checks and nine new checks pass. The exact entry script also ran in a fresh isolated filesystem with no test-input file and no test diagnostic writer. The supervising fixture independently reopened both durable outputs and compared them with the expected bytes. Separate false-parent and protected-source-mutation cases exited without publishing a consume record or receipt. Temporary installations were removed."
+        },
+        {
+          "type": "paragraph",
+          "text": "These executions still use a disposable privileged Python supervisor and synthetic upstream acceptance. They establish that the real evaluator entry works under that handoff, not that the full native launcher has started or that a runtime deployment is accepted. The child checks kernel parent facts but does not independently attest the parent's executable; the native launcher retains responsibility for authenticating its inputs and verifying the final durable result."
+        },
+        {
+          "type": "callout",
+          "label": "Next integration",
+          "text": "Bind the real entry and its staged dependencies into the actual deployment, establish the required platform acceptance and protected service and journal state, then run the original native startup path from its first checks through final verification. After that, demonstrate an isolated coding task through success, failure, restart and cancellation before preparing the experimental engine release."
         }
       ]
     },
