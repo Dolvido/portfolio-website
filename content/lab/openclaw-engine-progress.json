@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "Native broker startup and file-protection components pass isolated checks. A complete verified deployment, authenticated requests, full engine startup and a real coding task remain unfinished."
+      "summary": "Native broker credential, file, alias and service-observation checks pass isolated tests. Their production integration, authenticated requests, full engine startup and a real coding task remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The revised filter, native build, protected evaluator sources and actual launcher proposal are in place. A native broker credential component now passes 13 kernel cases and a real systemd socket-activation diagnostic. It removes the redundant primary group and all capabilities before Python runs, preserving the strict principal checks. A native file-protection component has also passed 18 filesystem cases. The service test remains a diagnostic using the host interpreter, and the new file checker is not yet joined to a complete broker dependency list. Protected production startup, authenticated handlers, full runtime acceptance, original native startup and a real coding task remain unfinished. No engine release has been published."
+          "text": "The revised filter, native build, protected evaluator sources and actual launcher proposal are in place. Broker development now has tested credential transitions, regular-file and alias protection, real socket activation, and unprivileged service observations. These components are not yet joined into an accepted production broker deployment. Complete dependency coverage, authenticated request handling, full runtime acceptance, original native startup and a real coding task remain unfinished. No engine release has been published."
         },
         {
           "type": "image",
@@ -813,9 +813,17 @@
           "text": "Work on protected startup now includes a native regular-file checker. Before loading a file, it checks the path without following symlinks, root ownership, ancestor permissions, mount restrictions, file capabilities and access-control lists. It then verifies the expected length and SHA-256 digest and retains a descriptor for rechecking. Eighteen real filesystem cases passed in disposable private mount namespaces, including altered bytes, unsafe ownership or permissions, symlinks, extra hard links, missing mount restrictions and extra access rights. No Python interpreter or broker request handler was executed by this file-checking fixture."
         },
         {
+          "type": "paragraph",
+          "text": "The native alias checker now also verifies exact approved absolute targets and rechecks that both the target pathname and alias pathname still identify the retained files. Fifteen real cases passed, including replacing a target with identical bytes and replacing an alias with another pointing to the same target. These checks still depend on deployment controls that prevent unauthorized writes after the final check."
+        },
+        {
+          "type": "paragraph",
+          "text": "A separate real service test checked what the broker can observe after dropping all privileges. Its own service identity, invocation record and a retained PID1 handle are available, but PID1 executable, root and namespace links are not. The new unprivileged service observer uses the available kernel and manager state, rechecks it across socket validation, rejects incorrect service or user expectations and rejects use after closing. Temporary accounts, services and runtime directories were removed. This does not authenticate PID1's executable or turn the observed state into deployment acceptance."
+        },
+        {
           "type": "callout",
           "label": "Scope and next work",
-          "text": "The service test proves a credential transition and real socket handoff for a disposable diagnostic using the host interpreter. The file checker proves a regular-file component; approved loader aliases, a complete broker dependency list and a fixed production entry still need integration. Read-only mounts alone do not prove that the same files cannot be written through another location. Next complete and verify the deployment, validate service-manager provenance, and connect authenticated requests to protected state. Full engine startup, a real coding task and the experimental release remain ahead."
+          "text": "Credential, file, alias and service-observation components now have isolated evidence. They still need to be combined with a complete broker dependency list, fixed production entry and accepted deployment records. The service observer requires protected expected values and a verified view of manager state; it does not replace those trust decisions. Next complete those joins and connect authenticated requests to protected state. Full engine startup, a real coding task and the experimental release remain ahead."
         }
       ]
     },
