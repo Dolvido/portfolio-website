@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The launcher proposal uses actual files. Real systemd broker tests exposed an account-provisioning prerequisite and a group-policy mismatch. Service integration, full native startup and a real coding task remain unfinished."
+      "summary": "A native credential transition now passes real systemd broker socket activation in a disposable diagnostic. Protected production startup, authenticated handlers, full native startup and a real coding task remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The revised filter, native build, protected evaluator sources and actual launcher proposal are in place. Work on the broker has reached real systemd activation tests. Those tests exposed two deployment issues: socket ownership needs provisioned accounts, and direct service startup supplies a supplementary group that the current principal policy rejects. The rejection is preserved. Service compatibility, full runtime acceptance, original native startup and a real coding task remain unfinished. No engine release has been published."
+          "text": "The revised filter, native build, protected evaluator sources and actual launcher proposal are in place. A native broker credential component now passes 13 kernel cases and a real systemd socket-activation diagnostic. It removes the redundant primary group and all capabilities before Python runs, preserving the strict principal checks. This remains a diagnostic using the host interpreter. Protected production startup, authenticated handlers, full runtime acceptance, original native startup and a real coding task remain unfinished. No engine release has been published."
         },
         {
           "type": "image",
@@ -801,9 +801,17 @@
           "text": "The failed attempts remain recorded. Temporary accounts, groups, units and runtime directories were removed and their absence independently checked. An initial account-setup command also rejected an unsupported option before creating a user; that attempt is preserved separately. No permanent service was installed, and no production broker authority handler or complete native startup ran."
         },
         {
+          "type": "paragraph",
+          "text": "A native credential component now addresses that mismatch without weakening the principal checks. A separate test executable passed 13 real kernel cases. Valid starts ended with the expected user and group, an empty supplementary-group list, all five capability sets empty and the no-new-privileges setting enabled. Incorrect identities, extra groups, incorrect capability settings and unexpected arguments were rejected. Final credentials were independently observed while the native test process was paused."
+        },
+        {
+          "type": "paragraph",
+          "text": "A fresh systemd diagnostic then started a native entry with only the two capabilities needed for the transition. It cleared the redundant group, removed every capability and handed off to a fixed Python observation script in the same process. The three systemd-created broker sockets passed the unchanged listener checks; the process ID and invocation matched the service manager. Socket ownership and permissions matched the proposed policy. The test completed successfully, and temporary accounts, groups, units and runtime directories were removed."
+        },
+        {
           "type": "callout",
-          "label": "Next compatibility work",
-          "text": "Resolve the observed service-startup behavior against the exact principal contract through an explicit design review. Do not silently ignore the extra group or substitute a less restricted service. Then rerun a fresh activation test and connect authenticated requests to protected state before completing the other deployment roles and coding-task demonstration."
+          "label": "Scope and next work",
+          "text": "This proves the credential transition and real socket handoff for a disposable diagnostic. It uses the host interpreter and a test script, so it is not an accepted production broker deployment or authenticated request handler. Next bind the fixed broker entry and its dependencies to protected deployment records, validate manager provenance, and connect authenticated requests to protected state. The remaining roles, complete native startup, real coding task and experimental release are still ahead."
         }
       ]
     },
