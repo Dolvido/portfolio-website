@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "A real service test now joins protected startup configuration, measured broker code and full record validation. Production deployment, authenticated requests and a real coding task remain unfinished."
+      "summary": "Python workers now exchange checked requests and replies in separate-process tests. Protected startup diagnostics also pass; native integration, production deployment and a real coding task remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The revised filter, native build, protected evaluator sources and actual launcher proposal are in place. A disposable real systemd service now carries protected startup configuration through native checks and measured Python into complete runtime-lock and measurement-bundle validation, then real service and socket checks. Its deployment and platform records are synthetic test data. Approved production deployment, peer admission, authenticated request handling, original native engine startup and a real coding task remain unfinished. No engine release has been published."
+          "text": "The revised filter, native build, protected evaluator sources and actual launcher proposal are in place. A disposable real systemd service now carries protected startup configuration through native checks and measured Python into complete runtime-lock and measurement-bundle validation, then real service and socket checks. Its deployment and platform records are synthetic test data. Approved production deployment, peer admission, authenticated request handling, original native engine startup and a real coding task remain unfinished. No engine release has been published. Python-to-Python request and reply tests now pass, including a separate-process response. The changed transport source requires a fresh measured broker build before another native service test."
         },
         {
           "type": "image",
@@ -199,6 +199,10 @@
         {
           "type": "paragraph",
           "text": "A review adapter now recovers the exact saved dispatch, sends it through the V2 session and saves the worker's suite claim only after the complete task is verified. Redelivery through a new connection recovers the existing claim rather than creating a fresh one. The successful integration fixture explicitly simulates protected-role admission; its database, Linux credentials, process handles, message transfer and claim storage are real. Without that simulation, the fixture process is correctly rejected as a protected principal."
+        },
+        {
+          "type": "paragraph",
+          "text": "The Python V2 session now also returns one checked reply after the complete request. Thirty-nine focused transport and session tests passed, including a multi-message reply from a separate Linux process. The receiver checks the actual message sender, connection, message order and bytes, then requires a trusted response validator to bind the result to the original request. Invalid identities, malformed records, repeated replies and an expired validation deadline are rejected. An initial test setup exceeded the operating system argument-size limit before starting its child; moving the fixture data to a temporary file corrected that setup. These are Python-to-Python tests with synthetic deployment policy; interoperability with the native engine remains unverified."
         },
         {
           "type": "paragraph",
