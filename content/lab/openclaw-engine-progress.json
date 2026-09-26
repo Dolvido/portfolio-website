@@ -837,9 +837,13 @@
           "text": "The native activation check now also passes 47 isolated process and launch cases: nine valid cases and 38 rejection cases. These cover all six socket-name orders, missing or duplicate fields, invalid process IDs and counts, malformed names and invocation IDs, input-size limits, unavailable handles and a kernel refusal to close extra handles on launch. Valid launches kept only the six intended environment fields and three activation handles; two extra handles were absent afterward. An initial test-fixture handle setup error was preserved and corrected in a fresh attempt using the unchanged native binary. All children were reaped and temporary roots removed. These structural tests use placeholder handles; the separate systemd integration covers real sockets. Neither test grants production authority."
         },
         {
+          "type": "paragraph",
+          "text": "A native reader now loads the broker's proposed startup configuration from one fixed, protected path. It requires a root-owned, read-only file and an exact record naming the expected runtime lock, measurement bundle, activation and deployments. Twenty-nine isolated cases passed, including rejection of malformed records, unsafe file custody and changes, deletion or same-byte replacement after opening. The first build stopped on a formatting warning in the test entry; a separate corrected build passed. All test processes and temporary roots were removed. This establishes configuration custody and parsing, not approval of the deployments named inside the file."
+        },
+        {
           "type": "callout",
           "label": "Scope and next work",
-          "text": "Native checks, the measured Python runtime, real service observations and socket activation now pass together in a disposable diagnostic, with separate tests of invalid activation inputs. Next are protected startup policy and deployment acceptance, a fixed production entry and authenticated durable request handlers. The inventory covers component imports, not every future execution path. Full engine startup, a real coding task and the experimental release remain unfinished."
+          "text": "Native checks, the measured Python runtime, real service observations and socket activation pass together in a disposable diagnostic. Separate components test invalid activation inputs and protected startup-configuration custody. Next join the configuration reader to the measured handoff and complete runtime-lock and measurement-bundle validation, then production peer admission and authenticated durable request handlers. Full engine startup, a real coding task and the experimental release remain unfinished."
         }
       ]
     },
