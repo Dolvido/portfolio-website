@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "A real systemd test now joins native safety checks, the measured Python runtime and all three broker sockets. Production authorization, full engine startup and a real coding task remain unfinished."
+      "summary": "A real service test now joins protected startup configuration, measured broker code and full record validation. Production deployment, authenticated requests and a real coding task remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The revised filter, native build, protected evaluator sources and actual launcher proposal are in place. A disposable real systemd service now joins native credential, file and alias checks to measured Python execution, retained service observations and all three broker sockets. This is a successful combined diagnostic. Protected deployment acceptance, authenticated request handling, full runtime acceptance, original native startup and a real coding task remain unfinished. No engine release has been published."
+          "text": "The revised filter, native build, protected evaluator sources and actual launcher proposal are in place. A disposable real systemd service now carries protected startup configuration through native checks and measured Python into complete runtime-lock and measurement-bundle validation, then real service and socket checks. Its deployment and platform records are synthetic test data. Approved production deployment, peer admission, authenticated request handling, original native engine startup and a real coding task remain unfinished. No engine release has been published."
         },
         {
           "type": "image",
@@ -841,9 +841,13 @@
           "text": "A native reader now loads the broker's proposed startup configuration from one fixed, protected path. It requires a root-owned, read-only file and an exact record naming the expected runtime lock, measurement bundle, activation and deployments. Twenty-nine isolated cases passed, including rejection of malformed records, unsafe file custody and changes, deletion or same-byte replacement after opening. The first build stopped on a formatting warning in the test entry; a separate corrected build passed. All test processes and temporary roots were removed. This establishes configuration custody and parsing, not approval of the deployments named inside the file."
         },
         {
+          "type": "paragraph",
+          "text": "The protected configuration reader is now joined to the complete runtime-lock and measurement-bundle validators. Seven semantic tests check every expected identity, changed code bytes across all five deployment roles, source and socket inputs, malformed configuration and rehashed invalid records. A fresh measured runtime contains 26 project modules, with all 87 loaded module files checked again after validation. In a real systemd diagnostic, the native entry retained the configuration, verified 100 files and five aliases, and handed its descriptor and digest to Python. Full record validation, service observations and all three sockets passed. A separate test used the same binary but substituted the expected broker identity; startup stopped at that binding check. Both attempts removed their temporary accounts and services. The deployment and platform records used here are explicitly synthetic, so this demonstrates the connected validation path without granting production authority."
+        },
+        {
           "type": "callout",
           "label": "Scope and next work",
-          "text": "Native checks, the measured Python runtime, real service observations and socket activation pass together in a disposable diagnostic. Separate components test invalid activation inputs and protected startup-configuration custody. Next join the configuration reader to the measured handoff and complete runtime-lock and measurement-bundle validation, then production peer admission and authenticated durable request handlers. Full engine startup, a real coding task and the experimental release remain unfinished."
+          "text": "Protected configuration, measured code, full record validation and real service/socket observations now run together in a diagnostic. Next supply the actual reviewed deployment and measurement chain, complete the fixed production entry and peer admission, then authenticated durable handlers. Synthetic acceptance records cannot approve the installed runtime. Original native engine startup, a real coding task and the experimental release remain unfinished."
         }
       ]
     },
