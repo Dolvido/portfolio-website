@@ -833,9 +833,13 @@
           "text": "The measured runtime has now been joined to real systemd activation. The first attempts stopped at the native file check; a diagnostic showed that the private root was still writable. Correcting the read-only rule to target the service root allowed Python to start, where the service-state directory check found another configuration mismatch. An explicit protected /run mount resolved that rejection. The fresh combined test passed native checks, all 76 module-file comparisons, retained service observations and validation of all three real sockets. It also closed the sockets and removed the temporary accounts, services and directories. The earlier failed attempts remain preserved."
         },
         {
+          "type": "paragraph",
+          "text": "The native activation check now also passes 47 isolated process and launch cases: nine valid cases and 38 rejection cases. These cover all six socket-name orders, missing or duplicate fields, invalid process IDs and counts, malformed names and invocation IDs, input-size limits, unavailable handles and a kernel refusal to close extra handles on launch. Valid launches kept only the six intended environment fields and three activation handles; two extra handles were absent afterward. An initial test-fixture handle setup error was preserved and corrected in a fresh attempt using the unchanged native binary. All children were reaped and temporary roots removed. These structural tests use placeholder handles; the separate systemd integration covers real sockets. Neither test grants production authority."
+        },
+        {
           "type": "callout",
           "label": "Scope and next work",
-          "text": "Native checks, the measured Python runtime, real service observations and socket activation now pass together in a disposable diagnostic. Next are negative activation tests, protected startup policy and deployment acceptance, a fixed production entry and authenticated durable request handlers. The inventory covers component imports, not every future execution path. Full engine startup, a real coding task and the experimental release remain unfinished."
+          "text": "Native checks, the measured Python runtime, real service observations and socket activation now pass together in a disposable diagnostic, with separate tests of invalid activation inputs. Next are protected startup policy and deployment acceptance, a fixed production entry and authenticated durable request handlers. The inventory covers component imports, not every future execution path. Full engine startup, a real coding task and the experimental release remain unfinished."
         }
       ]
     },
