@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "A proposed syscall-table update now lets Python start with the safety filter enforced. Selected kernel restrictions still pass. Native build integration, complete startup and a real coding task remain unfinished."
+      "summary": "Python starts with the proposed safety filter enforced, selected kernel restrictions still pass, and the native rebuild succeeds. Protected runtime integration, complete startup and a real coding task remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The real evaluator entry runs without a test-input file. A proposed syscall-table update now lets the pinned interpreter complete a minimal startup program with the filter enforced, without tracing or an unfiltered fallback. The exact deny list and architecture guards remain unchanged, and selected kernel restrictions still pass. The new table is not yet integrated into the native build or protected deployment. Complete startup, real coding tasks and the experimental engine release remain unfinished."
+          "text": "The real evaluator entry runs without a test-input file. A proposed syscall-table update now lets the pinned interpreter complete a minimal startup program with the filter enforced, without tracing or an unfiltered fallback. The exact deny list and architecture guards remain unchanged, and selected kernel restrictions still pass. The proposed table has now been joined to the native build records, and all five isolated build stages pass. Protected runtime source records and deployment still need migration. Complete startup, real coding tasks and the experimental engine release remain unfinished."
         },
         {
           "type": "image",
@@ -763,9 +763,13 @@
           "text": "The proposed filter was compiled and checked against its own exact table pin. The interpreter then completed a minimal program with the filter enforced, without tracing or an unfiltered fallback. Separate disposable kernel checks confirmed that socket creation and unknown calls remain denied, and x32 calls terminate the process. All test children were reaped. Twenty-one focused tests passed, including rejection of mismatched table versions and weakened guards."
         },
         {
+          "type": "paragraph",
+          "text": "The proposed table has also been joined to a new native source and build record. All five isolated build stages completed successfully. The native executable is byte-for-byte identical to the preceding build; the separate candidate filter carries the changed syscall allowances. This is build evidence, not runtime acceptance."
+        },
+        {
           "type": "callout",
           "label": "Scope and next step",
-          "text": "This resolves the observed minimal bootstrap failure in a development environment. It does not prove a protected runtime, the original native startup or a coding task. Next, integrate the proposed table into the native source and build records, rebuild, and complete the deployment and service connections before the end-to-end demonstration."
+          "text": "This resolves the observed minimal bootstrap failure in a development environment and confirms that the revised native source set builds. It does not prove a protected runtime, the original native startup or a coding task. Next, migrate the protected source records and Python package, check the native contract gates, and complete deployment and service connections before the end-to-end demonstration."
         }
       ]
     },
