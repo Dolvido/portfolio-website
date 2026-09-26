@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The revised filter, native build records and protected evaluator sources now agree. Native contract and supervised evaluator checks pass. Complete deployment, original native startup and a real coding task remain unfinished."
+      "summary": "A file-only library layout passes the supervised evaluator run, and actual files now form an ordered launcher deployment proposal. Full runtime acceptance, original native startup and a real coding task remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "Python starts under the proposed safety filter, and the revised native build succeeds. The protected source reader and freshly staged evaluator now use the same source version. Native contract checks, protected-file custody tests and supervised evaluator success and rejection cases pass. The actual file inventory includes the revised filter and source records, but full deployment identities, platform acceptance, original native startup and a real coding task remain unfinished. No engine release has been published."
+          "text": "The revised filter, native build and protected evaluator sources agree. The evaluator also runs with the proposed file-only library layout. Actual files now form an ordered launcher deployment proposal, with checked identities and byte preimages. The remaining deployment roles, installed custody, platform acceptance, original native startup and a real coding task are still unfinished. No engine release has been published."
         },
         {
           "type": "image",
@@ -775,9 +775,13 @@
           "text": "The actual file inventory now combines that tested evaluator, protected source records, rebuilt native executable and verified filter. It contains 93 files with no missing required launcher role names. File presence is still not deployment acceptance: the supervised tests use synthetic acceptance records and a disposable Python parent, so they do not exercise the complete native launcher."
         },
         {
+          "type": "paragraph",
+          "text": "The deployment layout now has a concrete proposal too. A fresh supervised evaluator run succeeded using three explicit file aliases and no directory shortcut. The actual file collector then produced 89 ordered runtime objects and seven configuration artifacts, covering 93 regular files. Existing validators rederived the record identities and checked the raw bytes. Six focused tests passed, including changed-byte rejection, object ordering, alias constraints and collection without importing test fixtures. This is one proposed launcher record, not an accepted complete runtime."
+        },
+        {
           "type": "callout",
           "label": "Scope and next step",
-          "text": "Next, construct the ordered deployment identities, library dependencies and loader aliases from the actual files. Join the required protected stores, platform acceptance, service and socket setup, and runtime activation record. Then exercise original native startup and the real coding-task success, failure, restart and cancellation paths before preparing an experimental release."
+          "text": "Next, complete the other required deployment roles and review the configuration policies. Establish actual installed custody, platform acceptance, protected stores, service and socket setup, and runtime activation. Then exercise original native startup and the real coding-task success, failure, restart and cancellation paths before preparing an experimental release."
         }
       ]
     },
