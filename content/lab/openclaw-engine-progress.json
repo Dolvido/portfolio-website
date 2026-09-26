@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "Python starts with the proposed safety filter enforced, selected kernel restrictions still pass, and the native rebuild succeeds. Protected runtime integration, complete startup and a real coding task remain unfinished."
+      "summary": "The revised filter, native build records and protected evaluator sources now agree. Native contract and supervised evaluator checks pass. Complete deployment, original native startup and a real coding task remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The real evaluator entry runs without a test-input file. A proposed syscall-table update now lets the pinned interpreter complete a minimal startup program with the filter enforced, without tracing or an unfiltered fallback. The exact deny list and architecture guards remain unchanged, and selected kernel restrictions still pass. The proposed table has now been joined to the native build records, and all five isolated build stages pass. Protected runtime source records and deployment still need migration. Complete startup, real coding tasks and the experimental engine release remain unfinished."
+          "text": "Python starts under the proposed safety filter, and the revised native build succeeds. The protected source reader and freshly staged evaluator now use the same source version. Native contract checks, protected-file custody tests and supervised evaluator success and rejection cases pass. The actual file inventory includes the revised filter and source records, but full deployment identities, platform acceptance, original native startup and a real coding task remain unfinished. No engine release has been published."
         },
         {
           "type": "image",
@@ -767,9 +767,17 @@
           "text": "The proposed table has also been joined to a new native source and build record. All five isolated build stages completed successfully. The native executable is byte-for-byte identical to the preceding build; the separate candidate filter carries the changed syscall allowances. This is build evidence, not runtime acceptance."
         },
         {
+          "type": "paragraph",
+          "text": "The source version has since been carried through the protected reader and a fresh Python staging. Native helper execution passed eight source-pin cases and five build-contract cases, including rejection of the preceding table against the revised deployment record. Seven protected-file custody cases passed. The freshly staged evaluator produced the expected durable output in a supervised disposable environment; false-parent and altered-source cases were rejected before output. The first invocation lacked required test-harness options and was rejected before setup; a separate corrected attempt passed."
+        },
+        {
+          "type": "paragraph",
+          "text": "The actual file inventory now combines that tested evaluator, protected source records, rebuilt native executable and verified filter. It contains 93 files with no missing required launcher role names. File presence is still not deployment acceptance: the supervised tests use synthetic acceptance records and a disposable Python parent, so they do not exercise the complete native launcher."
+        },
+        {
           "type": "callout",
           "label": "Scope and next step",
-          "text": "This resolves the observed minimal bootstrap failure in a development environment and confirms that the revised native source set builds. It does not prove a protected runtime, the original native startup or a coding task. Next, migrate the protected source records and Python package, check the native contract gates, and complete deployment and service connections before the end-to-end demonstration."
+          "text": "Next, construct the ordered deployment identities, library dependencies and loader aliases from the actual files. Join the required protected stores, platform acceptance, service and socket setup, and runtime activation record. Then exercise original native startup and the real coding-task success, failure, restart and cancellation paths before preparing an experimental release."
         }
       ]
     },
