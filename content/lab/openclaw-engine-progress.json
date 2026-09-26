@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "Native broker credential, file, alias and service-observation checks pass isolated tests. Their production integration, authenticated requests, full engine startup and a real coding task remain unfinished."
+      "summary": "Native checks now hand off to a measured broker-component Python runtime. Production service integration, authenticated requests, full engine startup and a real coding task remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The revised filter, native build, protected evaluator sources and actual launcher proposal are in place. Broker development now has tested credential transitions, regular-file and alias protection, real socket activation, and unprivileged service observations. These components are not yet joined into an accepted production broker deployment. Complete dependency coverage, authenticated request handling, full runtime acceptance, original native startup and a real coding task remain unfinished. No engine release has been published."
+          "text": "The revised filter, native build, protected evaluator sources and actual launcher proposal are in place. Broker components now pass native file and alias verification before measured Python imports. Separate real systemd tests cover socket activation and unprivileged service observations. These paths are not yet joined into an accepted production broker deployment. Authenticated request handling, full runtime acceptance, original native startup and a real coding task remain unfinished. No engine release has been published."
         },
         {
           "type": "image",
@@ -821,9 +821,17 @@
           "text": "A separate real service test checked what the broker can observe after dropping all privileges. Its own service identity, invocation record and a retained PID1 handle are available, but PID1 executable, root and namespace links are not. The new unprivileged service observer uses the available kernel and manager state, rechecks it across socket validation, rejects incorrect service or user expectations and rejects use after closing. Temporary accounts, services and runtime directories were removed. This does not authenticate PID1's executable or turn the observed state into deployment acceptance."
         },
         {
+          "type": "paragraph",
+          "text": "The broker components now have a separate measured Python inventory: 15 project modules, 76 file-backed modules and 13 native files, including SQLite and ctypes dependencies. The proposed runtime contains 86 regular files and five explicit aliases. A disposable read-only runtime successfully imported all 15 components and checked every loaded module's bytes. The collector also rejects current project source that no longer matches the staged inventory."
+        },
+        {
+          "type": "paragraph",
+          "text": "A combined native test then used compiled pins to verify all 86 files and five aliases before handing off through the verified interpreter descriptor. Python ran with fixed isolated-startup arguments and a restricted environment, and all 76 loaded module files matched. A separate test altered a copied broker source file; the native check exited before the Python diagnostic produced output. Both temporary runtimes were removed. This joins the native checks to measured interpreter execution for an import diagnostic, not a production broker or coding task."
+        },
+        {
           "type": "callout",
           "label": "Scope and next work",
-          "text": "Credential, file, alias and service-observation components now have isolated evidence. They still need to be combined with a complete broker dependency list, fixed production entry and accepted deployment records. The service observer requires protected expected values and a verified view of manager state; it does not replace those trust decisions. Next complete those joins and connect authenticated requests to protected state. Full engine startup, a real coding task and the experimental release remain ahead."
+          "text": "Native credentials, file and alias checks now connect to a measured Python import runtime. The combined test still needs to be joined with real service sockets, protected startup policy and accepted deployment records, then authenticated request handlers. The inventory covers component imports, not every future execution path. Full engine startup, a real coding task and the experimental release remain unfinished."
         }
       ]
     },
