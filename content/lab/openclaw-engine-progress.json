@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "A file-only library layout passes the supervised evaluator run, and actual files now form an ordered launcher deployment proposal. Full runtime acceptance, original native startup and a real coding task remain unfinished."
+      "summary": "The launcher proposal uses actual files. Real systemd broker tests exposed an account-provisioning prerequisite and a group-policy mismatch. Service integration, full native startup and a real coding task remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The revised filter, native build and protected evaluator sources agree. The evaluator also runs with the proposed file-only library layout. Actual files now form an ordered launcher deployment proposal, with checked identities and byte preimages. The remaining deployment roles, installed custody, platform acceptance, original native startup and a real coding task are still unfinished. No engine release has been published."
+          "text": "The revised filter, native build, protected evaluator sources and actual launcher proposal are in place. Work on the broker has reached real systemd activation tests. Those tests exposed two deployment issues: socket ownership needs provisioned accounts, and direct service startup supplies a supplementary group that the current principal policy rejects. The rejection is preserved. Service compatibility, full runtime acceptance, original native startup and a real coding task remain unfinished. No engine release has been published."
         },
         {
           "type": "image",
@@ -782,6 +782,28 @@
           "type": "callout",
           "label": "Scope and next step",
           "text": "Next, complete the other required deployment roles and review the configuration policies. Establish actual installed custody, platform acceptance, protected stores, service and socket setup, and runtime activation. Then exercise original native startup and the real coding-task success, failure, restart and cancellation paths before preparing an experimental release."
+        }
+      ]
+    },
+    {
+      "title": "Broker service activation findings",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The older broker creates its own stream socket, while the current contract requires named packet sockets created by systemd. A new retained-listener component checks the three broker handles without creating or changing endpoints. Thirteen real disposable socket cases passed, including incorrect names, socket types, credential settings, duplicate or missing handles, changed retained state and cleanup. These checks alone do not authenticate the service manager or authorize requests."
+        },
+        {
+          "type": "paragraph",
+          "text": "The first real systemd attempt stopped before the service started because the proposed numeric broker identity had no local account record. A separate test used temporary locked, non-login accounts and successfully reached service startup with correctly owned sockets. The broker then rejected the supplementary group list: systemd included the primary group, while the pinned principal policy requires an empty list. Clearing the unit's supplementary-group setting did not produce an empty kernel list in this test."
+        },
+        {
+          "type": "paragraph",
+          "text": "The failed attempts remain recorded. Temporary accounts, groups, units and runtime directories were removed and their absence independently checked. An initial account-setup command also rejected an unsupported option before creating a user; that attempt is preserved separately. No permanent service was installed, and no production broker authority handler or complete native startup ran."
+        },
+        {
+          "type": "callout",
+          "label": "Next compatibility work",
+          "text": "Resolve the observed service-startup behavior against the exact principal contract through an explicit design review. Do not silently ignore the extra group or substitute a less restricted service. Then rerun a fresh activation test and connect authenticated requests to protected state before completing the other deployment roles and coding-task demonstration."
         }
       ]
     },
