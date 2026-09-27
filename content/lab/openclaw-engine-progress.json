@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The protected Python reader now supports the new source revision; 138 regression tests and 14 real filesystem cases pass. Installed runtime integration, full native startup, a real coding task and the experimental release remain unfinished."
+      "summary": "The current runtime is assembled, and two isolated installed-layout checks pass. A valid native handoff, full native startup, a real coding task and the experimental release remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The complete setup-evidence reply now has linked source contracts and tested native and Python readers. The Python path also validates the additional deployed source component and reaches synthetic startup-publication validation. A fresh isolated import staging matches that semantic result. Production integration still needs the installed runtime to be exercised, accepted deployments, live peer admission and final-result handling. Original native engine startup and a real coding task remain unfinished. No engine release has been published."
+          "text": "The latest native executable, Python worker, protected source files and filter now form one runtime proposal. An isolated installation successfully reads the protected sources, and the real Python entry refuses to start without a valid native handoff. These checks do not run the native launcher or establish an accepted deployment. Next come a valid native handoff and startup receipt, the remaining deployment and worker connections, and a real coding task. No engine release has been published."
         },
         {
           "type": "image",
@@ -227,6 +227,10 @@
         {
           "type": "paragraph",
           "text": "The protected Python reader now recognizes the exact revised source set: seven source records and seven provider files, with no caller-selected path, hash or fallback. Runtime deployment checks bind the additional provider, and service-policy review uses the fixed revised authority. A separate evaluator entry retains the existing process, descriptor and parent checks. The combined regression run passed 138 tests, including the complete synthetic startup-publication validation path and rejection of a rehashed provider substitution. Fourteen real protected-filesystem cases passed in disposable private mounts, including old records, changed files, symlinks, hard links, unsafe ownership or modes, a missing include and a writable mount. All children and temporary roots were removed. A fresh staging of 14 project modules then matched the synthetic semantic result in an isolated interpreter, checked all 60 loaded module files and loaded no test modules. This still requires an installed runtime demonstration with the actual native parent and accepted deployment records."
+        },
+        {
+          "type": "paragraph",
+          "text": "The current runtime has now been assembled from actual files: 96 regular files, three exact file aliases and a launcher proposal with all required launcher role names. The revised authority has its own filter compiler and verifier binding; the generated filter bytes are unchanged. Twenty focused material and filter tests and two source-archive checks pass. A disposable installation then passed two execution checks: the protected reader loaded all seven source records and seven providers, with 51 loaded module files matching the proposed installation; the exact Python entry exited with rejection when launched without native handoff evidence. Both children were reaped, installed inputs stayed unchanged and the temporary filesystem was removed. The native executable was present but was not executed, and this interpreter-only check did not install its file capabilities. The next step is a valid native handoff and durable startup receipt for this composition, followed by complete deployment acceptance, live admission and final-result handling before the real coding demonstration."
         },
         {
           "type": "paragraph",
