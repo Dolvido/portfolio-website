@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "A native encoder test now matches the Python suite-response validator and exposed a missing journal-data integration step. Full native startup, a real coding task and the experimental release remain unfinished."
+      "summary": "A proposed native reply now carries complete setup evidence to Python over a real socket. The new build and focused checks pass; full native startup, a real coding task and the experimental release remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "Protected startup configuration, measured code, full record review and real service/socket checks run together in a diagnostic using synthetic deployment records. Python request/reply transport passes, and a separate native encoder fixture now agrees with the suite-response validator. Production integration still needs protected journal-row retrieval, live peer admission, accepted deployments and a fresh measured broker build. Original native engine startup and a real coding task remain unfinished. No engine release has been published."
+          "text": "Protected startup configuration, measured code, full record review and real service/socket checks run together in a diagnostic using synthetic deployment records. A new native reply proposal also transfers complete setup evidence to Python over a real socket. Production integration still needs the updated source/build contract, live peer admission, accepted deployments, final-result handling and a fresh measured broker build. Original native engine startup and a real coding task remain unfinished. No engine release has been published."
         },
         {
           "type": "image",
@@ -210,7 +210,11 @@
         },
         {
           "type": "paragraph",
-          "text": "The combined focused checks now pass 54 tests, including a real Python socket exchange, rehashed invalid records and a regression using the native encoder output. This is compatibility evidence for synthetic records, not full native engine startup. The native reply supplies the row manifest but omits the row bodies, so production integration still needs a protected way to obtain that evidence. Final-evidence response validation, live peer admission, a fresh measured broker build and the complete coding lifecycle remain unfinished."
+          "text": "That snapshot passed 54 focused checks. The native reply supplied the row manifest but omitted the row bodies, identifying the next integration gap. A separate protocol proposal now carries all eleven manifest-selected rows with the existing response. It preserves the protected file permissions and rejects missing, altered or unsafe rows before sending anything. The complete proposed launcher passes all five build stages, and eleven native filesystem cases pass. The new combined Python checks pass 62 tests."
+        },
+        {
+          "type": "paragraph",
+          "text": "A second native fixture sent the complete setup evidence to Python over a real socket in three messages. Python checked the actual sender's Linux identity, the message bytes and the complete evidence; a separate wrong-user test was rejected. All children and temporary files were cleaned up. This tests the native message encoding and transfer with a synthetic connection identity, not the production handshake or a running engine. The proposed protocol still needs to be incorporated into the reviewed source/build contract and current measured deployment. Final-result validation, live peer admission, original native startup and the full coding lifecycle remain unfinished."
         },
         {
           "type": "paragraph",
