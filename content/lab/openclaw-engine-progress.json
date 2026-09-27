@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "A real service now verifies the root-to-launcher credential transition and delegated cgroup access. The combined runtime has 112 files; full installed startup, a real coding task and the release remain unfinished."
+      "summary": "The combined 112-file runtime now passes an installed preflight under real service and socket activation. Accepted startup records, native-engine execution, the real coding task and the release remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The root startup entry and evaluator now form a combined 112-file runtime proposal. A real system service demonstrated the required root credentials, the drop to launcher UID 980, and creation and removal of a delegated child cgroup. Earlier failed attempts exposed file-access and supplementary-group mismatches and are preserved. This diagnostic used staged project sources and host Python; the complete installed runtime, activation handoff and original native engine still need to run together. No engine release has been published."
+          "text": "The combined runtime now runs an installed diagnostic using its own interpreter, modules and libraries under real system-service and socket activation. It verifies 112 runtime files, four aliases, 64 loaded modules, exact root and descriptor state, the retained service context and the current native executable. Cleanup includes the temporary socket groups. The check publishes no admission and does not execute the native engine. Accepted startup records and the full handoff remain the next boundary; no engine release has been published."
         },
         {
           "type": "image",
@@ -239,6 +239,10 @@
         {
           "type": "paragraph",
           "text": "The privileged startup entry now has its own isolated import inventory: 13 project modules, 64 loaded filesystem modules and 11 native files. Combining it with the evaluator produced a 112-file runtime proposal with four exact file aliases. Service integration uncovered a practical ownership issue: the command must start as root while delegation remains assigned to launcher UID 980. The revised proposal uses systemd's command prefix for that separation. Four distinct bounded diagnostic attempts were retained. The first could not reach its script through the private checkout; staging readable source copies let the next attempt reach the credential check. A further observation identified supplementary group 980 as the mismatch. The fixed entry now validates that complete initial credential state, removes the group and reruns the strict root check. The fourth real service attempt passed: it dropped to UID/GID 980 with the required native pre-exec state, then created and removed an empty child cgroup with cpu, memory and pids available. All temporary roots, unit files and cgroups were confirmed absent. Twenty-one focused tests and two archive checks pass. The diagnostic used staged project sources and host Python, not the complete 112-file installation, and executed no native engine. Next come the combined installation, real activation and admission, independently bound deployment roots and a valid native startup receipt."
+        },
+        {
+          "type": "paragraph",
+          "text": "The combined installation now passes a real PID1 and socket-activation preflight. The fixture installs the 112 runtime files and four exact file aliases in a private read-only root, alongside explicit diagnostic files. It uses the installed interpreter and libraries rather than host Python. Real service-manager sockets provide the control and descriptor listeners. The diagnostic validates the root credential preparation, exact activation descriptors, retained service context and pinned native executable, then checks all runtime bytes and all 64 loaded filesystem modules. The controller independently matches the reported process and invocation to the service manager and checks socket ownership. The first attempt stopped before application execution because systemd could not resolve socket groups 970 and 971. A fresh attempt created two temporary group records, passed, and removed them with every unit, endpoint and private root; cleanup was independently confirmed. Two source-archive checks also pass. This is the installed preflight, not the full root entry: no admission was published, no accepted startup records were invented and the native engine was not executed. Next come the independently bound startup configuration, full runtime lock and accepted measurement bundle, including the other deployment roles, before the native handoff and real coding lifecycle."
         },
         {
           "type": "paragraph",
