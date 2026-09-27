@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "Python workers now exchange checked requests and replies in separate-process tests. Protected startup diagnostics also pass; native integration, production deployment and a real coding task remain unfinished."
+      "summary": "A native encoder test now matches the Python suite-response validator and exposed a missing journal-data integration step. Full native startup, a real coding task and the experimental release remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The revised filter, native build, protected evaluator sources and actual launcher proposal are in place. A disposable real systemd service now carries protected startup configuration through native checks and measured Python into complete runtime-lock and measurement-bundle validation, then real service and socket checks. Its deployment and platform records are synthetic test data. Approved production deployment, peer admission, authenticated request handling, original native engine startup and a real coding task remain unfinished. No engine release has been published. Python-to-Python request and reply tests now pass, including a separate-process response. The changed transport source requires a fresh measured broker build before another native service test."
+          "text": "Protected startup configuration, measured code, full record review and real service/socket checks run together in a diagnostic using synthetic deployment records. Python request/reply transport passes, and a separate native encoder fixture now agrees with the suite-response validator. Production integration still needs protected journal-row retrieval, live peer admission, accepted deployments and a fresh measured broker build. Original native engine startup and a real coding task remain unfinished. No engine release has been published."
         },
         {
           "type": "image",
@@ -203,6 +203,14 @@
         {
           "type": "paragraph",
           "text": "The Python V2 session now also returns one checked reply after the complete request. Thirty-nine focused transport and session tests passed, including a multi-message reply from a separate Linux process. The receiver checks the actual message sender, connection, message order and bytes, then requires a trusted response validator to bind the result to the original request. Invalid identities, malformed records, repeated replies and an expired validation deadline are rejected. An initial test setup exceeded the operating system argument-size limit before starting its child; moving the fixture data to a temporary file corrected that setup. These are Python-to-Python tests with synthetic deployment policy; interoperability with the native engine remains unverified."
+        },
+        {
+          "type": "paragraph",
+          "text": "A concrete suite-preparation response validator now checks the successor containment record, service and process bindings, protected path-isolation evidence and the exact request. Testing it against the actual native encoders exposed a mismatch that the first Python tests had missed: native journal rows wrap setup records in a larger evidence payload. The first native fixture stopped at its row validator. The corrected implementation checks all eleven complete row bodies against the reply's manifest. A fresh unprivileged native fixture then produced a byte-exact response that Python accepted with those rows. Both fixture processes were reaped and their temporary directories removed."
+        },
+        {
+          "type": "paragraph",
+          "text": "The combined focused checks now pass 54 tests, including a real Python socket exchange, rehashed invalid records and a regression using the native encoder output. This is compatibility evidence for synthetic records, not full native engine startup. The native reply supplies the row manifest but omits the row bodies, so production integration still needs a protected way to obtain that evidence. Final-evidence response validation, live peer admission, a fresh measured broker build and the complete coding lifecycle remain unfinished."
         },
         {
           "type": "paragraph",
