@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The native startup reader now passes 30 source and build-contract cases, and the updated launcher builds. Python reader integration, full native startup, a real coding task and the experimental release remain unfinished."
+      "summary": "The protected Python reader now supports the new source revision; 138 regression tests and 14 real filesystem cases pass. Installed runtime integration, full native startup, a real coding task and the experimental release remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "Protected startup configuration, measured code, full record review and real service/socket checks run together in a diagnostic using synthetic deployment records. The complete setup-evidence reply has linked source contracts, and the native source-pin and build-contract checks now recognize that revision. Production integration still needs protected Python reader migration, live peer admission, accepted deployments, final-result handling and a fresh measured runtime. Original native engine startup and a real coding task remain unfinished. No engine release has been published."
+          "text": "The complete setup-evidence reply now has linked source contracts and tested native and Python readers. The Python path also validates the additional deployed source component and reaches synthetic startup-publication validation. A fresh isolated import staging matches that semantic result. Production integration still needs the installed runtime to be exercised, accepted deployments, live peer admission and final-result handling. Original native engine startup and a real coding task remain unfinished. No engine release has been published."
         },
         {
           "type": "image",
@@ -223,6 +223,10 @@
         {
           "type": "paragraph",
           "text": "The native reader has now been migrated to the proposed revision, including the additional source component and exact contract bindings. Its first isolated helper run rejected the valid authority because two old checks still expected the previous field count and status. That attempt was preserved. A separate corrected build and unprivileged run passed 30 source-pin and build-contract cases, rejecting old or mixed records, altered source hashes, missing or duplicate components and weakened build settings. Both children and temporary directories were cleaned up. The complete updated launcher also builds and passes static executable checks, but has not been run. Thirteen Python source-revision tests pass. These native tests use a minimal synthetic deployment projection and exercise the validation helpers only; the protected Python reader, full dependency closure, actual deployment acceptance and original native startup remain integration work."
+        },
+        {
+          "type": "paragraph",
+          "text": "The protected Python reader now recognizes the exact revised source set: seven source records and seven provider files, with no caller-selected path, hash or fallback. Runtime deployment checks bind the additional provider, and service-policy review uses the fixed revised authority. A separate evaluator entry retains the existing process, descriptor and parent checks. The combined regression run passed 138 tests, including the complete synthetic startup-publication validation path and rejection of a rehashed provider substitution. Fourteen real protected-filesystem cases passed in disposable private mounts, including old records, changed files, symlinks, hard links, unsafe ownership or modes, a missing include and a writable mount. All children and temporary roots were removed. A fresh staging of 14 project modules then matched the synthetic semantic result in an isolated interpreter, checked all 60 loaded module files and loaded no test modules. This still requires an installed runtime demonstration with the actual native parent and accepted deployment records."
         },
         {
           "type": "paragraph",
