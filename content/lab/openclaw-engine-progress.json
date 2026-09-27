@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The combined 112-file runtime now passes an installed preflight under real service and socket activation. Accepted startup records, native-engine execution, the real coding task and the release remain unfinished."
+      "summary": "The installed runtime passes its preflight, and a new Python reader checks final job evidence in 59 passing tests. Native reply integration, full engine startup, a real coding task and the release remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The combined runtime now runs an installed diagnostic using its own interpreter, modules and libraries under real system-service and socket activation. It verifies 112 runtime files, four aliases, 64 loaded modules, exact root and descriptor state, the retained service context and the current native executable. Cleanup includes the temporary socket groups. The check publishes no admission and does not execute the native engine. Accepted startup records and the full handoff remain the next boundary; no engine release has been published."
+          "text": "The combined 112-file runtime passes its installed diagnostic under real service and socket activation. A new Python reader now checks final job records and binds replies to the expected job, requester and launcher. It distinguishes found, missing, invalid and unsafe evidence; missing evidence never counts as success. The reader and related checks pass 59 tests. Native-generated reply testing and integration into the running services remain next. The native engine has not completed full startup or a real coding task, and no engine release has been published."
         },
         {
           "type": "image",
@@ -243,6 +243,10 @@
         {
           "type": "paragraph",
           "text": "The combined installation now passes a real PID1 and socket-activation preflight. The fixture installs the 112 runtime files and four exact file aliases in a private read-only root, alongside explicit diagnostic files. It uses the installed interpreter and libraries rather than host Python. Real service-manager sockets provide the control and descriptor listeners. The diagnostic validates the root credential preparation, exact activation descriptors, retained service context and pinned native executable, then checks all runtime bytes and all 64 loaded filesystem modules. The controller independently matches the reported process and invocation to the service manager and checks socket ownership. The first attempt stopped before application execution because systemd could not resolve socket groups 970 and 971. A fresh attempt created two temporary group records, passed, and removed them with every unit, endpoint and private root; cleanup was independently confirmed. Two source-archive checks also pass. This is the installed preflight, not the full root entry: no admission was published, no accepted startup records were invented and the native engine was not executed. Next come the independently bound startup configuration, full runtime lock and accepted measurement bundle, including the other deployment roles, before the native handoff and real coding lifecycle."
+        },
+        {
+          "type": "paragraph",
+          "text": "Final-result verification now has a Python reader. It checks the native final-row identity, output bytes, recorded process outcome and cleanup proofs, then binds the reply to the retained witness request and reviewed launcher identities. Found, missing, invalid and unsafe outcomes remain distinct. The new tests and existing transport and semantic checks pass 59 tests, including altered evidence with recomputed hashes. Two source-archive checks also pass. These are Python fixtures: native encoder/validator comparison, actual reply transport integration and measured runtime packaging remain unfinished. The next step is to exercise replies produced by the native code before connecting the reader to the witness service."
         },
         {
           "type": "paragraph",
