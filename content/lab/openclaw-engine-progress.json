@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The startup wrapper now selects the current native build; 14 regression tests and 15 real executable-file checks pass. The measured service chain, full native startup, real coding task and experimental release remain unfinished."
+      "summary": "A real service now verifies the root-to-launcher credential transition and delegated cgroup access. The combined runtime has 112 files; full installed startup, a real coding task and the release remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The latest runtime is assembled and its installed Python layout has been checked. A separate fixed root startup entry now recognizes the current native executable while retaining the existing file, service, admission and privilege checks. It rejects old or altered executable files. The new entry still needs to join the measured service/deployment chain before a valid native handoff and startup receipt can be demonstrated. Full native engine startup, the real coding task and the release remain unfinished."
+          "text": "The root startup entry and evaluator now form a combined 112-file runtime proposal. A real system service demonstrated the required root credentials, the drop to launcher UID 980, and creation and removal of a delegated child cgroup. Earlier failed attempts exposed file-access and supplementary-group mismatches and are preserved. This diagnostic used staged project sources and host Python; the complete installed runtime, activation handoff and original native engine still need to run together. No engine release has been published."
         },
         {
           "type": "image",
@@ -235,6 +235,10 @@
         {
           "type": "paragraph",
           "text": "The next startup mismatch was in the root wrapper: it still required the older native executable. A separate fixed entry now selects the current 573,192-byte build, while the historical entry keeps its original selection. Both use the same checks for protected files, service context, startup roots, activation descriptors and the final privilege transition. Fourteen regression tests pass, including admission fields for the current build and stopping before execution when the retained file handle changes. Fifteen additional cases use real current and historical executable files at the fixed runtime path in disposable private namespaces. They accept the exact current file and reject cross-revision combinations, changed bytes, unsafe ownership or modes, links, incorrect capabilities, a mount that suppresses capabilities, namespace changes and replacement after retention. All children were reaped and temporary roots removed. Neither native binary was executed. The new root entry must now be measured and bound into the service/deployment chain; these file checks do not establish runtime acceptance or a valid native handoff."
+        },
+        {
+          "type": "paragraph",
+          "text": "The privileged startup entry now has its own isolated import inventory: 13 project modules, 64 loaded filesystem modules and 11 native files. Combining it with the evaluator produced a 112-file runtime proposal with four exact file aliases. Service integration uncovered a practical ownership issue: the command must start as root while delegation remains assigned to launcher UID 980. The revised proposal uses systemd's command prefix for that separation. Four distinct bounded diagnostic attempts were retained. The first could not reach its script through the private checkout; staging readable source copies let the next attempt reach the credential check. A further observation identified supplementary group 980 as the mismatch. The fixed entry now validates that complete initial credential state, removes the group and reruns the strict root check. The fourth real service attempt passed: it dropped to UID/GID 980 with the required native pre-exec state, then created and removed an empty child cgroup with cpu, memory and pids available. All temporary roots, unit files and cgroups were confirmed absent. Twenty-one focused tests and two archive checks pass. The diagnostic used staged project sources and host Python, not the complete 112-file installation, and executed no native engine. Next come the combined installation, real activation and admission, independently bound deployment roots and a valid native startup receipt."
         },
         {
           "type": "paragraph",
