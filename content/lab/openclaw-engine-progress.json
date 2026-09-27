@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "A proposed native reply now carries complete setup evidence to Python over a real socket. The new build and focused checks pass; full native startup, a real coding task and the experimental release remain unfinished."
+      "summary": "The complete evidence reply now has linked source, profile and build contracts, with 69 focused checks passing. Protected-reader integration, full native startup, a real coding task and the experimental release remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "Protected startup configuration, measured code, full record review and real service/socket checks run together in a diagnostic using synthetic deployment records. A new native reply proposal also transfers complete setup evidence to Python over a real socket. Production integration still needs the updated source/build contract, live peer admission, accepted deployments, final-result handling and a fresh measured broker build. Original native engine startup and a real coding task remain unfinished. No engine release has been published."
+          "text": "Protected startup configuration, measured code, full record review and real service/socket checks run together in a diagnostic using synthetic deployment records. A native reply proposal transfers complete setup evidence to Python over a real socket, and its source, profile, schema and build contracts are now linked in a separate proposed revision. Production integration still needs protected-reader migration, live peer admission, accepted deployments, final-result handling and a fresh measured runtime. Original native engine startup and a real coding task remain unfinished. No engine release has been published."
         },
         {
           "type": "image",
@@ -215,6 +215,10 @@
         {
           "type": "paragraph",
           "text": "A second native fixture sent the complete setup evidence to Python over a real socket in three messages. Python checked the actual sender's Linux identity, the message bytes and the complete evidence; a separate wrong-user test was rejected. All children and temporary files were cleaned up. This tests the native message encoding and transfer with a synthetic connection identity, not the production handshake or a running engine. The proposed protocol still needs to be incorporated into the reviewed source/build contract and current measured deployment. Final-result validation, live peer admission, original native startup and the full coding lifecycle remain unfinished."
+        },
+        {
+          "type": "paragraph",
+          "text": "The reply proposal now has a separate source-contract revision linking its authority record, measurement profile, runtime schema and build inputs. The historical records and validators remain unchanged. Seven new tests reject weakened contracts, mixed old/new identities, altered source files and rollback; the combined focused checks pass 69 tests. All nine native inputs match the earlier successful build. This step does not create a new executable or runtime acceptance: the protected native and Python readers still enforce older bindings and must be migrated before the new records can participate in startup. That reader migration, followed by refreshed measured deployment records and final-result handling, is the next integration work."
         },
         {
           "type": "paragraph",
