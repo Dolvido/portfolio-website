@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The current runtime is assembled, and two isolated installed-layout checks pass. A valid native handoff, full native startup, a real coding task and the experimental release remain unfinished."
+      "summary": "The startup wrapper now selects the current native build; 14 regression tests and 15 real executable-file checks pass. The measured service chain, full native startup, real coding task and experimental release remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The latest native executable, Python worker, protected source files and filter now form one runtime proposal. An isolated installation successfully reads the protected sources, and the real Python entry refuses to start without a valid native handoff. These checks do not run the native launcher or establish an accepted deployment. Next come a valid native handoff and startup receipt, the remaining deployment and worker connections, and a real coding task. No engine release has been published."
+          "text": "The latest runtime is assembled and its installed Python layout has been checked. A separate fixed root startup entry now recognizes the current native executable while retaining the existing file, service, admission and privilege checks. It rejects old or altered executable files. The new entry still needs to join the measured service/deployment chain before a valid native handoff and startup receipt can be demonstrated. Full native engine startup, the real coding task and the release remain unfinished."
         },
         {
           "type": "image",
@@ -231,6 +231,10 @@
         {
           "type": "paragraph",
           "text": "The current runtime has now been assembled from actual files: 96 regular files, three exact file aliases and a launcher proposal with all required launcher role names. The revised authority has its own filter compiler and verifier binding; the generated filter bytes are unchanged. Twenty focused material and filter tests and two source-archive checks pass. A disposable installation then passed two execution checks: the protected reader loaded all seven source records and seven providers, with 51 loaded module files matching the proposed installation; the exact Python entry exited with rejection when launched without native handoff evidence. Both children were reaped, installed inputs stayed unchanged and the temporary filesystem was removed. The native executable was present but was not executed, and this interpreter-only check did not install its file capabilities. The next step is a valid native handoff and durable startup receipt for this composition, followed by complete deployment acceptance, live admission and final-result handling before the real coding demonstration."
+        },
+        {
+          "type": "paragraph",
+          "text": "The next startup mismatch was in the root wrapper: it still required the older native executable. A separate fixed entry now selects the current 573,192-byte build, while the historical entry keeps its original selection. Both use the same checks for protected files, service context, startup roots, activation descriptors and the final privilege transition. Fourteen regression tests pass, including admission fields for the current build and stopping before execution when the retained file handle changes. Fifteen additional cases use real current and historical executable files at the fixed runtime path in disposable private namespaces. They accept the exact current file and reject cross-revision combinations, changed bytes, unsafe ownership or modes, links, incorrect capabilities, a mount that suppresses capabilities, namespace changes and replacement after retention. All children were reaped and temporary roots removed. Neither native binary was executed. The new root entry must now be measured and bound into the service/deployment chain; these file checks do not establish runtime acceptance or a valid native handoff."
         },
         {
           "type": "paragraph",
