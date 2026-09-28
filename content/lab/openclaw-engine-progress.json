@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The installed runtime passes its preflight, and a new Python reader checks final job evidence in 59 passing tests. Native reply integration, full engine startup, a real coding task and the release remain unfinished."
+      "summary": "The installed runtime passes its preflight, and native final-result checks now agree with the Python reader in 17 record cases and four reply outcomes. Service integration, full engine startup, a real coding task and the release remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The combined 112-file runtime passes its installed diagnostic under real service and socket activation. A new Python reader now checks final job records and binds replies to the expected job, requester and launcher. It distinguishes found, missing, invalid and unsafe evidence; missing evidence never counts as success. The reader and related checks pass 59 tests. Native-generated reply testing and integration into the running services remain next. The native engine has not completed full startup or a real coding task, and no engine release has been published."
+          "text": "The combined 112-file runtime passes its installed diagnostic. The final-evidence reader now agrees with the current native code in 17 record cases, and all four native-generated reply outcomes match the Python expectations exactly. This comparison uses synthetic records and a local output stream. Authenticated reply transport, durable historical lookup and witness-service integration remain unfinished. The native engine has not completed full startup or a real coding task, and no engine release has been published."
         },
         {
           "type": "image",
@@ -247,6 +247,10 @@
         {
           "type": "paragraph",
           "text": "Final-result verification now has a Python reader. It checks the native final-row identity, output bytes, recorded process outcome and cleanup proofs, then binds the reply to the retained witness request and reviewed launcher identities. Found, missing, invalid and unsafe outcomes remain distinct. The new tests and existing transport and semantic checks pass 59 tests, including altered evidence with recomputed hashes. Two source-archive checks also pass. These are Python fixtures: native encoder/validator comparison, actual reply transport integration and measured runtime packaging remain unfinished. The next step is to exercise replies produced by the native code before connecting the reader to the witness service."
+        },
+        {
+          "type": "paragraph",
+          "text": "Native final-result encoding and validation now agree with the Python reader in an isolated comparison. A three-stage build of the current native helper passed, followed by one unprivileged execution covering 17 final-record cases. Four native-generated replies—found, missing, invalid and unsafe—matched the expected bytes and passed Python semantic validation. The helper exited cleanly and its temporary files were removed. Two source-archive checks also pass. This fixture supplies synthetic historical-query results directly and sends replies through a local output stream; it does not prove durable journal lookup or authenticated transport. The next step is to connect these replies to the retained witness request and transport lifecycle."
         },
         {
           "type": "paragraph",
