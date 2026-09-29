@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "Startup integration now has acyclic builds and a bounded format for sharing repeated runtime files. The new format passes actual-file checks; service migration, trusted deployment admission and the complete coding task remain unfinished."
+      "summary": "Both measured services now use the bounded shared startup-data format. Real custody, startup and altered-record rejection checks pass; production task handling, trusted deployment acceptance and the complete coding demonstration remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The latest integration check found that three real file inventories already exceed the existing startup format's size limit. A new bounded format carries the same 327 file references in about 33 MB by storing repeated bytes once, with existing semantic checks preserved. Explicit service migration is next. Production entries, trusted deployment admission, full engine startup and the coding demonstration remain unfinished."
+          "text": "The shared startup-data format now runs through both retained readers and refreshed native service diagnostics. Thirty real file-custody cases and 34 focused tests pass, including rejection of old-format inputs and altered acceptance records. All temporary resources were removed. The deployment records remain synthetic; production entries, independent peer admission, full engine startup and the coding demonstration are still unfinished."
         },
         {
           "type": "image",
@@ -303,6 +303,10 @@
         {
           "type": "paragraph",
           "text": "Checking real deployment sizes exposed another integration blocker: the current broker, witness and launcher inventories repeat enough runtime files to require at least 87,793,980 bytes in the old format, above its 67,108,864-byte limit. A new versioned format stores each distinct file once while preserving the separate role and object references. The actual-file check round-tripped all 327 references exactly using 146 unique blobs and 32,905,984 bytes. Independent limits apply to wire size, unique bytes, logical expansion and reference counts; malformed, missing, unused or altered blobs reject. Eleven new tests and 23 existing startup tests passed, including complete broker and witness semantic review with synthetic records and rejection of rehashed source or runtime substitutions. This is transport preparation, not deployment acceptance: the capacity fixture uses explicit test reference IDs, and the installed readers have not migrated. Next, select the new format through fixed startup paths, refresh measured code inventories and repeat service and altered-input checks before building the real accepted deployment chain."
+        },
+        {
+          "type": "paragraph",
+          "text": "The shared startup-data format is now selected explicitly by both retained readers at fixed versioned paths, with no format detection or fallback. Thirty real file-custody cases passed, including rejection of old-format bytes, inputs available only at the old path, and changes after files were opened. Fresh measured builds passed for both roles. The real witness service checked 107 runtime files and all 97 loaded module files, then quarantined a disposable broker-principal connection without reading task data; the broker checked 106 runtime files and all 96 loaded module files while retaining its three listeners. Both unchanged binaries rejected separately modified acceptance bundles at the trusted-digest check. Thirty-four focused tests passed, and temporary services, identities and roots were removed. The refreshed capacity check preserved all 329 file references in 32,916,834 bytes. This completes the format migration through measured diagnostics, but their records remain synthetic. Production request entries, actual accepted deployment records, independent peer admission and durable task handlers still precede original engine startup and the full coding lifecycle."
         },
         {
           "type": "paragraph",
