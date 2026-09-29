@@ -1,0 +1,142 @@
+{
+  "schemaVersion": 1,
+  "metadata": {
+    "id": "OCL-ENGINE-2026-09-07",
+    "slug": "openclaw-build-approval-cycle",
+    "title": "7. When approval records depend on the program they approve",
+    "description": "Part 7 of the OpenClaw series: removing a circular dependency between measured binaries and deployment acceptance records.",
+    "date": "2026-09-29",
+    "type": "Engineering Note",
+    "project": {
+      "id": "openclaw-engine",
+      "name": "OpenClaw Evolutionary Coding Lab"
+    },
+    "tags": [
+      "OpenClaw",
+      "Coding engine series",
+      "Build dependencies",
+      "Deployment acceptance"
+    ],
+    "outcome": {
+      "classification": "ongoing",
+      "summary": "Separating protected acceptance inputs from measured code resolves the demonstrated build cycle. The diagnostic records remain synthetic and do not accept a production deployment."
+    },
+    "status": "published",
+    "reviewStatus": "approved"
+  },
+  "provenance": {
+    "origin": "reviewed-candidate",
+    "summary": "Reorganized from the previously published OpenClaw progress log on September 29, 2026. The engineering snapshot is unchanged; no new experiment is reported here. Engine evidence remains local, and the public source does not independently reproduce its results.",
+    "sourceRevision": "aac361bb540d581a523f06d48e5ffa0c1a11008d",
+    "publicReferences": [
+      {
+        "id": "original-snapshot",
+        "label": "Original progress log before the series split",
+        "href": "https://github.com/Dolvido/portfolio-website/blob/aac361bb540d581a523f06d48e5ffa0c1a11008d/content/lab/openclaw-engine-progress.json",
+        "kind": "Historical publication source",
+        "note": "The complete previously published narrative. This documents the public report, not independent reproduction of engine results."
+      },
+      {
+        "id": "publication-contract",
+        "label": "Lab publication guide",
+        "href": "https://github.com/Dolvido/portfolio-website/blob/main/content/lab/README.md",
+        "kind": "Publication process",
+        "note": "The content format, review states, validation checks and public disclosure rules used by this site."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": "Part 7 of 8",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Preparing real deployment records exposed a circular dependency. Broker and witness diagnostics compiled hashes of acceptance data into their binaries. Those acceptance records would eventually need to identify the same binaries."
+        },
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Series overview and reading order",
+              "href": "/lab/openclaw-engine-progress/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Why the build could not settle",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Changing the acceptance record changed the value compiled into the program. That changed the measured binary the record needed to identify. The difficulty was therefore in how code and approval data depended on each other, rather than a missing startup check."
+        },
+        {
+          "type": "paragraph",
+          "text": "A diagnostic can hide this problem by supplying synthetic records. Constructing a real deployment forces the question: which values must be measured as program inputs, and which protected records are supplied after those measurements exist?"
+        }
+      ]
+    },
+    {
+      "title": "Measure code first, retain approval inputs separately",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The new builds measure code and runtime files first. The runtime lock, accepted bundle and raw source preimages are then provisioned separately through protected startup inputs. The witness keeps its retained checks; the broker gains a bounded retained reader with matching custody and current-source validation."
+        },
+        {
+          "type": "paragraph",
+          "text": "Separating the inputs does not make them arbitrary. Startup still checks protected file custody, exact contents, trusted digests and their relationship to current source. The service retains those inputs so changes or replacement can be detected during its lifetime."
+        }
+      ]
+    },
+    {
+      "title": "Test changes without rebuilding the binary",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Twenty-three focused tests and thirteen real broker file-custody cases passed. Fresh native builds and real service diagnostics checked 106 witness runtime files and 105 broker runtime files, with five aliases each. All 96 witness and 95 broker loaded module files matched."
+        },
+        {
+          "type": "paragraph",
+          "text": "The decisive rejection test held each binary fixed while changing its external acceptance bundle. Both services stopped at the expected trusted-digest check. Temporary services and identities were removed. These inventory counts describe this stage; the subsequent shared-format migration refreshed them again."
+        }
+      ]
+    },
+    {
+      "title": "The boundary this resolves",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The experiment resolves the demonstrated build cycle and shows that moving acceptance inputs out of compiled tables does not bypass the tested rejection checks. It does not establish that the supplied records were independently accepted: they remain synthetic."
+        },
+        {
+          "type": "paragraph",
+          "text": "The next work still needs actual role deployment records, independent admission and durable task handlers. Separating code measurements from approval data makes that chain possible to construct; it does not complete the chain by itself."
+        }
+      ]
+    },
+    {
+      "title": "Continue the series",
+      "blocks": [
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Series overview and reading order",
+              "href": "/lab/openclaw-engine-progress/"
+            },
+            {
+              "label": "Previous: Starting real services with the files we checked",
+              "href": "/lab/openclaw-measured-service-startup/"
+            },
+            {
+              "label": "Next: When realistic runtime data outgrows the startup format",
+              "href": "/lab/openclaw-startup-data-capacity/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

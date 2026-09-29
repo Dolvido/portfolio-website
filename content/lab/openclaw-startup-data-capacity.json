@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "metadata": {
+    "id": "OCL-ENGINE-2026-09-08",
+    "slug": "openclaw-startup-data-capacity",
+    "title": "8. When realistic runtime data outgrows the startup format",
+    "description": "Part 8 of the OpenClaw series: sharing repeated runtime bytes while preserving role references, limits and rejection checks.",
+    "date": "2026-09-29",
+    "type": "Engineering Note",
+    "project": {
+      "id": "openclaw-engine",
+      "name": "OpenClaw Evolutionary Coding Lab"
+    },
+    "tags": [
+      "OpenClaw",
+      "Coding engine series",
+      "Data formats",
+      "Runtime packaging"
+    ],
+    "outcome": {
+      "classification": "ongoing",
+      "summary": "The shared format preserves all 329 refreshed file references in 32,916,834 bytes and passes measured service diagnostics. Deployment acceptance and production task handling remain unfinished."
+    },
+    "status": "published",
+    "reviewStatus": "approved"
+  },
+  "provenance": {
+    "origin": "reviewed-candidate",
+    "summary": "Reorganized from the previously published OpenClaw progress log on September 29, 2026. The engineering snapshot is unchanged; no new experiment is reported here. Engine evidence remains local, and the public source does not independently reproduce its results.",
+    "sourceRevision": "aac361bb540d581a523f06d48e5ffa0c1a11008d",
+    "publicReferences": [
+      {
+        "id": "original-snapshot",
+        "label": "Original progress log before the series split",
+        "href": "https://github.com/Dolvido/portfolio-website/blob/aac361bb540d581a523f06d48e5ffa0c1a11008d/content/lab/openclaw-engine-progress.json",
+        "kind": "Historical publication source",
+        "note": "The complete previously published narrative. This documents the public report, not independent reproduction of engine results."
+      },
+      {
+        "id": "publication-contract",
+        "label": "Lab publication guide",
+        "href": "https://github.com/Dolvido/portfolio-website/blob/main/content/lab/README.md",
+        "kind": "Publication process",
+        "note": "The content format, review states, validation checks and public disclosure rules used by this site."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": "Part 8 of 8",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The startup format passed its small fixtures but could not hold the actual deployment inventories. Broker, witness and launcher records repeated enough runtime files to exceed the format's fixed byte limit. This was a capacity blocker before a coding task could begin."
+        },
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Series overview and reading order",
+              "href": "/lab/openclaw-engine-progress/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Measure the real payload",
+      "blocks": [
+        {
+          "type": "keyValue",
+          "items": [
+            {
+              "label": "Old-format requirement",
+              "value": "At least 87,793,980 bytes for the actual runtime inventories."
+            },
+            {
+              "label": "Old-format limit",
+              "value": "67,108,864 bytes."
+            },
+            {
+              "label": "First shared-format check",
+              "value": "327 references round-tripped exactly using 146 unique blobs and 32,905,984 bytes."
+            },
+            {
+              "label": "Refreshed measured inventories",
+              "value": "All 329 references preserved in 32,916,834 bytes after reader migration."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The first capacity fixture used explicit test reference IDs. It measured the repeated actual file bytes; it did not construct an accepted deployment merely by fitting those bytes into a transport format."
+        }
+      ]
+    },
+    {
+      "title": "Share bytes while retaining each reference",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The versioned format stores each distinct file once and preserves the separate role and object references that point to it. A shared file can therefore serve several inventory entries without erasing which role claimed each entry."
+        },
+        {
+          "type": "paragraph",
+          "text": "The format has independent limits for wire size, unique bytes, logical expansion and reference counts. Malformed, missing, unused or altered blobs are rejected. Eleven new tests and 23 existing startup tests passed, including complete broker and witness semantic checks with synthetic records and rejection of rehashed source or runtime substitutions."
+        }
+      ]
+    },
+    {
+      "title": "Migrate the installed readers explicitly",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Both retained readers select the shared format at fixed versioned paths. They do not detect a format heuristically or fall back to the older version. Thirty real file-custody cases passed, including old-format bytes, data available only at the old path, and changes after opening."
+        },
+        {
+          "type": "paragraph",
+          "text": "Fresh measured builds then passed real service diagnostics. The witness checked 107 runtime files and 97 loaded module files and held a disposable broker connection without reading task data. The broker checked 106 runtime files and 96 loaded module files while retaining its three listeners."
+        },
+        {
+          "type": "paragraph",
+          "text": "Both unchanged binaries rejected separately modified acceptance bundles at the trusted-digest check. Thirty-four focused tests passed, and temporary services, identities and roots were removed. The final capacity check reflects these refreshed inventories rather than the earlier 327-reference fixture."
+        }
+      ]
+    },
+    {
+      "title": "A completed migration with an unfinished workflow",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The format migration now runs through retained readers and measured diagnostics. Its verified result is that realistic startup data fits, references survive the round trip and the tested custody and rejection checks still hold."
+        },
+        {
+          "type": "paragraph",
+          "text": "The diagnostic acceptance records remain synthetic. Production request entries, actual accepted deployment records, independent peer admission and durable task handlers remain prerequisites for original engine startup and a complete coding demonstration. Future posts should report those milestones separately instead of extending this format story."
+        }
+      ]
+    },
+    {
+      "title": "Continue the series",
+      "blocks": [
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Series overview and reading order",
+              "href": "/lab/openclaw-engine-progress/"
+            },
+            {
+              "label": "Previous: When approval records depend on the program they approve",
+              "href": "/lab/openclaw-build-approval-cycle/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "metadata": {
+    "id": "OCL-ENGINE-2026-09-06",
+    "slug": "openclaw-measured-service-startup",
+    "title": "6. Starting real services with the files we checked",
+    "description": "Part 6 of the OpenClaw series: service identities, activated sockets, retained files and a connection held before task handling.",
+    "date": "2026-09-29",
+    "type": "Engineering Note",
+    "project": {
+      "id": "openclaw-engine",
+      "name": "OpenClaw Evolutionary Coding Lab"
+    },
+    "tags": [
+      "OpenClaw",
+      "Coding engine series",
+      "Service startup",
+      "File custody"
+    ],
+    "outcome": {
+      "classification": "ongoing",
+      "summary": "Measured broker and witness diagnostics run under the real service manager. Retaining a connection establishes kernel facts, but does not yet authenticate an accepted deployment or authorize work."
+    },
+    "status": "published",
+    "reviewStatus": "approved"
+  },
+  "provenance": {
+    "origin": "reviewed-candidate",
+    "summary": "Reorganized from the previously published OpenClaw progress log on September 29, 2026. The engineering snapshot is unchanged; no new experiment is reported here. Engine evidence remains local, and the public source does not independently reproduce its results.",
+    "sourceRevision": "aac361bb540d581a523f06d48e5ffa0c1a11008d",
+    "publicReferences": [
+      {
+        "id": "original-snapshot",
+        "label": "Original progress log before the series split",
+        "href": "https://github.com/Dolvido/portfolio-website/blob/aac361bb540d581a523f06d48e5ffa0c1a11008d/content/lab/openclaw-engine-progress.json",
+        "kind": "Historical publication source",
+        "note": "The complete previously published narrative. This documents the public report, not independent reproduction of engine results."
+      },
+      {
+        "id": "publication-contract",
+        "label": "Lab publication guide",
+        "href": "https://github.com/Dolvido/portfolio-website/blob/main/content/lab/README.md",
+        "kind": "Publication process",
+        "note": "The content format, review states, validation checks and public disclosure rules used by this site."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": "Part 6 of 8",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A passing startup validator is useful only if the running service uses the files and identity that were checked. Broker, witness and launcher experiments moved those checks into real service-manager launches while keeping diagnostic success separate from production task handling."
+        },
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Series overview and reading order",
+              "href": "/lab/openclaw-engine-progress/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Resolve real credential and socket mismatches",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The older broker created its own stream socket; the current contract calls for named packet sockets created by systemd. The retained-listener component validates the supplied handles without creating or replacing endpoints. Real fixtures rejected wrong names, types, credential settings and changed state."
+        },
+        {
+          "type": "paragraph",
+          "text": "The first real service could not start without local account records. A later attempt reached the broker but failed because systemd supplied a redundant supplementary group while the principal policy required an empty list. Clearing the unit setting did not remove that kernel group in the experiment."
+        },
+        {
+          "type": "paragraph",
+          "text": "A native credential component now addresses that mismatch without weakening the principal checks. A separate test executable passed 13 real kernel cases. Valid starts ended with the expected user and group, an empty supplementary-group list, all five capability sets empty and the no-new-privileges setting enabled. Incorrect identities, extra groups, incorrect capability settings and unexpected arguments were rejected. Final credentials were independently observed while the native test process was paused."
+        },
+        {
+          "type": "paragraph",
+          "text": "A fresh systemd diagnostic then started a native entry with only the two capabilities needed for the transition. It cleared the redundant group, removed every capability and handed off to a fixed Python observation script in the same process. The three systemd-created broker sockets passed the unchanged listener checks; the process ID and invocation matched the service manager. Socket ownership and permissions matched the proposed policy. The test completed successfully, and temporary accounts, groups, units and runtime directories were removed."
+        }
+      ]
+    },
+    {
+      "title": "Carry checked files into the interpreter",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Native file checks cover protected paths, ownership, permissions, mount restrictions, lengths and digests. Exact alias checks also reject replacing a target or alias with another containing the same bytes. Retained handles allow rechecking after startup; deployment controls must still prevent unauthorized writes after the final check."
+        },
+        {
+          "type": "paragraph",
+          "text": "The broker's measured interpreter handoff was then joined to real activation. Early attempts found a writable private root and an incorrect service-state mount. Fresh attempts corrected those configurations and passed the native file checks, loaded-module comparisons, retained service observations and all three real sockets. Failed attempts remained in the record."
+        }
+      ]
+    },
+    {
+      "title": "Load configuration through the measured entry",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Both broker and witness diagnostics gained native readers for fixed protected configuration files, with retained descriptors and digests passed to Python. Their complete validators join runtime locks, measurement bundles and all five deployment roles. Separate runs kept each binary unchanged and substituted an expected deployment identity; startup stopped at that binding check."
+        },
+        {
+          "type": "paragraph",
+          "text": "Launcher preflights similarly used an installed interpreter and libraries, real service-manager sockets and a measured executable. They checked runtime bytes, loaded modules, credentials and process identity. These were installed diagnostics: they did not execute the full native engine or create acceptance merely by starting successfully."
+        }
+      ]
+    },
+    {
+      "title": "Hold a connection before reading task data",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The witness now checks the kernel-reported creator of its incoming task socket. A fresh measured service run confirmed root PID1 as the creator and rechecked that fact alongside the retained service and protected inputs. Nineteen focused tests and thirteen socket cases passed, including rejection of different creator credentials. A separate disposable exchange between the witness and broker user identities confirmed that the witness can retain the sender's process, read basic process and service-group facts, and match per-message credentials. Linux denied access to the other user's executable, root and namespace links. That result rules out treating those observations as complete peer authentication: the missing bindings must come from protected, independently established deployment admission. The visibility test used child processes rather than production services, and startup records remain synthetic. No peer has been admitted for coding work. The next step joins independent admission to these kernel checks, then connects durable task handling and the full coding lifecycle."
+        },
+        {
+          "type": "paragraph",
+          "text": "The witness can now accept one incoming connection into quarantine while keeping the task path closed. It checks the socket and broker user identity, obtains a process handle directly from the socket, and rechecks that process alongside the retained startup context. Obtaining the handle this way avoids confusing an exited connector with a later process that reuses its numeric PID. Eight real kernel cases passed, including wrong identity, a dead connector whose socket was kept open elsewhere, death after retention, changed socket settings, startup loss, missing kernel support and timeout. Missing socket-to-process-handle support causes rejection without a weaker fallback. Twenty-three focused regression tests also passed. In a refreshed real service test, the witness checked 109 files, five aliases and all 96 loaded Python module files, then quarantined and closed a disposable broker-identity connection without reading application bytes. The client and temporary services were cleaned up. This still does not authenticate an accepted broker deployment or authorize a task: independent role admission must be joined to the retained connection before handshake and durable request handling."
+        }
+      ]
+    },
+    {
+      "title": "Where the measured diagnostics stand",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Subsequent build and startup-data changes refreshed both service inventories. With the shared format, the witness checked 107 runtime files and 97 loaded module files, while the broker checked 106 runtime files and 96 loaded module files. The witness quarantined a disposable broker connection without reading task data; the broker retained its three listeners. Both unchanged binaries rejected altered acceptance bundles."
+        },
+        {
+          "type": "paragraph",
+          "text": "The deployment records in those diagnostics remain synthetic. Real reviewed role deployments, independent peer admission, production entries and durable request handling still precede original engine startup and a complete coding task. Temporary services, identities and roots were removed after the experiments."
+        }
+      ]
+    },
+    {
+      "title": "Continue the series",
+      "blocks": [
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Series overview and reading order",
+              "href": "/lab/openclaw-engine-progress/"
+            },
+            {
+              "label": "Previous: Starting the evaluator with measured files and one-use permission",
+              "href": "/lab/openclaw-evaluator-startup/"
+            },
+            {
+              "label": "Next: When approval records depend on the program they approve",
+              "href": "/lab/openclaw-build-approval-cycle/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

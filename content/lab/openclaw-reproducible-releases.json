@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "metadata": {
+    "id": "OCL-ENGINE-2026-09-01",
+    "slug": "openclaw-reproducible-releases",
+    "title": "1. Reproducible releases: what the tests establish",
+    "description": "Part 1 of the OpenClaw series: separating a repeatable source archive and offline package from a working coding service.",
+    "date": "2026-09-29",
+    "type": "Engineering Note",
+    "project": {
+      "id": "openclaw-engine",
+      "name": "OpenClaw Evolutionary Coding Lab"
+    },
+    "tags": [
+      "OpenClaw",
+      "Coding engine series",
+      "Reproducibility",
+      "Testing"
+    ],
+    "outcome": {
+      "classification": "ongoing",
+      "summary": "Source-v10 has repeatable exports and packages; a later checkout has separate offline results. Neither establishes a production coding service."
+    },
+    "status": "published",
+    "reviewStatus": "approved"
+  },
+  "provenance": {
+    "origin": "reviewed-candidate",
+    "summary": "Reorganized from the previously published OpenClaw progress log on September 29, 2026. The engineering snapshot is unchanged; no new experiment is reported here. Engine evidence remains local, and the public source does not independently reproduce its results.",
+    "sourceRevision": "aac361bb540d581a523f06d48e5ffa0c1a11008d",
+    "publicReferences": [
+      {
+        "id": "original-snapshot",
+        "label": "Original progress log before the series split",
+        "href": "https://github.com/Dolvido/portfolio-website/blob/aac361bb540d581a523f06d48e5ffa0c1a11008d/content/lab/openclaw-engine-progress.json",
+        "kind": "Historical publication source",
+        "note": "The complete previously published narrative. This documents the public report, not independent reproduction of engine results."
+      },
+      {
+        "id": "publication-contract",
+        "label": "Lab publication guide",
+        "href": "https://github.com/Dolvido/portfolio-website/blob/main/content/lab/README.md",
+        "kind": "Publication process",
+        "note": "The content format, review states, validation checks and public disclosure rules used by this site."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": "Part 1 of 8",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Before connecting a coding engine to real projects, we need to know exactly which source and package a test result describes. A repeatable archive answers that question. It does not answer whether the complete service works."
+        },
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Series overview and reading order",
+              "href": "/lab/openclaw-engine-progress/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The packaged baseline",
+      "blocks": [
+        {
+          "type": "keyValue",
+          "items": [
+            {
+              "label": "Source-v10 offline validation",
+              "value": "The extracted snapshot ran 1,612 tests with no unexpected failures, errors or skips. That total includes one expected historical failure; 17 named machine-specific checks were excluded."
+            },
+            {
+              "label": "Repeatable source export",
+              "value": "All 615 selected source files retained their recorded hashes after testing. Re-exporting the extracted files with the archived executable permissions restored produced a byte-for-byte identical archive."
+            },
+            {
+              "label": "Execution fixtures",
+              "value": "Disposable test programs exercised launch settings, sealed executable data, output limits, deadlines, cleanup within a process group and Windows-to-Linux handoff."
+            },
+            {
+              "label": "Release materials",
+              "value": "Two isolated builds produced identical Python packages. A fresh Linux installation used that package without downloading dependencies; all 74 installed module files matched, and the synthetic offline demo passed. MIT licensing, third-party notices and release documentation are prepared."
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "These results apply to specific development artifacts. The offline suite did not rerun the earlier native execution experiments, and the package's demo exercises a synthetic project registry without running coding tasks. The engine source has not yet been published as a GitHub release; the linked portfolio repository hosts this article."
+        }
+      ]
+    },
+    {
+      "title": "A newer checkout is a different result",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The combined development checkout ran 1,692 offline tests with no unexpected failures, errors or skips. One historical expected failure and 17 named host-dependent exclusions remain. All 643 recorded source inputs retained their hashes, lengths and archive permission classification after the run. This validates the checkout; it is not a new package, native qualification result or completed coding demonstration."
+        },
+        {
+          "type": "paragraph",
+          "text": "Keep these two baselines separate. Source-v10 is the last verified packaged snapshot in this record. The 1,692-test result describes a later development checkout, and subsequent integration repairs have their own focused checks. Their counts should not be added together or presented as validation of a newly released package."
+        }
+      ]
+    },
+    {
+      "title": "Repeatable native builds",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Two separate builds of the joined native source now produce identical bytes for all five assembly, object and executable outputs. The comparison checks actual files against recorded hashes, matching build inputs and settings, and the executable's static structure. This establishes repeatability for those two builds on this host; it does not establish cross-machine reproducibility or a working runtime."
+        },
+        {
+          "type": "paragraph",
+          "text": "Later source and policy revisions also produced successful native builds and static executable checks. Those results apply to their recorded inputs. A successful compile cannot carry an earlier repeatability claim forward to a changed binary, and it cannot establish that startup or a coding task succeeds."
+        }
+      ]
+    },
+    {
+      "title": "What an experimental release still needs",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The next release must be built from the integrated source, installed in a clean environment and checked against the behavior it claims. That includes one isolated coding task, a deliberate failure, replay or restart handling, and cancellation. Instructions must say which paths were exercised and which remain open."
+        }
+      ]
+    },
+    {
+      "title": "Continue the series",
+      "blocks": [
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Series overview and reading order",
+              "href": "/lab/openclaw-engine-progress/"
+            },
+            {
+              "label": "Next: Stopping work and preserving its outcome",
+              "href": "/lab/openclaw-cancellation-and-recovery/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

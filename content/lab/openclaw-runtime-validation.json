@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "metadata": {
+    "id": "OCL-ENGINE-2026-09-04",
+    "slug": "openclaw-runtime-validation",
+    "title": "4. Checking runtime records against the bytes they name",
+    "description": "Part 4 of the OpenClaw series: joining source, deployment, service policy and platform evidence without trusting a passing flag.",
+    "date": "2026-09-29",
+    "type": "Engineering Note",
+    "project": {
+      "id": "openclaw-engine",
+      "name": "OpenClaw Evolutionary Coding Lab"
+    },
+    "tags": [
+      "OpenClaw",
+      "Coding engine series",
+      "Runtime validation",
+      "Deployment"
+    ],
+    "outcome": {
+      "classification": "ongoing",
+      "summary": "Connected validators reject inconsistent and rehashed records; native diagnostics produced complete platform measurements. Independent deployment acceptance remains unfinished."
+    },
+    "status": "published",
+    "reviewStatus": "approved"
+  },
+  "provenance": {
+    "origin": "reviewed-candidate",
+    "summary": "Reorganized from the previously published OpenClaw progress log on September 29, 2026. The engineering snapshot is unchanged; no new experiment is reported here. Engine evidence remains local, and the public source does not independently reproduce its results.",
+    "sourceRevision": "aac361bb540d581a523f06d48e5ffa0c1a11008d",
+    "publicReferences": [
+      {
+        "id": "original-snapshot",
+        "label": "Original progress log before the series split",
+        "href": "https://github.com/Dolvido/portfolio-website/blob/aac361bb540d581a523f06d48e5ffa0c1a11008d/content/lab/openclaw-engine-progress.json",
+        "kind": "Historical publication source",
+        "note": "The complete previously published narrative. This documents the public report, not independent reproduction of engine results."
+      },
+      {
+        "id": "publication-contract",
+        "label": "Lab publication guide",
+        "href": "https://github.com/Dolvido/portfolio-website/blob/main/content/lab/README.md",
+        "kind": "Publication process",
+        "note": "The content format, review states, validation checks and public disclosure rules used by this site."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": "Part 4 of 8",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A record can be internally consistent and still describe the wrong program. The runtime review therefore has to join source files, deployed bytes, service rules and measured observations. Recalculating a digest must not turn an invalid combination into an accepted runtime."
+        },
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Series overview and reading order",
+              "href": "/lab/openclaw-engine-progress/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Join the source to the deployment",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The combined review checks the proposed source set, five deployment roles, service settings, launcher journal and communication endpoints. It rehashes supplied program and configuration bytes and checks that references point to the reviewed components. Early tests used synthetic deployments and did not establish that the protected services were installed."
+        },
+        {
+          "type": "paragraph",
+          "text": "A native contract test later exposed a missing join in Python: deployment files and source contracts were checked separately, without directly matching all six provider roles. The valid fixture still contained older provider hashes. The failed attempt was preserved, regressions covered every role, and Python was changed to require each deployed provider's length and digest to match the pinned contract."
+        }
+      ]
+    },
+    {
+      "title": "Check the policy, not just its identity",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A native service-policy test reproduced a separate gap: the earlier validator accepted an empty policy when the surrounding record identity matched. The proposed fix checks the complete reviewed policy. Thirty-two cases passed, including mutations of every one of its twenty-nine fields with freshly calculated record identities. The updated complete launcher builds and passes static inspection; the earlier reproducibility result does not cover this later binary."
+        },
+        {
+          "type": "paragraph",
+          "text": "Selected service settings were also exercised with an inert temporary service and real socket activation. Those tests covered service identity, delegation, namespaces, lifecycle settings and listener ownership. They did not run the complete privileged launcher with accepted deployment records."
+        }
+      ]
+    },
+    {
+      "title": "Derive results from observations",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Nested platform and mount-isolation results are rederived from their observations. Recalculating a record identity cannot preserve a forged passing flag, substitute another verifier, or combine results from different platform measurements. The earlier accepted measurement bundle must also match the reviewed configuration and its complete platform record."
+        },
+        {
+          "type": "paragraph",
+          "text": "Challenge integration exposed another predecessor assumption: the old check expected a store-reference field that the new file-based launcher journal does not have. A separate successor check follows the native launcher's context calculation and binds the challenge to the configuration, journal, allocator epoch and boot identity. It validates the record; it does not consume the challenge or prove freshness."
+        },
+        {
+          "type": "paragraph",
+          "text": "The current measurement path now derives results from complete raw observations without accepting caller-supplied passing flags. Its evidence envelope checks the expected profile and configuration digests, process-attempt facts and ordered file measurements. Actual supplied file bytes are rehashed before being passed into the complete configuration and measurement review."
+        }
+      ]
+    },
+    {
+      "title": "Replace synthetic platform observations",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Executing the actual native platform-profile routine exposed problems that synthetic records could not reveal. Strict path checks were being applied to Linux's current-process symbolic link. Other failures involved reusing a resource group after its mandatory kill test and expecting packet flags the kernel did not supply. The proposed fixes retained the protections, corrected the paths and message rules, and used a fresh resource group after proving the old one empty."
+        },
+        {
+          "type": "paragraph",
+          "text": "A semantic audit found that the previous namespace observer measured process symbolic links rather than the namespace objects themselves. A normal parent and child can share a namespace while having different link identities. The corrected observer opens and checks the actual namespace objects, with a regression covering shared namespaces. Earlier successful executions therefore remain recorded but are not used as valid namespace-isolation evidence. Fifteen native parser cases also cover valid mount records and malformed or disallowed records."
+        },
+        {
+          "type": "paragraph",
+          "text": "The corrected native platform-profile routine now completes in a disposable delegated service without diagnostic instrumentation. All twelve feature checks report completion, all 147 verification entries are populated, and internal cleanup succeeds. Independent checks confirm that the transient service's resource group and temporary filesystem are gone. Kernel operations are real, but deployment identities and some initial state remain synthetic; this is not full original-launcher startup."
+        }
+      ]
+    },
+    {
+      "title": "Version rule changes explicitly",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The revised packet rules received a distinct profile identity. Historical rules remained intact, and the evaluator selected one version from its trusted pin rather than retrying another version after rejection. Native source, linker inputs, protected readers and staged Python dependencies were migrated together."
+        },
+        {
+          "type": "paragraph",
+          "text": "The complete fixtures and real platform diagnostics establish specific validation boundaries. Synthetic deployment identities and initialization remain in those experiments. Independently reviewed acceptance records, protected installed custody and the original launcher's complete startup still have to be joined before a real coding demonstration."
+        }
+      ]
+    },
+    {
+      "title": "Continue the series",
+      "blocks": [
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Series overview and reading order",
+              "href": "/lab/openclaw-engine-progress/"
+            },
+            {
+              "label": "Previous: Connecting tasks, workers and execution evidence",
+              "href": "/lab/openclaw-worker-communication/"
+            },
+            {
+              "label": "Next: Starting the evaluator with measured files and one-use permission",
+              "href": "/lab/openclaw-evaluator-startup/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
