@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The refreshed native runtime passes a real service-manager preflight across 116 files and the new engine build. Full trusted startup, connected worker services, a real coding task and release remain unfinished."
+      "summary": "Witness startup-record validation now runs inside a real unprivileged service diagnostic. Protected configuration loading, a measured witness entry, full engine startup, a coding task and release remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The refreshed installation now passes a real service-manager and socket-activation preflight. The installed interpreter checked 116 files, four aliases, all 66 loaded Python module files and the native build containing both handshake fixes. Temporary service resources were removed. This diagnostic does not execute the full root entry or native engine: complete deployment records, trusted startup configuration, connected worker services and a real coding task remain unfinished."
+          "text": "The refreshed engine installation passes its service preflight, and the witness now validates complete startup records while retaining a real unprivileged service identity. The latest diagnostic used explicitly synthetic deployment records and removed its temporary account and service afterward. Protected witness configuration loading, a measured production entry and live peer admission remain necessary before full engine startup and a real coding task."
         },
         {
           "type": "image",
@@ -271,6 +271,10 @@
         {
           "type": "paragraph",
           "text": "The new build now has a freshly measured installation. Evaluator and root staging were regenerated, then combined into 116 regular files and four explicit aliases. A disposable service started through the real service manager and its packet sockets, using the installed interpreter. The diagnostic verified the new executable, every installed file, all 66 loaded Python module files, root credentials and retained service and socket handles; the process identity matched the manager. Temporary groups, units and directories were removed. Twenty-four focused installation, startup and source tests passed. This remains a preflight: full startup needs the other role deployments and trusted configuration. In particular, the witness has query and claim helpers but still needs an installed service entry before the complete coding workflow can run."
+        },
+        {
+          "type": "paragraph",
+          "text": "Witness startup now has its own complete record validator and fixed service observer. The validator binds protected configuration values to the full runtime lock and measurement bundle, checks all five deployment roles, and joins the witness, broker and launcher identities without granting request authority. Fourteen witness and broker regression tests passed. A separate real service diagnostic then used a native credential transition to run as the fixed witness user with no supplementary groups or capabilities. It validated the synthetic startup records while retaining the actual service identity, rejected wrong service/user expectations and closed its handles. Its process identity matched the service manager, and the temporary account and service were removed. This diagnostic uses a host interpreter and synthetic acceptance records; protected configuration loading, a measured production witness entry and live peer admission are the next steps."
         },
         {
           "type": "paragraph",
