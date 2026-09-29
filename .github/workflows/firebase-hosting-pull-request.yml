@@ -17,6 +17,8 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
+      - name: Test preview channel cleanup
+        run: node --test scripts/cleanup-preview-channels.test.mjs
       - name: Validate Lab content
         run: npm run validate:lab
       - name: Lint
@@ -25,6 +27,11 @@ jobs:
         run: npm run build
       - name: Validate exported Lab routes
         run: npm run validate:lab:build
+      - name: Remove previews for closed pull requests
+        run: node scripts/cleanup-preview-channels.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_LUKEPAYNE }}
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
