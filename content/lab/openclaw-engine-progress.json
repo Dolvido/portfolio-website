@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The witness now quarantines incoming broker connections and retains the exact connecting process without reading task data. Independent deployment admission, full engine startup and a complete coding task remain unfinished."
+      "summary": "Broker and witness builds now avoid circular dependencies on their own acceptance records. Protected input checks and real service tests pass; actual deployment admission, full engine startup and a complete coding task remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The measured witness now accepts a broker-identity connection into quarantine, retaining a process handle supplied directly by the socket. Eight kernel cases and a real 109-file service test passed, including rejection of exited peers and unsupported-kernel behavior. No task data was read. Peer deployment admission, authenticated request handling and the complete coding demonstration remain unfinished."
+          "text": "A deployment blocker is resolved: broker and witness binaries no longer embed acceptance records that must name those same binaries. Both services pass with separately protected inputs, and unchanged binaries reject modified bundles. The records are still synthetic. Actual deployment admission, authenticated task handling, full engine startup and the coding demonstration remain unfinished."
         },
         {
           "type": "image",
@@ -295,6 +295,10 @@
         {
           "type": "paragraph",
           "text": "The witness can now accept one incoming connection into quarantine while keeping the task path closed. It checks the socket and broker user identity, obtains a process handle directly from the socket, and rechecks that process alongside the retained startup context. Obtaining the handle this way avoids confusing an exited connector with a later process that reuses its numeric PID. Eight real kernel cases passed, including wrong identity, a dead connector whose socket was kept open elsewhere, death after retention, changed socket settings, startup loss, missing kernel support and timeout. Missing socket-to-process-handle support causes rejection without a weaker fallback. Twenty-three focused regression tests also passed. In a refreshed real service test, the witness checked 109 files, five aliases and all 96 loaded Python module files, then quarantined and closed a disposable broker-identity connection without reading application bytes. The client and temporary services were cleaned up. This still does not authenticate an accepted broker deployment or authorize a task: independent role admission must be joined to the retained connection before handshake and durable request handling."
+        },
+        {
+          "type": "paragraph",
+          "text": "Preparing real deployment records exposed a circular build dependency: the broker and witness diagnostics compiled hashes of acceptance data into binaries that those same records would eventually need to identify. The new builds measure code and runtime files first, with the runtime lock, accepted bundle and raw preimages provisioned separately through protected startup inputs. The witness keeps its existing retained checks; the broker now has a bounded retained input reader with the same custody and current-source validation. Twenty-three focused tests and thirteen real broker file-custody cases passed. Fresh native builds and real service diagnostics passed for both roles, checking 106 witness runtime files and 105 broker runtime files plus five aliases each. All 96 witness and 95 broker loaded module files matched. Separate runs then changed each external bundle while keeping its binary unchanged; both stopped at the expected trusted-digest check. Temporary services and identities were removed. This resolves the demonstrated build cycle, but the test records remain synthetic. Actual role deployment records, independent admission and durable task handlers still precede full engine startup and the coding demonstration."
         },
         {
           "type": "paragraph",
