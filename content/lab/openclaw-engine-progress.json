@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The production native result sender and Python reader now pass 13 real-socket cases. Accepted service admission, durable journal lookup, full engine startup, a real coding task and the release remain unfinished."
+      "summary": "The witness now has a final-result query builder and one-use session adapter, with 41 passing tests. Installed service admission, native journal lookup, full startup, a real coding task and the release remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The installed runtime passes its preflight, and the production native final-result sender now communicates with the Python reader over real sockets. A corrected fixture passes 13 cases: four intact replies, eight rejected connection changes and rejection of an unexpected sender. Admission records and historical-query inputs remain synthetic. Actual service admission, durable journal lookup and full startup still need integration; the engine has not completed a real coding task or reached release."
+          "text": "The native result sender and Python reader have passed their real-socket checks. A new witness adapter now builds the final-result query and carries it through a one-use Python handshake, request and validated reply, closing the session on success or failure. Its focused and regression tests pass 41 checks. These tests still use synthetic admission records. An installed witness service, native journal lookup and full engine startup remain unfinished; no real coding task or engine release is complete."
         },
         {
           "type": "image",
@@ -255,6 +255,10 @@
         {
           "type": "paragraph",
           "text": "The production native final-result sender now reaches the Python reader over real sockets. The fixture calls the full sender, including its socket and peer revalidation, rather than assembling reply packets separately. A corrected run passes 13 cases: all four result outcomes arrive byte-for-byte intact; eight changed connection conditions are rejected without reply bytes; and the receiver rejects an unexpected sender identity. The first run exposed a blocking-socket setup mismatch and remains preserved. All helper processes were reaped and temporary files removed. Two archive checks also pass. These tests use synthetic admission records and historical-query results, and each reply fits one frame. The next step is to connect the witness request lifecycle, accepted service records and actual journal lookup before full startup."
+        },
+        {
+          "type": "paragraph",
+          "text": "The witness now has a final-result query builder and a one-use session adapter. It checks the established connection against the expected job request and witness/launcher identities before sending, then uses the existing final-evidence reader to validate the reply. Both successful and failed exchanges close the session; missing and error outcomes stay explicit. Forty-one focused and regression tests pass, including all four outcomes through real-socket Python handshakes, altered evidence, wrong endpoints, invalid queries, closed peer handles and attempted reuse. Two archive checks also pass. This joins the Python request lifecycle, but admission records remain synthetic and the adapter is not yet packaged into an installed witness service. Native handshake and actual journal lookup remain the next integration work."
         },
         {
           "type": "paragraph",
