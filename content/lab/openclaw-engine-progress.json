@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "Both native handshake fixes now have versioned sources, a successful complete build and fixed runtime readers. Measured installation, accepted service startup, a real coding task and release remain unfinished."
+      "summary": "The refreshed native runtime passes a real service-manager preflight across 116 files and the new engine build. Full trusted startup, connected worker services, a real coding task and release remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The complete native engine now builds with the two fixes demonstrated by the witness handshake. New fixed source and executable readers identify that build, and real file-custody tests reject altered files and the previous version. The updated startup and evaluator entries have passed focused tests, but the new runtime still needs a freshly measured installation and accepted service startup. A real coding task and an engine release remain unfinished."
+          "text": "The refreshed installation now passes a real service-manager and socket-activation preflight. The installed interpreter checked 116 files, four aliases, all 66 loaded Python module files and the native build containing both handshake fixes. Temporary service resources were removed. This diagnostic does not execute the full root entry or native engine: complete deployment records, trusted startup configuration, connected worker services and a real coding task remain unfinished."
         },
         {
           "type": "image",
@@ -267,6 +267,10 @@
         {
           "type": "paragraph",
           "text": "Both handshake fixes are now part of a separately versioned native source and build contract. All five stages of the complete engine build passed. New fixed source and executable readers, plus explicit startup and evaluator entries, identify the new version; the earlier readers retain their original pins. Two focused regression runs passed 28 and 94 tests, with some overlapping coverage. Actual disposable environments also passed 14 source-file custody cases and 15 executable custody cases, including altered files, unsafe permissions, replacement after opening and rejection of the preceding binary. The full new binary has not been executed. The previously tested installation still contains older files, so the next step is to rebuild and measure the installation before accepted startup and the coding lifecycle."
+        },
+        {
+          "type": "paragraph",
+          "text": "The new build now has a freshly measured installation. Evaluator and root staging were regenerated, then combined into 116 regular files and four explicit aliases. A disposable service started through the real service manager and its packet sockets, using the installed interpreter. The diagnostic verified the new executable, every installed file, all 66 loaded Python module files, root credentials and retained service and socket handles; the process identity matched the manager. Temporary groups, units and directories were removed. Twenty-four focused installation, startup and source tests passed. This remains a preflight: full startup needs the other role deployments and trusted configuration. In particular, the witness has query and claim helpers but still needs an installed service entry before the complete coding workflow can run."
         },
         {
           "type": "paragraph",
