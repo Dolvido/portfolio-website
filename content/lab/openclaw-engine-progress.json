@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The witness now preserves its incoming task socket through measured startup, alongside protected input and service checks. Peer admission, production request handling, full engine startup and a coding task remain unfinished."
+      "summary": "The witness now verifies that PID1 created its task socket. Tests also confirmed that peer executable and namespace checks need independent protected admission. Full engine startup and a complete coding task remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The witness's incoming task socket now survives native startup and is checked alongside its protected files and service identity. Eighteen focused tests, 13 socket cases and a real 108-file service diagnostic passed; a separate run rejected an incorrect activation name. Deployment records remain synthetic, and no peer or task has been accepted. Full engine startup and the coding demonstration remain unfinished."
+          "text": "The witness now checks that root PID1 created its retained task socket, alongside its protected inputs and service identity. A real service run, nineteen focused tests and thirteen socket cases passed. A separate cross-user exchange confirmed process and message credentials but could not inspect the peer's executable or namespaces. Independent peer admission, production request handling and the complete coding demonstration remain unfinished."
         },
         {
           "type": "image",
@@ -287,6 +287,10 @@
         {
           "type": "paragraph",
           "text": "The witness's incoming task socket now survives the measured native-to-Python handoff. Native startup checks the service manager's activation fields and keeps the socket separate from the protected configuration handle. Python retains the socket, checks its type, path, credential-passing settings and identity, and rechecks it alongside the service and startup files. Thirteen isolated socket cases and eighteen focused tests passed, including wrong handles, changed settings, invocation mismatch and cleanup failures. A fresh native build and real service diagnostic then checked 108 files, five aliases and all 95 loaded Python module files. A separate service run used the same binary with an incorrect activation name and stopped in native startup. Both removed their temporary services, sockets and identities. These checks establish the incoming connection point, but no peer connected and no task ran. Actual deployment acceptance, listener custody, authenticated peers and durable request handling remain the next integration work before full engine startup and the coding demonstration."
+        },
+        {
+          "type": "paragraph",
+          "text": "The witness now checks the kernel-reported creator of its incoming task socket. A fresh measured service run confirmed root PID1 as the creator and rechecked that fact alongside the retained service and protected inputs. Nineteen focused tests and thirteen socket cases passed, including rejection of different creator credentials. A separate disposable exchange between the witness and broker user identities confirmed that the witness can retain the sender's process, read basic process and service-group facts, and match per-message credentials. Linux denied access to the other user's executable, root and namespace links. That result rules out treating those observations as complete peer authentication: the missing bindings must come from protected, independently established deployment admission. The visibility test used child processes rather than production services, and startup records remain synthetic. No peer has been admitted for coding work. The next step joins independent admission to these kernel checks, then connects durable task handling and the full coding lifecycle."
         },
         {
           "type": "paragraph",
