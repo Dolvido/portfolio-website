@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "Broker and witness builds now avoid circular dependencies on their own acceptance records. Protected input checks and real service tests pass; actual deployment admission, full engine startup and a complete coding task remain unfinished."
+      "summary": "Startup integration now has acyclic builds and a bounded format for sharing repeated runtime files. The new format passes actual-file checks; service migration, trusted deployment admission and the complete coding task remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "A deployment blocker is resolved: broker and witness binaries no longer embed acceptance records that must name those same binaries. Both services pass with separately protected inputs, and unchanged binaries reject modified bundles. The records are still synthetic. Actual deployment admission, authenticated task handling, full engine startup and the coding demonstration remain unfinished."
+          "text": "The latest integration check found that three real file inventories already exceed the existing startup format's size limit. A new bounded format carries the same 327 file references in about 33 MB by storing repeated bytes once, with existing semantic checks preserved. Explicit service migration is next. Production entries, trusted deployment admission, full engine startup and the coding demonstration remain unfinished."
         },
         {
           "type": "image",
@@ -299,6 +299,10 @@
         {
           "type": "paragraph",
           "text": "Preparing real deployment records exposed a circular build dependency: the broker and witness diagnostics compiled hashes of acceptance data into binaries that those same records would eventually need to identify. The new builds measure code and runtime files first, with the runtime lock, accepted bundle and raw preimages provisioned separately through protected startup inputs. The witness keeps its existing retained checks; the broker now has a bounded retained input reader with the same custody and current-source validation. Twenty-three focused tests and thirteen real broker file-custody cases passed. Fresh native builds and real service diagnostics passed for both roles, checking 106 witness runtime files and 105 broker runtime files plus five aliases each. All 96 witness and 95 broker loaded module files matched. Separate runs then changed each external bundle while keeping its binary unchanged; both stopped at the expected trusted-digest check. Temporary services and identities were removed. This resolves the demonstrated build cycle, but the test records remain synthetic. Actual role deployment records, independent admission and durable task handlers still precede full engine startup and the coding demonstration."
+        },
+        {
+          "type": "paragraph",
+          "text": "Checking real deployment sizes exposed another integration blocker: the current broker, witness and launcher inventories repeat enough runtime files to require at least 87,793,980 bytes in the old format, above its 67,108,864-byte limit. A new versioned format stores each distinct file once while preserving the separate role and object references. The actual-file check round-tripped all 327 references exactly using 146 unique blobs and 32,905,984 bytes. Independent limits apply to wire size, unique bytes, logical expansion and reference counts; malformed, missing, unused or altered blobs reject. Eleven new tests and 23 existing startup tests passed, including complete broker and witness semantic review with synthetic records and rejection of rehashed source or runtime substitutions. This is transport preparation, not deployment acceptance: the capacity fixture uses explicit test reference IDs, and the installed readers have not migrated. Next, select the new format through fixed startup paths, refresh measured code inventories and repeat service and altered-input checks before building the real accepted deployment chain."
         },
         {
           "type": "paragraph",
