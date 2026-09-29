@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "Witness startup-record validation now runs inside a real unprivileged service diagnostic. Protected configuration loading, a measured witness entry, full engine startup, a coding task and release remain unfinished."
+      "summary": "The witness now loads protected configuration and starts through a measured native-to-Python handoff in real service tests. Production handlers, live peer admission, full engine startup, a coding task and release remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The refreshed engine installation passes its service preflight, and the witness now validates complete startup records while retaining a real unprivileged service identity. The latest diagnostic used explicitly synthetic deployment records and removed its temporary account and service afterward. Protected witness configuration loading, a measured production entry and live peer admission remain necessary before full engine startup and a real coding task."
+          "text": "The witness now has protected configuration loading and a measured native-to-Python startup path. A real service diagnostic checked 105 files, five aliases and all 92 loaded Python module files, then validated its startup records. A separate run rejected a different expected witness deployment. These tests still use diagnostic code and synthetic acceptance records; production handlers, live peer admission, full engine startup and a real coding task remain unfinished."
         },
         {
           "type": "image",
@@ -275,6 +275,10 @@
         {
           "type": "paragraph",
           "text": "Witness startup now has its own complete record validator and fixed service observer. The validator binds protected configuration values to the full runtime lock and measurement bundle, checks all five deployment roles, and joins the witness, broker and launcher identities without granting request authority. Fourteen witness and broker regression tests passed. A separate real service diagnostic then used a native credential transition to run as the fixed witness user with no supplementary groups or capabilities. It validated the synthetic startup records while retaining the actual service identity, rejected wrong service/user expectations and closed its handles. Its process identity matched the service manager, and the temporary account and service were removed. This diagnostic uses a host interpreter and synthetic acceptance records; protected configuration loading, a measured production witness entry and live peer admission are the next steps."
+        },
+        {
+          "type": "paragraph",
+          "text": "The witness configuration is now loaded by a native reader from one fixed protected file. All 29 actual filesystem cases passed, including malformed records, unsafe permissions or mounts, and changed or replaced files after opening. A fresh measured runtime contains 105 files and five aliases. Its native entry checks those files, retains the configuration and its digest, then launches the verified interpreter with a restricted environment. Under a real service, Python checked all 92 loaded module files and ran the complete startup-record validator. A separate run used the same binary but substituted the expected witness deployment; it stopped at that exact identity check without reporting success. Both runs removed their temporary accounts, services and roots. This connects protected loading to measured diagnostic startup; synthetic acceptance records, production request handlers and live broker/launcher admission still need to be replaced or completed before the coding workflow."
         },
         {
           "type": "paragraph",
