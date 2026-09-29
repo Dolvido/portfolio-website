@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The witness now verifies that PID1 created its task socket. Tests also confirmed that peer executable and namespace checks need independent protected admission. Full engine startup and a complete coding task remain unfinished."
+      "summary": "The witness now quarantines incoming broker connections and retains the exact connecting process without reading task data. Independent deployment admission, full engine startup and a complete coding task remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The witness now checks that root PID1 created its retained task socket, alongside its protected inputs and service identity. A real service run, nineteen focused tests and thirteen socket cases passed. A separate cross-user exchange confirmed process and message credentials but could not inspect the peer's executable or namespaces. Independent peer admission, production request handling and the complete coding demonstration remain unfinished."
+          "text": "The measured witness now accepts a broker-identity connection into quarantine, retaining a process handle supplied directly by the socket. Eight kernel cases and a real 109-file service test passed, including rejection of exited peers and unsupported-kernel behavior. No task data was read. Peer deployment admission, authenticated request handling and the complete coding demonstration remain unfinished."
         },
         {
           "type": "image",
@@ -291,6 +291,10 @@
         {
           "type": "paragraph",
           "text": "The witness now checks the kernel-reported creator of its incoming task socket. A fresh measured service run confirmed root PID1 as the creator and rechecked that fact alongside the retained service and protected inputs. Nineteen focused tests and thirteen socket cases passed, including rejection of different creator credentials. A separate disposable exchange between the witness and broker user identities confirmed that the witness can retain the sender's process, read basic process and service-group facts, and match per-message credentials. Linux denied access to the other user's executable, root and namespace links. That result rules out treating those observations as complete peer authentication: the missing bindings must come from protected, independently established deployment admission. The visibility test used child processes rather than production services, and startup records remain synthetic. No peer has been admitted for coding work. The next step joins independent admission to these kernel checks, then connects durable task handling and the full coding lifecycle."
+        },
+        {
+          "type": "paragraph",
+          "text": "The witness can now accept one incoming connection into quarantine while keeping the task path closed. It checks the socket and broker user identity, obtains a process handle directly from the socket, and rechecks that process alongside the retained startup context. Obtaining the handle this way avoids confusing an exited connector with a later process that reuses its numeric PID. Eight real kernel cases passed, including wrong identity, a dead connector whose socket was kept open elsewhere, death after retention, changed socket settings, startup loss, missing kernel support and timeout. Missing socket-to-process-handle support causes rejection without a weaker fallback. Twenty-three focused regression tests also passed. In a refreshed real service test, the witness checked 109 files, five aliases and all 96 loaded Python module files, then quarantined and closed a disposable broker-identity connection without reading application bytes. The client and temporary services were cleaned up. This still does not authenticate an accepted broker deployment or authorize a task: independent role admission must be joined to the retained connection before handshake and durable request handling."
         },
         {
           "type": "paragraph",
