@@ -52,83 +52,49 @@ export type PortfolioProject = {
 
 export const projects: PortfolioProject[] = [
   {
-    id: "fuguely",
-    category: "Full-Stack Product",
-    title: "Fuguely",
-    status: "Private beta",
+    id: "bic",
     featured: true,
-    caseStudyUrl: "/projects/fuguely",
-    description: "Music lesson scheduling platform for private teachers and students, connecting studio onboarding, teacher availability, student bookings, messaging, billing workflows, and email confirmations.",
-    tags: [
-      "TypeScript",
-      "Scheduling",
-      "Stripe",
-      "Messaging"
-    ],
-    highlights: [
-      "Teacher onboarding, student rosters, and invitation flows.",
-      "Teacher availability and student lesson booking.",
-      "Messaging and confirmation emails around the lesson workflow.",
-      "Billing, cancellations, refunds, and lesson-credit workflows."
-    ],
-    caseStudy: {
-      source: "Private product workflow case study",
-      problem: "Independent music teachers need to coordinate lesson times, student bookings, messages, and payment state. A useful studio tool must keep those workflows connected while preserving clear rules for availability, cancellations, and credits.",
-      approach: [
-        "Separate teacher and student workflows so each role can find its next action quickly.",
-        "Model availability, booking, cancellation, and lesson credits as explicit state transitions.",
-        "Keep scheduling, billing, and email responsibilities separate so a provider change or delivery failure does not obscure the lesson state."
-      ],
-      example: "A teacher publishes available lesson windows and a student reserves a slot. The surrounding workflow coordinates confirmations, messages, and billing state; cancellation handling distinguishes a lesson credit from a payment-method refund.",
-      insights: [
-        "Scheduling products depend on consistent state across the calendar, communications, and billing.",
-        "Complete teacher and student journeys are useful units for product validation.",
-        "Clear cancellation and credit rules matter as much as the booking form."
-      ]
-    }
-  },
-  {
-    id: "prim",
-    category: "Simulation / Experiment Tools",
-    title: "PRIM",
-    status: "Local simulation prototype",
-    featured: true,
-    caseStudyUrl: "/projects/prim",
-    disclaimer:
-      "Deterministic simulation with pluggable predictors; this prototype does not train a reinforcement-learning model.",
+    category: "Neural Learning Research",
+    title: "Brain in Computer (BiC)",
+    status: "Research prototype",
+    githubUrl: "https://github.com/Dolvido/BiC",
+    caseStudyUrl: "/projects/bic",
     description:
-      "Deterministic local-first React/TypeScript simulation for studying a prediction-driven digital organism, with seeded runs, compare mode, batch experiments, ablation workbench, evidence packets, and Vitest coverage.",
-    tags: ["React", "TypeScript", "Vite", "Zustand", "Vitest", "Simulation"],
+      "Small neural learner with verified English curricula, an external local tutor loop, and a CPU demo. Controlled experiments measure instruction learning, retention, and the limits of unfamiliar composition.",
+    tags: ["Python", "PyTorch", "Ollama", "Evaluation"],
     highlights: [
-      "Seeded deterministic runs for reproducible simulation behavior.",
-      "Compare mode, batch experiments, and ablation workbench.",
-      "Evidence packets for inspecting state transitions and outcomes.",
-      "Vitest coverage around simulation logic and invariants.",
+      "Verified curricula with independently checked teaching targets.",
+      "External local tutor with bounded lesson choices and tutor-free evaluation.",
+      "Matched experiments tracking acquisition and retention separately.",
+      "Public CPU inference demo and compact research evidence.",
     ],
+    disclaimer:
+      "Research prototype: reliable unfamiliar composition and a useful tutor learning advantage remain unproven. The CPU demo demonstrates inference, not a complete training campaign.",
     caseStudy: {
-      source: "Local research brief",
+      source: "GitHub README: Dolvido/BiC",
       problem:
-        "Exploratory simulation work can produce interesting behavior that is difficult to reproduce or compare. PRIM was framed around the opposite constraint: if a prediction-driven digital organism changes behavior, the system should make the run, seed, configuration, and evidence inspectable.",
+        "Learning a practiced instruction does not establish that a model can reuse its meaning in a new procedure. BiC investigates that gap with small, checkable English environments and explicit retention measurements.",
       approach: [
-        "Make seeded runs the default unit of study so experiments can be replayed instead of only observed once.",
-        "Add compare mode, batch experiments, and an ablation workbench to compare predictor and policy behavior under controlled configurations.",
-        "Use evidence packets and Vitest coverage to make state transitions and simulation invariants visible.",
+        "Verify lesson meanings with independent interpreters before using them as teaching targets.",
+        "Keep the local tutor outside the learner's evaluation and restrict it to supported lesson choices.",
+        "Compare matched continuations while preserving learner and optimizer state.",
+        "Report acquisition, retention, and unfamiliar composition separately, including failed comparisons.",
       ],
       example:
-        "A researcher can run the same seed across two configurations, compare the resulting behavior, then remove one mechanism in the ablation workbench to see whether the outcome depends on that mechanism or on incidental setup.",
+        "Two continuations receive the same English lessons with different learning rates. Evaluation checks complete instruction pairs and earlier abilities, revealing whether better acquisition also preserves retention and transfers to unfamiliar procedures.",
       insights: [
-        "Reproducibility is a feature, not a cleanup task, in simulation tooling.",
-        "Ablations are easier to trust when the UI and test suite share the same deterministic assumptions.",
-        "Evidence packets turn surprising behavior into something that can be reviewed and discussed.",
+        "Improved acquisition and reusable procedural understanding require separate evidence.",
+        "Accurate lessons do not prove that the learner has acquired their meanings.",
+        "Preserving failed experiments makes the limits of a research system inspectable.",
       ],
     },
   },
   {
     id: "nasa-cmr-agent",
+    featured: true,
     category: "AI / Data Search",
     title: "NASA CMR AI Agent",
     status: "Public repository",
-    featured: true,
     githubUrl: "https://github.com/Dolvido/NASA_CMR_AGENT",
     caseStudyUrl: "/projects/nasa-cmr-agent",
     disclaimer:
@@ -162,42 +128,46 @@ export const projects: PortfolioProject[] = [
     },
   },
   {
-    id: "ai-companion",
-    category: "Local-First AI",
-    title: "AI Companion",
-    status: "Private local system",
+    id: "autoagent",
     featured: true,
-    caseStudyUrl: "/projects/ai-companion",
+    category: "Local AI / Developer Tools",
+    title: "AutoAgent",
+    status: "Experimental prototype",
+    githubUrl: "https://github.com/Dolvido/AutoAgent",
+    caseStudyUrl: "/projects/autoagent",
     description:
-      "Local-first modular conversational system with single-writer routing, explicit workspace state, draft-vs-commit streaming, interrupt handling, event logs, replay, modular LLM backends, and SQLite memory provenance.",
-    tags: ["Python", "Ollama", "Pydantic", "SQLite", "Local LLMs", "CLI"],
+      "Local code-review tooling with Ollama-backed critiques, structured findings, stored feedback, and retrieval of earlier examples. Explicit failure handling keeps model and retrieval errors visible.",
+    tags: ["Next.js", "TypeScript", "Ollama", "SQLite"],
     highlights: [
-      "Single-writer routing and explicit workspace state boundaries.",
-      "Draft-vs-commit streaming with interrupt handling.",
-      "Event logs and replay for inspectable local behavior.",
-      "SQLite memory provenance and modular LLM backend support.",
+      "Code and file input with structured issue cards.",
+      "Local-model critiques with JSON parsing and issue normalization.",
+      "SQLite storage for critiques, feedback, and prompt versions.",
+      "Embedding retrieval with validation and focused regression checks.",
     ],
+    disclaimer:
+      "Experimental local application. Ticket and patch workflows remain experimental; stored feedback does not demonstrate improved review correctness.",
     caseStudy: {
-      source: "Private local-system brief",
+      source: "GitHub README: Dolvido/AutoAgent",
       problem:
-        "A local AI companion needs to feel responsive while still protecting workspace state from accidental or conflicting writes. The core design issue is not only which model responds, but which component is allowed to commit state and how those commits can be inspected later.",
+        "Model-generated code reviews need structured findings, useful context, and clear failures before a developer can assess proposed changes. AutoAgent explores those requirements through a local review workflow.",
       approach: [
-        "Use single-writer routing so one path owns committed workspace changes.",
-        "Separate draft-vs-commit streaming, allowing partial responses to be interrupted without pretending they are durable state.",
-        "Persist event logs, replay data, and SQLite-backed memory provenance so behavior remains inspectable across sessions.",
-        "Keep LLM backends modular, including local Ollama-style backends, so the system is not coupled to one provider.",
+        "Normalize local Ollama responses into structured issues through a Next.js critique endpoint.",
+        "Persist critiques, feedback, and prompt versions in SQLite.",
+        "Retrieve earlier examples with Ollama embeddings and exact cosine search over a JSON-persisted index.",
+        "Reject invalid embeddings and surface model or retrieval failures in the main critique flow.",
       ],
       example:
-        "A conversation can stream a draft response, accept an interrupt, then commit only the chosen state transition while preserving an event trail that explains which memory records or workspace changes were touched.",
+        "A developer submits code, receives normalized issue cards informed by earlier examples, and records feedback. If the model or retrieval request fails, the main critique endpoint returns an error for the developer to address.",
       insights: [
-        "Local-first agents need state discipline more than they need a larger prompt.",
-        "Draft and committed output should be visibly different concepts in any system that can write to a workspace.",
-        "Memory provenance makes long-running assistants easier to trust and debug.",
+        "Structured findings and visible failures make generated reviews easier to assess.",
+        "Feedback acceptance and measured review correctness are different signals.",
+        "Retrieval checks can validate storage behavior without establishing model review quality.",
       ],
     },
   },
   {
     id: "smart-image-insights",
+    featured: true,
     category: "Computer Vision",
     title: "Smart Image Insights",
     status: "Inference prototype",
@@ -236,6 +206,112 @@ export const projects: PortfolioProject[] = [
         "Separating model serving from the frontend makes deployment boundaries easier to maintain."
       ]
     }
+  },
+  {
+    id: "fuguely",
+    featured: true,
+    category: "Full-Stack Product",
+    title: "Fuguely",
+    status: "Private beta",
+    caseStudyUrl: "/projects/fuguely",
+    description: "Music lesson scheduling platform for private teachers and students, connecting studio onboarding, teacher availability, student bookings, messaging, billing workflows, and email confirmations.",
+    tags: [
+      "TypeScript",
+      "Scheduling",
+      "Stripe",
+      "Messaging"
+    ],
+    highlights: [
+      "Teacher onboarding, student rosters, and invitation flows.",
+      "Teacher availability and student lesson booking.",
+      "Messaging and confirmation emails around the lesson workflow.",
+      "Billing, cancellations, refunds, and lesson-credit workflows."
+    ],
+    caseStudy: {
+      source: "Private product workflow case study",
+      problem: "Independent music teachers need to coordinate lesson times, student bookings, messages, and payment state. A useful studio tool must keep those workflows connected while preserving clear rules for availability, cancellations, and credits.",
+      approach: [
+        "Separate teacher and student workflows so each role can find its next action quickly.",
+        "Model availability, booking, cancellation, and lesson credits as explicit state transitions.",
+        "Keep scheduling, billing, and email responsibilities separate so a provider change or delivery failure does not obscure the lesson state."
+      ],
+      example: "A teacher publishes available lesson windows and a student reserves a slot. The surrounding workflow coordinates confirmations, messages, and billing state; cancellation handling distinguishes a lesson credit from a payment-method refund.",
+      insights: [
+        "Scheduling products depend on consistent state across the calendar, communications, and billing.",
+        "Complete teacher and student journeys are useful units for product validation.",
+        "Clear cancellation and credit rules matter as much as the booking form."
+      ]
+    }
+  },
+  {
+    id: "prim",
+    featured: true,
+    category: "Simulation / Experiment Tools",
+    title: "PRIM",
+    status: "Local simulation prototype",
+    caseStudyUrl: "/projects/prim",
+    disclaimer:
+      "Deterministic simulation with pluggable predictors; this prototype does not train a reinforcement-learning model.",
+    description:
+      "Deterministic local-first React/TypeScript simulation for studying a prediction-driven digital organism, with seeded runs, compare mode, batch experiments, ablation workbench, evidence packets, and Vitest coverage.",
+    tags: ["React", "TypeScript", "Vite", "Zustand", "Vitest", "Simulation"],
+    highlights: [
+      "Seeded deterministic runs for reproducible simulation behavior.",
+      "Compare mode, batch experiments, and ablation workbench.",
+      "Evidence packets for inspecting state transitions and outcomes.",
+      "Vitest coverage around simulation logic and invariants.",
+    ],
+    caseStudy: {
+      source: "Local research brief",
+      problem:
+        "Exploratory simulation work can produce interesting behavior that is difficult to reproduce or compare. PRIM was framed around the opposite constraint: if a prediction-driven digital organism changes behavior, the system should make the run, seed, configuration, and evidence inspectable.",
+      approach: [
+        "Make seeded runs the default unit of study so experiments can be replayed instead of only observed once.",
+        "Add compare mode, batch experiments, and an ablation workbench to compare predictor and policy behavior under controlled configurations.",
+        "Use evidence packets and Vitest coverage to make state transitions and simulation invariants visible.",
+      ],
+      example:
+        "A researcher can run the same seed across two configurations, compare the resulting behavior, then remove one mechanism in the ablation workbench to see whether the outcome depends on that mechanism or on incidental setup.",
+      insights: [
+        "Reproducibility is a feature, not a cleanup task, in simulation tooling.",
+        "Ablations are easier to trust when the UI and test suite share the same deterministic assumptions.",
+        "Evidence packets turn surprising behavior into something that can be reviewed and discussed.",
+      ],
+    },
+  },
+  {
+    id: "ai-companion",
+    category: "Local-First AI",
+    title: "AI Companion",
+    status: "Private local system",
+    caseStudyUrl: "/projects/ai-companion",
+    description:
+      "Local-first modular conversational system with single-writer routing, explicit workspace state, draft-vs-commit streaming, interrupt handling, event logs, replay, modular LLM backends, and SQLite memory provenance.",
+    tags: ["Python", "Ollama", "Pydantic", "SQLite", "Local LLMs", "CLI"],
+    highlights: [
+      "Single-writer routing and explicit workspace state boundaries.",
+      "Draft-vs-commit streaming with interrupt handling.",
+      "Event logs and replay for inspectable local behavior.",
+      "SQLite memory provenance and modular LLM backend support.",
+    ],
+    caseStudy: {
+      source: "Private local-system brief",
+      problem:
+        "A local AI companion needs to feel responsive while still protecting workspace state from accidental or conflicting writes. The core design issue is not only which model responds, but which component is allowed to commit state and how those commits can be inspected later.",
+      approach: [
+        "Use single-writer routing so one path owns committed workspace changes.",
+        "Separate draft-vs-commit streaming, allowing partial responses to be interrupted without pretending they are durable state.",
+        "Persist event logs, replay data, and SQLite-backed memory provenance so behavior remains inspectable across sessions.",
+        "Keep LLM backends modular, including local Ollama-style backends, so the system is not coupled to one provider.",
+      ],
+      example:
+        "A conversation can stream a draft response, accept an interrupt, then commit only the chosen state transition while preserving an event trail that explains which memory records or workspace changes were touched.",
+      insights: [
+        "Local-first agents need state discipline more than they need a larger prompt.",
+        "Draft and committed output should be visibly different concepts in any system that can write to a workspace.",
+        "Memory provenance makes long-running assistants easier to trust and debug.",
+      ],
+    },
   },
   {
     id: "document-qa-chatbot",

@@ -8,10 +8,12 @@ Portfolio and engineering case studies for AI, backend, and full-stack roles.
 
 ## Selected work
 
-The homepage features Fuguely, PRIM, the NASA CMR AI Agent, and AI Companion.
+The homepage matches the GitHub profile's Selected work list, in order: Brain in Computer (BiC), NASA CMR AI Agent, AutoAgent, Smart Image Insights, Fuguely, and PRIM. Keep the featured entries in `app/data/portfolio.ts` in sync when that selection changes.
 
 | Project | Focus | Source availability |
 | --- | --- | --- |
+| [Brain in Computer (BiC)](https://github.com/Dolvido/BiC) | Verified English curricula, local tutor experiments, and measured learning limits | Public research prototype |
+| [AutoAgent](https://github.com/Dolvido/AutoAgent) | Local code review, structured findings, feedback, and example retrieval | Public experimental prototype |
 | [Fuguely](https://lukepayne.web.app/projects/fuguely/) | Music-teacher scheduling, booking, communication, and billing workflows | Private source; public case study |
 | [PRIM](https://lukepayne.web.app/projects/prim/) | Deterministic simulation, experiment comparison, replay, and inspection tools | Private source; public case study |
 | [NASA CMR AI Agent](https://github.com/Dolvido/NASA_CMR_AGENT) | Independent assessment project using public NASA CMR APIs | Public repository |
@@ -47,7 +49,7 @@ The exported site is written to `out/`.
 ## Content and routes
 
 - `app/data/portfolio.ts`: profile links, project descriptions, case studies, resume content, and selected ideas.
-- `app/page.tsx`: homepage; displays the first four projects marked `featured`.
+- `app/page.tsx`: homepage; displays every project marked `featured`, in data order, with links to its case study.
 - `app/projects/page.tsx`: full project index.
 - `app/projects/[id]/page.tsx`: static case-study routes generated from project IDs.
 - `content/lab/`: structured OpenClaw Lab publication artifacts.

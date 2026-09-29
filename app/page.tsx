@@ -12,7 +12,7 @@ import {
 import { outcomeClassificationLabels } from "../lib/lab/types";
 
 export default function Home() {
-  const featuredProjects = projects.filter((project) => project.featured).slice(0, 4);
+  const featuredProjects = projects.filter((project) => project.featured);
   const labConfig = getLabConfig();
   const labHighlights = getHomepageLabPublications(2);
 
@@ -86,7 +86,7 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+              <div className="grid gap-6 md:grid-cols-2">
                 {featuredProjects.map((project) => (
                   <ProjectCard
                     key={project.id}
@@ -94,7 +94,7 @@ export default function Home() {
                     title={project.title}
                     description={project.description}
                     tags={project.tags}
-                    href={`/projects#${project.id}`}
+                    href={project.caseStudyUrl}
                   />
                 ))}
               </div>
