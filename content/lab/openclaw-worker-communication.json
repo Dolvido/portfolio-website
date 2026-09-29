@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 1,
+  "metadata": {
+    "id": "OCL-ENGINE-2026-09-03",
+    "slug": "openclaw-worker-communication",
+    "title": "3. Connecting tasks, workers and execution evidence",
+    "description": "Part 3 of the OpenClaw series: exact task delivery, native replies, and final-result queries across a real socket.",
+    "date": "2026-09-29",
+    "type": "Engineering Note",
+    "project": {
+      "id": "openclaw-engine",
+      "name": "OpenClaw Evolutionary Coding Lab"
+    },
+    "tags": [
+      "OpenClaw",
+      "Coding engine series",
+      "Worker communication",
+      "Execution evidence"
+    ],
+    "outcome": {
+      "classification": "ongoing",
+      "summary": "Python and native fixtures exchange checked requests and evidence. Synthetic admission and limited journal cases still separate those results from authenticated production task handling."
+    },
+    "status": "published",
+    "reviewStatus": "approved"
+  },
+  "provenance": {
+    "origin": "reviewed-candidate",
+    "summary": "Reorganized from the previously published OpenClaw progress log on September 29, 2026. The engineering snapshot is unchanged; no new experiment is reported here. Engine evidence remains local, and the public source does not independently reproduce its results.",
+    "sourceRevision": "aac361bb540d581a523f06d48e5ffa0c1a11008d",
+    "publicReferences": [
+      {
+        "id": "original-snapshot",
+        "label": "Original progress log before the series split",
+        "href": "https://github.com/Dolvido/portfolio-website/blob/aac361bb540d581a523f06d48e5ffa0c1a11008d/content/lab/openclaw-engine-progress.json",
+        "kind": "Historical publication source",
+        "note": "The complete previously published narrative. This documents the public report, not independent reproduction of engine results."
+      },
+      {
+        "id": "publication-contract",
+        "label": "Lab publication guide",
+        "href": "https://github.com/Dolvido/portfolio-website/blob/main/content/lab/README.md",
+        "kind": "Publication process",
+        "note": "The content format, review states, validation checks and public disclosure rules used by this site."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": "Part 3 of 8",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Delivering bytes to a worker is only one part of task execution. The receiver must know who sent them, which request they belong to, and whether the reply contains enough evidence to evaluate the result. This post follows that communication boundary."
+        },
+        {
+          "type": "diagram",
+          "title": "Task bytes and evidence travel together",
+          "caption": "A real socket proves transfer behavior. These fixtures still use synthetic admission; production peer acceptance remains open.",
+          "layout": "flow",
+          "groups": [
+            {
+              "title": "One checked request / one checked reply",
+              "items": [
+                {
+                  "title": "Retain the sender",
+                  "text": "Check kernel identity, process liveness and connection state.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Deliver exact bytes",
+                  "text": "Validate V2 framing, order and the complete request.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Claim the work once",
+                  "text": "Redelivery recovers the existing claim instead of creating one.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Validate the reply",
+                  "text": "Bind setup rows or final-result evidence to the retained request.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Series overview and reading order",
+              "href": "/lab/openclaw-engine-progress/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Bind the sender and claim the work",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The receiving path now checks the real Linux identity of both the process that connected and the process sending each message. It also verifies message framing, ordering and exact task bytes, and rejects unexpected attached file descriptors. Twenty-one transport and binding checks passed, including two real child-process tests showing that an inherited socket cannot hide a different sender. Binding tests still use synthetic deployment records."
+        },
+        {
+          "type": "paragraph",
+          "text": "Durable claims now record the suite and each individual step before any future launcher handoff. A step requires valid evidence matching the saved claims for earlier steps. Missing, altered, out-of-order or terminal-failure evidence cannot unlock another step, and reopening an existing claim does not create a new one. Fifteen suite and step-claim tests passed, including concurrent suite claims, partial writes and replay after reopening."
+        },
+        {
+          "type": "paragraph",
+          "text": "The first Python handshake used an older protocol than the native successor. The replacement follows the successor V2 records and length-prefixed packets and rejects fallback to V1. Separate Python processes transferred exact task bytes and recovered an existing suite claim on redelivery. The successful fixture simulated protected-role admission; its database, Linux credentials, message transfer and claim storage were real."
+        }
+      ]
+    },
+    {
+      "title": "A manifest is not the evidence",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Testing setup replies against the actual native encoders exposed a mismatch missed by the first Python fixtures. Native journal rows wrapped setup records in a larger evidence payload. After correcting the row validator, an unprivileged native fixture produced a response Python accepted."
+        },
+        {
+          "type": "paragraph",
+          "text": "The reply still named eleven evidence rows without supplying their bodies. A proposed protocol change carried all eleven selected rows alongside the response and rejected missing, altered or unsafe rows before sending. A native fixture then transferred the complete evidence in three messages over a real socket; Python checked the sender, bytes and evidence, and a wrong-user case was rejected. The connection identity remained synthetic."
+        }
+      ]
+    },
+    {
+      "title": "Query a final result once",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The final-result reader keeps found, missing, invalid and unsafe outcomes distinct. It checks output bytes, process outcomes and cleanup evidence against the retained request and launcher identities. An isolated native comparison generated all four reply forms and matched the Python reader."
+        },
+        {
+          "type": "paragraph",
+          "text": "The production native sender was then exercised over real sockets. Thirteen cases covered the four outcomes, eight changed connection conditions rejected without reply bytes, and rejection of an unexpected sender. The fixture used synthetic admission and historical-query results, and each reply fit one frame."
+        },
+        {
+          "type": "paragraph",
+          "text": "The witness now has a final-result query builder and a one-use session adapter. It checks the established connection against the expected job request and witness/launcher identities before sending, then uses the existing final-evidence reader to validate the reply. Both successful and failed exchanges close the session; missing and error outcomes stay explicit. Forty-one focused and regression tests pass, including all four outcomes through real-socket Python handshakes, altered evidence, wrong endpoints, invalid queries, closed peer handles and attempted reuse. Two archive checks also pass. This joins the Python request lifecycle, but admission records remain synthetic and the adapter is not yet packaged into an installed witness service. Native handshake and actual journal lookup remain the next integration work."
+        }
+      ]
+    },
+    {
+      "title": "Let the native journal challenge the protocol",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The witness adapter now completes a native handshake backed by a real journal. The isolated helper runs as the launcher user, commits a connection nonce, validates its transaction, receives the query and returns the expected missing-result reply from historical lookup. The saved nonce record matches the helper output and its recomputed identity; the successful helper exits cleanly, while a missing journal is rejected. This uncovered two native defects: the receiver required an end-of-record flag that Linux Unix sockets do not supply, despite the current profile treating it as optional; and the connection builder emitted two fields in the wrong canonical order. Both are corrected in a new source proposal. Earlier failed attempts and fixture corrections are preserved, and two archive checks pass. The fixes are not yet migrated into the pinned runtime build. Deployment identities remain synthetic, and lookup has only covered a journal without a final job row. Next comes source/build migration, then stored-result and recovery cases before full service startup."
+        },
+        {
+          "type": "paragraph",
+          "text": "The two handshake fixes were subsequently incorporated into a separately versioned source and build contract. The full build passed, and refreshed source-file and executable checks rejected altered inputs and the preceding binary. That migration did not itself execute the full new launcher or accept its deployment."
+        }
+      ]
+    },
+    {
+      "title": "The remaining boundary",
+      "blocks": [
+        {
+          "type": "callout",
+          "label": "The next integration boundary",
+          "text": "The saved review dispatch still derives from predecessor authority bindings. V2 transport does not migrate or accept the full runtime-policy model. The remaining work must join successor policy, independently accepted deployment and runtime custody, per-step execution claims and the native launcher before demonstrating a complete coding task."
+        },
+        {
+          "type": "paragraph",
+          "text": "Real socket transfer and a missing-result journal lookup are useful integration evidence. The remaining workflow needs independently accepted peers, installed request handlers and stored-result recovery cases before these exchanges can authorize and complete a coding task."
+        }
+      ]
+    },
+    {
+      "title": "Continue the series",
+      "blocks": [
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Series overview and reading order",
+              "href": "/lab/openclaw-engine-progress/"
+            },
+            {
+              "label": "Previous: Stopping work and preserving its outcome",
+              "href": "/lab/openclaw-cancellation-and-recovery/"
+            },
+            {
+              "label": "Next: Checking runtime records against the bytes they name",
+              "href": "/lab/openclaw-runtime-validation/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

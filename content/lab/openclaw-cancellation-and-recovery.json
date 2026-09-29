@@ -1,0 +1,200 @@
+{
+  "schemaVersion": 1,
+  "metadata": {
+    "id": "OCL-ENGINE-2026-09-02",
+    "slug": "openclaw-cancellation-and-recovery",
+    "title": "2. Stopping work and preserving its outcome",
+    "description": "Part 2 of the OpenClaw series: deadlines, requester loss, durable outcomes, and recovery without replay.",
+    "date": "2026-09-29",
+    "type": "Engineering Note",
+    "project": {
+      "id": "openclaw-engine",
+      "name": "OpenClaw Evolutionary Coding Lab"
+    },
+    "tags": [
+      "OpenClaw",
+      "Coding engine series",
+      "Cancellation",
+      "Recovery"
+    ],
+    "outcome": {
+      "classification": "ongoing",
+      "summary": "Disposable workloads demonstrate bounded stopping and saved outcomes. Recovery components reject replay, but complete service recovery and escaped-descendant containment remain open."
+    },
+    "status": "published",
+    "reviewStatus": "approved"
+  },
+  "provenance": {
+    "origin": "reviewed-candidate",
+    "summary": "Reorganized from the previously published OpenClaw progress log on September 29, 2026. The engineering snapshot is unchanged; no new experiment is reported here. Engine evidence remains local, and the public source does not independently reproduce its results.",
+    "sourceRevision": "aac361bb540d581a523f06d48e5ffa0c1a11008d",
+    "publicReferences": [
+      {
+        "id": "original-snapshot",
+        "label": "Original progress log before the series split",
+        "href": "https://github.com/Dolvido/portfolio-website/blob/aac361bb540d581a523f06d48e5ffa0c1a11008d/content/lab/openclaw-engine-progress.json",
+        "kind": "Historical publication source",
+        "note": "The complete previously published narrative. This documents the public report, not independent reproduction of engine results."
+      },
+      {
+        "id": "publication-contract",
+        "label": "Lab publication guide",
+        "href": "https://github.com/Dolvido/portfolio-website/blob/main/content/lab/README.md",
+        "kind": "Publication process",
+        "note": "The content format, review states, validation checks and public disclosure rules used by this site."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": "Part 2 of 8",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "A coding task is not safely finished just because its caller has gone away. The engine needs to stop the work it started, preserve the result and prevent a retry from launching it again. The original progress log tested those boundaries in separate experiments."
+        },
+        {
+          "type": "diagram",
+          "title": "A lost requester must not create a second attempt",
+          "caption": "These boundaries were exercised in separate fixtures. The whole service still needs recovery and containment testing.",
+          "layout": "flow",
+          "groups": [
+            {
+              "title": "Stopping and retaining an outcome",
+              "items": [
+                {
+                  "title": "Detect interruption",
+                  "text": "A deadline, cancel signal or requester loss ends the attempt.",
+                  "label": "Trigger",
+                  "tone": "neutral"
+                },
+                {
+                  "title": "Stop the workload",
+                  "text": "Terminate and reap the tested child processes; bound output cleanup.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Save the outcome",
+                  "text": "Persist failure or completion evidence with its evaluated result.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Reopen, do not replay",
+                  "text": "Recover the saved record; retired journal reservations stay unusable.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Series overview and reading order",
+              "href": "/lab/openclaw-engine-progress/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Make deadlines survive closed output",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Three executor gaps were reproduced with disposable test processes and corrected. A child closing both output streams no longer disables its deadline. Interrupting capture now stops and reaps the direct child before the original interruption returns to the caller. A pipe held open outside the stopped process group can no longer keep cleanup waiting indefinitely: an incomplete read is reported as an execution error."
+        },
+        {
+          "type": "paragraph",
+          "text": "A separate Windows-to-Linux development fixture also passed two cases after a child and grandchild confirmed they were running: an explicit cancel message, and closure of the input connection. Linux reported the direct child reaped by the executor, the grandchild reaped after termination, and no remaining children. The host observed completion in 247 ms and 211 ms. This is cooperative cancellation evidence for that disposable workload, not proof for forcibly killing the Windows launcher or for descendants that escape containment."
+        }
+      ]
+    },
+    {
+      "title": "Save a result after the requester disappears",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Forcibly terminating the Windows requester exposed a gap: the known Linux processes disappeared, but no completion report survived. That experiment remains inconclusive. A separate backend was then tested so the work and its reporting could outlive the requester's connection."
+        },
+        {
+          "type": "paragraph",
+          "text": "In the latest disposable experiment, Windows terminated the requester after the worker confirmed readiness. The backend detected the disconnect, requested cancellation, confirmed direct-child and grandchild cleanup, and saved a terminal execution-failure result. A separate process reopened the store and read that result. Windows termination took 282 ms; the worker reported completion in 113 ms. These are observations from one experiment, not performance guarantees."
+        },
+        {
+          "type": "paragraph",
+          "text": "The executor gained an explicit cancellation signal that the task pipeline can save as a failure observation. Focused checks covered execution, authority and persistence without replay. A broader pipeline run passed 179 of 182 tests; three failures involved installed Python or standard-library bytes that did not match pinned runtime requirements. Those checks were already excluded from the offline profile and remain runtime qualification work."
+        }
+      ]
+    },
+    {
+      "title": "Recover records without consuming another attempt",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "New review-stage code reuses the existing database transaction to save the exact dispatch record when a task is consumed. It can recover that record after a lost response without consuming the task again. A second adapter saves the bound execution evidence and its evaluated outcome together, then re-evaluates that evidence when the store is reopened. It accepts no caller-selected verdict."
+        },
+        {
+          "type": "paragraph",
+          "text": "Seventeen targeted checks passed across the recovery and cancellation work. Separate-process tests showed that conflicting valid outcomes have one winner, identical submissions create only one terminal transition, and a result survives an abrupt process exit immediately after commit. Other checks reject incomplete or forged evidence and preserve failed-test and execution-failure outcomes."
+        }
+      ]
+    },
+    {
+      "title": "Preserve journal history after interruption",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Journal review found another startup gap: when its main state file was missing, the code created fresh counters without first checking for saved history. A separate repair permits initialization only when the protected journal has exactly its expected empty structure. Existing records, receipts, partial state files or unexpected entries cause startup to stop. Eleven tests of the exact native directory helper passed without changing fixture contents or retained directory positions."
+        },
+        {
+          "type": "paragraph",
+          "text": "A second fixture exercised the actual journal's initialization, locking, reservation and recovery code inside an isolated filesystem. It passed eleven cases using real saved files and operating-system locks. Restart preserved the state bytes, the wrong writer and a competing lock holder were rejected, and missing or corrupt control state left the remaining history unchanged."
+        },
+        {
+          "type": "paragraph",
+          "text": "To test interrupted work, the fixture saved a reservation and exited before publishing its result. On reopening, recovery permanently marked that reservation unusable, preserved the journal's identity and kept its sequence numbers moving forward. Repeating recovery changed nothing. This prevents that reserved range from being reused; it does not claim the interrupted coding task completed."
+        }
+      ]
+    },
+    {
+      "title": "What remains to demonstrate",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The cancellation backend, database adapters and native journal are component experiments. Synthetic deployment identities and controlled interruption points limit their conclusions. They do not establish authenticated production dispatch, all crash points, power-loss recovery, concurrent service handling or containment of descendants that escape the tested process group."
+        },
+        {
+          "type": "paragraph",
+          "text": "A complete workflow must connect those pieces so that success, failed tests, execution failure and cancellation each leave a durable outcome, and lost responses or restarts cannot create a second execution."
+        }
+      ]
+    },
+    {
+      "title": "Continue the series",
+      "blocks": [
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Series overview and reading order",
+              "href": "/lab/openclaw-engine-progress/"
+            },
+            {
+              "label": "Previous: Reproducible releases: what the tests establish",
+              "href": "/lab/openclaw-reproducible-releases/"
+            },
+            {
+              "label": "Next: Connecting tasks, workers and execution evidence",
+              "href": "/lab/openclaw-worker-communication/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

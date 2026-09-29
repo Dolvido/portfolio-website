@@ -3,9 +3,9 @@
   "metadata": {
     "id": "OCL-ENGINE-2026-09",
     "slug": "openclaw-engine-progress",
-    "title": "OpenClaw Evolutionary Coding Lab: connecting the pieces",
-    "description": "Reproducible source, cancellation experiments, and the path to one complete, controlled coding task.",
-    "date": "2026-09-26",
+    "title": "OpenClaw Evolutionary Coding Lab: a guide to the series",
+    "description": "Start here for the bounded coding workflow, its remaining milestone, and eight focused engineering posts.",
+    "date": "2026-09-29",
     "type": "Project Log",
     "project": {
       "id": "openclaw-engine",
@@ -26,14 +26,15 @@
   },
   "provenance": {
     "origin": "reviewed-candidate",
-    "summary": "AI-assisted project update checked against local source and recorded development validation through September 26, 2026. Engine evidence remains local. Public references document the article and publication process; they do not independently reproduce engine results.",
+    "summary": "Reorganized from the previously published OpenClaw progress log on September 29, 2026. The engineering snapshot is unchanged; no new experiment is reported here. Engine evidence remains local, and the public source does not independently reproduce its results.",
+    "sourceRevision": "aac361bb540d581a523f06d48e5ffa0c1a11008d",
     "publicReferences": [
       {
-        "id": "publication-source",
-        "label": "Article source in the portfolio repository",
-        "href": "https://github.com/Dolvido/portfolio-website/blob/main/content/lab/openclaw-engine-progress.json",
-        "kind": "Publication source",
-        "note": "The versioned article, separate from the engine source and its local validation records."
+        "id": "original-snapshot",
+        "label": "Original progress log before the series split",
+        "href": "https://github.com/Dolvido/portfolio-website/blob/aac361bb540d581a523f06d48e5ffa0c1a11008d/content/lab/openclaw-engine-progress.json",
+        "kind": "Historical publication source",
+        "note": "The complete previously published narrative. This documents the public report, not independent reproduction of engine results."
       },
       {
         "id": "publication-contract",
@@ -46,7 +47,7 @@
   },
   "sections": [
     {
-      "title": "Where the Lab stands",
+      "title": "The project in one page",
       "blocks": [
         {
           "type": "paragraph",
@@ -57,926 +58,113 @@
           "text": "The Lab already has project tracking, planning, task scheduling, reporting and mechanisms that control which actions a task may perform. Development fixtures also exercise parts of the execution system. The current challenge is connecting those components into one demonstrable workflow, including what happens when work fails or is stopped."
         },
         {
-          "type": "callout",
-          "label": "Current status",
-          "text": "The shared startup-data format now runs through both retained readers and refreshed native service diagnostics. Thirty real file-custody cases and 34 focused tests pass, including rejection of old-format inputs and altered acceptance records. All temporary resources were removed. The deployment records remain synthetic; production entries, independent peer admission, full engine startup and the coding demonstration are still unfinished."
-        },
-        {
-          "type": "image",
-          "src": "/images/lab/openclaw-engine-progress/workflow.png",
-          "alt": "Intended workflow, with integration still in progress: scope and authorize a task with exact source and limits; claim the attempt once and reject replay; run and evaluate changes in an isolated copy; return the patch and test results for human review while preserving the original project.",
-          "caption": "Figure 1. The intended workflow. A complete end-to-end demonstration is still pending.",
-          "width": 1800,
-          "height": 2360
+          "type": "paragraph",
+          "text": "This page replaces the expanding progress log with a reading guide. The eight posts below reorganize its published findings by question. They describe the same engineering snapshot; their order is a reading path, not a claim that each experiment happened after the preceding post."
         }
       ]
     },
     {
-      "title": "What has been verified",
+      "title": "Read the series",
       "blocks": [
         {
-          "type": "keyValue",
+          "type": "links",
           "items": [
             {
-              "label": "Source-v10 offline validation",
-              "value": "The extracted snapshot ran 1,612 tests with no unexpected failures, errors or skips. That total includes one expected historical failure; 17 named machine-specific checks were excluded."
+              "label": "1. Reproducible releases: what the tests establish",
+              "href": "/lab/openclaw-reproducible-releases/",
+              "note": "separating a repeatable source archive and offline package from a working coding service."
             },
             {
-              "label": "Repeatable source export",
-              "value": "All 615 selected source files retained their recorded hashes after testing. Re-exporting the extracted files with the archived executable permissions restored produced a byte-for-byte identical archive."
+              "label": "2. Stopping work and preserving its outcome",
+              "href": "/lab/openclaw-cancellation-and-recovery/",
+              "note": "deadlines, requester loss, durable outcomes, and recovery without replay."
             },
             {
-              "label": "Execution fixtures",
-              "value": "Disposable test programs exercised launch settings, sealed executable data, output limits, deadlines, cleanup within a process group and Windows-to-Linux handoff."
+              "label": "3. Connecting tasks, workers and execution evidence",
+              "href": "/lab/openclaw-worker-communication/",
+              "note": "exact task delivery, native replies, and final-result queries across a real socket."
             },
             {
-              "label": "Release materials",
-              "value": "Two isolated builds produced identical Python packages. A fresh Linux installation used that package without downloading dependencies; all 74 installed module files matched, and the synthetic offline demo passed. MIT licensing, third-party notices and release documentation are prepared."
+              "label": "4. Checking runtime records against the bytes they name",
+              "href": "/lab/openclaw-runtime-validation/",
+              "note": "joining source, deployment, service policy and platform evidence without trusting a passing flag."
+            },
+            {
+              "label": "5. Starting the evaluator with measured files and one-use permission",
+              "href": "/lab/openclaw-evaluator-startup/",
+              "note": "protected inputs, durable receipts, native parent checks, and the syscall filter that initially stopped Python."
+            },
+            {
+              "label": "6. Starting real services with the files we checked",
+              "href": "/lab/openclaw-measured-service-startup/",
+              "note": "service identities, activated sockets, retained files and a connection held before task handling."
+            },
+            {
+              "label": "7. When approval records depend on the program they approve",
+              "href": "/lab/openclaw-build-approval-cycle/",
+              "note": "removing a circular dependency between measured binaries and deployment acceptance records."
+            },
+            {
+              "label": "8. When realistic runtime data outgrows the startup format",
+              "href": "/lab/openclaw-startup-data-capacity/",
+              "note": "sharing repeated runtime bytes while preserving role references, limits and rejection checks."
             }
           ]
-        },
-        {
-          "type": "paragraph",
-          "text": "These results apply to specific development artifacts. The offline suite did not rerun the earlier native execution experiments, and the package's demo exercises a synthetic project registry without running coding tasks. The engine source has not yet been published as a GitHub release; the linked portfolio repository hosts this article."
         }
       ]
     },
     {
-      "title": "Integration progress: stopping work reliably",
+      "title": "The intended workflow",
       "blocks": [
         {
-          "type": "paragraph",
-          "text": "Three executor gaps were reproduced with disposable test processes and corrected. A child closing both output streams no longer disables its deadline. Interrupting capture now stops and reaps the direct child before the original interruption returns to the caller. A pipe held open outside the stopped process group can no longer keep cleanup waiting indefinitely: an incomplete read is reported as an execution error."
-        },
-        {
-          "type": "paragraph",
-          "text": "That executor snapshot passed a full offline run of 1,591 tests with no unexpected failures, errors or skips. One historical expected failure and 17 explicitly excluded machine-specific checks remain. The tested source hashes were checked at the time of validation. Focused validation also passed 79 checks covering the new regressions and existing execution and one-shot authority behavior."
-        },
-        {
-          "type": "paragraph",
-          "text": "A separate Windows-to-Linux development fixture also passed two cases after a child and grandchild confirmed they were running: an explicit cancel message, and closure of the input connection. Linux reported the direct child reaped by the executor, the grandchild reaped after termination, and no remaining children. The host observed completion in 247 ms and 211 ms. This is cooperative cancellation evidence for that disposable workload, not proof for forcibly killing the Windows launcher or for descendants that escape containment."
-        },
-        {
-          "type": "callout",
-          "label": "Scope of this result",
-          "text": "These corrections were subsequently included in the verified source-v10 snapshot. Complete cross-host cancellation, escaped-descendant containment, production qualification and a real coding task remain unfinished."
+          "type": "diagram",
+          "title": "One bounded task, with review at the end",
+          "caption": "Intended workflow. The complete path still needs an end-to-end demonstration.",
+          "layout": "flow",
+          "groups": [
+            {
+              "title": "Scope → execute → evaluate → review",
+              "items": [
+                {
+                  "title": "Scope the task",
+                  "text": "Bind the source, permitted actions and deadline.",
+                  "label": "Required",
+                  "tone": "neutral"
+                },
+                {
+                  "title": "Work in a copy",
+                  "text": "Claim one attempt and change an isolated project.",
+                  "label": "Required",
+                  "tone": "neutral"
+                },
+                {
+                  "title": "Evaluate the result",
+                  "text": "Capture the patch, tests and terminal outcome.",
+                  "label": "Required",
+                  "tone": "neutral"
+                },
+                {
+                  "title": "Return for review",
+                  "text": "Preserve the original and let a person inspect the change.",
+                  "label": "Not yet complete",
+                  "tone": "pending"
+                }
+              ]
+            }
+          ]
         }
       ]
     },
     {
-      "title": "Keeping a result when the requester disappears",
+      "title": "What remains unfinished",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Forcibly terminating the Windows requester exposed a gap: the known Linux processes disappeared, but no completion report survived. That experiment remains inconclusive. A separate backend was then tested so the work and its reporting could outlive the requester's connection."
+          "text": "Measured broker and witness diagnostics run with the shared startup-data format, but their deployment records remain synthetic. Actual accepted deployments, independent peer admission, production request handlers and the original engine's full startup remain unfinished."
         },
         {
           "type": "paragraph",
-          "text": "In the latest disposable experiment, Windows terminated the requester after the worker confirmed readiness. The backend detected the disconnect, requested cancellation, confirmed direct-child and grandchild cleanup, and saved a terminal execution-failure result. A separate process reopened the store and read that result. Windows termination took 282 ms; the worker reported completion in 113 ms. These are observations from one experiment, not performance guarantees."
-        },
-        {
-          "type": "paragraph",
-          "text": "The executor now accepts an explicit cancellation signal and returns a failure observation that the existing task pipeline can save. Focused validation passed 82 execution and authority checks plus a pipeline test showing a persisted failure and no replay launch. A broader pipeline run passed 179 of 182 tests; the other three failed because installed Python or standard-library bytes did not match pinned runtime requirements. Those exact checks were already excluded from the offline profile. Their failures remain unresolved runtime qualification work."
-        },
-        {
-          "type": "callout",
-          "label": "What this establishes",
-          "text": "The backend experiment and pipeline regression exercise separate boundaries. They do not yet prove a complete authenticated coding service, service restart recovery, concurrent request handling or containment of escaped descendants. These changes were subsequently included in source-v10; newer worker safeguards remain outside that snapshot."
-        }
-      ]
-    },
-    {
-      "title": "Recovering dispatch and completion records",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "The explicit-cancellation snapshot subsequently passed a full offline run of 1,595 tests with no unexpected failures, errors or skips. One historical expected failure and 17 named host-dependent exclusions remain. The recorded input hashes still matched after the run. This result predates the recovery adapters described below."
-        },
-        {
-          "type": "paragraph",
-          "text": "New review-stage code reuses the existing database transaction to save the exact dispatch record when a task is consumed. It can recover that record after a lost response without consuming the task again. A second adapter saves the bound execution evidence and its evaluated outcome together, then re-evaluates that evidence when the store is reopened. It accepts no caller-selected verdict."
-        },
-        {
-          "type": "paragraph",
-          "text": "Seventeen targeted checks passed across the recovery and cancellation work. Separate-process tests showed that conflicting valid outcomes have one winner, identical submissions create only one terminal transition, and a result survives an abrupt process exit immediately after commit. Other checks reject incomplete or forged evidence and preserve failed-test and execution-failure outcomes."
-        },
-        {
-          "type": "callout",
-          "label": "Component recovery, not service qualification",
-          "text": "These recovery adapters are included in source-v10, but still use synthetic witness evidence and are not connected to production task dispatch. The transport contract requires a root-owned systemd socket and authenticated deployment identities. Accepted runtime and policy setup, live worker authentication and complete workflow recovery remain unfinished."
-        }
-      ]
-    },
-    {
-      "title": "Worker safeguards added after source-v10",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "The receiving path now checks the real Linux identity of both the process that connected and the process sending each message. It also verifies message framing, ordering and exact task bytes, and rejects unexpected attached file descriptors. Twenty-one transport and binding checks passed, including two real child-process tests showing that an inherited socket cannot hide a different sender. Binding tests still use synthetic deployment records."
-        },
-        {
-          "type": "paragraph",
-          "text": "Durable claims now record the suite and each individual step before any future launcher handoff. A step requires valid evidence matching the saved claims for earlier steps. Missing, altered, out-of-order or terminal-failure evidence cannot unlock another step, and reopening an existing claim does not create a new one. Fifteen suite and step-claim tests passed, including concurrent suite claims, partial writes and replay after reopening."
-        },
-        {
-          "type": "callout",
-          "label": "What remains unproven",
-          "text": "These component checks preceded the combined checkout validation below. They do not qualify a protected running service. Source-v10 remains the last verified packaged snapshot and does not include the newer handshake and delivery work."
-        }
-      ]
-    },
-    {
-      "title": "Connecting saved tasks to the worker",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "A compatibility review found that the first Python handshake used the predecessor V1 format while the existing native successor requires V2. The new codec follows the successor's closed records and length-prefixed packets, and rejects V1 fallback. Separate Python processes now complete that V2 exchange, derive the same connection identity and transfer the exact task bytes. This has not yet been tested against a running native launcher."
-        },
-        {
-          "type": "paragraph",
-          "text": "The exchange retains socket and process handles. Checks reject a valid queued response from a worker that has already exited, altered task bytes, transfer before authentication and a second request on the same session. Larger binary requests are split into checked messages; the receiver returns no partial task."
-        },
-        {
-          "type": "paragraph",
-          "text": "A review adapter now recovers the exact saved dispatch, sends it through the V2 session and saves the worker's suite claim only after the complete task is verified. Redelivery through a new connection recovers the existing claim rather than creating a fresh one. The successful integration fixture explicitly simulates protected-role admission; its database, Linux credentials, process handles, message transfer and claim storage are real. Without that simulation, the fixture process is correctly rejected as a protected principal."
-        },
-        {
-          "type": "paragraph",
-          "text": "The Python V2 session now also returns one checked reply after the complete request. Thirty-nine focused transport and session tests passed, including a multi-message reply from a separate Linux process. The receiver checks the actual message sender, connection, message order and bytes, then requires a trusted response validator to bind the result to the original request. Invalid identities, malformed records, repeated replies and an expired validation deadline are rejected. An initial test setup exceeded the operating system argument-size limit before starting its child; moving the fixture data to a temporary file corrected that setup. These are Python-to-Python tests with synthetic deployment policy; interoperability with the native engine remains unverified."
-        },
-        {
-          "type": "paragraph",
-          "text": "A concrete suite-preparation response validator now checks the successor containment record, service and process bindings, protected path-isolation evidence and the exact request. Testing it against the actual native encoders exposed a mismatch that the first Python tests had missed: native journal rows wrap setup records in a larger evidence payload. The first native fixture stopped at its row validator. The corrected implementation checks all eleven complete row bodies against the reply's manifest. A fresh unprivileged native fixture then produced a byte-exact response that Python accepted with those rows. Both fixture processes were reaped and their temporary directories removed."
-        },
-        {
-          "type": "paragraph",
-          "text": "That snapshot passed 54 focused checks. The native reply supplied the row manifest but omitted the row bodies, identifying the next integration gap. A separate protocol proposal now carries all eleven manifest-selected rows with the existing response. It preserves the protected file permissions and rejects missing, altered or unsafe rows before sending anything. The complete proposed launcher passes all five build stages, and eleven native filesystem cases pass. The new combined Python checks pass 62 tests."
-        },
-        {
-          "type": "paragraph",
-          "text": "A second native fixture sent the complete setup evidence to Python over a real socket in three messages. Python checked the actual sender's Linux identity, the message bytes and the complete evidence; a separate wrong-user test was rejected. All children and temporary files were cleaned up. This tests the native message encoding and transfer with a synthetic connection identity, not the production handshake or a running engine. The proposed protocol still needs to be incorporated into the reviewed source/build contract and current measured deployment. Final-result validation, live peer admission, original native startup and the full coding lifecycle remain unfinished."
-        },
-        {
-          "type": "paragraph",
-          "text": "The reply proposal now has a separate source-contract revision linking its authority record, measurement profile, runtime schema and build inputs. The historical records and validators remain unchanged. Seven new tests reject weakened contracts, mixed old/new identities, altered source files and rollback; the combined focused checks pass 69 tests. All nine native inputs match the earlier successful build. This step does not create a new executable or runtime acceptance: the protected native and Python readers still enforce older bindings and must be migrated before the new records can participate in startup. That reader migration, followed by refreshed measured deployment records and final-result handling, is the next integration work."
-        },
-        {
-          "type": "paragraph",
-          "text": "The native reader has now been migrated to the proposed revision, including the additional source component and exact contract bindings. Its first isolated helper run rejected the valid authority because two old checks still expected the previous field count and status. That attempt was preserved. A separate corrected build and unprivileged run passed 30 source-pin and build-contract cases, rejecting old or mixed records, altered source hashes, missing or duplicate components and weakened build settings. Both children and temporary directories were cleaned up. The complete updated launcher also builds and passes static executable checks, but has not been run. Thirteen Python source-revision tests pass. These native tests use a minimal synthetic deployment projection and exercise the validation helpers only; the protected Python reader, full dependency closure, actual deployment acceptance and original native startup remain integration work."
-        },
-        {
-          "type": "paragraph",
-          "text": "The protected Python reader now recognizes the exact revised source set: seven source records and seven provider files, with no caller-selected path, hash or fallback. Runtime deployment checks bind the additional provider, and service-policy review uses the fixed revised authority. A separate evaluator entry retains the existing process, descriptor and parent checks. The combined regression run passed 138 tests, including the complete synthetic startup-publication validation path and rejection of a rehashed provider substitution. Fourteen real protected-filesystem cases passed in disposable private mounts, including old records, changed files, symlinks, hard links, unsafe ownership or modes, a missing include and a writable mount. All children and temporary roots were removed. A fresh staging of 14 project modules then matched the synthetic semantic result in an isolated interpreter, checked all 60 loaded module files and loaded no test modules. This still requires an installed runtime demonstration with the actual native parent and accepted deployment records."
-        },
-        {
-          "type": "paragraph",
-          "text": "The current runtime has now been assembled from actual files: 96 regular files, three exact file aliases and a launcher proposal with all required launcher role names. The revised authority has its own filter compiler and verifier binding; the generated filter bytes are unchanged. Twenty focused material and filter tests and two source-archive checks pass. A disposable installation then passed two execution checks: the protected reader loaded all seven source records and seven providers, with 51 loaded module files matching the proposed installation; the exact Python entry exited with rejection when launched without native handoff evidence. Both children were reaped, installed inputs stayed unchanged and the temporary filesystem was removed. The native executable was present but was not executed, and this interpreter-only check did not install its file capabilities. The next step is a valid native handoff and durable startup receipt for this composition, followed by complete deployment acceptance, live admission and final-result handling before the real coding demonstration."
-        },
-        {
-          "type": "paragraph",
-          "text": "The next startup mismatch was in the root wrapper: it still required the older native executable. A separate fixed entry now selects the current 573,192-byte build, while the historical entry keeps its original selection. Both use the same checks for protected files, service context, startup roots, activation descriptors and the final privilege transition. Fourteen regression tests pass, including admission fields for the current build and stopping before execution when the retained file handle changes. Fifteen additional cases use real current and historical executable files at the fixed runtime path in disposable private namespaces. They accept the exact current file and reject cross-revision combinations, changed bytes, unsafe ownership or modes, links, incorrect capabilities, a mount that suppresses capabilities, namespace changes and replacement after retention. All children were reaped and temporary roots removed. Neither native binary was executed. The new root entry must now be measured and bound into the service/deployment chain; these file checks do not establish runtime acceptance or a valid native handoff."
-        },
-        {
-          "type": "paragraph",
-          "text": "The privileged startup entry now has its own isolated import inventory: 13 project modules, 64 loaded filesystem modules and 11 native files. Combining it with the evaluator produced a 112-file runtime proposal with four exact file aliases. Service integration uncovered a practical ownership issue: the command must start as root while delegation remains assigned to launcher UID 980. The revised proposal uses systemd's command prefix for that separation. Four distinct bounded diagnostic attempts were retained. The first could not reach its script through the private checkout; staging readable source copies let the next attempt reach the credential check. A further observation identified supplementary group 980 as the mismatch. The fixed entry now validates that complete initial credential state, removes the group and reruns the strict root check. The fourth real service attempt passed: it dropped to UID/GID 980 with the required native pre-exec state, then created and removed an empty child cgroup with cpu, memory and pids available. All temporary roots, unit files and cgroups were confirmed absent. Twenty-one focused tests and two archive checks pass. The diagnostic used staged project sources and host Python, not the complete 112-file installation, and executed no native engine. Next come the combined installation, real activation and admission, independently bound deployment roots and a valid native startup receipt."
-        },
-        {
-          "type": "paragraph",
-          "text": "The combined installation now passes a real PID1 and socket-activation preflight. The fixture installs the 112 runtime files and four exact file aliases in a private read-only root, alongside explicit diagnostic files. It uses the installed interpreter and libraries rather than host Python. Real service-manager sockets provide the control and descriptor listeners. The diagnostic validates the root credential preparation, exact activation descriptors, retained service context and pinned native executable, then checks all runtime bytes and all 64 loaded filesystem modules. The controller independently matches the reported process and invocation to the service manager and checks socket ownership. The first attempt stopped before application execution because systemd could not resolve socket groups 970 and 971. A fresh attempt created two temporary group records, passed, and removed them with every unit, endpoint and private root; cleanup was independently confirmed. Two source-archive checks also pass. This is the installed preflight, not the full root entry: no admission was published, no accepted startup records were invented and the native engine was not executed. Next come the independently bound startup configuration, full runtime lock and accepted measurement bundle, including the other deployment roles, before the native handoff and real coding lifecycle."
-        },
-        {
-          "type": "paragraph",
-          "text": "Final-result verification now has a Python reader. It checks the native final-row identity, output bytes, recorded process outcome and cleanup proofs, then binds the reply to the retained witness request and reviewed launcher identities. Found, missing, invalid and unsafe outcomes remain distinct. The new tests and existing transport and semantic checks pass 59 tests, including altered evidence with recomputed hashes. Two source-archive checks also pass. These are Python fixtures: native encoder/validator comparison, actual reply transport integration and measured runtime packaging remain unfinished. The next step is to exercise replies produced by the native code before connecting the reader to the witness service."
-        },
-        {
-          "type": "paragraph",
-          "text": "Native final-result encoding and validation now agree with the Python reader in an isolated comparison. A three-stage build of the current native helper passed, followed by one unprivileged execution covering 17 final-record cases. Four native-generated replies—found, missing, invalid and unsafe—matched the expected bytes and passed Python semantic validation. The helper exited cleanly and its temporary files were removed. Two source-archive checks also pass. This fixture supplies synthetic historical-query results directly and sends replies through a local output stream; it does not prove durable journal lookup or authenticated transport. The next step is to connect these replies to the retained witness request and transport lifecycle."
-        },
-        {
-          "type": "paragraph",
-          "text": "The production native final-result sender now reaches the Python reader over real sockets. The fixture calls the full sender, including its socket and peer revalidation, rather than assembling reply packets separately. A corrected run passes 13 cases: all four result outcomes arrive byte-for-byte intact; eight changed connection conditions are rejected without reply bytes; and the receiver rejects an unexpected sender identity. The first run exposed a blocking-socket setup mismatch and remains preserved. All helper processes were reaped and temporary files removed. Two archive checks also pass. These tests use synthetic admission records and historical-query results, and each reply fits one frame. The next step is to connect the witness request lifecycle, accepted service records and actual journal lookup before full startup."
-        },
-        {
-          "type": "paragraph",
-          "text": "The witness now has a final-result query builder and a one-use session adapter. It checks the established connection against the expected job request and witness/launcher identities before sending, then uses the existing final-evidence reader to validate the reply. Both successful and failed exchanges close the session; missing and error outcomes stay explicit. Forty-one focused and regression tests pass, including all four outcomes through real-socket Python handshakes, altered evidence, wrong endpoints, invalid queries, closed peer handles and attempted reuse. Two archive checks also pass. This joins the Python request lifecycle, but admission records remain synthetic and the adapter is not yet packaged into an installed witness service. Native handshake and actual journal lookup remain the next integration work."
-        },
-        {
-          "type": "paragraph",
-          "text": "The witness adapter now completes a native handshake backed by a real journal. The isolated helper runs as the launcher user, commits a connection nonce, validates its transaction, receives the query and returns the expected missing-result reply from historical lookup. The saved nonce record matches the helper output and its recomputed identity; the successful helper exits cleanly, while a missing journal is rejected. This uncovered two native defects: the receiver required an end-of-record flag that Linux Unix sockets do not supply, despite the current profile treating it as optional; and the connection builder emitted two fields in the wrong canonical order. Both are corrected in a new source proposal. Earlier failed attempts and fixture corrections are preserved, and two archive checks pass. The fixes are not yet migrated into the pinned runtime build. Deployment identities remain synthetic, and lookup has only covered a journal without a final job row. Next comes source/build migration, then stored-result and recovery cases before full service startup."
-        },
-        {
-          "type": "paragraph",
-          "text": "Both handshake fixes are now part of a separately versioned native source and build contract. All five stages of the complete engine build passed. New fixed source and executable readers, plus explicit startup and evaluator entries, identify the new version; the earlier readers retain their original pins. Two focused regression runs passed 28 and 94 tests, with some overlapping coverage. Actual disposable environments also passed 14 source-file custody cases and 15 executable custody cases, including altered files, unsafe permissions, replacement after opening and rejection of the preceding binary. The full new binary has not been executed. The previously tested installation still contains older files, so the next step is to rebuild and measure the installation before accepted startup and the coding lifecycle."
-        },
-        {
-          "type": "paragraph",
-          "text": "The new build now has a freshly measured installation. Evaluator and root staging were regenerated, then combined into 116 regular files and four explicit aliases. A disposable service started through the real service manager and its packet sockets, using the installed interpreter. The diagnostic verified the new executable, every installed file, all 66 loaded Python module files, root credentials and retained service and socket handles; the process identity matched the manager. Temporary groups, units and directories were removed. Twenty-four focused installation, startup and source tests passed. This remains a preflight: full startup needs the other role deployments and trusted configuration. In particular, the witness has query and claim helpers but still needs an installed service entry before the complete coding workflow can run."
-        },
-        {
-          "type": "paragraph",
-          "text": "Witness startup now has its own complete record validator and fixed service observer. The validator binds protected configuration values to the full runtime lock and measurement bundle, checks all five deployment roles, and joins the witness, broker and launcher identities without granting request authority. Fourteen witness and broker regression tests passed. A separate real service diagnostic then used a native credential transition to run as the fixed witness user with no supplementary groups or capabilities. It validated the synthetic startup records while retaining the actual service identity, rejected wrong service/user expectations and closed its handles. Its process identity matched the service manager, and the temporary account and service were removed. This diagnostic uses a host interpreter and synthetic acceptance records; protected configuration loading, a measured production witness entry and live peer admission are the next steps."
-        },
-        {
-          "type": "paragraph",
-          "text": "The witness configuration is now loaded by a native reader from one fixed protected file. All 29 actual filesystem cases passed, including malformed records, unsafe permissions or mounts, and changed or replaced files after opening. A fresh measured runtime contains 105 files and five aliases. Its native entry checks those files, retains the configuration and its digest, then launches the verified interpreter with a restricted environment. Under a real service, Python checked all 92 loaded module files and ran the complete startup-record validator. A separate run used the same binary but substituted the expected witness deployment; it stopped at that exact identity check without reporting success. Both runs removed their temporary accounts, services and roots. This connects protected loading to measured diagnostic startup; synthetic acceptance records, production request handlers and live broker/launcher admission still need to be replaced or completed before the coding workflow."
-        },
-        {
-          "type": "paragraph",
-          "text": "The witness now retains its protected configuration, runtime records and source preimages for the lifetime of its startup context. It rechecks their contents and file identities alongside the running service, and rejects replacement even when the new file contains identical bytes. Thirteen real filesystem cases passed, covering malformed inputs, unsafe ownership or links, and files changed, replaced or deleted after startup. Earlier failed test attempts are preserved: one lacked a dependency inside its isolated environment, and later diagnostics identified an inherited WSL terminal handle rather than a loader leak. Correcting the test setup required no weaker runtime checks. Thirteen focused tests and a fresh three-stage native build also passed. A real service diagnostic then checked 107 files, five aliases and all 94 loaded Python module files using the retained input context. The temporary service and identity were removed. Deployment records remain synthetic; the next step is the fixed request entry with real peer admission and durable result handling, followed by full engine startup and the coding demonstration."
-        },
-        {
-          "type": "paragraph",
-          "text": "The witness's incoming task socket now survives the measured native-to-Python handoff. Native startup checks the service manager's activation fields and keeps the socket separate from the protected configuration handle. Python retains the socket, checks its type, path, credential-passing settings and identity, and rechecks it alongside the service and startup files. Thirteen isolated socket cases and eighteen focused tests passed, including wrong handles, changed settings, invocation mismatch and cleanup failures. A fresh native build and real service diagnostic then checked 108 files, five aliases and all 95 loaded Python module files. A separate service run used the same binary with an incorrect activation name and stopped in native startup. Both removed their temporary services, sockets and identities. These checks establish the incoming connection point, but no peer connected and no task ran. Actual deployment acceptance, listener custody, authenticated peers and durable request handling remain the next integration work before full engine startup and the coding demonstration."
-        },
-        {
-          "type": "paragraph",
-          "text": "The witness now checks the kernel-reported creator of its incoming task socket. A fresh measured service run confirmed root PID1 as the creator and rechecked that fact alongside the retained service and protected inputs. Nineteen focused tests and thirteen socket cases passed, including rejection of different creator credentials. A separate disposable exchange between the witness and broker user identities confirmed that the witness can retain the sender's process, read basic process and service-group facts, and match per-message credentials. Linux denied access to the other user's executable, root and namespace links. That result rules out treating those observations as complete peer authentication: the missing bindings must come from protected, independently established deployment admission. The visibility test used child processes rather than production services, and startup records remain synthetic. No peer has been admitted for coding work. The next step joins independent admission to these kernel checks, then connects durable task handling and the full coding lifecycle."
-        },
-        {
-          "type": "paragraph",
-          "text": "The witness can now accept one incoming connection into quarantine while keeping the task path closed. It checks the socket and broker user identity, obtains a process handle directly from the socket, and rechecks that process alongside the retained startup context. Obtaining the handle this way avoids confusing an exited connector with a later process that reuses its numeric PID. Eight real kernel cases passed, including wrong identity, a dead connector whose socket was kept open elsewhere, death after retention, changed socket settings, startup loss, missing kernel support and timeout. Missing socket-to-process-handle support causes rejection without a weaker fallback. Twenty-three focused regression tests also passed. In a refreshed real service test, the witness checked 109 files, five aliases and all 96 loaded Python module files, then quarantined and closed a disposable broker-identity connection without reading application bytes. The client and temporary services were cleaned up. This still does not authenticate an accepted broker deployment or authorize a task: independent role admission must be joined to the retained connection before handshake and durable request handling."
-        },
-        {
-          "type": "paragraph",
-          "text": "Preparing real deployment records exposed a circular build dependency: the broker and witness diagnostics compiled hashes of acceptance data into binaries that those same records would eventually need to identify. The new builds measure code and runtime files first, with the runtime lock, accepted bundle and raw preimages provisioned separately through protected startup inputs. The witness keeps its existing retained checks; the broker now has a bounded retained input reader with the same custody and current-source validation. Twenty-three focused tests and thirteen real broker file-custody cases passed. Fresh native builds and real service diagnostics passed for both roles, checking 106 witness runtime files and 105 broker runtime files plus five aliases each. All 96 witness and 95 broker loaded module files matched. Separate runs then changed each external bundle while keeping its binary unchanged; both stopped at the expected trusted-digest check. Temporary services and identities were removed. This resolves the demonstrated build cycle, but the test records remain synthetic. Actual role deployment records, independent admission and durable task handlers still precede full engine startup and the coding demonstration."
-        },
-        {
-          "type": "paragraph",
-          "text": "Checking real deployment sizes exposed another integration blocker: the current broker, witness and launcher inventories repeat enough runtime files to require at least 87,793,980 bytes in the old format, above its 67,108,864-byte limit. A new versioned format stores each distinct file once while preserving the separate role and object references. The actual-file check round-tripped all 327 references exactly using 146 unique blobs and 32,905,984 bytes. Independent limits apply to wire size, unique bytes, logical expansion and reference counts; malformed, missing, unused or altered blobs reject. Eleven new tests and 23 existing startup tests passed, including complete broker and witness semantic review with synthetic records and rejection of rehashed source or runtime substitutions. This is transport preparation, not deployment acceptance: the capacity fixture uses explicit test reference IDs, and the installed readers have not migrated. Next, select the new format through fixed startup paths, refresh measured code inventories and repeat service and altered-input checks before building the real accepted deployment chain."
-        },
-        {
-          "type": "paragraph",
-          "text": "The shared startup-data format is now selected explicitly by both retained readers at fixed versioned paths, with no format detection or fallback. Thirty real file-custody cases passed, including rejection of old-format bytes, inputs available only at the old path, and changes after files were opened. Fresh measured builds passed for both roles. The real witness service checked 107 runtime files and all 97 loaded module files, then quarantined a disposable broker-principal connection without reading task data; the broker checked 106 runtime files and all 96 loaded module files while retaining its three listeners. Both unchanged binaries rejected separately modified acceptance bundles at the trusted-digest check. Thirty-four focused tests passed, and temporary services, identities and roots were removed. The refreshed capacity check preserved all 329 file references in 32,916,834 bytes. This completes the format migration through measured diagnostics, but their records remain synthetic. Production request entries, actual accepted deployment records, independent peer admission and durable task handlers still precede original engine startup and the full coding lifecycle."
-        },
-        {
-          "type": "paragraph",
-          "text": "The combined development checkout ran 1,692 offline tests with no unexpected failures, errors or skips. One historical expected failure and 17 named host-dependent exclusions remain. All 643 recorded source inputs retained their hashes, lengths and archive permission classification after the run. This validates the checkout; it is not a new package, native qualification result or completed coding demonstration."
-        },
-        {
-          "type": "callout",
-          "label": "The next integration boundary",
-          "text": "The saved review dispatch still derives from predecessor authority bindings. V2 transport does not migrate or accept the full runtime-policy model. The remaining work must join successor policy, independently accepted deployment and runtime custody, per-step execution claims and the native launcher before demonstrating a complete coding task."
-        }
-      ]
-    },
-    {
-      "title": "Checking the runtime pieces together",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "A new review path checks the proposed source set, worker identities, deployment contents, launcher journal and six communication endpoints together. It verifies actual supplied program and configuration bytes, rederives their identities and checks that journal references point to the reviewed launcher. This prevents a caller from substituting unchecked deployment records between those component checks."
-        },
-        {
-          "type": "paragraph",
-          "text": "Thirty-three focused checks passed across this work and source packaging validation. They reject changed executable bytes, missing inputs, swapped worker roles, older configurations presented as the successor, altered journal policies and weakened endpoint permissions. These tests use synthetic deployment fixtures; they do not establish that the protected services are installed or running correctly."
-        },
-        {
-          "type": "paragraph",
-          "text": "The service review also exposed a remaining gap: the successor schema permits a nonempty service-policy object, while the native service-record check does not fully validate that object's contents. The older Python validator enforces an older service contract and cannot simply be reused unchanged. The next step is an exact successor service policy tied to its operational requirements, followed by checks of the actual service and its protected directories."
-        },
-        {
-          "type": "callout",
-          "label": "Development checks, not runtime acceptance",
-          "text": "These additions postdate the full 1,692-test run and are covered by the 33 focused checks only. Source-v10 remains the last verified packaged snapshot. The combined review grants no execution permission; full runtime acceptance, native integration and the complete coding demonstration remain open."
-        }
-      ]
-    },
-    {
-      "title": "Testing the native startup path",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "An exact successor service-policy proposal now preserves the existing lifecycle protections and includes the successor's containment and journal requirements. The focused source, runtime and packaging checks reached 40 passing tests. This remains a proposed policy encoding; it has not been accepted as a running service configuration."
-        },
-        {
-          "type": "paragraph",
-          "text": "Disposable startup probes exposed practical deployment requirements. The first stopped because the service account did not exist. After a dedicated non-login launcher account was provisioned, the next probe showed that its temporary filesystem suppressed file capabilities and that systemd supplied a supplementary group. A third probe on a capability-enabled filesystem demonstrated the required capability state and successfully cleared that group. Temporary privileged files and probe services were removed; the dedicated account remains."
-        },
-        {
-          "type": "paragraph",
-          "text": "A separate launcher patch clears only the expected redundant primary-group entry at startup and keeps the later credential checks strict. Eight isolated behavior cases passed, including foreign groups and syscall failures. The first binary build used an older link recipe and failed the symbol-visibility check; a separate build with the reviewed linker policy passed the static checks. Both outcomes are retained."
-        },
-        {
-          "type": "paragraph",
-          "text": "Listener inspection then found a native defect: the code compared a filesystem socket inode with the different inode belonging to its open socket descriptor, rejecting a valid listener. The proposed repair asks the kernel to bind the exact socket identity to its filesystem entry. Its build and static checks passed, and the response parser rejected malformed and truncated inputs. An initial parser test harness crashed because of its entry-point stack alignment; the corrected harness passed."
-        },
-        {
-          "type": "paragraph",
-          "text": "The exact native helper then passed four real-kernel fixture cases: accepting a valid listener, rejecting the old listener after its pathname was replaced, accepting the replacement listener, and rejecting an unbound socket. All temporary sockets were removed. This tests the repair independently of the complete launcher."
-        },
-        {
-          "type": "callout",
-          "label": "Still before a complete coding run",
-          "text": "The repaired full launcher has been built and inspected, but has not been executed. These results do not establish accepted source/build contracts, protected service custody, complete runtime acceptance or a coding-task outcome. The next work connects those requirements before demonstrating success, failure, restart and cancellation. The earlier full-suite and packaged-snapshot results remain separate."
-        }
-      ]
-    },
-    {
-      "title": "Preserving history across startup and recovery",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "Concrete service and socket configurations now pass the service manager's offline verifier. They describe the launch identity, restricted capabilities, communication endpoints, cleanup behavior and journal directories. Verification used synthetic role records and an inert executable placeholder; these configurations have not been installed or used to start the complete launcher."
-        },
-        {
-          "type": "paragraph",
-          "text": "Journal review found another startup gap: when its main state file was missing, the code created fresh counters without first checking for saved history. A separate repair permits initialization only when the protected journal has exactly its expected empty structure. Existing records, receipts, partial state files or unexpected entries cause startup to stop. Eleven tests of the exact native directory helper passed without changing fixture contents or retained directory positions."
-        },
-        {
-          "type": "paragraph",
-          "text": "A second fixture exercised the actual journal's initialization, locking, reservation and recovery code inside an isolated filesystem. It passed eleven cases using real saved files and operating-system locks. Restart preserved the state bytes, the wrong writer and a competing lock holder were rejected, and missing or corrupt control state left the remaining history unchanged."
-        },
-        {
-          "type": "paragraph",
-          "text": "To test interrupted work, the fixture saved a reservation and exited before publishing its result. On reopening, recovery permanently marked that reservation unusable, preserved the journal's identity and kept its sequence numbers moving forward. Repeating recovery changed nothing. This prevents that reserved range from being reused; it does not claim the interrupted coding task completed."
-        },
-        {
-          "type": "paragraph",
-          "text": "The first integration runner stopped at sandbox argument validation before the native fixture executed. A corrected runner passed, and all disposable state was removed. The combined launcher proposal also passed its five-stage build and static image checks. The earlier full-suite count and source-v10 package remain separate from these newer changes."
-        },
-        {
-          "type": "callout",
-          "label": "What this proves—and what remains",
-          "text": "This is journal-component evidence using synthetic deployment identities. Interruption was a deliberate exit after reservation, not a test of every possible crash point. Complete launcher execution, recovery of committed transactions, final service custody and acceptance of the changed source and runtime still need verification before the full coding demonstration."
-        }
-      ]
-    },
-    {
-      "title": "Joining build contracts to real service behavior",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "The combined startup-repair candidate was built independently twice, producing identical intermediate outputs and executables. Review then found that two new helper includes did not fit the deployment contract's closed source-file set. Incorporating their exact code into the owning files restored that structure without changing either object file or the executable; only an assembly source-line comment changed."
-        },
-        {
-          "type": "paragraph",
-          "text": "A proposed contract for that source layout passes the existing Python cross-source checks. The exact native contract validator also passed fifteen fixture cases: accepting matching source records and rejecting altered digests, missing or duplicate roles, incorrect lengths or types, and weakened contract rules with recalculated identities. These records use synthetic deployment data and do not establish trusted runtime acceptance."
-        },
-        {
-          "type": "paragraph",
-          "text": "A native service-policy test reproduced a separate gap: the earlier validator accepted an empty policy when the surrounding record identity matched. The proposed fix checks the complete reviewed policy. Thirty-two cases passed, including mutations of every one of its twenty-nine fields with freshly calculated record identities. The updated complete launcher builds and passes static inspection; the earlier reproducibility result does not cover this later binary."
-        },
-        {
-          "type": "paragraph",
-          "text": "An inert temporary service then exercised selected proposed settings on the actual service manager. All twenty-five checks passed, covering identity settings, controller delegation and ownership, stopping and restart settings, a private mount namespace, and the shared host PID namespace. The inert process had no file capabilities, so this does not qualify the native launcher's complete credential state."
-        },
-        {
-          "type": "paragraph",
-          "text": "A further fixture tested real systemd socket activation through the exact native descriptor-admission functions. The first attempt stopped before the fixture ran because its synthetic sender groups did not exist. A separate attempt provisioned temporary empty groups and passed: the native code admitted three null standard streams and exactly two listeners, checked their kernel-to-filesystem identities and ownership, and joined their groups to the fixture's expected roles. All test units, sockets, files and temporary groups were removed."
-        },
-        {
-          "type": "callout",
-          "label": "The remaining combined test",
-          "text": "These are verified component boundaries. They have not yet run together as the full privileged launcher with accepted source/build inputs, trusted deployment records, credential bootstrap, journal custody and protected task execution. That complete startup and coding demonstration remains the next major milestone. The historical 1,692-test run and source-v10 package do not include these later repairs."
-        }
-      ]
-    },
-    {
-      "title": "Closing the evaluator configuration gap",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "The native credential bootstrap and socket handoff have now passed together in one disposable service fixture. It used the launcher's original startup and credential-checking code, then admitted the two real systemd listeners and checked credentials again. The expected user and group, empty supplementary groups and exact capability set held before and after admission. This still replaces the launcher's main workflow with a test body; it does not execute the complete startup path."
-        },
-        {
-          "type": "paragraph",
-          "text": "The first combined runner stopped while creating its temporary groups, before the privileged executable or service ran. A separate runner with shorter group names passed. Temporary privileged files, service units, sockets and groups were removed afterward. The dedicated launcher account from the earlier setup remains."
-        },
-        {
-          "type": "paragraph",
-          "text": "Thirteen exact runtime and review inputs have been staged as non-executable candidate data. Tracing the remaining startup requirements exposed a configuration mismatch: the native launcher reads the successor profile, while the existing Python evaluator opens the predecessor profile path and rejects the valid successor profile even when its source digest is correct. The evaluator also still calls the predecessor runtime-lock parser. Packaging that evaluator unchanged would not produce a working successor runtime."
-        },
-        {
-          "type": "paragraph",
-          "text": "A separate successor evaluator component now checks all twelve platform observations against the reviewed source set. It derives classifications from raw evidence and rejects incomplete, reordered or malformed observations, wrong error-number pairs, altered source bytes and substitution of the predecessor profile. The probe definitions and interpretation rules are unchanged between the two profiles; the old evaluator parser remains intact."
-        },
-        {
-          "type": "paragraph",
-          "text": "Service-policy review is also connected to freshly checked runtime components. The service must refer to the launcher and reaper deployments validated in that same review, with matching source and configuration bytes and the expected activation identity. The combined runtime, evaluator and source suite passes forty-nine focused tests. These use synthetic offline evidence and do not grant execution permission or replace the earlier full-suite result."
-        },
-        {
-          "type": "callout",
-          "label": "Immediate next step",
-          "text": "Complete successor runtime-lock and nested acceptance checks, including deployment, filesystem and process-custody joins. Then connect the evaluator's fixed entry point and measured Python dependencies, exercise full startup, and run the controlled coding demonstration. No complete launcher startup or real coding task has run yet."
-        }
-      ]
-    },
-    {
-      "title": "Connecting successor validation from configuration to measurements",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "The successor evaluator now checks a complete runtime configuration against its source files and supplied program bytes. It joins the five deployment roles, service settings, communication endpoints, stores and journals, and checks that declared filter and configuration hashes match their exact deployment roles. The complete fixture uses the required reaper filter bytes, rather than the small synthetic filter used in earlier geometry tests."
-        },
-        {
-          "type": "paragraph",
-          "text": "Nested platform and mount-isolation results are rederived from their observations. Recalculating a record identity cannot preserve a forged passing flag, substitute another verifier, or combine results from different platform measurements. The earlier accepted measurement bundle must also match the reviewed configuration and its complete platform record."
-        },
-        {
-          "type": "paragraph",
-          "text": "Challenge integration exposed another predecessor assumption: the old check expected a store-reference field that the new file-based launcher journal does not have. A separate successor check follows the native launcher's context calculation and binds the challenge to the configuration, journal, allocator epoch and boot identity. It validates the record; it does not consume the challenge or prove freshness."
-        },
-        {
-          "type": "paragraph",
-          "text": "The current measurement path now derives results from complete raw observations without accepting caller-supplied passing flags. Its evidence envelope checks the expected profile and configuration digests, process-attempt facts and ordered file measurements. Actual supplied file bytes are rehashed before being passed into the complete configuration and measurement review."
-        },
-        {
-          "type": "paragraph",
-          "text": "Concrete launcher, evaluator and Python checks enforce their fixed paths, modes, startup arguments and capability settings. Each authority file must match its exact measurement role, preventing another record at the same path from standing in for it. The interpreter's loading requirements are checked against its supplied executable bytes."
-        },
-        {
-          "type": "paragraph",
-          "text": "A complete positive fixture now carries one native launcher identity through all those records and derives a current transcript from a different synthetic process than the historical accepted transcript. Additional tests reject altered interpreter measurement roles and capabilities even after their identities are recalculated. The combined focused and archive suite passes 111 tests. An earlier fixture-construction failure was corrected without weakening the validator."
-        },
-        {
-          "type": "callout",
-          "label": "Validation is connected; real startup is still ahead",
-          "text": "This milestone runs Python validation with synthetic executable bytes and supplied process and descriptor facts. It does not execute the native launcher, establish real protected-handle custody, consume a challenge, publish a durable receipt or complete a coding task. The historical full-suite and packaged-snapshot results retain their original scope. Next comes protected-handle verification, one-use journal consumption, receipt publication and parent verification, followed by actual startup and the controlled coding demonstration."
-        }
-      ]
-    },
-    {
-      "title": "Testing one-use permission and saved startup receipts",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "The successor input reader now checks a real sealed memory file before interpreting its evidence. Disposable child processes accepted the exact required input and rejected missing seals, wrong names or permissions, writable or incorrectly inherited handles, malformed contents and a wrong expected profile digest. These cases test the input reader; they do not establish the complete protected process boundary."
-        },
-        {
-          "type": "paragraph",
-          "text": "A separate directory experiment passed ten checks using actual retained directory handles. It accepted the intended journal and receipt directories and rejected swapped handles, incorrect object identities, wrong ownership, weakened permissions, removed directories and closed handles. The fixed handoff reader checks process conditions and the inherited handle set before accessing measurement files. Its ordering tests do not simulate a successful full startup."
-        },
-        {
-          "type": "paragraph",
-          "text": "The evaluator now derives the startup receipt, invocation and consumption request from the complete successor review, then connects them to one-use consumption and durable publication. It writes the receipt without replacing an existing result, synchronizes the files and directory, and reopens the exact bytes it reviewed. A completion record alone cannot authorize the next stage; the native parent still has to verify the saved state independently."
-        },
-        {
-          "type": "paragraph",
-          "text": "Three isolated real-file cases passed under the launcher's user and group with no supplementary groups. Success saved the exact receipt and rejected reuse. Missing allocation produced no consume record or receipt. An existing receipt blocked publication, preserved the prior bytes and left the permission consumed, so another attempt could not turn that failure into success. File ownership and permissions were checked, and all temporary directories were removed."
-        },
-        {
-          "type": "paragraph",
-          "text": "The first durable experiment reached success and replay rejection but stopped at a test readback that omitted a required argument. That failed result was retained. Correcting the fixture produced the three passing cases without changing the workflow's validation rules. The related runtime, evaluator, source and archive suite passed 120 tests."
-        },
-        {
-          "type": "callout",
-          "label": "Next: the complete protected startup",
-          "text": "These experiments use synthetic runtime measurements with real handles and files. They do not prove full native startup, independent parent acceptance, every crash point, power-loss recovery or a real coding task. The next work supplies independently trusted runtime inputs, packages the exact Python dependency set, connects the fixed evaluator entry point and verifies the parent handoff. Then the complete coding demonstration must cover success, failure, restart and cancellation before a fresh experimental release."
-        }
-      ]
-    },
-    {
-      "title": "Packaging the evaluator and testing its protected child process",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "The successor evaluator needs six project modules plus the package initializer. Isolated Python does not search the normal project directory, so a single-file replacement would not be a working installation. A staging tool now records the exact project bytes and tests them with site packages and the ordinary user environment excluded. A complete synthetic semantic fixture produces the same receipt as the checkout without importing test code into the child."
-        },
-        {
-          "type": "paragraph",
-          "text": "The import observation identifies 53 filesystem modules and nine mapped native files. Read-only inspection of those native files finds fourteen interpreter and library references, all matched within the observed set, including two imported Python extensions. Missing transitive dependencies and ambiguous library names are rejected. This establishes the observed dependency references; it does not prove every future dynamic import or deployment-specific loader search."
-        },
-        {
-          "type": "paragraph",
-          "text": "A disposable filesystem then placed the measured interpreter, standard library, project package and native dependencies at the intended startup paths. The first attempt stopped before Python started because the copied dynamic loader lacked execute permission. After that packaging error was corrected, a separate attempt passed with the required arguments, minimal environment, user and group, and no supplementary groups. All 53 filesystem imports matched their measured bytes and the exact expected receipt was produced. The 63 installed files stayed unchanged and cleanup removed the test filesystem."
-        },
-        {
-          "type": "paragraph",
-          "text": "A further fixture connected the actual protected child-process checks to the durable workflow. It used a private mount namespace, null standard streams, sealed read-only evidence, the two retained journal and receipt directories, and no extra inherited handles. All capability sets were empty, including the bounding set, and privilege gains were disabled. The child saved the receipt and rejected replay; the parent fixture independently reopened the consume and receipt files and confirmed their exact expected bytes."
-        },
-        {
-          "type": "paragraph",
-          "text": "A separate negative case deliberately retained the capability bounding set. The child was rejected before consuming permission or publishing a receipt. The initial allocation and the fixture's diagnostic report were the only files left in its mutable directories. Every fixture directory was subsequently removed; these experiments did not install the production runtime or change system Python."
-        },
-        {
-          "type": "paragraph",
-          "text": "The source now also connects the fixed-handle reader directly to the complete successor validation and durable workflow. This adapter accepts no caller-supplied runtime bytes, replacement evidence or alternate journal handles. Five composition tests cover its successful semantic path with mocked handoff and durable operations, changed file bytes, an independent configuration-pin mismatch, early handoff failure and forbidden input overrides. The combined focused runtime, evaluator, source, dependency and archive suite passes 129 tests."
-        },
-        {
-          "type": "callout",
-          "label": "The remaining native-launcher connection",
-          "text": "The process fixtures still supply synthetic runtime measurements and trusted expectations through fixture data. They do not establish native-parent origin, independently accepted runtime deployment or the native parent's journal transaction. The newer fixed-handle adapter is covered by composition tests and is not part of the earlier staged package's recorded hashes. Next work must supply protected trust inputs, join real runtime-file rereads to the actual launcher, and complete startup before demonstrating coding success, failure, restart and cancellation. The historical full-suite and source-v10 results retain their original scope."
-        }
-      ]
-    },
-    {
-      "title": "Checking real runtime files and the native supervisor's journal",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "The connected evaluator now reads its sealed input and reopens the installed runtime files itself. Earlier tests supplied those file contents as fixture data. A disposable installation now binds the actual Python interpreter, package, standard-library and native-library bytes to the test deployment, then measures the installed files before handing control to the evaluator. The successful case completes validation, saves the consume record and receipt, and rejects replay. A separate case changes a configuration file after measurement while preserving its size and permissions; the evaluator detects the changed bytes and stops before saving either record."
-        },
-        {
-          "type": "paragraph",
-          "text": "Packaging exposed an empty Python package initializer that the existing nonempty-file rule would reject. The candidate installation uses deterministic compiled bytecode for that initializer, with isolated import and repeatability checks. A strengthened installation also measures the standard-library file used to locate Python's library directory. These are tested packaging choices; they do not establish an accepted production deployment."
-        },
-        {
-          "type": "paragraph",
-          "text": "Connecting the Python records to the native supervisor exposed another incompatibility: required multiline observations use escaped text in JSON, but the native text reader rejected every escape. A proposed repair adds a bounded decoder specifically for observation text. The native compatibility fixture passes six positive and twelve negative record checks plus thirteen decoder cases. Failed diagnostic attempts and a test-source compilation mistake are retained in the evidence. The complete proposed launcher builds and passes static executable review, but this new binary has not completed full startup or reproducibility qualification."
-        },
-        {
-          "type": "paragraph",
-          "text": "The next fixture invokes the actual native parent verification function with real credentials, a locked journal and a durable reservation. Valid records produce one committed transaction, clear the reservation and reject a second verification call. Reopening the journal preserves its exact committed control state. A malformed consume request produces no committed transaction. Recovery then permanently retires that pending reservation so it cannot be reused. Independent checks join the saved transaction, record identities, file hashes and receipt lengths. The temporary test filesystems are removed."
-        },
-        {
-          "type": "paragraph",
-          "text": "The refreshed focused suite passes 131 tests across successor runtime and evaluator validation, source-policy checks, Python packaging dependencies and source export. This is a current integration check, separate from the older source-v10 packaged validation totals and the individually recorded native execution experiments."
-        },
-        {
-          "type": "callout",
-          "label": "What this proves—and what remains",
-          "text": "The native journal and parent verification path now have real execution evidence under controlled fixture conditions. Upstream deployment identities, accepted platform observations and some launcher state are still supplied by tests. The complete original launcher has not run a real coding task. The next integration must obtain expected inputs independently from protected deployment context, establish the actual startup measurements and connect that full path to the coding workflow."
-        }
-      ]
-    },
-    {
-      "title": "Testing the evaluator with a privileged supervisor",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "The evaluator now checks the real Linux parent process before and after reading its runtime files. It compares the sealed input's process ID, start time and boot identity with kernel observations, and requires the parent's exact credential and capability settings. Disposable process tests reject false process or boot claims even when the submitted evidence has been rehashed to be internally consistent. These observations establish process facts; they do not by themselves authenticate the parent's executable or the accepted deployment."
-        },
-        {
-          "type": "paragraph",
-          "text": "A fresh eight-file Python project package includes the new checks and passes isolated import and synthetic semantic validation. Its observed native dependencies remain nine files joined by fourteen references. The handoff changes passed a focused 138-test suite, separate from the historical packaged-source validation and the individually recorded execution experiments."
-        },
-        {
-          "type": "paragraph",
-          "text": "The combined executable test now uses a disposable privileged Python supervisor with the launcher's required credentials. It launches one evaluator at the intended interpreter and script paths, with the fixed arguments, environment, sealed input and retained journal directories. The evaluator drops all capabilities, verifies its actual parent, reopens the installed runtime files, completes semantic checks and saves its consume record and receipt. Replay is rejected, and the outer test harness reopens both saved files and confirms their exact bytes."
-        },
-        {
-          "type": "paragraph",
-          "text": "Two additional runs exercise failure through that same executable path. One changes the claimed parent process and rehashes the evidence; the other changes an installed file after measurement while preserving its metadata. Both stop before writing a consume record or receipt. All three runs remove their temporary filesystems and reap the supervised processes."
-        },
-        {
-          "type": "paragraph",
-          "text": "In parallel, a candidate reader for the fixed source configuration accepts no caller-selected paths or hashes. Seven real filesystem cases cover a valid root-owned read-only installation and rejection of changed bytes, symlinks, incorrect ownership or permissions, and a writable mount. That reader is tested separately and is not yet used by the combined executable fixture."
-        },
-        {
-          "type": "callout",
-          "label": "Remaining integration",
-          "text": "The supervisor is test code, and accepted platform records plus some service, journal and attempt expectations still come from fixtures. The original native launcher has not completed this whole startup path. The remaining work must connect protected deployment and current journal context, the measured evaluator entry point and native parent verification, then demonstrate a real coding task through success, failure, interruption and cancellation."
-        }
-      ]
-    },
-    {
-      "title": "Replacing synthetic platform records with native measurements",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "The fixed source reader is now connected to the supervised executable fixture. The evaluator reads thirteen protected source and provider files from a root-owned read-only installation instead of accepting their contents from fixture input. The successful run saves the exact consume record and receipt and rejects replay. A separate run changes source bytes after measurement and is rejected before either record is written. The related focused suite passed 140 tests; these results remain separate from the older packaged-source totals."
-        },
-        {
-          "type": "paragraph",
-          "text": "Work then moved to executing the actual native platform-profile routine in a disposable delegated service. Its process credentials, namespace setup and kernel operations are real, while deployment identities and some initialization remain synthetic. This is a diagnostic step toward complete startup, not an accepted runtime or a completed coding job."
-        },
-        {
-          "type": "paragraph",
-          "text": "The native experiments found a concrete path-handling bug: several process-directory reads forbade symbolic links while using Linux's symbolic link for the current process. Proposed corrections use the actual numeric process ID and retain strict path checks. The baseline and snapshot reads additionally verify the process filesystem and use fixed relative filenames. These corrections advance the probe past setup, resource-group creation and initial child-process handle checks."
-        },
-        {
-          "type": "paragraph",
-          "text": "At that diagnostic milestone, the failure narrowed: the main profile child returns no measurement report, and the kernel reports that it was killed with SIGKILL. Recorded test-service counters show no out-of-memory kill, process-limit hit or CPU throttling. Simpler feature probes report success for child creation, process handles, namespaces, resource-group controls and filtering. Two communication probes report mismatches. These observations guide the investigation; they do not establish the cause of the kill or qualify the full profile."
-        },
-        {
-          "type": "paragraph",
-          "text": "Those initial native attempts failed the complete profile. The transient test services and temporary filesystems were removed, and failed attempts were retained alongside proposed fixes. The subsequent corrections and successful routine execution are described below."
-        },
-        {
-          "type": "callout",
-          "label": "What that milestone left open",
-          "text": "The immediate work was to diagnose the child's termination and communication mismatches and verify complete native measurements. Those investigations have now advanced to the successful routine execution below. Independently trusted deployment, full startup and the real coding demonstration remain open."
-        }
-      ]
-    },
-    {
-      "title": "Native platform checks complete; full launcher builds",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "The corrected native platform-profile routine now completes in a disposable delegated service without diagnostic instrumentation. All twelve feature checks report completion, all 147 verification entries are populated, and internal cleanup succeeds. Independent checks confirm that the transient service's resource group and temporary filesystem are gone. Kernel operations are real, but deployment identities and some initial state remain synthetic; this is not full original-launcher startup."
-        },
-        {
-          "type": "paragraph",
-          "text": "Control experiments traced the earlier child termination to reusing a resource group after its mandatory kill test. The candidate keeps that test, proves the old group empty and removed, and creates a fresh group for the main child. Further corrections address process-directory lookup, empty optional mount fields and the prescribed handle used to reopen a private temporary filesystem."
-        },
-        {
-          "type": "paragraph",
-          "text": "Actual Linux message tests also exposed differences from the proposed packet rules. An explicit policy amendment preserves message lengths, ordering, truncation checks, attached-data checks and end-of-stream handling while correcting expected flags. The child report now carries the complete verification vector and reserves parent-only observations for the parent. Native checks cover 36 decoder cases, seven encoder rejection cases and an exact round trip."
-        },
-        {
-          "type": "paragraph",
-          "text": "A semantic audit found that the previous namespace observer measured process symbolic links rather than the namespace objects themselves. A normal parent and child can share a namespace while having different link identities. The corrected observer opens and checks the actual namespace objects, with a regression covering shared namespaces. Earlier successful executions therefore remain recorded but are not used as valid namespace-isolation evidence. Fifteen native parser cases also cover valid mount records and malformed or disallowed records."
-        },
-        {
-          "type": "paragraph",
-          "text": "These cumulative fixes are now consolidated into one proposed source set. A fresh complete native launcher build passed all five compile, assembly and link stages with warnings treated as errors and no diagnostics. Read-only executable checks passed for static structure, required symbols and memory permissions. The resulting launcher has not been executed; a successful build does not establish accepted deployment or startup."
-        },
-        {
-          "type": "callout",
-          "label": "Next integration steps",
-          "text": "Review and version the changed policy and source bindings, update the evaluator's protected source checks, establish independently reviewed runtime and deployment inputs, and run the original launcher through full startup. Then complete one isolated coding task through success, failure, restart and cancellation before packaging the experimental GitHub release. The engine source has not yet been released publicly."
-        }
-      ]
-    },
-    {
-      "title": "Joining revised rules to the protected evaluator",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "The packet-rule correction now has a distinct profile identity. Historical rules remain intact, and the revised validator accepts only the defined changes. The native launcher embeds the new profile bindings; the Python evaluator reads the matching source set from fixed protected files. Downstream checks select the rules once from the trusted profile pin and do not retry another version after failure."
-        },
-        {
-          "type": "paragraph",
-          "text": "The proposed build contract now names the exact compiled launcher source and explicit linker script while retaining the historical source reference. Actual input bytes are checked separately from those declarations. The full native build and static executable checks pass. An unprivileged native test exercises the complete build-contract check against a synthetic deployment and rejects rehashed changes to the launcher pin, linker pin and linker options."
-        },
-        {
-          "type": "paragraph",
-          "text": "That native test initially rejected its nominally valid case because the synthetic deployment still contained older provider hashes. The failed attempt was preserved. Investigation found that Python checked deployment files and the source contract separately without directly joining the six provider roles. A regression reproduced the gap for every role. Python now requires each deployed provider's length and digest to match the pinned contract, and the fixtures use consistent source records. All 149 focused checks passed at that point; 23 targeted checks passed after the final source-pin migration."
-        },
-        {
-          "type": "paragraph",
-          "text": "A fresh package contains twelve project modules. Isolated execution observes 58 filesystem modules and nine native files, with fourteen declared native dependency references resolved. The package's synthetic semantic result matches the checkout. Seven real filesystem cases verify the protected source reader, including rejection of changed bytes, symbolic links, wrong permissions or ownership, and a writable mount."
-        },
-        {
-          "type": "paragraph",
-          "text": "The refreshed evaluator also runs at its intended paths under the disposable privileged Python supervisor, with sealed input, fixed handles, the expected identity and no child capabilities. It reopens protected source and runtime files, saves its consume record and receipt, and rejects replay. The parent independently reopens and verifies both outputs. A separate source-tampering case stops before either output is written. Temporary installations are removed. One mistyped output path stopped an earlier negative invocation before setup; a fresh attempt completed the negative test."
-        },
-        {
-          "type": "callout",
-          "label": "The boundary still to cross",
-          "text": "These process tests still use synthetic acceptance records and a Python test supervisor. They do not establish independently accepted runtime deployment or full original native-launcher startup. The next work must provision and verify that real deployment, bind current platform measurements and runtime acceptance, and complete startup before demonstrating coding success, failure, restart and cancellation. No engine GitHub release has been published."
-        }
-      ]
-    },
-    {
-      "title": "Reproducible builds and the startup trust boundary",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "Two separate builds of the joined native source now produce identical bytes for all five assembly, object and executable outputs. The comparison checks actual files against recorded hashes, matching build inputs and settings, and the executable's static structure. This establishes repeatability for those two builds on this host; it does not establish cross-machine reproducibility or a working runtime."
-        },
-        {
-          "type": "paragraph",
-          "text": "The new parent-process guard retains a Linux process handle and process-directory handle until evaluation is finished with them. It can recheck parent identity, start time, credentials and liveness. Eight focused checks cover handle lifetime, cleanup after failure, changed identity or credentials, and a real parent-process exit. The exit test confirms that a child rejects its retained context after its parent dies."
-        },
-        {
-          "type": "paragraph",
-          "text": "A separate disposable experiment uses the intended parent and child identities and capability settings without mocking credential checks. The guard succeeds. Linux denies the unprivileged child access to the privileged parent's executable, which exposes a concrete integration constraint. Parent dumpability remains disabled and the child receives no extra privileges."
-        },
-        {
-          "type": "paragraph",
-          "text": "The next step is to bind protected deployment and service context to the parent identity observed by the kernel. Existing service-policy records describe intended settings, and the launcher creates its own live custody record; neither alone supplies independent executable authentication to the child. The new guard still needs integration with the evaluator's strict file-handle checks and durable result publication."
-        },
-        {
-          "type": "callout",
-          "label": "Still before complete startup",
-          "text": "The privilege experiment uses a disposable Python parent, not the original native launcher. The guard is development code and is not yet in the staged evaluator package. Full startup, actual coding execution, failure and restart recovery, cancellation and an experimental engine release remain open."
-        }
-      ]
-    },
-    {
-      "title": "Native handoff tested; revised evaluator runs",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "The proposed startup admission components now include a protected process-bound record reader, durable publication that refuses existing records, a retained executable check and the transition from the privileged startup process to the launcher account. Focused tests cover stale records, unsafe filesystem permissions, concurrent publication, partial writes and sync failures. These components are not yet a complete installed startup service."
-        },
-        {
-          "type": "paragraph",
-          "text": "A native diagnostic verifies the privilege transition across execution of a retained file handle. The exact file capabilities pass the native credential checks; a copy without those capabilities is rejected. The listener-handoff experiment initially failed because it opened the executable before changing mount namespaces. A separate diagnostic observed that capabilities were not restored in that setup. Opening and measuring the executable after namespace setup corrected the experiment, and the executable guard now rejects a later namespace change."
-        },
-        {
-          "type": "paragraph",
-          "text": "The corrected native handoff accepts three null standard handles and two real listeners. It rejects an extra inherited handle and a listener assigned to the wrong role. These tests use private temporary filesystems, a diagnostic native entry point and synthetic role assignments. They establish the handoff behavior, not service-manager provenance or the complete original startup."
-        },
-        {
-          "type": "paragraph",
-          "text": "Reviewing the remaining startup code exposed three more process-file reads that forbade symbolic links while using Linux's current-process symbolic link. The actual kernel reproduced the failures. A proposed correction reads the fixed files relative to an existing verified process-directory handle. Native regression tests pass all three allowed reads, reject eight other paths, reproduce the old failures and confirm handle cleanup."
-        },
-        {
-          "type": "paragraph",
-          "text": "The correction passes the full native build and updated contract checks. Its new provider and build identities now match the protected Python reader and a freshly staged package. The executable guard also matches the new binary. Forty-nine focused checks passed at that point, separate from older full-suite and packaged-source totals."
-        },
-        {
-          "type": "paragraph",
-          "text": "Fresh supervised evaluator runs complete the updated protected-file reads, save and independently verify the durable result, and reject replay. A separate altered-source run stops before durable output. Both remove their temporary installations. The public progress claim remains limited: the supervisor is test code, upstream acceptance is synthetic, and the admission components are not yet joined to original native startup."
-        },
-        {
-          "type": "callout",
-          "label": "Next integration",
-          "text": "Finish protected runtime configuration and service-manager context, join startup admission publication to the tested native handoff, and connect authenticated expectations to the evaluator. Then demonstrate a real isolated coding task through success, failure, restart and cancellation before preparing the experimental engine release."
-        }
-      ]
-    },
-    {
-      "title": "Protected startup components now run together",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "The new service-context reader has been exercised in an actual temporary service launched by Linux's service manager. It checks process identity, membership in the fixed service, namespace relationships and the manager's invocation record. It rejects use after a fork or a namespace change. A restricted-permission comparison showed that inspecting the manager needs one additional startup capability; the existing transition removes it before native execution."
-        },
-        {
-          "type": "paragraph",
-          "text": "A fixed configuration reader supplies the expected runtime, bundle and deployment identities from a protected read-only file. Six syntax tests and eleven real filesystem cases pass, including missing files, symlinks, wrong ownership or permissions, extra links, writable mounts and modification through a previously opened writable reference. The test identities are synthetic: file protection does not prove that a configuration has been reviewed or accepted."
-        },
-        {
-          "type": "paragraph",
-          "text": "The proposed root entry now connects service verification, configuration and executable checks, durable process-bound admission publication, privilege removal and execution of the measured file. Five composed cases pass. The valid case reaches native diagnostic success. An extra handle and malformed configuration stop before publication; a duplicate admission record remains unchanged; a listener assigned to the wrong role is rejected by the native diagnostic after publication."
-        },
-        {
-          "type": "paragraph",
-          "text": "The saved admission records match the observed process and the invocation independently reported by the service manager. Temporary services and files are removed, and the outer mount namespace is unchanged. Fifty-three focused component tests also pass. The composition uses a diagnostic executable, synthetic configuration and test-created listeners, so it does not demonstrate the full original launcher or a real coding job."
-        },
-        {
-          "type": "paragraph",
-          "text": "A subsequent compatibility review found an architectural conflict: the preserved native design explicitly excludes privileged Python, a pre-execution attester and the extra inspection capability used by the experimental wrapper. The passing diagnostic does not resolve that conflict or accept the wrapper for deployment. The project must resolve the architecture and service-policy change, or use an authentication approach compatible with direct native startup."
-        },
-        {
-          "type": "paragraph",
-          "text": "Independent of that design issue, the integrated evaluator now retains its parent-process handles through runtime reads and durable output. It rechecks identity and liveness at each use boundary and permits only its own additional handles. Seventy-seven focused checks pass, including parent-loss ordering and real descriptor checks. A fresh protected run saves and independently verifies its result and rejects replay; a false-parent run stops before durable writes. The initial negative-test attempt used an outdated expected error message and is preserved as a failed harness check."
-        },
-        {
-          "type": "callout",
-          "label": "Next integration",
-          "text": "Resolve the startup wrapper's architecture compatibility before selecting a deployment design. Then connect executable and service authentication to the retained evaluator checks, review and provision the real runtime and service activation, run original startup, and demonstrate coding-task success, failure, restart and cancellation."
-        }
-      ]
-    },
-    {
-      "title": "Real evaluator entry now runs",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "Review of the original design showed that the native launcher already owns the startup decision. It verifies its inputs before creating the evaluator, then compares saved output against its own retained challenge, observations and journal state. A successful child exit is never enough. Development is continuing with that direct native startup model; the experimental privileged Python wrapper is not selected for deployment."
-        },
-        {
-          "type": "paragraph",
-          "text": "The new evaluator entry takes no arguments beyond the fixed launch contract. It reads sealed evidence and protected source files, reopens the runtime files, retains parent-process checks, performs the existing semantic validation, consumes the challenge once and publishes the receipt. The separate review APIs still reject mismatched independently supplied expectations. Shared internal routines preserve the validation and publication checks."
-        },
-        {
-          "type": "paragraph",
-          "text": "All 77 existing focused checks and nine new checks pass. The exact entry script also ran in a fresh isolated filesystem with no test-input file and no test diagnostic writer. The supervising fixture independently reopened both durable outputs and compared them with the expected bytes. Separate false-parent and protected-source-mutation cases exited without publishing a consume record or receipt. Temporary installations were removed."
-        },
-        {
-          "type": "paragraph",
-          "text": "These executions still use a disposable privileged Python supervisor and synthetic upstream acceptance. They establish that the real evaluator entry works under that handoff, not that the full native launcher has started or that a runtime deployment is accepted. The child checks kernel parent facts but does not independently attest the parent's executable; the native launcher retains responsibility for authenticating its inputs and verifying the final durable result."
-        },
-        {
-          "type": "callout",
-          "label": "Next integration",
-          "text": "Bind the real entry and its staged dependencies into the actual deployment, establish the required platform acceptance and protected service and journal state, then run the original native startup path from its first checks through final verification. After that, demonstrate an isolated coding task through success, failure, restart and cancellation before preparing the experimental engine release."
-        }
-      ]
-    },
-    {
-      "title": "Candidate syscall filter tested",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "Separating actual runtime file collection from synthetic test fixtures exposed three missing deployment roles: the filter compiler, verifier and compiled filter. Those now have real artifacts. The compiler follows the exact pinned syscall policy and repository table, permits the 100 known calls outside the deny set, and rejects other native numbers. It uses no host-header lookup or weaker fallback."
-        },
-        {
-          "type": "paragraph",
-          "text": "The verifier checks the filter's decisions independently of the compiler's instruction ordering. Its restricted instruction format lets it exhaust the possible decision classes, including unknown numbers. Tests show that equivalent reorderings pass while weakened architecture checks, forbidden or unknown allowances, missing required allowances, invalid jumps and changed source pins fail. The compiler and verifier share the pinned policy reader."
-        },
-        {
-          "type": "paragraph",
-          "text": "Ten filter tests and seven file-collection tests pass. Two disposable unprivileged children also installed the exact compiled filter. The expected allowed call succeeded; a forbidden local socket call, a number absent from the pinned table and a future number returned permission errors. An x32 request terminated as required. Both children were reaped. The foreign-architecture rule was checked in the filter structure; these tests did not switch the running kernel-call architecture."
-        },
-        {
-          "type": "paragraph",
-          "text": "A subsequent minimal interpreter probe exposed a practical incompatibility. The pinned Python interpreter failed during startup with a TLS allocation error after the filter was installed; the same interpreter completed successfully in an unfiltered comparison. Both children were reaped. The unfiltered run served only as a diagnostic comparison. Several startup-related calls are absent from the pinned table, and at that stage the exact denied call had not been isolated. The follow-up below records the diagnosis and proposed fix."
-        },
-        {
-          "type": "paragraph",
-          "text": "The updated inventory contains 93 actual files and no missing required launcher role names. File presence is not deployment acceptance: dependency ordering, loader aliases, complete identities, platform qualification and protected service and journal setup still need to be joined. These tests do not demonstrate original native startup or a real coding job."
-        },
-        {
-          "type": "callout",
-          "label": "Integration work identified",
-          "text": "The failure identified runtime coverage of the pinned syscall table as the next issue to resolve. Complete deployment, platform acceptance, original native startup and coding-task success, failure, restart and cancellation remain required before an experimental engine release."
-        }
-      ]
-    },
-    {
-      "title": "Python starts under the proposed filter",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "A read-only diagnostic traced a disposable process and found an architecture setup call denied immediately before the earlier TLS startup error. A separate successful baseline used eight calls missing from the pinned table. An explicit proposal adds those eight definitions; it preserves the exact deny list and rejects unknown numbers."
-        },
-        {
-          "type": "paragraph",
-          "text": "The proposed filter was compiled and checked against its own exact table pin. The interpreter then completed a minimal program with the filter enforced, without tracing or an unfiltered fallback. Separate disposable kernel checks confirmed that socket creation and unknown calls remain denied, and x32 calls terminate the process. All test children were reaped. Twenty-one focused tests passed, including rejection of mismatched table versions and weakened guards."
-        },
-        {
-          "type": "paragraph",
-          "text": "The proposed table has also been joined to a new native source and build record. All five isolated build stages completed successfully. The native executable is byte-for-byte identical to the preceding build; the separate candidate filter carries the changed syscall allowances. This is build evidence, not runtime acceptance."
-        },
-        {
-          "type": "paragraph",
-          "text": "The source version has since been carried through the protected reader and a fresh Python staging. Native helper execution passed eight source-pin cases and five build-contract cases, including rejection of the preceding table against the revised deployment record. Seven protected-file custody cases passed. The freshly staged evaluator produced the expected durable output in a supervised disposable environment; false-parent and altered-source cases were rejected before output. The first invocation lacked required test-harness options and was rejected before setup; a separate corrected attempt passed."
-        },
-        {
-          "type": "paragraph",
-          "text": "The actual file inventory now combines that tested evaluator, protected source records, rebuilt native executable and verified filter. It contains 93 files with no missing required launcher role names. File presence is still not deployment acceptance: the supervised tests use synthetic acceptance records and a disposable Python parent, so they do not exercise the complete native launcher."
-        },
-        {
-          "type": "paragraph",
-          "text": "The deployment layout now has a concrete proposal too. A fresh supervised evaluator run succeeded using three explicit file aliases and no directory shortcut. The actual file collector then produced 89 ordered runtime objects and seven configuration artifacts, covering 93 regular files. Existing validators rederived the record identities and checked the raw bytes. Six focused tests passed, including changed-byte rejection, object ordering, alias constraints and collection without importing test fixtures. This is one proposed launcher record, not an accepted complete runtime."
-        },
-        {
-          "type": "callout",
-          "label": "Scope and next step",
-          "text": "Next, complete the other required deployment roles and review the configuration policies. Establish actual installed custody, platform acceptance, protected stores, service and socket setup, and runtime activation. Then exercise original native startup and the real coding-task success, failure, restart and cancellation paths before preparing an experimental release."
-        }
-      ]
-    },
-    {
-      "title": "Broker service activation findings",
-      "blocks": [
-        {
-          "type": "paragraph",
-          "text": "The older broker creates its own stream socket, while the current contract requires named packet sockets created by systemd. A new retained-listener component checks the three broker handles without creating or changing endpoints. Thirteen real disposable socket cases passed, including incorrect names, socket types, credential settings, duplicate or missing handles, changed retained state and cleanup. These checks alone do not authenticate the service manager or authorize requests."
-        },
-        {
-          "type": "paragraph",
-          "text": "The first real systemd attempt stopped before the service started because the proposed numeric broker identity had no local account record. A separate test used temporary locked, non-login accounts and successfully reached service startup with correctly owned sockets. The broker then rejected the supplementary group list: systemd included the primary group, while the pinned principal policy requires an empty list. Clearing the unit's supplementary-group setting did not produce an empty kernel list in this test."
-        },
-        {
-          "type": "paragraph",
-          "text": "The failed attempts remain recorded. Temporary accounts, groups, units and runtime directories were removed and their absence independently checked. An initial account-setup command also rejected an unsupported option before creating a user; that attempt is preserved separately. No permanent service was installed, and no production broker authority handler or complete native startup ran."
-        },
-        {
-          "type": "paragraph",
-          "text": "A native credential component now addresses that mismatch without weakening the principal checks. A separate test executable passed 13 real kernel cases. Valid starts ended with the expected user and group, an empty supplementary-group list, all five capability sets empty and the no-new-privileges setting enabled. Incorrect identities, extra groups, incorrect capability settings and unexpected arguments were rejected. Final credentials were independently observed while the native test process was paused."
-        },
-        {
-          "type": "paragraph",
-          "text": "A fresh systemd diagnostic then started a native entry with only the two capabilities needed for the transition. It cleared the redundant group, removed every capability and handed off to a fixed Python observation script in the same process. The three systemd-created broker sockets passed the unchanged listener checks; the process ID and invocation matched the service manager. Socket ownership and permissions matched the proposed policy. The test completed successfully, and temporary accounts, groups, units and runtime directories were removed."
-        },
-        {
-          "type": "paragraph",
-          "text": "Work on protected startup now includes a native regular-file checker. Before loading a file, it checks the path without following symlinks, root ownership, ancestor permissions, mount restrictions, file capabilities and access-control lists. It then verifies the expected length and SHA-256 digest and retains a descriptor for rechecking. Eighteen real filesystem cases passed in disposable private mount namespaces, including altered bytes, unsafe ownership or permissions, symlinks, extra hard links, missing mount restrictions and extra access rights. No Python interpreter or broker request handler was executed by this file-checking fixture."
-        },
-        {
-          "type": "paragraph",
-          "text": "The native alias checker now also verifies exact approved absolute targets and rechecks that both the target pathname and alias pathname still identify the retained files. Fifteen real cases passed, including replacing a target with identical bytes and replacing an alias with another pointing to the same target. These checks still depend on deployment controls that prevent unauthorized writes after the final check."
-        },
-        {
-          "type": "paragraph",
-          "text": "A separate real service test checked what the broker can observe after dropping all privileges. Its own service identity, invocation record and a retained PID1 handle are available, but PID1 executable, root and namespace links are not. The new unprivileged service observer uses the available kernel and manager state, rechecks it across socket validation, rejects incorrect service or user expectations and rejects use after closing. Temporary accounts, services and runtime directories were removed. This does not authenticate PID1's executable or turn the observed state into deployment acceptance."
-        },
-        {
-          "type": "paragraph",
-          "text": "The broker components now have a separate measured Python inventory: 15 project modules, 76 file-backed modules and 13 native files, including SQLite and ctypes dependencies. The proposed runtime contains 86 regular files and five explicit aliases. A disposable read-only runtime successfully imported all 15 components and checked every loaded module's bytes. The collector also rejects current project source that no longer matches the staged inventory."
-        },
-        {
-          "type": "paragraph",
-          "text": "A combined native test then used compiled pins to verify all 86 files and five aliases before handing off through the verified interpreter descriptor. Python ran with fixed isolated-startup arguments and a restricted environment, and all 76 loaded module files matched. A separate test altered a copied broker source file; the native check exited before the Python diagnostic produced output. Both temporary runtimes were removed. This joins the native checks to measured interpreter execution for an import diagnostic, not a production broker or coding task."
-        },
-        {
-          "type": "paragraph",
-          "text": "The measured runtime has now been joined to real systemd activation. The first attempts stopped at the native file check; a diagnostic showed that the private root was still writable. Correcting the read-only rule to target the service root allowed Python to start, where the service-state directory check found another configuration mismatch. An explicit protected /run mount resolved that rejection. The fresh combined test passed native checks, all 76 module-file comparisons, retained service observations and validation of all three real sockets. It also closed the sockets and removed the temporary accounts, services and directories. The earlier failed attempts remain preserved."
-        },
-        {
-          "type": "paragraph",
-          "text": "The native activation check now also passes 47 isolated process and launch cases: nine valid cases and 38 rejection cases. These cover all six socket-name orders, missing or duplicate fields, invalid process IDs and counts, malformed names and invocation IDs, input-size limits, unavailable handles and a kernel refusal to close extra handles on launch. Valid launches kept only the six intended environment fields and three activation handles; two extra handles were absent afterward. An initial test-fixture handle setup error was preserved and corrected in a fresh attempt using the unchanged native binary. All children were reaped and temporary roots removed. These structural tests use placeholder handles; the separate systemd integration covers real sockets. Neither test grants production authority."
-        },
-        {
-          "type": "paragraph",
-          "text": "A native reader now loads the broker's proposed startup configuration from one fixed, protected path. It requires a root-owned, read-only file and an exact record naming the expected runtime lock, measurement bundle, activation and deployments. Twenty-nine isolated cases passed, including rejection of malformed records, unsafe file custody and changes, deletion or same-byte replacement after opening. The first build stopped on a formatting warning in the test entry; a separate corrected build passed. All test processes and temporary roots were removed. This establishes configuration custody and parsing, not approval of the deployments named inside the file."
-        },
-        {
-          "type": "paragraph",
-          "text": "The protected configuration reader is now joined to the complete runtime-lock and measurement-bundle validators. Seven semantic tests check every expected identity, changed code bytes across all five deployment roles, source and socket inputs, malformed configuration and rehashed invalid records. A fresh measured runtime contains 26 project modules, with all 87 loaded module files checked again after validation. In a real systemd diagnostic, the native entry retained the configuration, verified 100 files and five aliases, and handed its descriptor and digest to Python. Full record validation, service observations and all three sockets passed. A separate test used the same binary but substituted the expected broker identity; startup stopped at that binding check. Both attempts removed their temporary accounts and services. The deployment and platform records used here are explicitly synthetic, so this demonstrates the connected validation path without granting production authority."
-        },
-        {
-          "type": "callout",
-          "label": "Scope and next work",
-          "text": "Protected configuration, measured code, full record validation and real service/socket observations now run together in a diagnostic. Next supply the actual reviewed deployment and measurement chain, complete the fixed production entry and peer admission, then authenticated durable handlers. Synthetic acceptance records cannot approve the installed runtime. Original native engine startup, a real coding task and the experimental release remain unfinished."
-        }
-      ]
-    },
-    {
-      "title": "What still needs to connect",
-      "blocks": [
-        {
-          "type": "image",
-          "src": "/images/lab/openclaw-engine-progress/status.png",
-          "alt": "Three stages of progress: the verified source-v9 snapshot has a repeatable source export and offline checks; current development tests cancellation and integration with focused checks; the next demonstration must complete one isolated coding task through success, failure, restart and cancellation. Production qualification remains open.",
-          "caption": "Figure 2. The earlier source-v9 milestone and the intended integration stages. The verified package has since advanced to source-v10; the complete workflow demonstration remains pending.",
-          "width": 1800,
-          "height": 2000
-        },
-        {
-          "type": "paragraph",
-          "text": "The remaining work connects authenticated task delivery, a protected execution identity and the final runtime environment. Stopping a task must also stop the work it started, with evidence covering child processes, interrupted callers and the Windows-to-Linux boundary."
-        },
-        {
-          "type": "paragraph",
-          "text": "The proposed policy changes still need acceptance, and the actual runtime still needs qualification: checks that the intended executable, libraries, permissions and launch conditions are enforced together. Passing component tests does not establish those properties for a live coding task."
+          "text": "The defining milestone is still one bounded coding task in an isolated copy of a project, returning a patch and test results for human review while preserving the original. It must demonstrate success, deliberate failure, replay or restart handling, and cancellation. A passing component test or diagnostic service cannot stand in for that workflow."
         },
         {
           "type": "paragraph",
@@ -985,53 +173,24 @@
       ]
     },
     {
-      "title": "The next demonstration",
-      "blocks": [
-        {
-          "type": "numbered",
-          "items": [
-            {
-              "title": "Connect the existing authority chain",
-              "body": [
-                "Reconcile the saved review dispatch with the successor runtime-policy model, then join accepted deployment and runtime custody to the tested V2 delivery path, per-step claims and protected launcher. Demonstrate that lost responses and restarts cannot trigger another execution."
-              ]
-            },
-            {
-              "title": "Extend stopping and recovery evidence",
-              "body": [
-                "Build on the demonstrated cleanup and cancellation paths. Resolve escaped-descendant containment and verify service restart recovery and concurrent request handling through the complete workflow, with bounded behavior and durable results."
-              ]
-            },
-            {
-              "title": "Complete one real coding task",
-              "body": [
-                "Use an isolated copy of a small test project. Capture a proposed patch and its test results while preserving the original. Demonstrate success, a deliberate test failure, replay or restart handling, and cancellation."
-              ]
-            },
-            {
-              "title": "Build a fresh experimental release",
-              "body": [
-                "Rebuild from the updated source, repeat installation in a clean environment and validate the new export. Publish reproducible instructions with a precise account of the demonstrated capabilities and remaining limits."
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "How progress will be reported",
+      "title": "How future posts will be organized",
       "blocks": [
         {
           "type": "paragraph",
-          "text": "Each update will identify the artifact or source state behind its results, describe failures as well as successes, and separate implemented behavior from planned capabilities. Progress toward a complete coding workflow will be measured by demonstrated behavior, including recovery and stopping. Public updates summarize the findings without exposing private logs, local paths or internal authority records."
+          "text": "Each follow-up should answer one engineering question, identify the source state behind the result, describe meaningful failures and state what remains unproven. New milestones belong in a new focused post; this page remains the short entry point and reading guide."
         },
         {
           "type": "links",
           "items": [
             {
-              "label": "OpenClaw Lab",
+              "label": "Read the complete original progress log",
+              "href": "https://github.com/Dolvido/portfolio-website/blob/aac361bb540d581a523f06d48e5ffa0c1a11008d/content/lab/openclaw-engine-progress.json",
+              "note": "Preserved at the exact repository revision before this reorganization."
+            },
+            {
+              "label": "Browse OpenClaw Lab",
               "href": "/lab/",
-              "note": "Current project logs and engineering publications."
+              "note": "All current publications and the earlier engineering archive."
             }
           ]
         }

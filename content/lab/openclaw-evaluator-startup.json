@@ -1,0 +1,225 @@
+{
+  "schemaVersion": 1,
+  "metadata": {
+    "id": "OCL-ENGINE-2026-09-05",
+    "slug": "openclaw-evaluator-startup",
+    "title": "5. Starting the evaluator with measured files and one-use permission",
+    "description": "Part 5 of the OpenClaw series: protected inputs, durable receipts, native parent checks, and the syscall filter that initially stopped Python.",
+    "date": "2026-09-29",
+    "type": "Engineering Note",
+    "project": {
+      "id": "openclaw-engine",
+      "name": "OpenClaw Evolutionary Coding Lab"
+    },
+    "tags": [
+      "OpenClaw",
+      "Coding engine series",
+      "Evaluator",
+      "Protected execution"
+    ],
+    "outcome": {
+      "classification": "ongoing",
+      "summary": "The real evaluator entry runs under a controlled supervisor and rejects replay and altered inputs. Direct native startup, accepted deployment and a coding task remain unproven."
+    },
+    "status": "published",
+    "reviewStatus": "approved"
+  },
+  "provenance": {
+    "origin": "reviewed-candidate",
+    "summary": "Reorganized from the previously published OpenClaw progress log on September 29, 2026. The engineering snapshot is unchanged; no new experiment is reported here. Engine evidence remains local, and the public source does not independently reproduce its results.",
+    "sourceRevision": "aac361bb540d581a523f06d48e5ffa0c1a11008d",
+    "publicReferences": [
+      {
+        "id": "original-snapshot",
+        "label": "Original progress log before the series split",
+        "href": "https://github.com/Dolvido/portfolio-website/blob/aac361bb540d581a523f06d48e5ffa0c1a11008d/content/lab/openclaw-engine-progress.json",
+        "kind": "Historical publication source",
+        "note": "The complete previously published narrative. This documents the public report, not independent reproduction of engine results."
+      },
+      {
+        "id": "publication-contract",
+        "label": "Lab publication guide",
+        "href": "https://github.com/Dolvido/portfolio-website/blob/main/content/lab/README.md",
+        "kind": "Publication process",
+        "note": "The content format, review states, validation checks and public disclosure rules used by this site."
+      }
+    ]
+  },
+  "sections": [
+    {
+      "title": "Part 5 of 8",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The evaluator must inspect the intended runtime and save a result the native parent can verify. Getting its validation functions to pass is only the start: the installed interpreter, dependencies, file handles, privileges and launch rules must work together."
+        },
+        {
+          "type": "diagram",
+          "title": "A successful child exit is not enough",
+          "caption": "The real evaluator entry runs under a controlled supervisor. The original launcher's complete startup is still unproven.",
+          "layout": "flow",
+          "groups": [
+            {
+              "title": "Protected inputs → durable output → parent verification",
+              "items": [
+                {
+                  "title": "Retain the handoff",
+                  "text": "Check sealed input, fixed handles and the live parent.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Recheck installed files",
+                  "text": "Read protected source and runtime bytes; reject changes.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Consume once",
+                  "text": "Save an exact receipt without replacing an existing result.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Verify in the parent",
+                  "text": "Compare saved state with retained challenge and journal facts.",
+                  "label": "Native fixture",
+                  "tone": "recorded"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Series overview and reading order",
+              "href": "/lab/openclaw-engine-progress/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Retain the inputs and consume permission once",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The successor reader checks sealed evidence and retained journal and receipt directories before interpreting runtime measurements. Tests reject missing seals, wrong ownership or permissions, swapped or closed handles and unexpected inherited state. The evaluator derives its receipt and consumption request from the complete review rather than accepting a caller-selected verdict."
+        },
+        {
+          "type": "paragraph",
+          "text": "The evaluator now derives the startup receipt, invocation and consumption request from the complete successor review, then connects them to one-use consumption and durable publication. It writes the receipt without replacing an existing result, synchronizes the files and directory, and reopens the exact bytes it reviewed. A completion record alone cannot authorize the next stage; the native parent still has to verify the saved state independently."
+        },
+        {
+          "type": "paragraph",
+          "text": "Three isolated real-file cases passed under the launcher's user and group with no supplementary groups. Success saved the exact receipt and rejected reuse. Missing allocation produced no consume record or receipt. An existing receipt blocked publication, preserved the prior bytes and left the permission consumed, so another attempt could not turn that failure into success. File ownership and permissions were checked, and all temporary directories were removed."
+        }
+      ]
+    },
+    {
+      "title": "Package the actual interpreter and dependencies",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Isolated Python does not search the ordinary project directory. Staging therefore measured the project modules, standard library and native dependencies and compared the installed semantic result with the checkout. One early installation failed because its copied dynamic loader lacked execute permission; a corrected installation ran with the fixed arguments and minimal environment."
+        },
+        {
+          "type": "paragraph",
+          "text": "A further fixture connected the actual protected child-process checks to the durable workflow. It used a private mount namespace, null standard streams, sealed read-only evidence, the two retained journal and receipt directories, and no extra inherited handles. All capability sets were empty, including the bounding set, and privilege gains were disabled. The child saved the receipt and rejected replay; the parent fixture independently reopened the consume and receipt files and confirmed their exact expected bytes."
+        },
+        {
+          "type": "paragraph",
+          "text": "A separate negative case deliberately retained the capability bounding set. The child was rejected before consuming permission or publishing a receipt. The initial allocation and the fixture's diagnostic report were the only files left in its mutable directories. Every fixture directory was subsequently removed; these experiments did not install the production runtime or change system Python."
+        },
+        {
+          "type": "paragraph",
+          "text": "Later fixtures made the evaluator reopen the installed files itself. A configuration changed after measurement, even with the same length and permissions, was rejected before a consume record or receipt was written. These were disposable installations with synthetic upstream acceptance."
+        }
+      ]
+    },
+    {
+      "title": "Let the native parent verify the durable result",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Connecting the Python records to the native supervisor exposed another incompatibility: required multiline observations use escaped text in JSON, but the native text reader rejected every escape. A proposed repair adds a bounded decoder specifically for observation text. The native compatibility fixture passes six positive and twelve negative record checks plus thirteen decoder cases. Failed diagnostic attempts and a test-source compilation mistake are retained in the evidence. The complete proposed launcher builds and passes static executable review, but this new binary has not completed full startup or reproducibility qualification."
+        },
+        {
+          "type": "paragraph",
+          "text": "The next fixture invokes the actual native parent verification function with real credentials, a locked journal and a durable reservation. Valid records produce one committed transaction, clear the reservation and reject a second verification call. Reopening the journal preserves its exact committed control state. A malformed consume request produces no committed transaction. Recovery then permanently retires that pending reservation so it cannot be reused. Independent checks join the saved transaction, record identities, file hashes and receipt lengths. The temporary test filesystems are removed."
+        }
+      ]
+    },
+    {
+      "title": "Keep the direct native startup design",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Parent guards retain process handles and recheck identity, credentials and liveness through validation and durable publication. Linux denied the unprivileged child access to the privileged parent's executable, so those kernel facts alone could not authenticate the executable."
+        },
+        {
+          "type": "paragraph",
+          "text": "An experimental privileged Python startup wrapper passed a composed diagnostic but conflicted with the preserved native architecture. The later design review kept direct native startup: the launcher verifies its own inputs before creating the evaluator and compares the child's saved output with its retained challenge, observations and journal state. The wrapper was not selected for deployment."
+        },
+        {
+          "type": "paragraph",
+          "text": "All 77 existing focused checks and nine new checks pass. The exact entry script also ran in a fresh isolated filesystem with no test-input file and no test diagnostic writer. The supervising fixture independently reopened both durable outputs and compared them with the expected bytes. Separate false-parent and protected-source-mutation cases exited without publishing a consume record or receipt. Temporary installations were removed."
+        }
+      ]
+    },
+    {
+      "title": "A filter must allow the interpreter to start",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The first candidate syscall filter enforced its pinned policy in disposable kernel tests, but the pinned interpreter then failed with a TLS allocation error. A diagnostic identified a denied architecture setup call; a successful baseline used eight calls missing from the table."
+        },
+        {
+          "type": "paragraph",
+          "text": "The proposed filter was compiled and checked against its own exact table pin. The interpreter then completed a minimal program with the filter enforced, without tracing or an unfiltered fallback. Separate disposable kernel checks confirmed that socket creation and unknown calls remain denied, and x32 calls terminate the process. All test children were reaped. Twenty-one focused tests passed, including rejection of mismatched table versions and weakened guards."
+        },
+        {
+          "type": "paragraph",
+          "text": "The proposed table was carried through a versioned build record, protected readers and refreshed evaluator staging. The native executable stayed byte-identical in that build comparison; the separate filter contained the changed allowances. This established a minimal filtered Python run, not every operation a coding workload will need."
+        }
+      ]
+    },
+    {
+      "title": "What the working entry does not establish",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "These executions still use a disposable privileged Python supervisor and synthetic upstream acceptance. They establish that the real evaluator entry works under that handoff, not that the full native launcher has started or that a runtime deployment is accepted. The child checks kernel parent facts but does not independently attest the parent's executable; the native launcher retains responsibility for authenticating its inputs and verifying the final durable result."
+        },
+        {
+          "type": "paragraph",
+          "text": "The remaining demonstration must start from the original launcher's first checks, use accepted deployment and platform records, and reach final verification. Only then can an isolated coding task establish success, failed tests, restart behavior and cancellation for the complete workflow."
+        }
+      ]
+    },
+    {
+      "title": "Continue the series",
+      "blocks": [
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Series overview and reading order",
+              "href": "/lab/openclaw-engine-progress/"
+            },
+            {
+              "label": "Previous: Checking runtime records against the bytes they name",
+              "href": "/lab/openclaw-runtime-validation/"
+            },
+            {
+              "label": "Next: Starting real services with the files we checked",
+              "href": "/lab/openclaw-measured-service-startup/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
