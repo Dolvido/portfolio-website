@@ -54,6 +54,43 @@
           "text": "A passing startup validator is useful only if the running service uses the files and identity that were checked. Broker, witness and launcher experiments moved those checks into real service-manager launches while keeping diagnostic success separate from production task handling."
         },
         {
+          "type": "diagram",
+          "title": "Checked files reach a real service",
+          "caption": "The measured diagnostics use synthetic deployment records. The final connection is held without reading task data.",
+          "layout": "flow",
+          "groups": [
+            {
+              "title": "What the diagnostic connects",
+              "items": [
+                {
+                  "title": "Retain protected files",
+                  "text": "Check ownership, permissions, mounts, bytes and aliases.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Launch measured code",
+                  "text": "Use the checked interpreter and fixed credential transition.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Recheck service sockets",
+                  "text": "Match manager invocation, process identity and listener handles.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Quarantine a connection",
+                  "text": "Retain the peer process; authorize no coding task.",
+                  "label": "Admission pending",
+                  "tone": "pending"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "type": "links",
           "items": [
             {

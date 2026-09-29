@@ -54,6 +54,43 @@
           "text": "A record can be internally consistent and still describe the wrong program. The runtime review therefore has to join source files, deployed bytes, service rules and measured observations. Recalculating a digest must not turn an invalid combination into an accepted runtime."
         },
         {
+          "type": "diagram",
+          "title": "Every record must join the bytes it describes",
+          "caption": "Recomputed hashes cannot rescue mismatched roles or forged passing flags. Diagnostic measurements do not independently accept a deployment.",
+          "layout": "flow",
+          "groups": [
+            {
+              "title": "From source records to deployment acceptance",
+              "items": [
+                {
+                  "title": "Check source",
+                  "text": "Match the pinned source set and build inputs to actual bytes.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Join deployed roles",
+                  "text": "Match providers, executable files, service rules and endpoints.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Derive observations",
+                  "text": "Re-evaluate platform and runtime facts from their evidence.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Accept the deployment",
+                  "text": "Join independently reviewed records to the real installed runtime.",
+                  "label": "Still required",
+                  "tone": "pending"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "type": "links",
           "items": [
             {

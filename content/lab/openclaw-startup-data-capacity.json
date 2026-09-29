@@ -54,6 +54,34 @@
           "text": "The startup format passed its small fixtures but could not hold the actual deployment inventories. Broker, witness and launcher records repeated enough runtime files to exceed the format's fixed byte limit. This was a capacity blocker before a coding task could begin."
         },
         {
+          "type": "barChart",
+          "title": "Real runtime inventories exceeded the old limit",
+          "caption": "Sharing repeated file bytes preserves the role references while reducing the serialized payload. The old requirement is a lower bound; the two shared-format checks use different inventory snapshots.",
+          "unit": "bytes",
+          "maximum": 100000000,
+          "reference": {
+            "label": "Old-format limit",
+            "value": 67108864
+          },
+          "items": [
+            {
+              "label": "Old format / minimum required",
+              "value": 87793980,
+              "note": "At least 87.79 MB: already above the 67.11 MB limit."
+            },
+            {
+              "label": "Shared format / first capacity check",
+              "value": 32905984,
+              "note": "327 references, 146 unique blobs. Explicit test reference IDs."
+            },
+            {
+              "label": "Shared format / migrated readers",
+              "value": 32916834,
+              "note": "329 references preserved after measured inventories were refreshed."
+            }
+          ]
+        },
+        {
           "type": "links",
           "items": [
             {

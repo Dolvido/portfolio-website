@@ -54,6 +54,60 @@
           "text": "Preparing real deployment records exposed a circular dependency. Broker and witness diagnostics compiled hashes of acceptance data into their binaries. Those acceptance records would eventually need to identify the same binaries."
         },
         {
+          "type": "diagram",
+          "title": "Break the circular build dependency",
+          "caption": "Measure code first, then supply acceptance inputs through protected startup files. The records in these tests remain synthetic.",
+          "layout": "comparison",
+          "groups": [
+            {
+              "title": "Before / circular dependency",
+              "items": [
+                {
+                  "title": "Compile acceptance hashes",
+                  "text": "The binary contains the record's expected digest.",
+                  "label": "Dependency",
+                  "tone": "neutral"
+                },
+                {
+                  "title": "Measure that binary",
+                  "text": "The acceptance record must identify the resulting program.",
+                  "label": "Dependency",
+                  "tone": "neutral"
+                },
+                {
+                  "title": "Change the record, rebuild",
+                  "text": "Back to step 1: the new record changes the binary it names.",
+                  "label": "Cycle repeats",
+                  "tone": "pending"
+                }
+              ]
+            },
+            {
+              "title": "After / separate protected inputs",
+              "items": [
+                {
+                  "title": "Build and measure code",
+                  "text": "Fix the program and runtime file measurements first.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Provision acceptance data",
+                  "text": "Load runtime lock, bundle and preimages separately.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Check retained inputs",
+                  "text": "The unchanged binary rejects an altered acceptance bundle.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "type": "links",
           "items": [
             {

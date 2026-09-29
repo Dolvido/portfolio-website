@@ -4,6 +4,64 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Publication figures use real text, so they reflow and remain readable without JavaScript. */
+.publication-visual {
+  margin: 1.5rem 0;
+  overflow: visible;
+  border: 1px solid var(--ink);
+  border-top: 4px solid var(--accent);
+  padding: clamp(1rem, 3vw, 1.75rem);
+  background: var(--paper-deep);
+  color: var(--ink);
+}
+.publication-visual figcaption { display: grid; gap: .65rem; }
+.visual-eyebrow { color: var(--accent); font-size: .65rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.visual-title { font-size: clamp(1.1rem, 2vw, 1.4rem); font-weight: 700; line-height: 1.4; }
+.visual-caption { font-size: .8rem; line-height: 1.8; }
+.visual-groups { display: grid; gap: 1.5rem; margin-top: 1.5rem; }
+.visual-group { min-width: 0; }
+.visual-group-title { border-bottom: 1px solid var(--ink); padding-bottom: .65rem; margin-bottom: 1rem; font-size: .7rem; font-weight: 700; text-transform: uppercase; }
+.visual-steps { display: grid; gap: 1.6rem; padding: 0; margin: 0; list-style: none; }
+.visual-step { position: relative; min-width: 0; padding: 1rem; border: 1px solid var(--ink); background: var(--paper); }
+.visual-flow .visual-step:not(:last-child)::after { content: "↓"; position: absolute; left: 50%; bottom: -1.65rem; height: 1.6rem; line-height: 1.6rem; font-size: 1.2rem; color: var(--ink); }
+.visual-step-heading { display: flex; align-items: baseline; gap: .65rem; justify-content: space-between; margin-bottom: .8rem; }
+.visual-step-number { font-size: .7rem; color: var(--muted); }
+.visual-step-label { font-size: .6rem; font-weight: 700; line-height: 1.5; text-transform: uppercase; text-align: right; }
+.visual-step-title { font-weight: 700; font-size: .9rem; line-height: 1.5; }
+.visual-step-text { margin-top: .5rem; font-size: .8rem; line-height: 1.7; overflow-wrap: anywhere; }
+.visual-tone-recorded { border-top: 3px solid var(--accent); }
+.visual-tone-recorded .visual-step-label { color: var(--accent); }
+.visual-tone-pending { border-style: dashed; background: transparent; }
+.visual-tone-pending .visual-step-label { color: #83531a; }
+.visual-chart { margin-top: 1.5rem; }
+.visual-chart-reference { display: flex; align-items: center; gap: .65rem; padding-bottom: 1rem; font-size: .75rem; line-height: 1.7; }
+.visual-reference-key { display: inline-block; flex-shrink: 0; width: 1rem; border-top: 2px dashed var(--ink); }
+.visual-chart-axis { display: flex; justify-content: space-between; margin-bottom: .9rem; font-size: .65rem; color: var(--muted); }
+.visual-chart-rows { display: grid; gap: 1.35rem; }
+.visual-chart-row dt { font-size: .8rem; font-weight: 700; line-height: 1.6; }
+.visual-chart-row dd { margin: .5rem 0 0; }
+.visual-bar-track { position: relative; height: 1.7rem; background: var(--paper); border: 1px solid var(--rule); }
+.visual-bar { height: 100%; background: var(--accent); }
+.visual-bar-over { background: repeating-linear-gradient(135deg, #83531a, #83531a 6px, #a3753c 6px, #a3753c 9px); }
+.visual-limit { position: absolute; top: -.25rem; bottom: -.25rem; border-left: 2px dashed var(--ink); }
+.visual-chart-value, .visual-chart-note { display: block; font-size: .75rem; line-height: 1.7; }
+.visual-chart-value { margin-top: .5rem; font-weight: 700; }
+.visual-chart-note { margin-top: .2rem; }
+.visual-chart-footnote { margin-top: 1.3rem; padding-top: .8rem; border-top: 1px solid var(--rule); font-size: .65rem; line-height: 1.7; }
+@media (min-width: 640px) {
+  .visual-comparison { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1100px) {
+  .visual-flow .visual-steps { grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); gap: 1.3rem; }
+  .visual-flow .visual-step { padding: .85rem; }
+  .visual-flow .visual-step-heading { display: grid; gap: .3rem; }
+  .visual-flow .visual-step-label { text-align: left; }
+  .visual-flow .visual-step:not(:last-child)::after { content: "→"; left: auto; right: -1.35rem; top: 50%; bottom: auto; width: 1.3rem; text-align: center; }
+}
+@media print {
+  .publication-visual { break-inside: avoid; }
+}
+
 :root {
   --paper: #f2efe7;
   --paper-deep: #e7e3d8;

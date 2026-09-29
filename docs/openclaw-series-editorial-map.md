@@ -20,7 +20,15 @@ September 29, 2026 is the editorial reorganization date. Provenance identifies t
 | Circular binary/acceptance dependency | 7. Build approval cycle |
 | Data size failure; shared-byte format; retained-reader migration and refreshed diagnostics | 8. Startup-data capacity |
 
-The oversized “Connecting saved tasks to the worker” section supplied material for posts 1, 3, 6, 7 and 8. Repeated next-step lists, transitional totals and superseded inventories are condensed. The pinned original preserves the complete chronology. The older source-v9 status graphic is omitted from the overview; the intended-workflow figure remains.
+The oversized “Connecting saved tasks to the worker” section supplied material for posts 1, 3, 6, 7 and 8. Repeated next-step lists, transitional totals and superseded inventories are condensed. The pinned original preserves the complete chronology. The older source-v9 status graphic is omitted from the overview; a responsive diagram replaces the intended-workflow image.
+
+## Visual coverage
+
+Every series document has a figure tailored to its question: an intended-workflow diagram in the overview, a release-evidence comparison, stopping/recovery flow, worker request/reply flow, runtime-validation flow, evaluator/parent verification flow, measured-service startup flow, before/after build-dependency comparison, and a startup-capacity bar chart.
+
+These are server-rendered HTML figures with selectable text, captions and readable list structure. Mobile layouts stack the steps; wider layouts show the flow horizontally. Pending work is labeled explicitly, with dashed borders in addition to color. The capacity chart uses a shared zero baseline, exact byte values and the old limit as a reference; it labels the old payload as a lower bound and distinguishes inventory snapshots.
+
+The existing version-1 publication contract gains two validated block types, `diagram` and `barChart`. Unknown nested fields, unsupported layouts, invalid scales and out-of-range values are rejected. No raw markup, executable diagram options or client-side chart library is introduced.
 
 ## Future updates
 
@@ -33,4 +41,4 @@ The oversized “Connecting saved tasks to the worker” section supplied materi
 
 ## Review and release
 
-This branch proposes reorganized public artifacts using the existing publication contract. Review the pull request before merging into the production publication flow. No schema or renderer changes are required.
+Review content, evidence labels, desktop/mobile layouts and the hosted preview before merging into the production publication flow. The user authorized production deployment after review. The existing main-branch workflow publishes the merged site.

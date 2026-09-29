@@ -246,6 +246,22 @@ for (const { fileName, publication } of publishedEntries) {
   for (const reference of collectPublicationReferences(publication)) {
     requireLocalReference(reference.href, `${fileName} ${reference.field}`);
   }
+
+  // Verify figures are server-rendered content, not just serialized page data.
+  const renderedHtml = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, "");
+  const escapeText = (value) => value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#x27;");
+  const visuals = publication.sections.flatMap((section) => section.blocks).filter((block) => ["diagram", "barChart"].includes(block.type));
+  const renderedVisualCount = (renderedHtml.match(/data-publication-visual=/g) ?? []).length;
+  if (renderedVisualCount !== visuals.length) fail(`Figure count mismatch for ${fileName}.`);
+  for (const visual of visuals) {
+    requireHtmlValue(renderedHtml, escapeText(visual.title), `Figure title for ${fileName}`);
+    requireHtmlValue(renderedHtml, escapeText(visual.caption), `Figure caption for ${fileName}`);
+    if (visual.type === "barChart") {
+      for (const entry of [visual.reference, ...visual.items]) {
+        requireHtmlValue(renderedHtml, entry.value.toLocaleString("en-US") + " bytes", `Exact chart value for ${fileName}`);
+      }
+    }
+  }
 }
 
 for (const { fileName, publication } of draftEntries) {

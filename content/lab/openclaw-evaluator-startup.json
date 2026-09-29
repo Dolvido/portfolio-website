@@ -54,6 +54,43 @@
           "text": "The evaluator must inspect the intended runtime and save a result the native parent can verify. Getting its validation functions to pass is only the start: the installed interpreter, dependencies, file handles, privileges and launch rules must work together."
         },
         {
+          "type": "diagram",
+          "title": "A successful child exit is not enough",
+          "caption": "The real evaluator entry runs under a controlled supervisor. The original launcher's complete startup is still unproven.",
+          "layout": "flow",
+          "groups": [
+            {
+              "title": "Protected inputs → durable output → parent verification",
+              "items": [
+                {
+                  "title": "Retain the handoff",
+                  "text": "Check sealed input, fixed handles and the live parent.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Recheck installed files",
+                  "text": "Read protected source and runtime bytes; reject changes.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Consume once",
+                  "text": "Save an exact receipt without replacing an existing result.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Verify in the parent",
+                  "text": "Compare saved state with retained challenge and journal facts.",
+                  "label": "Native fixture",
+                  "tone": "recorded"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "type": "links",
           "items": [
             {

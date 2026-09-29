@@ -79,7 +79,30 @@ export type PublicationMetadata = {
   evidence?: PublicReference[];
 };
 
+export type PublicationDiagram = {
+  type: "diagram";
+  title: string;
+  caption: string;
+  layout: "flow" | "comparison";
+  groups: Array<{
+    title: string;
+    items: Array<{ title: string; text: string; label: string; tone: "neutral" | "recorded" | "pending" }>;
+  }>;
+};
+
+export type PublicationBarChart = {
+  type: "barChart";
+  title: string;
+  caption: string;
+  unit: "bytes";
+  maximum: number;
+  reference: { label: string; value: number };
+  items: Array<{ label: string; value: number; note: string }>;
+};
+
 export type PublicationBlock =
+  | PublicationDiagram
+  | PublicationBarChart
   | { type: "paragraph"; text: string }
   | { type: "list"; items: string[]; ordered?: boolean }
   | { type: "code"; code: string; language?: string; caption?: string }

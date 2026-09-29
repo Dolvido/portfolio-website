@@ -54,6 +54,60 @@
           "text": "Before connecting a coding engine to real projects, we need to know exactly which source and package a test result describes. A repeatable archive answers that question. It does not answer whether the complete service works."
         },
         {
+          "type": "diagram",
+          "title": "Three results, three different scopes",
+          "caption": "Counts belong to their own snapshots. They are not cumulative, and they do not establish a working coding service.",
+          "layout": "comparison",
+          "groups": [
+            {
+              "title": "Recorded development evidence",
+              "items": [
+                {
+                  "title": "Source-v10 package",
+                  "text": "1,612 offline tests; repeatable source export and Python packages.",
+                  "label": "Packaged snapshot",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Later checkout",
+                  "text": "1,692 offline tests; 643 recorded source inputs unchanged.",
+                  "label": "Separate snapshot",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Native build comparison",
+                  "text": "Two builds matched across five outputs on the same host.",
+                  "label": "Build evidence",
+                  "tone": "recorded"
+                }
+              ]
+            },
+            {
+              "title": "What those results leave open",
+              "items": [
+                {
+                  "title": "Machine-specific qualification",
+                  "text": "Both offline totals include one expected failure and exclude 17 named checks.",
+                  "label": "Excluded checks",
+                  "tone": "pending"
+                },
+                {
+                  "title": "Full service behavior",
+                  "text": "The package demo does not run coding tasks.",
+                  "label": "Not demonstrated",
+                  "tone": "pending"
+                },
+                {
+                  "title": "Fresh integrated release",
+                  "text": "Later repairs require their own packaging and validation.",
+                  "label": "Still required",
+                  "tone": "pending"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "type": "links",
           "items": [
             {

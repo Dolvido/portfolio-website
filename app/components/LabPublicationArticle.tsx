@@ -8,6 +8,7 @@ import {
   PublicationBlock,
 } from "../../lib/lab/types";
 import ArticleChrome, { ArticleSection, NumberedPanel } from "./ArticleChrome";
+import PublicationVisual from "./PublicationVisual";
 
 function PublicationLink({ href, children }: { href: string; children: React.ReactNode }) {
   if (href.startsWith("https://")) {
@@ -27,6 +28,9 @@ function PublicationLink({ href, children }: { href: string; children: React.Rea
 
 function PublicationContentBlock({ block }: { block: PublicationBlock }) {
   switch (block.type) {
+    case "diagram":
+    case "barChart":
+      return <PublicationVisual block={block} />;
     case "paragraph":
       return <p>{block.text}</p>;
     case "list": {

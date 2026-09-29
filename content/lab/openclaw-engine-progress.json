@@ -117,12 +117,41 @@
       "title": "The intended workflow",
       "blocks": [
         {
-          "type": "image",
-          "src": "/images/lab/openclaw-engine-progress/workflow.png",
-          "alt": "Intended workflow, with integration still in progress: scope and authorize a task with exact source and limits; claim the attempt once and reject replay; run and evaluate changes in an isolated copy; return the patch and test results for human review while preserving the original project.",
-          "caption": "Figure 1. The intended workflow. A complete end-to-end demonstration is still pending.",
-          "width": 1800,
-          "height": 2360
+          "type": "diagram",
+          "title": "One bounded task, with review at the end",
+          "caption": "Intended workflow. The complete path still needs an end-to-end demonstration.",
+          "layout": "flow",
+          "groups": [
+            {
+              "title": "Scope → execute → evaluate → review",
+              "items": [
+                {
+                  "title": "Scope the task",
+                  "text": "Bind the source, permitted actions and deadline.",
+                  "label": "Required",
+                  "tone": "neutral"
+                },
+                {
+                  "title": "Work in a copy",
+                  "text": "Claim one attempt and change an isolated project.",
+                  "label": "Required",
+                  "tone": "neutral"
+                },
+                {
+                  "title": "Evaluate the result",
+                  "text": "Capture the patch, tests and terminal outcome.",
+                  "label": "Required",
+                  "tone": "neutral"
+                },
+                {
+                  "title": "Return for review",
+                  "text": "Preserve the original and let a person inspect the change.",
+                  "label": "Not yet complete",
+                  "tone": "pending"
+                }
+              ]
+            }
+          ]
         }
       ]
     },

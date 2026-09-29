@@ -102,6 +102,18 @@ are rejected. Supported block types are intentionally limited to:
 - `numbered`: an `items` array of `{ "title", "body": ["paragraph..."] }`
 - `callout`: `{ "type": "callout", "label": "...", "text": "..." }`
 - `links`: an `items` array of `{ "label", "href", "note"? }`
+- `diagram`: `{ "type": "diagram", "title", "caption", "layout", "groups" }`. Layout is `flow` or
+  `comparison`. Each group has a `title` and non-empty `items`; each item has `title`, `text`, `label`, and
+  `tone` (`neutral`, `recorded`, or `pending`). Label the evidence scope explicitly; color is supplemental.
+- `barChart`: `{ "type": "barChart", "title", "caption", "unit": "bytes", "maximum", "reference", "items" }`.
+  The reference has `label` and `value`; each item has `label`, `value`, and `note`. Values must be nonnegative
+  safe integers at or below the positive safe-integer maximum. All bars share a zero baseline. Exact byte values
+  are visible as text, and captions must identify lower bounds or different source snapshots.
+
+Diagrams and charts render as responsive HTML figures with captions and readable lists. They need no client-side
+JavaScript, external diagram service or image download. Plain strings are rendered as escaped text; raw markup,
+custom styles and executable chart options are not part of the publication contract. Use measured comparisons only
+where the source supports them, and do not turn a component result into a complete-workflow claim.
 
 Read time is calculated from the artifact at build time. Homepage selection and archive placement are view concerns,
 not publication semantics, so neither `readTime`, `featured`, nor an archive category belongs in the JSON contract.

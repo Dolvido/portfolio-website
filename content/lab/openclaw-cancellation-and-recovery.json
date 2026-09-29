@@ -54,6 +54,43 @@
           "text": "A coding task is not safely finished just because its caller has gone away. The engine needs to stop the work it started, preserve the result and prevent a retry from launching it again. The original progress log tested those boundaries in separate experiments."
         },
         {
+          "type": "diagram",
+          "title": "A lost requester must not create a second attempt",
+          "caption": "These boundaries were exercised in separate fixtures. The whole service still needs recovery and containment testing.",
+          "layout": "flow",
+          "groups": [
+            {
+              "title": "Stopping and retaining an outcome",
+              "items": [
+                {
+                  "title": "Detect interruption",
+                  "text": "A deadline, cancel signal or requester loss ends the attempt.",
+                  "label": "Trigger",
+                  "tone": "neutral"
+                },
+                {
+                  "title": "Stop the workload",
+                  "text": "Terminate and reap the tested child processes; bound output cleanup.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Save the outcome",
+                  "text": "Persist failure or completion evidence with its evaluated result.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Reopen, do not replay",
+                  "text": "Recover the saved record; retired journal reservations stay unusable.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "type": "links",
           "items": [
             {

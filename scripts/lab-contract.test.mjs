@@ -222,3 +222,62 @@ test("rejects semantically empty block collections", () => {
   fixture.sections[0].blocks = [];
   assert.throws(() => parse(fixture), /"sections\[0\]\.blocks" must contain at least one item/);
 });
+
+function visualFixture(block) {
+  const fixture = publicationFixture();
+  fixture.sections[0].blocks = [block];
+  return fixture;
+}
+
+const diagramFixture = {
+  type: "diagram", title: "Trust boundary", caption: "Component evidence only.", layout: "flow",
+  groups: [{ title: "Handoff", items: [{ title: "Retain", text: "Check actual handles.", label: "Recorded", tone: "recorded" }] }],
+};
+const chartFixture = {
+  type: "barChart", title: "Capacity", caption: "Common zero baseline.", unit: "bytes", maximum: 100,
+  reference: { label: "Limit", value: 60 }, items: [{ label: "Payload", value: 80, note: "Over limit." }],
+};
+
+test("accepts accessible diagrams and charts without raw markup or executable options", () => {
+  for (const block of [diagramFixture, { ...diagramFixture, layout: "comparison" }, chartFixture]) {
+    assert.deepEqual(parse(visualFixture(block)).sections[0].blocks[0], block);
+  }
+});
+
+test("rejects malformed diagrams and unknown nested rendering options", () => {
+  for (const mutate of [
+    (block) => { block.layout = "rawHtml"; },
+    (block) => { block.groups = []; },
+    (block) => { block.groups[0].items = []; },
+    (block) => { block.groups[0].items[0].tone = "unknown"; },
+    (block) => { block.groups[0].items[0].text = " "; },
+    (block) => { block.groups[0].items[0].html = "<script>bad()</script>"; },
+    (block) => { block.groups[0].style = { width: "5000px" }; },
+  ]) {
+    const block = structuredClone(diagramFixture);
+    mutate(block);
+    assert.throws(() => parse(visualFixture(block)), /\[Lab content:/);
+  }
+});
+
+test("rejects chart values that would produce a misleading or invalid scale", () => {
+  for (const value of [-1, 101, 1.5, Infinity, NaN, "80", Number.MAX_SAFE_INTEGER + 1]) {
+    for (const target of ["item", "reference"]) {
+      const block = structuredClone(chartFixture);
+      (target === "item" ? block.items[0] : block.reference).value = value;
+      assert.throws(() => parse(visualFixture(block)), /nonnegative safe integer/);
+    }
+  }
+  for (const mutate of [
+    (block) => { block.maximum = 0; },
+    (block) => { block.maximum = Number.MAX_SAFE_INTEGER + 1; },
+    (block) => { block.items = []; },
+    (block) => { block.unit = "MB"; },
+    (block) => { block.reference.style = "hidden"; },
+    (block) => { block.items[0].note = ""; },
+  ]) {
+    const block = structuredClone(chartFixture);
+    mutate(block);
+    assert.throws(() => parse(visualFixture(block)), /\[Lab content:/);
+  }
+});

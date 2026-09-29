@@ -54,6 +54,43 @@
           "text": "Delivering bytes to a worker is only one part of task execution. The receiver must know who sent them, which request they belong to, and whether the reply contains enough evidence to evaluate the result. This post follows that communication boundary."
         },
         {
+          "type": "diagram",
+          "title": "Task bytes and evidence travel together",
+          "caption": "A real socket proves transfer behavior. These fixtures still use synthetic admission; production peer acceptance remains open.",
+          "layout": "flow",
+          "groups": [
+            {
+              "title": "One checked request / one checked reply",
+              "items": [
+                {
+                  "title": "Retain the sender",
+                  "text": "Check kernel identity, process liveness and connection state.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Deliver exact bytes",
+                  "text": "Validate V2 framing, order and the complete request.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Claim the work once",
+                  "text": "Redelivery recovers the existing claim instead of creating one.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Validate the reply",
+                  "text": "Bind setup rows or final-result evidence to the retained request.",
+                  "label": "Recorded",
+                  "tone": "recorded"
+                }
+              ]
+            }
+          ]
+        },
+        {
           "type": "links",
           "items": [
             {
