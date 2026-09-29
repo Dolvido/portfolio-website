@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "Two proposed native fixes now allow the witness to complete a native handshake, commit its connection record and query a real journal. Runtime migration, accepted service startup, a coding task and release remain unfinished."
+      "summary": "Both native handshake fixes now have versioned sources, a successful complete build and fixed runtime readers. Measured installation, accepted service startup, a real coding task and release remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The witness adapter now completes a native handshake in an isolated fixture, with a durably committed connection nonce and a real journal lookup returning no final result. This exposed two native defects: a socket flag requirement inconsistent with the current platform profile, and incorrect canonical field ordering. Proposed fixes pass the complete exchange and missing-journal rejection. They still need migration into the pinned runtime sources and installed build. Full service startup, a real coding task and an engine release remain unfinished."
+          "text": "The complete native engine now builds with the two fixes demonstrated by the witness handshake. New fixed source and executable readers identify that build, and real file-custody tests reject altered files and the previous version. The updated startup and evaluator entries have passed focused tests, but the new runtime still needs a freshly measured installation and accepted service startup. A real coding task and an engine release remain unfinished."
         },
         {
           "type": "image",
@@ -263,6 +263,10 @@
         {
           "type": "paragraph",
           "text": "The witness adapter now completes a native handshake backed by a real journal. The isolated helper runs as the launcher user, commits a connection nonce, validates its transaction, receives the query and returns the expected missing-result reply from historical lookup. The saved nonce record matches the helper output and its recomputed identity; the successful helper exits cleanly, while a missing journal is rejected. This uncovered two native defects: the receiver required an end-of-record flag that Linux Unix sockets do not supply, despite the current profile treating it as optional; and the connection builder emitted two fields in the wrong canonical order. Both are corrected in a new source proposal. Earlier failed attempts and fixture corrections are preserved, and two archive checks pass. The fixes are not yet migrated into the pinned runtime build. Deployment identities remain synthetic, and lookup has only covered a journal without a final job row. Next comes source/build migration, then stored-result and recovery cases before full service startup."
+        },
+        {
+          "type": "paragraph",
+          "text": "Both handshake fixes are now part of a separately versioned native source and build contract. All five stages of the complete engine build passed. New fixed source and executable readers, plus explicit startup and evaluator entries, identify the new version; the earlier readers retain their original pins. Two focused regression runs passed 28 and 94 tests, with some overlapping coverage. Actual disposable environments also passed 14 source-file custody cases and 15 executable custody cases, including altered files, unsafe permissions, replacement after opening and rejection of the preceding binary. The full new binary has not been executed. The previously tested installation still contains older files, so the next step is to rebuild and measure the installation before accepted startup and the coding lifecycle."
         },
         {
           "type": "paragraph",
