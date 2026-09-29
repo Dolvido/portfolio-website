@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The installed runtime passes its preflight, and native final-result checks now agree with the Python reader in 17 record cases and four reply outcomes. Service integration, full engine startup, a real coding task and the release remain unfinished."
+      "summary": "The production native result sender and Python reader now pass 13 real-socket cases. Accepted service admission, durable journal lookup, full engine startup, a real coding task and the release remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The combined 112-file runtime passes its installed diagnostic. The final-evidence reader now agrees with the current native code in 17 record cases, and all four native-generated reply outcomes match the Python expectations exactly. This comparison uses synthetic records and a local output stream. Authenticated reply transport, durable historical lookup and witness-service integration remain unfinished. The native engine has not completed full startup or a real coding task, and no engine release has been published."
+          "text": "The installed runtime passes its preflight, and the production native final-result sender now communicates with the Python reader over real sockets. A corrected fixture passes 13 cases: four intact replies, eight rejected connection changes and rejection of an unexpected sender. Admission records and historical-query inputs remain synthetic. Actual service admission, durable journal lookup and full startup still need integration; the engine has not completed a real coding task or reached release."
         },
         {
           "type": "image",
@@ -251,6 +251,10 @@
         {
           "type": "paragraph",
           "text": "Native final-result encoding and validation now agree with the Python reader in an isolated comparison. A three-stage build of the current native helper passed, followed by one unprivileged execution covering 17 final-record cases. Four native-generated replies—found, missing, invalid and unsafe—matched the expected bytes and passed Python semantic validation. The helper exited cleanly and its temporary files were removed. Two source-archive checks also pass. This fixture supplies synthetic historical-query results directly and sends replies through a local output stream; it does not prove durable journal lookup or authenticated transport. The next step is to connect these replies to the retained witness request and transport lifecycle."
+        },
+        {
+          "type": "paragraph",
+          "text": "The production native final-result sender now reaches the Python reader over real sockets. The fixture calls the full sender, including its socket and peer revalidation, rather than assembling reply packets separately. A corrected run passes 13 cases: all four result outcomes arrive byte-for-byte intact; eight changed connection conditions are rejected without reply bytes; and the receiver rejects an unexpected sender identity. The first run exposed a blocking-socket setup mismatch and remains preserved. All helper processes were reaped and temporary files removed. Two archive checks also pass. These tests use synthetic admission records and historical-query results, and each reply fits one frame. The next step is to connect the witness request lifecycle, accepted service records and actual journal lookup before full startup."
         },
         {
           "type": "paragraph",
