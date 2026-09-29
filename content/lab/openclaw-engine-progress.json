@@ -19,7 +19,7 @@
     ],
     "outcome": {
       "classification": "ongoing",
-      "summary": "The witness now loads protected configuration and starts through a measured native-to-Python handoff in real service tests. Production handlers, live peer admission, full engine startup, a coding task and release remain unfinished."
+      "summary": "The witness now retains and rechecks its protected startup files in a measured service test. Production request handling, real deployment acceptance, full engine startup and a complete coding task remain unfinished."
     },
     "status": "published",
     "reviewStatus": "approved"
@@ -59,7 +59,7 @@
         {
           "type": "callout",
           "label": "Current status",
-          "text": "The witness now has protected configuration loading and a measured native-to-Python startup path. A real service diagnostic checked 105 files, five aliases and all 92 loaded Python module files, then validated its startup records. A separate run rejected a different expected witness deployment. These tests still use diagnostic code and synthetic acceptance records; production handlers, live peer admission, full engine startup and a real coding task remain unfinished."
+          "text": "The witness now keeps its protected startup files open and checks that their contents, paths and service identity remain unchanged. Thirteen real file-custody cases passed, and a refreshed service diagnostic checked 107 files, five aliases and all 94 loaded Python module files. These tests still use synthetic acceptance records; live request handling, full engine startup and a real coding task remain unfinished."
         },
         {
           "type": "image",
@@ -279,6 +279,10 @@
         {
           "type": "paragraph",
           "text": "The witness configuration is now loaded by a native reader from one fixed protected file. All 29 actual filesystem cases passed, including malformed records, unsafe permissions or mounts, and changed or replaced files after opening. A fresh measured runtime contains 105 files and five aliases. Its native entry checks those files, retains the configuration and its digest, then launches the verified interpreter with a restricted environment. Under a real service, Python checked all 92 loaded module files and ran the complete startup-record validator. A separate run used the same binary but substituted the expected witness deployment; it stopped at that exact identity check without reporting success. Both runs removed their temporary accounts, services and roots. This connects protected loading to measured diagnostic startup; synthetic acceptance records, production request handlers and live broker/launcher admission still need to be replaced or completed before the coding workflow."
+        },
+        {
+          "type": "paragraph",
+          "text": "The witness now retains its protected configuration, runtime records and source preimages for the lifetime of its startup context. It rechecks their contents and file identities alongside the running service, and rejects replacement even when the new file contains identical bytes. Thirteen real filesystem cases passed, covering malformed inputs, unsafe ownership or links, and files changed, replaced or deleted after startup. Earlier failed test attempts are preserved: one lacked a dependency inside its isolated environment, and later diagnostics identified an inherited WSL terminal handle rather than a loader leak. Correcting the test setup required no weaker runtime checks. Thirteen focused tests and a fresh three-stage native build also passed. A real service diagnostic then checked 107 files, five aliases and all 94 loaded Python module files using the retained input context. The temporary service and identity were removed. Deployment records remain synthetic; the next step is the fixed request entry with real peer admission and durable result handling, followed by full engine startup and the coding demonstration."
         },
         {
           "type": "paragraph",
