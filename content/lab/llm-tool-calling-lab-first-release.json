@@ -23,8 +23,8 @@
       "classification": "not-supported",
       "summary": "Added planning instructions did not improve grounded completion in the frozen synthetic campaign: 31/48 structured conversations passed versus 33/48 generic conversations."
     },
-    "status": "draft",
-    "reviewStatus": "pending",
+    "status": "published",
+    "reviewStatus": "approved",
     "evidence": [
       {
         "id": "release",
@@ -62,7 +62,7 @@
   },
   "provenance": {
     "origin": "reviewed-candidate",
-    "summary": "AI-assisted draft written in Luke Payne's voice from the published v0.1.0 evidence. App screenshots show a separate synthetic demonstration captured after release; they are excluded from the frozen benchmark. Human editorial review is pending.",
+    "summary": "AI-assisted article based on the published v0.1.0 source and evaluation evidence. App screenshots show a separate synthetic demonstration captured after release; it is excluded from the frozen benchmark.",
     "sourceRevision": "v0.1.0"
   },
   "sections": [
@@ -214,7 +214,7 @@
       ]
     },
     {
-      "title": "What worked—and what I would keep",
+      "title": "What I would keep",
       "blocks": [
         {
           "type": "paragraph",
