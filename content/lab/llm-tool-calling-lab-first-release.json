@@ -1,0 +1,310 @@
+{
+  "schemaVersion": 1,
+  "metadata": {
+    "id": "LAB-LLM-001",
+    "slug": "llm-tool-calling-lab-first-release",
+    "title": "LLM Tool Calling Lab: What the First Release Changed",
+    "description": "A local chatbot can fit useful ML models and still give an unreliable answer. My first release makes that gap visible and sets the next engineering priorities.",
+    "date": "2026-09-29",
+    "type": "Experiment",
+    "project": {
+      "id": "llm-tool-calling-lab",
+      "name": "LLM Tool Calling Lab",
+      "href": "https://github.com/Dolvido/llm-tool-calling-lab"
+    },
+    "tags": [
+      "Local AI",
+      "Tool Calling",
+      "Evaluation",
+      "Python",
+      "Applied ML"
+    ],
+    "outcome": {
+      "classification": "not-supported",
+      "summary": "Added planning instructions did not improve grounded completion in the frozen synthetic campaign: 31/48 structured conversations passed versus 33/48 generic conversations."
+    },
+    "status": "draft",
+    "reviewStatus": "pending",
+    "evidence": [
+      {
+        "id": "release",
+        "label": "v0.1.0 experimental release",
+        "href": "https://github.com/Dolvido/llm-tool-calling-lab/releases/tag/v0.1.0",
+        "kind": "Release",
+        "note": "Source packages, frozen evidence, preserved failures and checksums."
+      },
+      {
+        "id": "results",
+        "label": "Frozen first-pass results",
+        "href": "https://github.com/Dolvido/llm-tool-calling-lab/blob/v0.1.0/RESULTS.md",
+        "kind": "Evaluation report",
+        "note": "Campaign denominators, per-family scores, failures and review limitations."
+      },
+      {
+        "id": "protocol",
+        "label": "Frozen evaluation protocol",
+        "href": "https://github.com/Dolvido/llm-tool-calling-lab/blob/v0.1.0/EVALUATION.md",
+        "kind": "Protocol"
+      },
+      {
+        "id": "verification",
+        "label": "Release verification receipt",
+        "href": "https://github.com/Dolvido/llm-tool-calling-lab/blob/v0.1.0/results/v0.1.0/verification.json",
+        "kind": "Verification"
+      },
+      {
+        "id": "adapter",
+        "label": "Exercised model replacement",
+        "href": "https://github.com/Dolvido/llm-tool-calling-lab/blob/v0.1.0/docs/ADAPTERS.md",
+        "kind": "Developer guide"
+      }
+    ]
+  },
+  "provenance": {
+    "origin": "reviewed-candidate",
+    "summary": "AI-assisted draft written in Luke Payne's voice from the published v0.1.0 evidence. App screenshots show a separate synthetic demonstration captured after release; they are excluded from the frozen benchmark. Human editorial review is pending.",
+    "sourceRevision": "v0.1.0"
+  },
+  "sections": [
+    {
+      "title": "The question I wanted to answer",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "I want a conversational ML tool that lets a developer inspect the analysis behind an answer: which method ran, which data it used, and what its output can support. LLM Tool Calling Lab is my first local reference implementation of that idea."
+        },
+        {
+          "type": "paragraph",
+          "text": "The first published version is v0.1.0, an experimental release. It turns numerical questions into bounded tool calls, records the results, and lets a follow-up use that evidence. I also tested whether explicit planning instructions improved the conversation. They did not improve the measured completion rate in this first pass."
+        }
+      ]
+    },
+    {
+      "title": "What I built",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The app runs a local Qwen3 model through Ollama, with a Streamlit chat interface and eight scikit-learn methods. It supports numerical prediction, binary classification, unusual-row ranking, and exploratory grouping. Each family has two eligible methods. Supervised and clustering outputs cover validation rows; anomalies can score a separate fresh batch."
+        },
+        {
+          "type": "diagram",
+          "title": "Where the evidence comes from",
+          "caption": "The LLM chooses permitted operations. The executor controls preprocessing, splits, fitting and artifacts; evaluator-only labels and test scores stay outside the conversation.",
+          "layout": "flow",
+          "groups": [
+            {
+              "title": "Conversation",
+              "items": [
+                {
+                  "title": "Question and numerical table",
+                  "text": "Clarify a supported goal and target; choose an eligible method.",
+                  "label": "LLM choice",
+                  "tone": "neutral"
+                },
+                {
+                  "title": "Validated execution",
+                  "text": "Fit within the shared budget and save the actual result.",
+                  "label": "Executor boundary",
+                  "tone": "recorded"
+                },
+                {
+                  "title": "Answer and follow-up",
+                  "text": "Cite recorded evidence, compare candidates and state limits.",
+                  "label": "Interpretation requires review",
+                  "tone": "neutral"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "I kept fitting logic outside model-generated text. No generated code executes. The same budget covers the initial question and follow-up: two fits, eight tool calls, six LLM responses, one repair, 4,096 generated tokens and 180 seconds of system work. A failure consumes its allowance instead of disappearing behind unlimited retries."
+        }
+      ]
+    },
+    {
+      "title": "A run in the local app",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "For the screenshots, I used the included synthetic regression example on the running local server. This is an illustrative run after release, not another held-out benchmark case."
+        },
+        {
+          "type": "image",
+          "src": "/images/lab/llm-tool-calling-lab/01-question-and-evidence.png",
+          "alt": "Local LLM Tool Calling Lab showing a numerical prediction question, the model answer and recorded validation evidence.",
+          "caption": "Included synthetic example: the question and recorded model evidence.",
+          "width": 1440,
+          "height": 1050
+        },
+        {
+          "type": "paragraph",
+          "text": "The first answer fitted Random Forest: validation mean absolute error was 0.7686 versus 3.0326 for the training-median baseline. Lower MAE is better on these validation rows. The evidence panel reads the saved values directly. The answer still described the difference as significant without a significance test, and said no further action was needed. I would keep the measurement and reject those stronger conclusions."
+        },
+        {
+          "type": "image",
+          "src": "/images/lab/llm-tool-calling-lab/02-follow-up-comparison.png",
+          "alt": "The same local episode showing a follow-up asking for the other eligible method and the resulting evidence.",
+          "caption": "The follow-up shares the original episode's budget. Its actual outcome is preserved.",
+          "width": 1440,
+          "height": 1050
+        },
+        {
+          "type": "paragraph",
+          "text": "I then asked for the other eligible method. Ridge returned validation MAE 0.1420 on the same partition, and the follow-up preferred its lower validation error over Random Forest's 0.7686. The scrolled view shows both recorded results. The episode used two fits, three tool calls and five model responses, with no repair. This demonstrates a consequential comparison on one synthetic example; the automatic 'no further action' statement still does not establish readiness for real data."
+        },
+        {
+          "type": "callout",
+          "label": "How to read this demo",
+          "text": "Recorded metrics and the assistant's interpretation have separate checks. Unsupported significance language or an incomplete comparison is a limitation of the displayed answer, even when the model fit succeeds. This run is excluded from every campaign count."
+        }
+      ]
+    },
+    {
+      "title": "What the frozen comparison found",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The campaign compared generic tool calling with the same LLM given an explicit planning workflow. Both conditions shared the backend, tools, data access and budgets. Fixed methods supplied separate model-quality references; they were not conversational competitors."
+        },
+        {
+          "type": "diagram",
+          "title": "Grounded completion on supported held-out conversations",
+          "caption": "48 episodes per condition across 24 distinct synthetic datasets. Each episode includes both turns. Repeats are not additional independent datasets; failures stay in the denominator.",
+          "layout": "comparison",
+          "groups": [
+            {
+              "title": "Generic tool calling",
+              "items": [
+                {
+                  "title": "33/48 passed (68.8%)",
+                  "text": "Regression 7/12; classification 11/12; anomaly ranking 3/12; clustering 12/12.",
+                  "label": "Frozen campaign",
+                  "tone": "recorded"
+                }
+              ]
+            },
+            {
+              "title": "Structured planning",
+              "items": [
+                {
+                  "title": "31/48 passed (64.6%)",
+                  "text": "Regression 7/12; classification 10/12; anomaly ranking 2/12; clustering 12/12.",
+                  "label": "Frozen campaign",
+                  "tone": "recorded"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "All 168 required records are complete: 16 development conversations, 96 supported held-out conversations, 24 separate challenge conversations, and 32 deterministic references. Grounded completion requires structural validity and every applicable qualitative check across both delivered turns. A later correction does not erase an earlier unsupported claim."
+        },
+        {
+          "type": "paragraph",
+          "text": "Only 5/24 anomaly conversations passed every check. Invalid answers and evidence citations dominated the structural failures; other episodes fitted another method but missed the requested comparison. The challenge suite exposed unsupported forecast proposals and data-limit handling. Clustering reached the synthetic model-quality ceiling, so those fixtures offer little evidence about harder grouping problems."
+        },
+        {
+          "type": "callout",
+          "label": "Scope of the finding",
+          "text": "Qualitative scores are unblinded AI assessments by implementation agents. There was no independent human review or user study. These small synthetic results support no significance, general superiority, production-reliability or reduced-expertise claim."
+        }
+      ]
+    },
+    {
+      "title": "What worked—and what I would keep",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The reusable part is the boundary between conversation and execution. A common specialist interface made methods replaceable; the executor made their evidence inspectable. The released Windows installation passed 102 automated checks, and two artifact audits covered all 168 records without findings in their checked invariants. Those audits did not independently recompute every model metric."
+        },
+        {
+          "type": "paragraph",
+          "text": "The extension tutorial actually replaced Ridge with ElasticNet and fitted both configurations. A fresh installed-wheel conversation also compared Random Forest with ElasticNet. That proves a working replacement path. It does not prove that the explanation became reliable: the tutorial's first answer still used unsupported significance language."
+        },
+        {
+          "type": "paragraph",
+          "text": "The first campaign also failed before chatbot inference because of a relative-path runner defect. I preserved it separately. The replacement corrected the harness path, used fresh seeded data, and kept chat/model behavior unchanged. The two campaigns are not pooled."
+        }
+      ]
+    },
+    {
+      "title": "The direction after this release",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "My decision is to keep the validated executor, shared limits, replaceable specialists and recorded artifacts. I will not describe the planning prompt as a demonstrated improvement. The generic condition remains the simpler comparison point for the next evaluation."
+        },
+        {
+          "type": "numbered",
+          "items": [
+            {
+              "title": "Make anomaly answers usable",
+              "body": [
+                "First proposed slice: return valid cited selections in both turns and preserve the selected artifact when comparing methods. Keep invalid episodes in the score."
+              ]
+            },
+            {
+              "title": "Handle unsupported requests earlier",
+              "body": [
+                "Check task eligibility before proposing a fit. Explain invalid data and a useful next step instead of stopping at a tool error."
+              ]
+            },
+            {
+              "title": "Check the explanation and next action",
+              "body": [
+                "Treat unsupported significance language, omitted limits and actions that contradict a causal refusal as failures, even when the numbers are correct."
+              ]
+            },
+            {
+              "title": "Strengthen the next evaluation",
+              "body": [
+                "Use fresh, more varied held-out cases and independent blinded review. A claim about reducing users' expertise needs a separate human study."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "These are proposed changes, not fixes shipped in v0.1.0. I will keep one bounded change active and evaluate a new version against simpler alternatives. The first release is useful because it gives me an inspectable starting point and specific failures to address. It also gives another developer enough source and evidence to question my choices."
+        }
+      ]
+    },
+    {
+      "title": "Try it and inspect the evidence",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The tested setup is Windows with Python 3.12, Ollama and qwen3:14b-q4_K_M. The development machine used an RTX 5080 with 16 GB VRAM and about 32 GB RAM; this is a tested configuration, not a minimum requirement. Local inference used no paid API calls, but hardware and electricity costs were not measured."
+        },
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Get the experimental release",
+              "href": "https://github.com/Dolvido/llm-tool-calling-lab/releases/tag/v0.1.0",
+              "note": "Quickstart and downloadable evidence"
+            },
+            {
+              "label": "Read the complete results",
+              "href": "https://github.com/Dolvido/llm-tool-calling-lab/blob/v0.1.0/RESULTS.md",
+              "note": "Model quality, conversation completion and resource usage are separate"
+            },
+            {
+              "label": "Replace a specialist",
+              "href": "https://github.com/Dolvido/llm-tool-calling-lab/blob/v0.1.0/docs/ADAPTERS.md",
+              "note": "Exercised catalog and estimator interface"
+            },
+            {
+              "label": "Read the vision and next priorities",
+              "href": "https://github.com/Dolvido/llm-tool-calling-lab/blob/main/docs/VISION.md",
+              "note": "Proposed work and definitions of done"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
