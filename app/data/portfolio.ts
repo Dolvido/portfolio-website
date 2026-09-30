@@ -39,6 +39,7 @@ export type PortfolioProject = {
   featured?: boolean;
   demoUrl?: string;
   githubUrl?: string;
+  evidenceLinks?: { label: string; href: string }[];
   caseStudyUrl: string;
   disclaimer?: string;
   caseStudy: {
@@ -51,6 +52,51 @@ export type PortfolioProject = {
 };
 
 export const projects: PortfolioProject[] = [
+  {
+    id: "llm-tool-calling-lab",
+    featured: true,
+    category: "Applied ML / Controlled Experiment",
+    title: "LLM Tool Calling Lab",
+    status: "Experimental v0.1.0",
+    githubUrl: "https://github.com/Dolvido/llm-tool-calling-lab",
+    caseStudyUrl: "/projects/llm-tool-calling-lab",
+    description:
+      "Local chatbot for regression, binary classification, anomaly ranking and clustering. On 24 synthetic held-out datasets, generic tool calling passed 33/48 conversations and structured planning passed 31/48; extra planning showed no observed completion benefit.",
+    tags: ["Python", "scikit-learn", "Streamlit", "Ollama", "Evaluation"],
+    highlights: [
+      "Same local model, ML tools, data access and episode limits across both conversational conditions.",
+      "96 supported held-out episodes on 24 datasets; two fixed-seed repeats per condition and dataset.",
+      "33/48 generic and 31/48 structured completions; only 5/24 anomaly conversations passed.",
+      "Frozen source, raw transcripts, failed episodes, reviewer rationales and release checksums are inspectable.",
+    ],
+    disclaimer:
+      "Small synthetic tables and one backend. Completion combines structural checks with unblinded AI reviews by implementation agents. No independent human study, statistical significance, general superiority or production reliability is established.",
+    evidenceLinks: [
+      { label: "Results and evidence map", href: "https://github.com/Dolvido/llm-tool-calling-lab/blob/main/RESULTS.md#inspect-the-evidence" },
+      { label: "Protocol and controls", href: "https://github.com/Dolvido/llm-tool-calling-lab/blob/main/EVALUATION.md" },
+      { label: "Raw evidence and frozen source", href: "https://github.com/Dolvido/llm-tool-calling-lab/releases/tag/v0.1.0" },
+      { label: "Recorded app walkthrough", href: "/lab/llm-tool-calling-lab-first-release/" },
+    ],
+    caseStudy: {
+      source: "Frozen v0.1.0 campaign and public evidence",
+      problem:
+        "Does adding structured planning instructions improve grounded completion over a generic tool-calling chatbot with the same model, tools and budget? A useful fit alone is insufficient: the initial answer and follow-up must deliver valid output, faithfully explain evidence and state its limits.",
+      approach: [
+        "Compare a shared tool-calling prompt with the same prompt plus planning instructions. Both arms already receive task, safety, evidence and follow-up guidance; the intervention is a prompt addition, not a trained planner.",
+        "Keep preprocessing, data partitions, fitting and timeouts in a validated executor. Selection uses validation evidence; test scores and synthetic truth stay outside the chat tools. Anomaly methods fit reference rows and rank a separate batch.",
+        "Freeze source, model digest, fixtures, rubric and caps before the replacement campaign. Evaluate two-turn episodes on 24 held-out synthetic datasets, twice per arm with temperature 0 and sampling seed 0. Repeats do not create independent datasets or random draws.",
+        "Count failed and invalid episodes as zero. Fixed one-method references know the intended family and supply model-quality comparisons, not conversational competition. Report separate challenge outcomes and family-specific metrics.",
+      ],
+      example:
+        "In saved anomaly episode c122_generic_1, Isolation Forest and Local Outlier Factor both fitted successfully. The follow-up repeated the original Isolation Forest ranking instead of comparing the methods. Structural checks passed, but the recorded reviewer failed relevant_followup. This is a concrete failure example, not proof of its cause or a tested fix.",
+      insights: [
+        "Executable model evidence and grounded conversation completion need separate checks.",
+        "Structured planning passed two fewer episodes here. Dataset-level repeat averages show one structured win, three generic wins, fifteen nonzero ties and five both-zero ties; no significance claim follows.",
+        "The failed launch made no LLM inference calls. The replacement fixed a path defect and changed data seeds and initial-question assignment together; the campaigns are preserved separately and never pooled.",
+        "Proposed next work is one artifact-backed anomaly-comparison contract under the same caps, tested on fresh cases. It remains a proposal requiring a new version and evaluation.",
+      ],
+    },
+  },
   {
     id: "bic",
     featured: true,

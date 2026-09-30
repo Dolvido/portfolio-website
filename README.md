@@ -8,10 +8,11 @@ Portfolio and engineering case studies for AI, backend, and full-stack roles.
 
 ## Selected work
 
-The homepage matches the GitHub profile's Selected work list, in order: Brain in Computer (BiC), NASA CMR AI Agent, AutoAgent, Smart Image Insights, Fuguely, and PRIM. Keep the featured entries in `app/data/portfolio.ts` in sync when that selection changes.
+The homepage features LLM Tool Calling Lab alongside the existing selected work: Brain in Computer (BiC), NASA CMR AI Agent, AutoAgent, Smart Image Insights, Fuguely, and PRIM. Featured entries are maintained in `app/data/portfolio.ts`.
 
 | Project | Focus | Source availability |
 | --- | --- | --- |
+| [LLM Tool Calling Lab](https://lukepayne.web.app/projects/llm-tool-calling-lab/) | Controlled comparison of generic tool calling and added planning, with frozen synthetic evidence and negative findings | Public experimental v0.1.0 |
 | [Brain in Computer (BiC)](https://github.com/Dolvido/BiC) | Verified English curricula, local tutor experiments, and measured learning limits | Public research prototype |
 | [AutoAgent](https://github.com/Dolvido/AutoAgent) | Local code review, structured findings, feedback, and example retrieval | Public experimental prototype |
 | [Fuguely](https://lukepayne.web.app/projects/fuguely/) | Music-teacher scheduling, booking, communication, and billing workflows | Private source; public case study |

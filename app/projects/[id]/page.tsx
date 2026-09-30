@@ -138,6 +138,9 @@ export default function ProjectCaseStudyPage({ params }: ProjectCaseStudyPagePro
             <ProjectAction href="/projects">All Work -&gt;</ProjectAction>
             {demoUrl ? <ProjectAction href={demoUrl}>View Demo -&gt;</ProjectAction> : null}
             {project.githubUrl ? <ProjectAction href={project.githubUrl}>View Code -&gt;</ProjectAction> : null}
+            {project.evidenceLinks?.map((link) => (
+              <ProjectAction key={link.href} href={link.href}>{link.label} -&gt;</ProjectAction>
+            ))}
           </div>
         </ArticleSection>
       </ArticleChrome>

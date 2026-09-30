@@ -57,12 +57,19 @@
         "label": "Exercised model replacement",
         "href": "https://github.com/Dolvido/llm-tool-calling-lab/blob/v0.1.0/docs/ADAPTERS.md",
         "kind": "Developer guide"
+      },
+      {
+        "id": "evidence-map",
+        "label": "Claim-to-artifact evidence map",
+        "href": "https://github.com/Dolvido/llm-tool-calling-lab/blob/main/RESULTS.md#inspect-the-evidence",
+        "kind": "Evidence navigation",
+        "note": "Repository reports, exact raw-episode archive paths and reproduction limits."
       }
     ]
   },
   "provenance": {
     "origin": "reviewed-candidate",
-    "summary": "AI-assisted article based on the published v0.1.0 source and evaluation evidence. App screenshots show a separate synthetic demonstration captured after release; it is excluded from the frozen benchmark.",
+    "summary": "AI-assisted article based on the published v0.1.0 source and evaluation evidence. App screenshots show a separate synthetic demonstration captured after release; it is excluded from the frozen benchmark. Experimental controls and public evidence navigation were clarified September 30, 2026; frozen scores and release references are unchanged.",
     "sourceRevision": "v0.1.0"
   },
   "sections": [
@@ -169,6 +176,10 @@
           "text": "The campaign compared generic tool calling with the same LLM given an explicit planning workflow. Both conditions shared the backend, tools, data access and budgets. Fixed methods supplied separate model-quality references; they were not conversational competitors."
         },
         {
+          "type": "paragraph",
+          "text": "The intervention is an instruction addition to a substantial common prompt, not a trained planner. Both arms already receive evidence, safety and follow-up guidance. Repeat indices reuse temperature 0 and sampling seed 0; the 24 datasets are the independent dataset units. Equal budgets are caps, not equal realized usage or prompt lengths. Fixed references know the family and fit one method while the conversational arms may fit two."
+        },
+        {
           "type": "diagram",
           "title": "Grounded completion on supported held-out conversations",
           "caption": "48 episodes per condition across 24 distinct synthetic datasets. Each episode includes both turns. Repeats are not additional independent datasets; failures stay in the denominator.",
@@ -210,6 +221,10 @@
           "type": "callout",
           "label": "Scope of the finding",
           "text": "Qualitative scores are unblinded AI assessments by implementation agents. There was no independent human review or user study. These small synthetic results support no significance, general superiority, production-reliability or reduced-expertise claim."
+        },
+        {
+          "type": "paragraph",
+          "text": "Averaging the two completion scores within each dataset gives one structured win, three generic wins, fifteen nonzero ties and five both-zero ties. This is descriptive evidence about the tested prompt addition; it does not demonstrate statistical significance or general superiority. Run order was fixed, so local timing is not an isolated causal speed comparison."
         }
       ]
     },
@@ -226,7 +241,7 @@
         },
         {
           "type": "paragraph",
-          "text": "The first campaign also failed before chatbot inference because of a relative-path runner defect. I preserved it separately. The replacement corrected the harness path, used fresh seeded data, and kept chat/model behavior unchanged. The two campaigns are not pooled."
+          "text": "The first campaign failed before any chatbot inference because of a relative-path runner defect and is preserved separately. The replacement fixed the path and used seed offset 100000, changing numerical data and initial-question variant assignment while keeping the chat/model pipeline unchanged. The campaigns are not pooled or treated as a before/after performance comparison."
         }
       ]
     },
@@ -269,6 +284,36 @@
         {
           "type": "paragraph",
           "text": "These are proposed changes, not fixes shipped in v0.1.0. I will keep one bounded change active and evaluate a new version against simpler alternatives. The first release is useful because it gives me an inspectable starting point and specific failures to address. It also gives another developer enough source and evidence to question my choices."
+        }
+      ]
+    },
+    {
+      "title": "Follow one claim to its artifacts",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Start with the results and evaluation protocol, then inspect the detailed report, diagnostic tables and machine-readable summary. The release includes v0.1.0-evaluation-evidence.zip and SHA256SUMS.txt. Verify the archive checksum, then open records/c122_generic_1.json, its session and the two run result files named in the evidence map."
+        },
+        {
+          "type": "paragraph",
+          "text": "Both anomaly fits in that episode succeeded, but the follow-up cited only the first ranking. The unblinded AI review marks relevant_followup false despite a structural pass. This substantiates a delivery failure; it does not identify a proven cause or an implemented remedy."
+        },
+        {
+          "type": "links",
+          "items": [
+            {
+              "label": "Results and exact archive paths",
+              "href": "https://github.com/Dolvido/llm-tool-calling-lab/blob/main/RESULTS.md#inspect-the-evidence"
+            },
+            {
+              "label": "Implemented controls and limits",
+              "href": "https://github.com/Dolvido/llm-tool-calling-lab/blob/main/EVALUATION.md#implemented-controls-and-limits-of-the-comparison"
+            },
+            {
+              "label": "Project case study",
+              "href": "/projects/llm-tool-calling-lab/"
+            }
+          ]
         }
       ]
     },
