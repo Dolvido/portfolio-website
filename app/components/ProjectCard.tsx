@@ -24,7 +24,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
   return (
     <Link
       href={href}
-      className="group block min-w-0 border border-[var(--ink)] bg-[rgba(242,239,231,0.88)] p-5 transition-colors hover:bg-[var(--paper-deep)]"
+      className="group block min-w-0 border border-[var(--ink)] bg-[var(--panel)] p-5 transition-colors hover:bg-[var(--paper-deep)]"
     >
       <div className="mb-5 flex items-start justify-between gap-4">
         <span className="min-w-0 text-xs font-semibold uppercase text-[var(--accent)] [overflow-wrap:anywhere]">

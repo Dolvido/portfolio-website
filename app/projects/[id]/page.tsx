@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import SiteLink from "../../components/SiteLink";
+import BiCDemo from "../../components/BiCDemo";
 import { notFound } from "next/navigation";
 import ArticleChrome, { ArticleSection, NumberedPanel } from "../../components/ArticleChrome";
 import Footer from "../../components/Footer";
@@ -25,29 +26,7 @@ export function generateMetadata({ params }: ProjectCaseStudyPageProps): Metadat
   };
 }
 
-function ProjectAction({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) {
-  const className = "mono-button";
-
-  if (href.startsWith("http")) {
-    return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
-        {children}
-      </a>
-    );
-  }
-
-  return (
-    <Link href={href} className={className}>
-      {children}
-    </Link>
-  );
-}
+function ProjectAction({href,children}:{href:string;children:React.ReactNode}){return <SiteLink href={href} className="mono-button">{children}</SiteLink>;}
 
 export default function ProjectCaseStudyPage({ params }: ProjectCaseStudyPageProps) {
   const project = getProjectById(params.id);
@@ -69,6 +48,15 @@ export default function ProjectCaseStudyPage({ params }: ProjectCaseStudyPagePro
         title={`${project.title} Case Study`}
         subtitle={project.description}
         quote={project.caseStudy.insights[0]}
+        relatedPath={project.caseStudyUrl}
+        contents={[
+          { href: "#problem", label: "Problem" },
+          { href: "#example", label: "Concrete example" },
+          { href: "#approach", label: "System approach" },
+          { href: "#highlights", label: "Project highlights" },
+          { href: "#insights", label: "What this shows" },
+          { href: "#explore", label: "Demo, code & evidence" },
+        ]}
       >
         <div className="grid gap-4 border-y-2 border-[var(--ink)] py-5 text-xs font-semibold uppercase text-[var(--muted)] md:grid-cols-4">
           <div>
@@ -95,15 +83,16 @@ export default function ProjectCaseStudyPage({ params }: ProjectCaseStudyPagePro
           </p>
         ) : null}
 
-        <ArticleSection label="00 / Problem" title="Problem">
+        {project.id === 'bic' && <figure className="artifact mt-8"><div className="artifact-top"><span>RECORDED CPU DEMO</span><span>REPLAY / NOT LIVE INFERENCE</span></div><BiCDemo/><figcaption>Actual published observation record. Illustrations, not a benchmark; the research candidate failed the full promotion gate.</figcaption></figure>}
+        <ArticleSection id="problem" label="00 / Problem" title="Problem">
           <p>{project.caseStudy.problem}</p>
         </ArticleSection>
 
-        <ArticleSection label="01 / Example" title="Concrete Example">
+        <ArticleSection id="example" label="01 / Example" title="Concrete Example">
           <p>{project.caseStudy.example}</p>
         </ArticleSection>
 
-        <ArticleSection label="02 / Approach" title="System Approach">
+        <ArticleSection id="approach" label="02 / Approach" title="System Approach">
           <div className="space-y-0">
             {project.caseStudy.approach.map((item, index) => (
               <NumberedPanel key={item} number={String(index + 1)} title={`Step ${index + 1}`}>
@@ -113,7 +102,7 @@ export default function ProjectCaseStudyPage({ params }: ProjectCaseStudyPagePro
           </div>
         </ArticleSection>
 
-        <ArticleSection label="03 / Evidence" title="Project Highlights">
+        <ArticleSection id="highlights" label="03 / Evidence" title="Project Highlights">
           <ul className="grid gap-2 md:grid-cols-2">
             {project.highlights.map((highlight) => (
               <li key={highlight} className="border-t border-[var(--dot-rule)] pt-2">
@@ -123,7 +112,7 @@ export default function ProjectCaseStudyPage({ params }: ProjectCaseStudyPagePro
           </ul>
         </ArticleSection>
 
-        <ArticleSection label="04 / Insights" title="What This Shows">
+        <ArticleSection id="insights" label="04 / Insights" title="What This Shows">
           <ul className="space-y-2">
             {project.caseStudy.insights.map((insight) => (
               <li key={insight} className="border-t border-[var(--dot-rule)] pt-2">
@@ -133,7 +122,7 @@ export default function ProjectCaseStudyPage({ params }: ProjectCaseStudyPagePro
           </ul>
         </ArticleSection>
 
-        <ArticleSection label="05 / Links" title="Explore">
+        <ArticleSection id="explore" label="05 / Links" title="Explore">
           <div className="flex flex-wrap gap-3">
             <ProjectAction href="/projects">All Work -&gt;</ProjectAction>
             {demoUrl ? <ProjectAction href={demoUrl}>View Demo -&gt;</ProjectAction> : null}

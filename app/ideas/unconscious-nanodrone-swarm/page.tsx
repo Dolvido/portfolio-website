@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "What If: A Real Unconscious Nanodrone Swarm? | Luke Payne",
+  description: "A thought experiment on self-replicating microbots, emerging autonomy, and the guardrails that would need to exist first.",
+  alternates: { canonical: "/ideas/unconscious-nanodrone-swarm/" },
+};
+
 import Footer from "../../components/Footer";
 import Navigation from "../../components/Navigation";
 import ArticleChrome, { ArticleSection, NumberedPanel } from "../../components/ArticleChrome";
@@ -53,6 +61,7 @@ export default function UnconsciousNanodroneSwarm() {
       <Navigation />
 
       <ArticleChrome
+        relatedPath="/ideas/unconscious-nanodrone-swarm"
         backHref="/ideas"
         backLabel="Back to ideas"
         eyebrow="NTE-002 / Thought experiment / Speculative"

@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Nanotech Safety Blueprint | Luke Payne",
+  description: "Principles for responsible molecular engineering and self-replicating nanomachine development.",
+  alternates: { canonical: "/ideas/nanotech-safety/" },
+};
+
 import Footer from "../../components/Footer";
 import Navigation from "../../components/Navigation";
 import ArticleChrome, { ArticleSection, NumberedPanel } from "../../components/ArticleChrome";
@@ -62,6 +70,7 @@ export default function NanotechSafety() {
       <Navigation />
 
       <ArticleChrome
+        relatedPath="/ideas/nanotech-safety"
         backHref="/ideas"
         backLabel="Back to ideas"
         eyebrow="NTE-001 / Blueprint / Safety"

@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Poisoned Context Is the New Supply Chain Risk | Luke Payne",
+  description: "As models read from the web, repos, docs, and tickets, prompt injection and data poisoning become engineering problems, not just security trivia.",
+  alternates: { canonical: "/ideas/poisoned-context-supply-chain-risk/" },
+};
+
 import Footer from "../../components/Footer";
 import Navigation from "../../components/Navigation";
 import ArticleChrome, { ArticleSection, NumberedPanel } from "../../components/ArticleChrome";
@@ -31,6 +39,7 @@ export default function PoisonedContextSupplyChainRisk() {
       <Navigation />
 
       <ArticleChrome
+        relatedPath="/ideas/poisoned-context-supply-chain-risk"
         backHref="/ideas"
         backLabel="Back to ideas"
         eyebrow="SEC-001 / Safety / Security"

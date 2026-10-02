@@ -1,3 +1,9 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import PrintResume from "../components/PrintResume";
+
+export const metadata: Metadata = { title: "Resume | Luke Payne", alternates: { canonical: "/resume/" } };
+
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
 import { education, experience, profile, resumeProjects, resumeSkillGroups, resumeSummary } from "../data/portfolio";
@@ -7,10 +13,10 @@ export default function Resume() {
     <div className="portfolio-shell">
       <Navigation />
 
-      <main className="portfolio-content container">
+      <main id="main-content" className="portfolio-content container">
         <section data-screen-label="Resume" className="py-12 md:py-16">
           <div className="border-t-2 border-[var(--ink)] pt-5">
-            <h1 className="text-4xl font-bold uppercase md:text-5xl">Resume</h1>
+            <div className="flex flex-wrap items-center justify-between gap-4"><h1 className="text-4xl font-bold uppercase md:text-5xl">Resume</h1><PrintResume /></div>
             <p className="mt-3 text-sm font-semibold uppercase text-[var(--accent)]">{profile.role}</p>
             <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-sm text-[var(--muted)]">
               <span>{profile.location}</span>
@@ -20,9 +26,9 @@ export default function Resume() {
               <a href={`mailto:${profile.email}`} className="accent-link">
                 {profile.email}
               </a>
-              <a href={profile.portfolio} target="_blank" rel="noopener noreferrer" className="accent-link">
+              <Link href="/" className="accent-link">
                 Portfolio -&gt;
-              </a>
+              </Link>
               <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="accent-link">
                 LinkedIn -&gt;
               </a>
@@ -91,7 +97,7 @@ export default function Resume() {
                     index === 0 ? "border-[var(--ink)] border-t-2" : "border-[var(--rule)]"
                   } py-6`}
                 >
-                  <h2 className="text-lg font-bold">{project.title}</h2>
+                  <h2 className="text-lg font-bold"><Link href={project.href} className="accent-link">{project.title} -&gt;</Link></h2>
                   <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-[var(--muted)]">
                     {project.bullets.map((bullet) => (
                       <li key={bullet}>{bullet}</li>

@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Agents Need Flight Recorders | Luke Payne",
+  description: "Why autonomous systems need logs, traces, replay, and human-readable decision trails before they need more autonomy.",
+  alternates: { canonical: "/ideas/agents-need-flight-recorders/" },
+};
+
 import Footer from "../../components/Footer";
 import Navigation from "../../components/Navigation";
 import ArticleChrome, { ArticleSection, NumberedPanel } from "../../components/ArticleChrome";
@@ -31,6 +39,7 @@ export default function AgentsNeedFlightRecorders() {
       <Navigation />
 
       <ArticleChrome
+        relatedPath="/ideas/agents-need-flight-recorders"
         backHref="/ideas"
         backLabel="Back to ideas"
         eyebrow="OBS-001 / Systems / Observability"

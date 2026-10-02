@@ -1,16 +1,17 @@
 import "./globals.css";
+import "./studio.css";
 import type { Metadata } from "next";
 
 const portfolioDescription =
-  "Software engineering portfolio featuring AI systems, full-stack products, and technical case studies.";
+  "Software engineering, AI systems and applied ML experiments with inspectable evidence and clear boundaries.";
 const portfolioSocialImage = "/images/headshot2026.webp";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://lukepayne.web.app"),
   title: "Luke Payne - Software Engineer",
-  description: "Portfolio website for Luke Payne, software engineer focused on AI and full-stack systems.",
+  description: "Luke Payne’s software engineering portfolio: system architecture, AI and applied ML, evaluation and inspectable experiments.",
   openGraph: {
-    title: "Luke Payne - AI / Full-Stack Software Engineer",
+    title: "Luke Payne - Software, AI & Applied ML",
     description: portfolioDescription,
     type: "website",
     siteName: "Luke Payne Portfolio",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Luke Payne - AI / Full-Stack Software Engineer",
+    title: "Luke Payne - Software, AI & Applied ML",
     description: portfolioDescription,
     images: [portfolioSocialImage],
   },
@@ -35,7 +36,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head><script dangerouslySetInnerHTML={{__html: "try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme')==='ink'?'ink':'paper'}catch{document.documentElement.dataset.theme='paper'}"}} /></head>
       <body>{children}</body>
     </html>
   );

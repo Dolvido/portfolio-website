@@ -20,7 +20,7 @@ export default function BlogArchive() {
     <div className="portfolio-shell">
       <Navigation />
 
-      <main className="portfolio-content container">
+      <main id="main-content" className="portfolio-content container">
         <section data-screen-label="Blog Archive" className="py-12 md:py-16">
           <div className="flex flex-col gap-3 border-t-2 border-[var(--ink)] pt-5 md:flex-row md:items-baseline md:justify-between">
             <h1 className="text-4xl font-bold uppercase md:text-5xl">Blog Archive</h1>

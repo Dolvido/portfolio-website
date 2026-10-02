@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Rubrics Beat Vibes: Evaluating LLM Output | Luke Payne",
+  description: "A short note on why LLM evaluation should be structured, repeatable, and boring enough to trust.",
+  alternates: { canonical: "/ideas/rubrics-beat-vibes/" },
+};
+
 import Footer from "../../components/Footer";
 import Navigation from "../../components/Navigation";
 import ArticleChrome, { ArticleSection, NumberedPanel } from "../../components/ArticleChrome";
@@ -31,6 +39,7 @@ export default function RubricsBeatVibes() {
       <Navigation />
 
       <ArticleChrome
+        relatedPath="/ideas/rubrics-beat-vibes"
         backHref="/ideas"
         backLabel="Back to ideas"
         eyebrow="EVAL-001 / Practice / Evaluation"

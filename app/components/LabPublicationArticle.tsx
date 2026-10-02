@@ -1,5 +1,5 @@
+import SiteLink from "./SiteLink";
 import Image from "next/image";
-import Link from "next/link";
 import { calculatePublicationReadTime, formatPublicationDate } from "../../lib/lab/publications";
 import {
   LabPublication,
@@ -10,21 +10,7 @@ import {
 import ArticleChrome, { ArticleSection, NumberedPanel } from "./ArticleChrome";
 import PublicationVisual from "./PublicationVisual";
 
-function PublicationLink({ href, children }: { href: string; children: React.ReactNode }) {
-  if (href.startsWith("https://")) {
-    return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className="accent-link">
-        {children}
-      </a>
-    );
-  }
-
-  return (
-    <Link href={href} className="accent-link">
-      {children}
-    </Link>
-  );
-}
+function PublicationLink({href,children}:{href:string;children:React.ReactNode}){return <SiteLink href={href} className="accent-link">{children}</SiteLink>;}
 
 function PublicationContentBlock({ block }: { block: PublicationBlock }) {
   switch (block.type) {
@@ -100,7 +86,7 @@ function PublicationContentBlock({ block }: { block: PublicationBlock }) {
       );
     case "callout":
       return (
-        <aside className="border-l-2 border-[var(--accent)] bg-[rgba(220,229,255,0.35)] p-5">
+        <aside className="border-l-2 border-[var(--accent)] bg-[var(--panel)] p-5">
           {block.label ? (
             <div className="mb-2 text-xs font-semibold uppercase text-[var(--accent)]">{block.label}</div>
           ) : null}
@@ -127,7 +113,7 @@ function PublicationContentBlock({ block }: { block: PublicationBlock }) {
 export default function LabPublicationArticle({
   publication,
   backHref = "/lab",
-  backLabel = "Back to lab",
+  backLabel = "Back to writing",
 }: {
   publication: LabPublication;
   backHref?: string;
@@ -161,25 +147,28 @@ export default function LabPublicationArticle({
       title={metadata.title}
       subtitle={metadata.description}
       quote={publication.quote}
-      details={details}
+      details={[
+        { label: "Project", value: metadata.project?.name ?? "Independent writing" },
+        { label: "Read time", value: `${calculatePublicationReadTime(publication)} min` },
+      ]}
+      relatedPath={`/lab/${metadata.slug}`}
+      contents={[
+        ...publication.sections.map((section, index) => ({ href: `#section-${index + 1}`, label: section.title })),
+        { href: "#evidence", label: "Evidence & publication details" },
+      ]}
     >
-      <div className="grid gap-4 md:grid-cols-2">
-        <aside className="border-l-2 border-[var(--accent)] bg-[rgba(220,229,255,0.35)] p-5">
+      <div>
+        <aside className="border-l-2 border-[var(--accent)] bg-[var(--panel)] p-5">
           <div className="text-xs font-semibold uppercase text-[var(--accent)]">
-            Outcome / {outcomeClassificationLabels[metadata.outcome.classification]}
+            Finding
           </div>
           <p className="mt-2 text-sm leading-7 text-[var(--ink)]">{metadata.outcome.summary}</p>
-        </aside>
-        <aside className="border-l-2 border-[var(--ink)] bg-[rgba(231,227,216,0.65)] p-5">
-          <div className="text-xs font-semibold uppercase text-[var(--muted)]">
-            Publication origin / {provenanceOriginLabels[publication.provenance.origin]}
-          </div>
-          <p className="mt-2 text-sm leading-7 text-[var(--ink)]">{publication.provenance.summary}</p>
         </aside>
       </div>
 
       {publication.sections.map((section, sectionIndex) => (
         <ArticleSection
+          id={`section-${sectionIndex + 1}`}
           key={`${sectionIndex}-${section.title}`}
           label={`${String(sectionIndex).padStart(2, "0")} / ${section.title}`}
           title={section.title}
@@ -191,9 +180,13 @@ export default function LabPublicationArticle({
       ))}
 
       <ArticleSection
+        id="evidence"
         label={`${String(publication.sections.length).padStart(2, "0")} / Provenance`}
         title="Evidence & Public Provenance"
       >
+        <dl className="grid grid-cols-2 gap-4 border-y border-[var(--rule)] py-4">
+          {details.map((detail) => <div key={detail.label}><dt className="text-xs uppercase">{detail.label}</dt><dd className="mt-1 font-semibold text-[var(--ink)]">{detail.value}</dd></div>)}
+        </dl>
         <p>{publication.provenance.summary}</p>
         {publication.provenance.generatedAt || publication.provenance.sourceRevision ? (
           <dl className="grid border-l border-t border-[var(--ink)] sm:grid-cols-2">

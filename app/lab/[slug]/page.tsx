@@ -27,7 +27,7 @@ export function generateMetadata({ params }: LabPublicationPageProps): Metadata 
   }
 
   const collectionName =
-    publication.provenance.origin === "historical-migration" ? "Pre-Lab Engineering" : "OpenClaw Lab";
+    publication.provenance.origin === "historical-migration" ? "Pre-Lab Engineering" : "Writing & Experiments";
 
   return {
     title: `${publication.metadata.title} | ${collectionName}`,
