@@ -6,7 +6,7 @@ import SiteLink from "../../components/SiteLink";
 import PublicationVisual from "../../components/PublicationVisual";
 
 export const metadata: Metadata = {
-  title: "How to finish projects with dot: notes from an early adopter | Draft",
+  title: "How to finish projects with dot: notes from an early adopter | Living guide",
   description: "An early adopter’s field notes on defining done, setting useful rules, reviewing artifacts and handling the rough edges. A living guide, grounded in what actually gets finished.",
   robots: { index: false, follow: false },
 };
@@ -15,7 +15,7 @@ export default function DotFieldGuide() {
   return <div className="portfolio-shell"><Navigation />
     <ArticleChrome
       backHref="/lab/" backLabel="Back to writing"
-      eyebrow="Early-adopter field notes / Local draft / Review pending"
+      eyebrow="Early-adopter field notes / Living guide"
       title="How to finish projects with dot"
       subtitle="An early adopter’s field notes on defining done, setting useful rules, reviewing artifacts and handling the rough edges. A living guide, grounded in what actually gets finished."
       contents={[
@@ -25,7 +25,6 @@ export default function DotFieldGuide() {
         { href: "#evidence", label: "Keep judgment and evidence together" },
       ]}
     >
-      <p className="border-l-2 border-[var(--orange)] pl-4 text-sm leading-7 text-[var(--muted)]">Draft for review. This article has not been approved for publication.</p>
       <aside className="my-7 border-y border-[var(--line)] py-5 text-sm leading-7 text-[var(--muted)]" aria-label="Living article revision note">
         <p className="eyebrow">Living field notes / Last updated <time dateTime="2026-10-02">October 2, 2026</time></p>
         <p className="mt-3">These are notes from learning to work with dot, not a claim to have found the one right method. Their value should grow as projects genuinely finish and I can revisit which strategies helped. For now, I separate useful experience from ideas still to test.</p>
